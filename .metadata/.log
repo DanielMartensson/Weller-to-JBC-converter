@@ -1,0 +1,18 @@
+!SESSION 2024-10-30 20:55:12.953 -----------------------------------------------
+eclipse.buildId=Version 1.16.0
+java.version=17.0.11
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=sv_SE
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-10-30 20:55:35.241
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-10-30 20:55:35.269
+!MESSAGE Log4j2 initialized with config file C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-10-30 20:55:47.916
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-10-30 21:07:20.727
+!MESSAGE Indexed 'Firmware' (19 sources, 81 headers) in 8.46 sec: 4,135 declarations; 22,987 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0074%)
