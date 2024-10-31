@@ -1,0 +1,41 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\danie\\Documents\\GitHub\\Weller-to-JBC-converter\\GUI\\SolderingStation\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{CE860413-29D6-4B5E-9CA9-1D0985A42E07}|SolderingStation\\SolderingStation.vcxproj|C:\\Users\\danie\\Documents\\GitHub\\Weller-to-JBC-converter\\GUI\\SolderingStation\\SolderingStation\\SolderingStation.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{CE860413-29D6-4B5E-9CA9-1D0985A42E07}|SolderingStation\\SolderingStation.vcxproj|solutionrelative:SolderingStation\\SolderingStation.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SolderingStation.cpp",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\GitHub\\Weller-to-JBC-converter\\GUI\\SolderingStation\\SolderingStation\\SolderingStation.cpp",
+              "RelativeDocumentMoniker": "SolderingStation\\SolderingStation.cpp",
+              "ToolTip": "C:\\Users\\danie\\Documents\\GitHub\\Weller-to-JBC-converter\\GUI\\SolderingStation\\SolderingStation\\SolderingStation.cpp",
+              "RelativeToolTip": "SolderingStation\\SolderingStation.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-31T22:17:18.6Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

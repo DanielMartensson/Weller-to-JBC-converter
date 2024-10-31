@@ -1,5 +1,0 @@
-module WellerToJBCCommunication
-typeinfo appWellerToJBCCommunication.qmltypes
-prefer :/qt/qml/WellerToJBCCommunication/
-Main 1.0 Main.qml
-
