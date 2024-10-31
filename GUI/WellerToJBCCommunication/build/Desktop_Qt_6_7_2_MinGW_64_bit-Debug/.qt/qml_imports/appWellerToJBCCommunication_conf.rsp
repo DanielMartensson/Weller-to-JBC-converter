@@ -1,0 +1,14 @@
+-rootPath
+C:/Users/danie/Documents/GitHub/Weller-to-JBC-converter/GUI/WellerToJBCCommunication
+-cmake-output
+-output-file
+C:/Users/danie/Documents/GitHub/Weller-to-JBC-converter/GUI/WellerToJBCCommunication/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/.qt/qml_imports/appWellerToJBCCommunication_conf.cmake
+-importPath
+C:/Users/danie/Documents/GitHub/Weller-to-JBC-converter/GUI/WellerToJBCCommunication/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/WellerToJBCCommunication
+-importPath
+C:/Users/danie/Documents/GitHub/Weller-to-JBC-converter/GUI/WellerToJBCCommunication/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug
+-importPath
+C:/Qt/6.7.2/mingw_64/./qml
+-qrcFiles
+C:/Users/danie/Documents/GitHub/Weller-to-JBC-converter/GUI/WellerToJBCCommunication/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/.qt/rcc/qmake_WellerToJBCCommunication.qrc
+C:/Users/danie/Documents/GitHub/Weller-to-JBC-converter/GUI/WellerToJBCCommunication/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/.qt/rcc/appWellerToJBCCommunication_raw_qml_0.qrc

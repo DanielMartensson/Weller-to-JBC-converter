@@ -1,0 +1,10 @@
+--bare
+-I
+C:/Users/danie/Documents/GitHub/Weller-to-JBC-converter/GUI/WellerToJBCCommunication/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug
+-I
+C:/Qt/6.7.2/mingw_64/./qml
+--resource
+C:/Users/danie/Documents/GitHub/Weller-to-JBC-converter/GUI/WellerToJBCCommunication/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/.qt/rcc/qmake_WellerToJBCCommunication.qrc
+--resource
+C:/Users/danie/Documents/GitHub/Weller-to-JBC-converter/GUI/WellerToJBCCommunication/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/.qt/rcc/appWellerToJBCCommunication_raw_qml_0.qrc
+C:/Users/danie/Documents/GitHub/Weller-to-JBC-converter/GUI/WellerToJBCCommunication/Main.qml

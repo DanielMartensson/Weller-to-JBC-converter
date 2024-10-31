@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="/qt/qml/WellerToJBCCommunication/">
+    <file alias="Main.qml">C:/Users/danie/Documents/GitHub/Weller-to-JBC-converter/GUI/WellerToJBCCommunication/Main.qml</file>
+  </qresource>
+</RCC>
+
