@@ -1,15 +1,7 @@
-﻿  Main.cpp
-  connectframe.cpp
-  mainframe.cpp
-  modbus.cpp
-  usb.cpp
-  Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
-  - add -D_WIN32_WINNT=0x0601 to the compiler command line; or
-  - add _WIN32_WINNT=0x0601 to your project's Preprocessor Definitions.
-  Assuming _WIN32_WINNT=0x0601 (i.e. Windows 7 target).
+﻿  connectframe.cpp
   Generating code
-  1503 of 1617 functions (92.9%) were compiled, the rest were copied from previous compilation.
-    1252 functions were new in current compilation
-    7 functions had inline decision re-evaluated but remain unchanged
+  397 of 1994 functions (19.9%) were compiled, the rest were copied from previous compilation.
+    12 functions were new in current compilation
+    194 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   SolderingStation.vcxproj -> C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\GUI\SolderingStation\x64\Release\SolderingStation.exe
