@@ -84,14 +84,18 @@ ConnectFrame::ConnectFrame() : wxFrame(nullptr, wxID_ANY, "Connect frame", wxDef
 	scanPorts->Bind(wxEVT_BUTTON, &ConnectFrame::ScanPorts, this, wxID_SCAN);
 	connectPort->Bind(wxEVT_BUTTON, &ConnectFrame::OpenConnection, this, wxID_CONNECT);
 	disconnectPort->Bind(wxEVT_BUTTON, &ConnectFrame::CloseConnection, this, wxID_DISCONNECT);
-	unconnectedPortsList->Bind(wxEVT_COMBOBOX, &ConnectFrame::SelectedUnconnectedPort, this, wxID_UNCONNECTED_LIST);
-	connectedPortsList->Bind(wxEVT_COMBOBOX, &ConnectFrame::SelectedConnectedPort, this, wxID_CONNECTED_LIST);
+	unconnectedPortsList->Bind(wxEVT_LISTBOX, &ConnectFrame::SelectedUnconnectedPort, this, wxID_UNCONNECTED_LIST);
+	connectedPortsList->Bind(wxEVT_LISTBOX, &ConnectFrame::SelectedConnectedPort, this, wxID_CONNECTED_LIST);
 
 	// Check if we have some connection
 	std::vector<std::string> connectedPorts = USB_getConnectedPorts();
 	for (const auto& connectedPort : connectedPorts) {
 		connectedPortsList->Append(connectedPort);
 	}
+
+	// Default
+	wxCommandEvent event;
+	SelectedUnconnectedPort(event);
 }
 
 void ConnectFrame::ScanPorts(wxCommandEvent& event) {
