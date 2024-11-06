@@ -1,0 +1,22 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "x64\\Debug\\wxlinechartframe.h.obj",
+            "outputs": [
+                "C:\\Users\\danie\\Documents\\GitHub\\Weller-to-JBC-converter\\GUI\\SolderingStation\\SolderingStation\\x64\\Debug\\vc143.pdb",
+                "x64\\Debug\\",
+                "C:\\Users\\danie\\Documents\\GitHub\\Weller-to-JBC-converter\\GUI\\SolderingStation\\SolderingStation\\x64\\Debug\\wxlinechartframe.h.ifc"
+            ],
+            "provides": [
+                {
+                    "logical-name": "src\\frames\\wxLineChartFrame\\wxlinechartframe.h",
+                    "source-path": "c:\\users\\danie\\documents\\github\\weller-to-jbc-converter\\gui\\solderingstation\\solderingstation\\src\\frames\\wxlinechartframe\\wxlinechartframe.h",
+                    "lookup-method": "absolute"
+                }
+            ],
+            "requires": []
+        }
+    ]
+}

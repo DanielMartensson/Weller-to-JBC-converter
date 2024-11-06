@@ -42,5 +42,6 @@ void MainFrame::OnConnect(wxCommandEvent& event)
 
 void MainFrame::OnHello(wxCommandEvent& event)
 {
-    wxLogMessage("Hello world from wxWidgets!");
+ 
+
 }
