@@ -18,9 +18,9 @@ void wxPlot::OnPaint(wxPaintEvent& event) {
 	wxPaintDC dc(this);
 
 	// Draw type
-	plots->getPlotTypes()->drawPlotType(dc, plotData);
+	plots->getPlotTypes()->drawType(dc, plotData);
 
 	// Draw figure
-	plots->getPlotFigures()->drawPlotFigure();
+	plots->getPlotFigures()->drawFigure(dc);
 }
 

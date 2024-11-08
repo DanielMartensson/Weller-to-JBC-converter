@@ -12,6 +12,7 @@ private:
     void OnHello(wxCommandEvent& event);
     void OnExit(wxCommandEvent& event);
     void OnConnect(wxCommandEvent& event);
+    void OnSize(wxSizeEvent& event);
 
     wxPlot* plot;
 };

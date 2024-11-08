@@ -5,7 +5,7 @@ Line::Line(unsigned int plotWidth, unsigned int plotHeight) {
 	
 }
 
-bool Line::drawPlotLine(wxDC& dc, std::vector<std::vector<double>>& plotData) {
+bool Line::drawLine(wxDC& dc, std::vector<std::vector<double>>& plotData) {
 	// Count the how many rows the data has
 	const int rows = plotData.size();
 

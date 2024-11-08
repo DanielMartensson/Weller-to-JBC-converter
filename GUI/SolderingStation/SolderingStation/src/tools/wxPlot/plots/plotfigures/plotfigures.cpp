@@ -14,9 +14,10 @@ PlotFigure::PlotFigure(WXPLOT_FIGURE wxPlotFigure, unsigned int plotWidth, unsig
 	}
 }
 
-void PlotFigure::drawPlotFigure() {
+void PlotFigure::drawFigure(wxDC& dc) {
 	switch (wxPlotFigure) {
 	case WXPLOT_FIGURE_STANDARD:
+		standard->drawFigure(dc);
 		break;
 	default:
 		break;

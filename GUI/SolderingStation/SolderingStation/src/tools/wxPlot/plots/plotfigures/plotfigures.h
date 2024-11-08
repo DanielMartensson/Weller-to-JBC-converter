@@ -23,5 +23,5 @@ public:
 	std::shared_ptr<Standard> getStandard() { return standard; }
 
 	// Functions
-	void drawPlotFigure();
+	void drawFigure(wxDC& dc);
 };

@@ -15,10 +15,10 @@ PlotTypes::PlotTypes(WXPLOT_TYPE wxPlotType, unsigned int plotWidth, unsigned in
 }
 
 // Functions
-void PlotTypes::drawPlotType(wxDC& dc, std::vector<std::vector<double>>& plotData) {
+void PlotTypes::drawType(wxDC& dc, std::vector<std::vector<double>>& plotData) {
 	switch (wxPlotType) {
 	case WXPLOT_TYPE_LINE:
-		line->drawPlotLine(dc, plotData);
+		line->drawLine(dc, plotData);
 		break;
 	default:
 		break;

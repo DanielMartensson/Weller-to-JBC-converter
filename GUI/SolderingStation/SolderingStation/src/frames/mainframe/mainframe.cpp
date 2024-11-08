@@ -30,6 +30,7 @@ MainFrame::MainFrame() : wxFrame(nullptr, wxID_ANY, "Main frame")
     Bind(wxEVT_MENU, &MainFrame::OnHello, this, wxID_FILE);
     Bind(wxEVT_MENU, &MainFrame::OnConnect, this, wxID_OPEN);
     Bind(wxEVT_MENU, &MainFrame::OnExit, this, wxID_EXIT);
+    Bind(wxEVT_SIZE, &MainFrame::OnSize, this);
 }
 
 void MainFrame::OnExit(wxCommandEvent& event)
@@ -50,3 +51,15 @@ void MainFrame::OnHello(wxCommandEvent& event)
     plot->Refresh();
 }
 
+void MainFrame::OnSize(wxSizeEvent& event) {
+    // Get window size
+    wxSize newSize = event.GetSize();
+    wxCoord width = newSize.x;
+    wxCoord height = newSize.y;
+
+    // Redraw figure
+    plot->getPlots()->getPlotFigures()->getStandard()->setPlotWidth(width);
+    plot->getPlots()->getPlotFigures()->getStandard()->setPlotHeight(height);
+    plot->Refresh();
+
+}

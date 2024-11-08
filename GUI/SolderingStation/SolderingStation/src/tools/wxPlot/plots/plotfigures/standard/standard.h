@@ -8,8 +8,8 @@
 class Standard {
 private:
 	// General plot information
-	unsigned int plotWidth;
-	unsigned int plotHeight;
+	wxCoord plotWidth;
+	wxCoord plotHeight;
 	unsigned int fontSize;
 	std::string title;
 	std::string xLabel;
@@ -25,11 +25,11 @@ private:
 
 public:
 	// Constructor
-	Standard(unsigned int plotWidth, unsigned int plotHeight);
+	Standard(wxCoord plotWidth, wxCoord plotHeight);
 
 	// General setters
-	void setPlotWidth(unsigned int plotWidth) { this->plotWidth = plotWidth; }
-	void setPlotHeight(unsigned int plotHeight) { this->plotHeight = plotHeight; }
+	void setPlotWidth(wxCoord plotWidth) { this->plotWidth = plotWidth; }
+	void setPlotHeight(wxCoord plotHeight) { this->plotHeight = plotHeight; }
 	void setFontSize(unsigned int fontSize) { this->fontSize = fontSize; }
 	void setGridOn(bool gridOn) { this->gridOn = gridOn; }
 	void setLegendOn(bool legendOn) { this->legendOn = legendOn; }
@@ -40,4 +40,8 @@ public:
 	void setXlabel(std::string& xLabel) { this->xLabel = xLabel; }
 	void setYlabel(std::string& yLabel) { this->yLabel = yLabel; }
 	void setLegend(std::vector<std::string>& legend) { this->legend = legend; }
+
+	// Functions
+	bool drawFigure(wxDC& dc);
+
 };

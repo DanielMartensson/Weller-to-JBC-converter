@@ -13,5 +13,5 @@ public:
 	Line(unsigned int plotWidth, unsigned int plotHeight);
 
 	// Draw
-	bool drawPlotLine(wxDC& dc, std::vector<std::vector<double>>& plotData);
+	bool drawLine(wxDC& dc, std::vector<std::vector<double>>& plotData);
 };
