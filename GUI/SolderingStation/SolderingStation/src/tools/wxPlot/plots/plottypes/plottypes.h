@@ -24,5 +24,5 @@ public:
 	std::shared_ptr<Line> getLine() { return line; }
 
 	// Functions
-	void drawPlotType();
+	void drawPlotType(wxDC& dc, std::vector<std::vector<double>>& plotData);
 };

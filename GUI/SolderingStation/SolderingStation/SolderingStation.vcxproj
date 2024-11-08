@@ -110,7 +110,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>C:\C++\wxWidgets-3.2.6\include\msvc;C:\C++\wxWidgets-3.2.6\include;C:\C++\boost_1_86_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
@@ -128,7 +128,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>C:\C++\wxWidgets-3.2.6\include\msvc;C:\C++\wxWidgets-3.2.6\include;C:\C++\boost_1_86_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
@@ -148,12 +148,12 @@
     <ClCompile Include="src\frames\mainframe\mainframe.cpp" />
     <ClCompile Include="src\tools\modbus\modbus.cpp" />
     <ClCompile Include="src\tools\usb\usb.cpp" />
-    <ClCompile Include="src\tools\wxPlot\plots\plotfigures\plotfigures.cpp" />
-    <ClCompile Include="src\tools\wxPlot\plots\plotfigures\standard\standard.cpp" />
-    <ClCompile Include="src\tools\wxPlot\plots\plots.cpp" />
-    <ClCompile Include="src\tools\wxPlot\plots\plottypes\line\line.cpp" />
-    <ClCompile Include="src\tools\wxPlot\plots\plottypes\plottypes.cpp" />
-    <ClCompile Include="src\tools\wxPlot\wxPlot.cpp" />
+    <ClCompile Include="src\tools\wxplot\plots\plotfigures\plotfigures.cpp" />
+    <ClCompile Include="src\tools\wxplot\plots\plotfigures\standard\standard.cpp" />
+    <ClCompile Include="src\tools\wxplot\plots\plots.cpp" />
+    <ClCompile Include="src\tools\wxplot\plots\plottypes\line\line.cpp" />
+    <ClCompile Include="src\tools\wxplot\plots\plottypes\plottypes.cpp" />
+    <ClCompile Include="src\tools\wxplot\wxplot.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\frames\connectframe\connectframe.h" />
@@ -161,12 +161,12 @@
     <ClInclude Include="src\tools\usb\usb.h" />
     <ClInclude Include="Main.h" />
     <ClInclude Include="src\frames\mainframe\mainframe.h" />
-    <ClInclude Include="src\tools\wxPlot\plots\plotfigures\plotfigures.h" />
-    <ClInclude Include="src\tools\wxPlot\plots\plotfigures\standard\standard.h" />
-    <ClInclude Include="src\tools\wxPlot\plots\plots.h" />
-    <ClInclude Include="src\tools\wxPlot\plots\plottypes\line\line.h" />
-    <ClInclude Include="src\tools\wxPlot\plots\plottypes\plottypes.h" />
-    <ClInclude Include="src\tools\wxPlot\wxPlot.h" />
+    <ClInclude Include="src\tools\wxplot\plots\plotfigures\plotfigures.h" />
+    <ClInclude Include="src\tools\wxplot\plots\plotfigures\standard\standard.h" />
+    <ClInclude Include="src\tools\wxplot\plots\plots.h" />
+    <ClInclude Include="src\tools\wxplot\plots\plottypes\line\line.h" />
+    <ClInclude Include="src\tools\wxplot\plots\plottypes\plottypes.h" />
+    <ClInclude Include="src\tools\wxplot\wxplot.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

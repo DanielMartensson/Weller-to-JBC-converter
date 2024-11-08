@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include <memory>
+#include <wx/wx.h>
 
 class Standard {
 private:

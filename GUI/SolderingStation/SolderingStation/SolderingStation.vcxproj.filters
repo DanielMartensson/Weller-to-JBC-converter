@@ -42,22 +42,22 @@
     <ClCompile Include="src\frames\connectframe\connectframe.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\tools\wxPlot\wxPlot.cpp">
+    <ClCompile Include="src\tools\wxplot\wxplot.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\tools\wxPlot\plots\plottypes\line\line.cpp">
+    <ClCompile Include="src\tools\wxplot\plots\plottypes\line\line.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\tools\wxPlot\plots\plotfigures\standard\standard.cpp">
+    <ClCompile Include="src\tools\wxplot\plots\plotfigures\standard\standard.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\tools\wxPlot\plots\plots.cpp">
+    <ClCompile Include="src\tools\wxplot\plots\plots.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\tools\wxPlot\plots\plottypes\plottypes.cpp">
+    <ClCompile Include="src\tools\wxplot\plots\plottypes\plottypes.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\tools\wxPlot\plots\plotfigures\plotfigures.cpp">
+    <ClCompile Include="src\tools\wxplot\plots\plotfigures\plotfigures.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -77,22 +77,22 @@
     <ClInclude Include="src\frames\connectframe\connectframe.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\tools\wxPlot\wxPlot.h">
+    <ClInclude Include="src\tools\wxplot\wxplot.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\tools\wxPlot\plots\plottypes\line\line.h">
+    <ClInclude Include="src\tools\wxplot\plots\plottypes\line\line.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\tools\wxPlot\plots\plotfigures\standard\standard.h">
+    <ClInclude Include="src\tools\wxplot\plots\plotfigures\standard\standard.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\tools\wxPlot\plots\plotfigures\plotfigures.h">
+    <ClInclude Include="src\tools\wxplot\plots\plotfigures\plotfigures.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\tools\wxPlot\plots\plottypes\plottypes.h">
+    <ClInclude Include="src\tools\wxplot\plots\plottypes\plottypes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\tools\wxPlot\plots\plots.h">
+    <ClInclude Include="src\tools\wxplot\plots\plots.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

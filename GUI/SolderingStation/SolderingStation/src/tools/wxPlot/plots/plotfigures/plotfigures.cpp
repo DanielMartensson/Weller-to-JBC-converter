@@ -14,7 +14,7 @@ PlotFigure::PlotFigure(WXPLOT_FIGURE wxPlotFigure, unsigned int plotWidth, unsig
 	}
 }
 
-void PlotFigure::drawPlotFigure(std::vector<std::vector<double>>& plotData) {
+void PlotFigure::drawPlotFigure() {
 	switch (wxPlotFigure) {
 	case WXPLOT_FIGURE_STANDARD:
 		break;

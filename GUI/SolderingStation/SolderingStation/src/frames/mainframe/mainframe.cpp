@@ -23,8 +23,11 @@ MainFrame::MainFrame() : wxFrame(nullptr, wxID_ANY, "Main frame")
     CreateStatusBar();
     SetStatusText("Welcome to wxWidgets!");
 
+    // Create plot
+    plot = new wxPlot(this, WXPLOT_TYPE_LINE, WXPLOT_FIGURE_STANDARD);
+
     // Events
-    Bind(wxEVT_MENU, &MainFrame::OnHello, this, wxID_EXIT);
+    Bind(wxEVT_MENU, &MainFrame::OnHello, this, wxID_FILE);
     Bind(wxEVT_MENU, &MainFrame::OnConnect, this, wxID_OPEN);
     Bind(wxEVT_MENU, &MainFrame::OnExit, this, wxID_EXIT);
 }
@@ -42,6 +45,8 @@ void MainFrame::OnConnect(wxCommandEvent& event)
 
 void MainFrame::OnHello(wxCommandEvent& event)
 {
- 
-
+    std::vector<std::vector<double>> plotData = { {0, 400},{0, 500} };
+    plot->setPlotData(plotData);
+    plot->Refresh();
 }
+
