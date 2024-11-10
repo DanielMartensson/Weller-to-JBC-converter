@@ -60,6 +60,9 @@
     <ClCompile Include="src\tools\wxplot\plots\plotfigures\plotfigures.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\tools\wxplot\plots\plottypes\scatter\scatter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main.h">
@@ -93,6 +96,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\tools\wxplot\plots\plots.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\tools\wxplot\plots\plottypes\scatter\scatter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\tools\wxplot\plots\plottools\plottools.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\tools\wxplot\plots\plottools\lists\colours.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\tools\wxplot\plots\plottools\enums\plottypes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

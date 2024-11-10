@@ -153,6 +153,7 @@
     <ClCompile Include="src\tools\wxplot\plots\plots.cpp" />
     <ClCompile Include="src\tools\wxplot\plots\plottypes\line\line.cpp" />
     <ClCompile Include="src\tools\wxplot\plots\plottypes\plottypes.cpp" />
+    <ClCompile Include="src\tools\wxplot\plots\plottypes\scatter\scatter.cpp" />
     <ClCompile Include="src\tools\wxplot\wxplot.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -163,9 +164,13 @@
     <ClInclude Include="src\frames\mainframe\mainframe.h" />
     <ClInclude Include="src\tools\wxplot\plots\plotfigures\plotfigures.h" />
     <ClInclude Include="src\tools\wxplot\plots\plotfigures\standard\standard.h" />
+    <ClInclude Include="src\tools\wxplot\plots\plottools\lists\colours.h" />
+    <ClInclude Include="src\tools\wxplot\plots\plottools\plottools.h" />
     <ClInclude Include="src\tools\wxplot\plots\plots.h" />
+    <ClInclude Include="src\tools\wxplot\plots\plottools\enums\plottypes.h" />
     <ClInclude Include="src\tools\wxplot\plots\plottypes\line\line.h" />
     <ClInclude Include="src\tools\wxplot\plots\plottypes\plottypes.h" />
+    <ClInclude Include="src\tools\wxplot\plots\plottypes\scatter\scatter.h" />
     <ClInclude Include="src\tools\wxplot\wxplot.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

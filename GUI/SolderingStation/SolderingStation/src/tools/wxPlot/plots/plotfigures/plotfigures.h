@@ -1,27 +1,42 @@
 #pragma once
 
 #include "standard/standard.h"
-
-// Place plot figure enumeration here
-typedef enum {
-	WXPLOT_FIGURE_STANDARD,
-}WXPLOT_FIGURE;
+#include "../plottools/plottools.h"
 
 class PlotFigure {
 private:
-	// Figure select
-	WXPLOT_FIGURE wxPlotFigure;
+	// Type select
+	WXPLOT_TYPE wxPlotType = WXPLOT_TYPE_LINE;
 
 	// Standard figure
-	std::shared_ptr<Standard> standard;
+	Standard standard;
 
 public:
 	// Constructor
-	PlotFigure(WXPLOT_FIGURE wxPlotFigure, unsigned int plotWidth, unsigned int plotHeight);
+	PlotFigure() {}
 
 	// Getters
-	std::shared_ptr<Standard> getStandard() { return standard; }
+	Standard& getStandard() { return standard; }
+
+	// Setters
+	void setWxPlotType(WXPLOT_TYPE wxPlotType) { this->wxPlotType = wxPlotType; }
+	void setTitle(const wxString& title);
+	void setXlabel(const wxString& xLabel);
+	void setYlabel(const wxString& yLabel);
+	void setGridSize(const unsigned int gridSize);
+	void setPlotStartWidth(const wxCoord plotStartWidth);
+	void setPlotStartHeight(const wxCoord plotStartHeight);
+	void setPlotEndWidth(const wxCoord plotEndWidth);
+	void setPlotEndHeight(const wxCoord plotEndHeight);
+
+	// Getters
+	wxCoord getPlotStartWidth() const;
+	wxCoord getPlotEndWidth() const;
+	wxCoord getPlotStartHeight() const;
+	wxCoord getPlotEndHeight() const;
 
 	// Functions
 	void drawFigure(wxDC& dc);
+	void drawGrid(wxDC& dc);
+	void drawLegend(wxDC& dc);
 };

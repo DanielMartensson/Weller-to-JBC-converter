@@ -24,7 +24,7 @@ MainFrame::MainFrame() : wxFrame(nullptr, wxID_ANY, "Main frame")
     SetStatusText("Welcome to wxWidgets!");
 
     // Create plot
-    plot = new wxPlot(this, WXPLOT_TYPE_LINE, WXPLOT_FIGURE_STANDARD);
+    plot = new wxPlot(this, WXPLOT_TYPE_LINE_SCATTER);
 
     // Events
     Bind(wxEVT_MENU, &MainFrame::OnHello, this, wxID_FILE);
@@ -47,19 +47,33 @@ void MainFrame::OnConnect(wxCommandEvent& event)
 void MainFrame::OnHello(wxCommandEvent& event)
 {
     std::vector<std::vector<double>> plotData = { {0, 400},{0, 500} };
-    plot->setPlotData(plotData);
     plot->Refresh();
 }
 
 void MainFrame::OnSize(wxSizeEvent& event) {
+    // If we don't use this, then refresh won't work
+    event.Skip();
+
     // Get window size
-    wxSize newSize = event.GetSize();
-    wxCoord width = newSize.x;
-    wxCoord height = newSize.y;
+    wxCoord startWidth = 0, startHeight = 0, endWidth, endHeight;
+    GetClientSize(&endWidth, &endHeight);
+
+    // Create data
+    std::vector<std::vector<double>> data = { {0, 100, 200, 300, 400, 500}, {0, 50 , 150, 200, 330, 420} };
 
     // Redraw figure
-    plot->getPlots()->getPlotFigures()->getStandard()->setPlotWidth(width);
-    plot->getPlots()->getPlotFigures()->getStandard()->setPlotHeight(height);
+    plot->setFontSize(50);
+    plot->setTitle("hello");
+    plot->setYlabel("hello");
+    plot->setXlabel("hello");
+    plot->setGridSize(30);
+    plot->setRadius(10);
+    plot->fillCircles(true);
+    plot->setPlotStartWidth(startWidth);
+    plot->setPlotStartHeight(startHeight);
+    plot->setPlotEndWidth(endWidth);
+    plot->setPlotEndHeight(endHeight);
+    plot->setData(data);
     plot->Refresh();
 
 }

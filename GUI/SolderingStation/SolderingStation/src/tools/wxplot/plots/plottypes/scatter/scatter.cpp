@@ -1,8 +1,8 @@
 
-#include "line.h"
-#include "../../plottools/plotcolours.h"
+#include "scatter.h"
+#include "../../plottools/plottools.h"
 
-bool Line::draw(wxDC& dc) {
+bool Scatter::draw(wxDC& dc) {
 	// Get the size of the data
 	const unsigned int dataSize = data.size();
 
@@ -47,6 +47,9 @@ bool Line::draw(wxDC& dc) {
 			// Set line colour
 			wxColour colour = colourIndex < plotColours.size() ? plotColours.at(colourIndex++) : plotColours.at(PLOT_COLOUR_BLACK);
 			wxPen pen(colour);
+			if (fillCircle) {
+				dc.SetBrush(colour);
+			}
 			dc.SetPen(pen);
 
 			// Compute scalars
@@ -54,12 +57,10 @@ bool Line::draw(wxDC& dc) {
 			const double scalarY = (plotEndHeight - plotStartHeight) / (maxY - minY);
 
 			// Draw lines
-			for (unsigned int j = 0; j < xDataLength - 1; j++) {
-				const wxCoord x1 = scalarX * xData.at(j) + plotStartWidth;
-				const wxCoord y1 = -scalarY * yData.at(j) + plotEndHeight;
-				const wxCoord x2 = scalarX * xData.at(j + 1) + plotStartWidth;
-				const wxCoord y2 = -scalarY * yData.at(j + 1) + plotEndHeight;
-				dc.DrawLine(x1, y1, x2, y2);
+			for (unsigned int j = 0; j < xDataLength; j++) {
+				const wxCoord x = scalarX * xData.at(j) + plotStartWidth;
+				const wxCoord y = -scalarY * yData.at(j) + plotEndHeight;
+				dc.DrawCircle(x, y, radius);
 			}
 		}
 	}

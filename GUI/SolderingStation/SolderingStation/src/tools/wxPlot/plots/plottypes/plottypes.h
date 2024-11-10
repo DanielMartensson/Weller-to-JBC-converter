@@ -1,28 +1,37 @@
 #pragma once
 
 #include "line/line.h"
-
-// Place plot type enumeration here
-typedef enum {
-	WXPLOT_TYPE_LINE,
-}WXPLOT_TYPE;
+#include "scatter/scatter.h"
+#include "../plottools/plottools.h"
 
 class PlotTypes {
 
 private:
 	// Type select
-	WXPLOT_TYPE wxPlotType;
+	WXPLOT_TYPE wxPlotType = WXPLOT_TYPE_LINE;
 
-	// Line chart
-	std::shared_ptr<Line> line;
+	// Charts
+	Line line;
+	Scatter scatter;
 
 public:
 	// Constructor
-	PlotTypes(WXPLOT_TYPE wxPlotType, unsigned int plotWidth, unsigned int plotHeight);
+	PlotTypes() { }
 
 	// Getters
-	std::shared_ptr<Line> getLine() { return line; }
+	Line& getLine() { return line; }
+	Scatter& getScatter() { return scatter; }
+
+	// Setters
+	void setWxPlotType(WXPLOT_TYPE wxPlotType) { this->wxPlotType = wxPlotType; }
+	void setRadius(const wxCoord radius);
+	void fillCircles(const bool fillCircle);
+	void setData(const std::vector<std::vector<double>>& data);
+	void setPlotStartWidth(const wxCoord& plotStartWidth);
+	void setPlotStartHeight(const wxCoord& plotStartHeight);
+	void setPlotEndWidth(const wxCoord& plotEndWidth);
+	void setPlotEndHeight(const wxCoord& plotEndHeight);
 
 	// Functions
-	void drawType(wxDC& dc, std::vector<std::vector<double>>& plotData);
+	void drawType(wxDC& dc);
 };

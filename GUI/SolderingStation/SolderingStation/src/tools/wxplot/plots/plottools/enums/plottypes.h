@@ -1,0 +1,8 @@
+#pragma once
+
+// Place plot type enumeration here
+typedef enum {
+	WXPLOT_TYPE_LINE,
+	WXPLOT_TYPE_SCATTER,
+	WXPLOT_TYPE_LINE_SCATTER
+}WXPLOT_TYPE;
