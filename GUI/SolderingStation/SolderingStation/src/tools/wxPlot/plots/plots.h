@@ -18,6 +18,7 @@ public:
 
 	// Setters
 	void setWxPlotType(WXPLOT_TYPE wxPlotType);
+	void setData(const std::vector<std::vector<double>>& data);
 
 	// Getters
 	PlotTypes& getPlotTypes() { return plotTypes; }

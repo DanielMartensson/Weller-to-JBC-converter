@@ -28,6 +28,7 @@ public:
 	void setPlotStartHeight(const wxCoord plotStartHeight);
 	void setPlotEndWidth(const wxCoord plotEndWidth);
 	void setPlotEndHeight(const wxCoord plotEndHeight);
+	void setData(const std::vector<std::vector<double>>& data);
 
 	// Getters
 	wxCoord getPlotStartWidth() const;

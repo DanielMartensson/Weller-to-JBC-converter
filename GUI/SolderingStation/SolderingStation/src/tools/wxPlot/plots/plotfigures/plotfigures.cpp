@@ -80,6 +80,10 @@ void PlotFigure::setPlotEndHeight(const wxCoord plotEndHeight) {
 	standard.setPlotEndHeight(plotEndHeight); 
 }
 
+void PlotFigure::setData(const std::vector<std::vector<double>>& data) {
+	standard.setData(data);
+}
+
 wxCoord PlotFigure::getPlotStartWidth() const {
 	switch (wxPlotType) {
 	case WXPLOT_TYPE_LINE:

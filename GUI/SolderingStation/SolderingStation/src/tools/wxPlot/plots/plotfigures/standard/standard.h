@@ -17,6 +17,7 @@ protected:
 	wxString xLabel;
 	wxString yLabel;
 	std::vector<wxString> legend;
+	std::vector<std::vector<double>> data;
 
 public:
 	// Constructor
@@ -33,6 +34,7 @@ public:
 	void setXlabel(const wxString& xLabel) { this->xLabel = xLabel; }
 	void setYlabel(const wxString& yLabel) { this->yLabel = yLabel; }
 	void setLegend(const std::vector<wxString>& legend) { this->legend = legend; }
+	void setData(const std::vector<std::vector<double>>& data) { this->data = data; }
 
 	// Getters
 	wxCoord getPlotStartWidth() const { return plotStartWidth; }

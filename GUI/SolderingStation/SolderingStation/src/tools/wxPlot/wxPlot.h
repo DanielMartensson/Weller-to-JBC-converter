@@ -25,7 +25,7 @@ public:
 	void setPlotStartHeight(const wxCoord plotStartHeight) { plots.getPlotFigures().setPlotStartHeight(plotStartHeight); }
 	void setPlotEndWidth(const wxCoord plotEndWidth) { plots.getPlotFigures().setPlotEndWidth(plotEndWidth); }
 	void setPlotEndHeight(const wxCoord plotEndHeight) { plots.getPlotFigures().setPlotEndHeight(plotEndHeight); }
-	void setData(const std::vector<std::vector<double>>& data) { plots.getPlotTypes().setData(data); }
+	void setData(const std::vector<std::vector<double>>& data) { plots.setData(data); }
 	void setRadius(const wxCoord radius) { plots.getPlotTypes().setRadius(radius); }
 	void fillCircles(const bool fillCircle) { plots.getPlotTypes().fillCircles(fillCircle); }
 

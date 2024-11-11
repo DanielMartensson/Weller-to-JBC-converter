@@ -43,13 +43,15 @@ void Standard::drawFigure(wxDC& dc) {
 		yStartRectangle += 5;
 	}
 
+	// Compute the minimum and maximum value from the data
+
 	// Draw Y-label
 	if (yLabel.length()) {
 		wxCoord textWidth, textHeight;
 		dc.GetTextExtent(yLabel, &textWidth, &textHeight);
 		wxCoord x = 5;
 		wxCoord y = plotEndHeight / 2 + textWidth / 2;
-		xStartRectangle += textHeight + x;
+		xStartRectangle += textHeight + x; //+ numberWidth;
 		widthRectangle -= xStartRectangle * 2;
 		dc.DrawRotatedText(yLabel, x + plotStartWidth / 2, y, 90);
 	}
@@ -79,7 +81,7 @@ void Standard::drawFigure(wxDC& dc) {
 
 	// Draw rectangle frame
 	dc.DrawRectangle(xStartRectangle, yStartRectangle, widthRectangle, heightRectangle);
-
+	
 }
 
 /*

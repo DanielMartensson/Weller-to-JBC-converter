@@ -1,2 +1,14 @@
-﻿  mainframe.cpp
+﻿  Main.cpp
+  mainframe.cpp
+  plotfigures.cpp
+  standard.cpp
+  plots.cpp
+  functions.cpp
+C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\GUI\SolderingStation\SolderingStation\src\tools\wxplot\plots\plottools\functions\functions.cpp(6,43): warning C4267: 'initializing': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\GUI\SolderingStation\SolderingStation\src\tools\wxplot\plots\plottools\functions\functions.cpp(6,32): warning C4267: 'initializing': conversion from 'size_t' to 'const unsigned int', possible loss of data
+  line.cpp
+  plottypes.cpp
+  scatter.cpp
+  wxplot.cpp
+  Generating Code...
   SolderingStation.vcxproj -> C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\GUI\SolderingStation\x64\Debug\SolderingStation.exe

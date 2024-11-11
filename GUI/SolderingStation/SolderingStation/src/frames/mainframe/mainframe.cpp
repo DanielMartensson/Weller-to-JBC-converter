@@ -24,7 +24,7 @@ MainFrame::MainFrame() : wxFrame(nullptr, wxID_ANY, "Main frame")
     SetStatusText("Welcome to wxWidgets!");
 
     // Create plot
-    plot = new wxPlot(this, WXPLOT_TYPE_LINE_SCATTER);
+    plot = new wxPlot(this, WXPLOT_TYPE_SCATTER);
 
     // Events
     Bind(wxEVT_MENU, &MainFrame::OnHello, this, wxID_FILE);
@@ -62,7 +62,7 @@ void MainFrame::OnSize(wxSizeEvent& event) {
     std::vector<std::vector<double>> data = { {0, 100, 200, 300, 400, 500}, {0, 50 , 150, 200, 330, 420} };
 
     // Redraw figure
-    plot->setFontSize(50);
+    plot->setFontSize(12);
     plot->setTitle("hello");
     plot->setYlabel("hello");
     plot->setXlabel("hello");

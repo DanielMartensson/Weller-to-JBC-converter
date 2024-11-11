@@ -25,24 +25,9 @@ bool Scatter::draw(wxDC& dc) {
 			}
 
 			// Find max och min value
-			double minX = xData.at(0);
-			double maxX = xData.at(0);
-			double minY = yData.at(0);
-			double maxY = yData.at(0);
-			for (unsigned int j = 1; j < xDataLength; j++) {
-				if (xData.at(j) < minX) {
-					minX = xData.at(j);
-				}
-				if (xData.at(j) > maxX) {
-					maxX = xData.at(j);
-				}
-				if (yData.at(j) < minY) {
-					minY = yData.at(j);
-				}
-				if (yData.at(j) > maxY) {
-					maxY = yData.at(j);
-				}
-			}
+			double minX, maxX, minY, maxY;
+			maxMinData(xData, minX, maxX);
+			maxMinData(yData, minY, maxY);
 
 			// Set line colour
 			wxColour colour = colourIndex < plotColours.size() ? plotColours.at(colourIndex++) : plotColours.at(PLOT_COLOUR_BLACK);
