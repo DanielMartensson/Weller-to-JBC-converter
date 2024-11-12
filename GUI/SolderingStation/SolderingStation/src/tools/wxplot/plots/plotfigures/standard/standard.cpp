@@ -26,6 +26,11 @@ bool Standard::drawFigure(wxDC& dc) {
 		fontSize = dc.GetFont().GetPointSize();
 	}
 
+
+	// Compute the minimum and maximum value from the data for correct scaling
+	double minX, maxX, minY, maxY;
+	findMaxMin2Ddata(data, minX, maxX, minY, maxY);
+
 	// Set default size on the rectangle
 	wxCoord yStartRectangle = plotStartHeight;
 	wxCoord xStartRectangle = plotStartWidth;
@@ -35,6 +40,14 @@ bool Standard::drawFigure(wxDC& dc) {
 	// Set color - Black
 	wxPen pen(plotColours.at(PLOT_COLOUR_BLACK));
 	dc.SetPen(pen);
+
+	// Prepare the rectangle so it can hold the ticks
+	wxCoord ticksWidth = 0, ticksHeight = 0;
+	if (ticks) {
+		char value[100];
+		std::snprintf(value, sizeof(value), "%0.2f", maxY);
+		dc.GetTextExtent(value, &ticksWidth, &ticksHeight);
+	}
 
 	// Draw title
 	if (title.length()) {
@@ -47,22 +60,27 @@ bool Standard::drawFigure(wxDC& dc) {
 		dc.DrawText(title, x, y + plotStartHeight / 2);
 	}
 	else {
-		yStartRectangle += 5; // Make a space
+		yStartRectangle += ticksHeight; // Make a space
 	}
 
-	// Draw Y-label
+	// Draw Y-label on the right side
 	if (yLabel.length()) {
 		wxCoord textWidth, textHeight;
 		dc.GetTextExtent(yLabel, &textWidth, &textHeight);
-		wxCoord x = 5;
 		wxCoord y = plotEndHeight / 2 + textWidth / 2;
-		xStartRectangle += textHeight + x;
-		widthRectangle -= xStartRectangle * 2;
-		dc.DrawRotatedText(yLabel, x + plotStartWidth / 2, y, 90);
+		xStartRectangle += textHeight + 5;
+		widthRectangle -= xStartRectangle + textHeight; // The right side
+		dc.DrawRotatedText(yLabel, 5, y, 90);
 	}
 	else {
 		xStartRectangle += 5;
-		widthRectangle -= xStartRectangle * 2; // The right side
+		widthRectangle -= xStartRectangle + 5; // The right side
+	}
+
+	// Move the rectangle
+	if (ticks) {
+		xStartRectangle += ticksWidth + 5;
+		widthRectangle -= xStartRectangle + (yLabel.length() > 0 ? -ticksHeight : -5); // The right side
 	}
 
 	// Draw X-label
@@ -70,12 +88,11 @@ bool Standard::drawFigure(wxDC& dc) {
 		wxCoord textWidth, textHeight;
 		dc.GetTextExtent(xLabel, &textWidth, &textHeight);
 		wxCoord x = plotEndWidth / 2 - textWidth / 2;
-		wxCoord y = plotEndHeight - textHeight;
-		heightRectangle -= yStartRectangle;
-		dc.DrawText(xLabel, x, heightRectangle + yStartRectangle);
+		heightRectangle -= yStartRectangle + ticksHeight * (title.length() > 0 ? 1 : 2) + 5;
+		dc.DrawText(xLabel, x, heightRectangle + yStartRectangle + textHeight + 5);
 	}
 	else {
-		heightRectangle -= 10; // Make a space
+		heightRectangle -= ticksHeight * 2; // Make a space
 	}
 
 	// Update the size
@@ -123,28 +140,28 @@ void Standard::drawTicks(wxDC& dc) {
 
 		// Vertical lines
 		wxCoord textWidth, textHeight;
-		//std::string value = "1";
-		char value[100] = "1";
-		dc.GetTextExtent(value, &textWidth, &textHeight);
+		char value[100];
 		for (wxCoord x = xStartRectangle; x <= xStartRectangle + widthRectangle; x += stepsX) {
 			std::snprintf(value, sizeof(value), "%0.2f", maxX + scalarX * counter);
-			dc.DrawText(value, x + 5, yStartRectangle + heightRectangle - textHeight);
+			dc.GetTextExtent(value, &textWidth, &textHeight);
+			dc.DrawText(value, x - textWidth / 2, yStartRectangle + heightRectangle + 5);
 			counter++;
 		}
 		std::snprintf(value, sizeof(value), "%0.2f", maxX + scalarX * counter);
 		dc.GetTextExtent(value, &textWidth, &textHeight);
-		dc.DrawText(value, xStartRectangle + widthRectangle - textWidth - 5, yStartRectangle + heightRectangle - textHeight);
+		dc.DrawText(value, xStartRectangle + widthRectangle - textWidth, yStartRectangle + heightRectangle + 5);
 
 		// Horizontal ticks
 		counter = 0;
 		for (wxCoord y = yStartRectangle; y <= yStartRectangle + heightRectangle; y += stepsY) {
 			std::snprintf(value, sizeof(value), "%0.2f", maxY + scalarY * counter);
-			dc.DrawText(value, xStartRectangle + 5, y);
+			dc.GetTextExtent(value, &textWidth, &textHeight);
+			dc.DrawText(value, xStartRectangle - textWidth - 5, y - textHeight + 5);
 			counter++;
 		}
-		std::snprintf(value, sizeof(value), "%0.2f /", maxY + scalarY * counter);
+		std::snprintf(value, sizeof(value), "%0.2f", maxY + scalarY * counter);
 		dc.GetTextExtent(value, &textWidth, &textHeight);
-		dc.DrawText(value, xStartRectangle + 5, yStartRectangle + heightRectangle - textHeight*2);
+		dc.DrawText(value, xStartRectangle - textWidth - 5, yStartRectangle + heightRectangle - textHeight + 5);
 
 	}
 }
@@ -154,7 +171,7 @@ void Standard::drawTicks(wxDC& dc) {
  * Call this function after you have drawn the plot type.
  */
 void Standard::drawGrid(wxDC& dc) {
-	if (useGrid) {
+	if (useGrid && ticks) {
 		const wxCoord yStartRectangle = plotStartHeight;
 		const wxCoord xStartRectangle = plotStartWidth;
 		const wxCoord heightRectangle = plotEndHeight - plotStartHeight;
@@ -213,7 +230,7 @@ void Standard::drawLegend(wxDC& dc) {
 		}
 
 		// Draw a rectangle at...
-		switch()
-		dc.DrawRoundedRectangle()
+		//switch()
+		//dc.DrawRoundedRectangle()
 	}
 }

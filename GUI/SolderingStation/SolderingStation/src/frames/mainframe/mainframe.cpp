@@ -24,7 +24,7 @@ MainFrame::MainFrame() : wxFrame(nullptr, wxID_ANY, "Main frame")
     SetStatusText("Welcome to wxWidgets!");
 
     // Create plot
-    plot = new wxPlot(this, WXPLOT_TYPE_SPLINE_SCATTER);
+    plot = new wxPlot(this, WXPLOT_TYPE_LINE);
 
     // Events
     Bind(wxEVT_MENU, &MainFrame::OnHello, this, wxID_FILE);
@@ -59,18 +59,18 @@ void MainFrame::OnSize(wxSizeEvent& event) {
     GetClientSize(&endWidth, &endHeight);
 
     // Create data
-    std::vector<std::vector<double>> data = { {0, 100, 200, 300, 400, 500}, {50, 150 , 40, -200, 3330, 420},
-                                              { 0, 200, 300, 400, 500, 607 }, {20, 15 , 100, -301, 1000, 420} };
+    std::vector<std::vector<double>> data = { {0, 100, 200, 300, 400, 500}, {50, 50 , 50, -200, 3330, 50},
+                                              { 0, 200, 300, 400, 500, 600 }, {20, 20 , 20, -300, 1000, 20} };
 
 
     // Redraw figure
-    plot->setFontSize(12);
-    plot->setTitle("hello");
-    //plot->setYlabel("hello");
-    //plot->setXlabel("hello");
-    plot->setTicks(6);
+    plot->setFontSize(15);
+    //plot->setTitle("hellofdsfdfgdgfdgfd");
+    //plot->setYlabel("hellogfdgfdgfdgfdgdfgd");
+    //plot->setXlabel("hellogfdgfdfdsffgdsgfdgfdgfd");
+    plot->setTicks(0);
     plot->gridOn(true);
-    plot->setRadius(10);
+    plot->setRadius(3);
     plot->fillCircles(true);
     plot->setPlotStartWidth(startWidth);
     plot->setPlotStartHeight(startHeight);
