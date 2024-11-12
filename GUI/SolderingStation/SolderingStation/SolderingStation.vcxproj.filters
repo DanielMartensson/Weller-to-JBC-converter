@@ -66,6 +66,9 @@
     <ClCompile Include="src\tools\wxplot\plots\plottools\functions\functions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\tools\wxplot\plots\plottypes\spline\spline.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main.h">
@@ -114,6 +117,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\tools\wxplot\plots\plottools\functions\functions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\tools\wxplot\plots\plottypes\spline\spline.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

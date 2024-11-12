@@ -12,7 +12,8 @@ protected:
 	wxCoord plotStartWidth = 0;
 	wxCoord plotStartHeight = 0;
 	unsigned int fontSize = 0;
-	unsigned int gridSize = 0;
+	unsigned int ticks = 0;
+	bool useGrid = false;
 	wxString title;
 	wxString xLabel;
 	wxString yLabel;
@@ -29,7 +30,8 @@ public:
 	void setPlotEndWidth(const wxCoord plotEndWidth) { this->plotEndWidth = plotEndWidth; }
 	void setPlotEndHeight(const wxCoord plotEndHeight) { this->plotEndHeight = plotEndHeight; }
 	void setFontSize(const unsigned int fontSize) { this->fontSize = fontSize; }
-	void setGridSize(const unsigned int gridSize) { this->gridSize = gridSize; }
+	void setTicks(const unsigned int ticks) { this->ticks = ticks; }
+	void gridOn(const bool useGrid) { this->useGrid = useGrid; }
 	void setTitle(const wxString& title) { this->title = title; }
 	void setXlabel(const wxString& xLabel) { this->xLabel = xLabel; }
 	void setYlabel(const wxString& yLabel) { this->yLabel = yLabel; }
@@ -43,8 +45,9 @@ public:
 	wxCoord getPlotEndHeight() const { return plotEndHeight; }
 
 	// Functions
-	void drawFigure(wxDC& dc);
+	bool drawFigure(wxDC& dc);
 	void drawGrid(wxDC& dc);
+	void drawTicks(wxDC& dc);
 	void drawLegend(wxDC& dc);
 
 };

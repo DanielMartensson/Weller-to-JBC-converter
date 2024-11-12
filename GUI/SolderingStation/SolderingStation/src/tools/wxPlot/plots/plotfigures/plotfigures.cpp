@@ -11,6 +11,34 @@ void PlotFigure::drawFigure(wxDC& dc) {
 	case WXPLOT_TYPE_LINE_SCATTER:
 		standard.drawFigure(dc);
 		break;
+	case WXPLOT_TYPE_SPLINE:
+		standard.drawFigure(dc);
+		break;
+	case WXPLOT_TYPE_SPLINE_SCATTER:
+		standard.drawFigure(dc);
+		break;
+	default:
+		break;
+	}
+}
+
+void PlotFigure::drawTicks(wxDC& dc) {
+	switch (wxPlotType) {
+	case WXPLOT_TYPE_LINE:
+		standard.drawTicks(dc);
+		break;
+	case WXPLOT_TYPE_SCATTER:
+		standard.drawTicks(dc);
+		break;
+	case WXPLOT_TYPE_LINE_SCATTER:
+		standard.drawTicks(dc);
+		break;
+	case WXPLOT_TYPE_SPLINE:
+		standard.drawTicks(dc);
+		break;
+	case WXPLOT_TYPE_SPLINE_SCATTER:
+		standard.drawTicks(dc);
+		break;
 	default:
 		break;
 	}
@@ -27,6 +55,12 @@ void PlotFigure::drawGrid(wxDC& dc) {
 	case WXPLOT_TYPE_LINE_SCATTER:
 		standard.drawGrid(dc);
 		break;
+	case WXPLOT_TYPE_SPLINE:
+		standard.drawGrid(dc);
+		break;
+	case WXPLOT_TYPE_SPLINE_SCATTER:
+		standard.drawGrid(dc);
+		break;
 	default:
 		break;
 	}
@@ -41,6 +75,12 @@ void PlotFigure::drawLegend(wxDC& dc) {
 		standard.drawLegend(dc);
 		break;
 	case WXPLOT_TYPE_LINE_SCATTER:
+		standard.drawLegend(dc);
+		break;
+	case WXPLOT_TYPE_SPLINE:
+		standard.drawLegend(dc);
+		break;
+	case WXPLOT_TYPE_SPLINE_SCATTER:
 		standard.drawLegend(dc);
 		break;
 	default:
@@ -60,8 +100,12 @@ void PlotFigure::setYlabel(const wxString& yLabel) {
 	standard.setYlabel(yLabel); 
 }
 
-void PlotFigure::setGridSize(const unsigned int gridSize) {
-	standard.setGridSize(gridSize); 
+void PlotFigure::setTicks(const unsigned int ticks) {
+	standard.setTicks(ticks);
+}
+
+void PlotFigure::gridOn(const bool useGrid) {
+	standard.gridOn(useGrid);
 }
 
 void PlotFigure::setPlotStartWidth(const wxCoord plotStartWidth) {
@@ -92,6 +136,10 @@ wxCoord PlotFigure::getPlotStartWidth() const {
 		return standard.getPlotStartWidth();
 	case WXPLOT_TYPE_LINE_SCATTER:
 		return standard.getPlotStartWidth();
+	case WXPLOT_TYPE_SPLINE:
+		return standard.getPlotStartWidth();
+	case WXPLOT_TYPE_SPLINE_SCATTER:
+		return standard.getPlotStartWidth();
 	default:
 		return 0;
 		break;
@@ -105,6 +153,10 @@ wxCoord PlotFigure::getPlotEndWidth() const {
 	case WXPLOT_TYPE_SCATTER:
 		return standard.getPlotEndWidth();
 	case WXPLOT_TYPE_LINE_SCATTER:
+		return standard.getPlotEndWidth();
+	case WXPLOT_TYPE_SPLINE:
+		return standard.getPlotEndWidth();
+	case WXPLOT_TYPE_SPLINE_SCATTER:
 		return standard.getPlotEndWidth();
 	default:
 		return 0;
@@ -120,6 +172,10 @@ wxCoord PlotFigure::getPlotStartHeight() const {
 		return standard.getPlotStartHeight();
 	case WXPLOT_TYPE_LINE_SCATTER:
 		return standard.getPlotStartHeight();
+	case WXPLOT_TYPE_SPLINE:
+		return standard.getPlotStartHeight();
+	case WXPLOT_TYPE_SPLINE_SCATTER:
+		return standard.getPlotStartHeight();
 	default:
 		return 0;
 		break;
@@ -133,6 +189,10 @@ wxCoord PlotFigure::getPlotEndHeight() const {
 	case WXPLOT_TYPE_SCATTER:
 		return standard.getPlotEndHeight();
 	case WXPLOT_TYPE_LINE_SCATTER:
+		return standard.getPlotEndHeight();
+	case WXPLOT_TYPE_SPLINE:
+		return standard.getPlotEndHeight();
+	case WXPLOT_TYPE_SPLINE_SCATTER:
 		return standard.getPlotEndHeight();
 	default:
 		return 0;

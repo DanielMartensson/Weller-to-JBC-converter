@@ -20,7 +20,8 @@ public:
 	void setTitle(const wxString title) { plots.getPlotFigures().setTitle(title); }
 	void setXlabel(const wxString xLabel) { plots.getPlotFigures().setXlabel(xLabel); }
 	void setYlabel(const wxString yLabel) { plots.getPlotFigures().setYlabel(yLabel); }
-	void setGridSize(const unsigned int gridSize) { plots.getPlotFigures().setGridSize(gridSize); }
+	void setTicks(const unsigned int ticks) { plots.getPlotFigures().setTicks(ticks); }
+	void gridOn(const bool useGrid) { plots.getPlotFigures().gridOn(useGrid); }
 	void setPlotStartWidth(const wxCoord plotStartWidth) { plots.getPlotFigures().setPlotStartWidth(plotStartWidth); }
 	void setPlotStartHeight(const wxCoord plotStartHeight) { plots.getPlotFigures().setPlotStartHeight(plotStartHeight); }
 	void setPlotEndWidth(const wxCoord plotEndWidth) { plots.getPlotFigures().setPlotEndWidth(plotEndWidth); }

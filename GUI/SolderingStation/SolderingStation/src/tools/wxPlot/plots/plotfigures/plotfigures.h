@@ -23,7 +23,8 @@ public:
 	void setTitle(const wxString& title);
 	void setXlabel(const wxString& xLabel);
 	void setYlabel(const wxString& yLabel);
-	void setGridSize(const unsigned int gridSize);
+	void setTicks(const unsigned int gridSize);
+	void gridOn(const bool grid);
 	void setPlotStartWidth(const wxCoord plotStartWidth);
 	void setPlotStartHeight(const wxCoord plotStartHeight);
 	void setPlotEndWidth(const wxCoord plotEndWidth);
@@ -39,5 +40,6 @@ public:
 	// Functions
 	void drawFigure(wxDC& dc);
 	void drawGrid(wxDC& dc);
+	void drawTicks(wxDC& dc);
 	void drawLegend(wxDC& dc);
 };

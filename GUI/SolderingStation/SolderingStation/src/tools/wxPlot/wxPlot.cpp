@@ -33,6 +33,9 @@ void wxPlot::OnPaint(wxPaintEvent& event) {
 	// Draw grid if enabled
 	plots.getPlotFigures().drawGrid(dc);
 
+	// Draw ticks if used
+	plots.getPlotFigures().drawTicks(dc);
+
 	// Draw legend if enabled
 	plots.getPlotFigures().drawLegend(dc);
 }

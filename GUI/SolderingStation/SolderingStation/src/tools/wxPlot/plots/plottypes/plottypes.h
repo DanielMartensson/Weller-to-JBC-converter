@@ -2,6 +2,7 @@
 
 #include "line/line.h"
 #include "scatter/scatter.h"
+#include "spline/spline.h"
 #include "../plottools/plottools.h"
 
 class PlotTypes {
@@ -13,6 +14,7 @@ private:
 	// Charts
 	Line line;
 	Scatter scatter;
+	Spline spline;
 
 public:
 	// Constructor
@@ -21,6 +23,8 @@ public:
 	// Getters
 	Line& getLine() { return line; }
 	Scatter& getScatter() { return scatter; }
+	Spline& getSpline() { return spline; }
+
 
 	// Setters
 	void setWxPlotType(WXPLOT_TYPE wxPlotType) { this->wxPlotType = wxPlotType; }
