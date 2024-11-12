@@ -122,5 +122,8 @@
     <ClInclude Include="src\tools\wxplot\plots\plottypes\spline\spline.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\tools\wxplot\plots\plottools\enums\placements.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

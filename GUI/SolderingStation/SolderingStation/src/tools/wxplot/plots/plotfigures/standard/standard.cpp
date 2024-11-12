@@ -184,5 +184,36 @@ void Standard::drawGrid(wxDC& dc) {
  * This function writes the legend
  */
 void Standard::drawLegend(wxDC& dc) {
+	if (useLegend) {
+		const wxCoord yStartRectangle = plotStartHeight;
+		const wxCoord xStartRectangle = plotStartWidth;
+		const wxCoord heightRectangle = plotEndHeight - plotStartHeight;
+		const wxCoord widthRectangle = plotEndWidth - plotStartWidth;
 
+		// Get the size of the legend
+		const size_t legendSize = legend.size();
+
+		// Get the largest text width
+		wxCoord textWidth, textHeight;
+		wxCoord largestTextWidth, largestTextHeight;
+		for (size_t i = 0; i < legendSize; i++) {
+			dc.GetTextExtent(legend.at(i), &textWidth, &textHeight);
+			if (i == 0) {
+				largestTextWidth = textWidth;
+				largestTextHeight = textHeight;
+			}
+			else {
+				if (textWidth > largestTextWidth) {
+					largestTextWidth = textWidth;
+				}
+				if (textHeight > largestTextHeight) {
+					largestTextHeight = textHeight;
+				}
+			}
+		}
+
+		// Draw a rectangle at...
+		switch()
+		dc.DrawRoundedRectangle()
+	}
 }

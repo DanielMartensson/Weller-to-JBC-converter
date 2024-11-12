@@ -166,6 +166,7 @@
     <ClInclude Include="src\frames\mainframe\mainframe.h" />
     <ClInclude Include="src\tools\wxplot\plots\plotfigures\plotfigures.h" />
     <ClInclude Include="src\tools\wxplot\plots\plotfigures\standard\standard.h" />
+    <ClInclude Include="src\tools\wxplot\plots\plottools\enums\placements.h" />
     <ClInclude Include="src\tools\wxplot\plots\plottools\functions\functions.h" />
     <ClInclude Include="src\tools\wxplot\plots\plottools\lists\colours.h" />
     <ClInclude Include="src\tools\wxplot\plots\plottools\plottools.h" />

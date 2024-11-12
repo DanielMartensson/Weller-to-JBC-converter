@@ -14,6 +14,7 @@ protected:
 	unsigned int fontSize = 0;
 	unsigned int ticks = 0;
 	bool useGrid = false;
+	bool useLegend = false;
 	wxString title;
 	wxString xLabel;
 	wxString yLabel;
