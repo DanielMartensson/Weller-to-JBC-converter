@@ -59,16 +59,16 @@ void MainFrame::OnSize(wxSizeEvent& event) {
     GetClientSize(&endWidth, &endHeight);
 
     // Create data
-    std::vector<std::vector<double>> data = { {0, 100, 200, 300, 400, 500}, {50, 50 , 50, -200, 3330, 50},
-                                              { 0, 200, 300, 400, 500, 600 }, {20, 20 , 20, -300, 1000, 20} };
+    std::vector<std::vector<double>> data = { {0, 100, 200, 300, 400, 500}, {50, 50 , 50, -200, 3, 50},
+                                              { 0, 200, 300, 400, 500, 600 }, {20, 20 , 20, -300, 1, 20} };
 
 
     // Redraw figure
-    plot->setFontSize(15);
-    //plot->setTitle("hellofdsfdfgdgfdgfd");
-    //plot->setYlabel("hellogfdgfdgfdgfdgdfgd");
-    //plot->setXlabel("hellogfdgfdfdsffgdsgfdgfdgfd");
-    plot->setTicks(0);
+    plot->setFontSize(10);
+    plot->setTitle("hellofdsfdfgdgfdgfd");
+    plot->setYlabel("hellogfdgfdgfdgfdgdfgd");
+    plot->setXlabel("hellogfdgfdfdsffgdsgfdgfdgfd");
+    plot->setTicks(10);
     plot->gridOn(true);
     plot->setRadius(3);
     plot->fillCircles(true);
