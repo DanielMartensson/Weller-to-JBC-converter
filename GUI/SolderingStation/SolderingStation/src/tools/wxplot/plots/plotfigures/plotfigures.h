@@ -29,7 +29,9 @@ public:
 	void setPlotStartHeight(const wxCoord plotStartHeight);
 	void setPlotEndWidth(const wxCoord plotEndWidth);
 	void setPlotEndHeight(const wxCoord plotEndHeight);
+	void setLegend(const std::vector<wxString>& legend, const PLACEMENT legendPosition = PLACEMENT_NORTH_WEST);
 	void setData(const std::vector<std::vector<double>>& data);
+	void legendOn(const bool useLegend);
 
 	// Getters
 	wxCoord getPlotStartWidth() const;

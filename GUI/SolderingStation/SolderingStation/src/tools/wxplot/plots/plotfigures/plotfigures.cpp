@@ -128,6 +128,10 @@ void PlotFigure::setData(const std::vector<std::vector<double>>& data) {
 	standard.setData(data);
 }
 
+void PlotFigure::legendOn(const bool useLegend) {
+	standard.legendOn(useLegend);
+}
+
 wxCoord PlotFigure::getPlotStartWidth() const {
 	switch (wxPlotType) {
 	case WXPLOT_TYPE_LINE:
@@ -197,5 +201,27 @@ wxCoord PlotFigure::getPlotEndHeight() const {
 	default:
 		return 0;
 		break;
+	}
+}
+
+void PlotFigure::setLegend(const std::vector<wxString>& legend, const PLACEMENT legendPosition) {
+	switch (wxPlotType) {
+	case WXPLOT_TYPE_LINE:
+		standard.setLegend(legend, legendPosition);
+		break;
+	case WXPLOT_TYPE_SCATTER:
+		standard.setLegend(legend, legendPosition);
+		break;
+	case WXPLOT_TYPE_LINE_SCATTER:
+		standard.setLegend(legend, legendPosition);
+		break;
+	case WXPLOT_TYPE_SPLINE:
+		standard.setLegend(legend, legendPosition);
+		break;
+	case WXPLOT_TYPE_SPLINE_SCATTER:
+		standard.setLegend(legend, legendPosition);
+		break;
+	default:
+		return;
 	}
 }

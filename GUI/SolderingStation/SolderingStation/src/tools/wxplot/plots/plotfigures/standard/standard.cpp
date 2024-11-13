@@ -1,5 +1,4 @@
 #include "standard.h"
-#include "../../plottools/plottools.h"
 #include <cmath>
 
 /*
@@ -64,7 +63,7 @@ bool Standard::drawFigure(wxDC& dc) {
 		dc.GetTextExtent(yLabel, &yLabelWidth, &yLabelHeight);
 	}
 
-	// Write out in X-axis
+	// Write out in X-axis - Add some 5 and 10 to make a proper distance between rectangle and numbers
 	wxCoord x = plotEndWidth / 2 - titleWidth / 2;												// Compute the centre of the title
 	wxCoord y = 0;																				// Compute the hight placement of the title
 	dc.DrawText(title, x, y);																	// Draw title
@@ -75,7 +74,7 @@ bool Standard::drawFigure(wxDC& dc) {
 	y = heightRectangle + (ticksHeight > 0) * xLabelHeight + (titleHeight > 0) * xLabelHeight;	// Compute the hight placement of the X-label
 	dc.DrawText(xLabel, x, y + 5);																// Draw X-label
 
-	// Write out in Y-axis
+	// Write out in Y-axis - Add some 5 and 10 to make a proper distance between rectangle and numbers
 	x = 0;																						// Compute the width placement of the Y-label
 	y = plotEndHeight / 2 + yLabelWidth / 2;													// Compute the centre of the title
 	dc.DrawRotatedText(yLabel, x, y, 90);														// Draw Y-label
@@ -149,7 +148,6 @@ void Standard::drawTicks(wxDC& dc) {
 		std::snprintf(value, sizeof(value), "%0.2f", maxY + scalarY * counter);
 		dc.GetTextExtent(value, &textWidth, &textHeight);
 		dc.DrawText(value, xStartRectangle - textWidth, yStartRectangle + heightRectangle - textHeight);
-
 	}
 }
 
@@ -199,7 +197,7 @@ void Standard::drawLegend(wxDC& dc) {
 
 		// Get the largest text width
 		wxCoord textWidth, textHeight;
-		wxCoord largestTextWidth, largestTextHeight;
+		wxCoord largestTextWidth = 0, largestTextHeight = 0;
 		for (size_t i = 0; i < legendSize; i++) {
 			dc.GetTextExtent(legend.at(i), &textWidth, &textHeight);
 			if (i == 0) {
@@ -217,7 +215,23 @@ void Standard::drawLegend(wxDC& dc) {
 		}
 
 		// Draw a rectangle at...
-		//switch()
-		//dc.DrawRoundedRectangle()
+		wxCoord x, y;
+		switch (legendPosition) {
+		case PLACEMENT_NORTH_WEST:
+			x = plotEndWidth - 10 - largestTextWidth;
+			y = plotStartHeight + 5;
+			dc.DrawRoundedRectangle(x, y, largestTextWidth + 5, largestTextHeight * legendSize + 5, 2);
+			break;
+		case PLACEMENT_NORTH_EAST:
+			break;
+		case PLACEMENT_SOUTH_WEST:
+			break;
+		case PLACEMENT_SOUTH_EAST:
+			break;
+		case PLACEMENT_CENTRE:
+			break;
+		default:
+			break;
+		}
 	}
 }

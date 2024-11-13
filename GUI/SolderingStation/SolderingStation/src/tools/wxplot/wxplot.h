@@ -28,6 +28,8 @@ public:
 	void setPlotEndHeight(const wxCoord plotEndHeight) { plots.getPlotFigures().setPlotEndHeight(plotEndHeight); }
 	void setData(const std::vector<std::vector<double>>& data) { plots.setData(data); }
 	void setRadius(const wxCoord radius) { plots.getPlotTypes().setRadius(radius); }
+	void legendOn(const bool useLegend) { plots.getPlotFigures().legendOn(useLegend); }
+	void setLegend(const std::vector<wxString>& legend, const PLACEMENT legendPosition = PLACEMENT_NORTH_WEST) { plots.getPlotFigures().setLegend(legend, legendPosition); }
 	void fillCircles(const bool fillCircle) { plots.getPlotTypes().fillCircles(fillCircle); }
 
 	// This function renders the complete plot when the refresh function is called

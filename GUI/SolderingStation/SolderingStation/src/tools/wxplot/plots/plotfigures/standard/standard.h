@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include <wx/wx.h>
+#include "../../plottools/plottools.h"
 
 class Standard {
 protected:
@@ -19,6 +20,7 @@ protected:
 	wxString xLabel;
 	wxString yLabel;
 	std::vector<wxString> legend;
+	PLACEMENT legendPosition = PLACEMENT_NORTH_WEST;
 	std::vector<std::vector<double>> data;
 
 public:
@@ -36,7 +38,8 @@ public:
 	void setTitle(const wxString& title) { this->title = title; }
 	void setXlabel(const wxString& xLabel) { this->xLabel = xLabel; }
 	void setYlabel(const wxString& yLabel) { this->yLabel = yLabel; }
-	void setLegend(const std::vector<wxString>& legend) { this->legend = legend; }
+	void legendOn(const bool useLegend) { this->useLegend = useLegend; }
+	void setLegend(const std::vector<wxString>& legend, const PLACEMENT legendPosition = PLACEMENT_NORTH_WEST) { this->legend = legend; this->legendPosition; }
 	void setData(const std::vector<std::vector<double>>& data) { this->data = data; }
 
 	// Getters

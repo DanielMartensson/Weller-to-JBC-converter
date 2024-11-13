@@ -62,6 +62,8 @@ void MainFrame::OnSize(wxSizeEvent& event) {
     std::vector<std::vector<double>> data = { {0, 100, 200, 300, 400, 500}, {50, 50 , 50, -200, 3, 50},
                                               { 0, 200, 300, 400, 500, 600 }, {20, 20 , 20, -300, 1, 20} };
 
+    // Create legend
+    std::vector<wxString> legend = { "red", "green" };
 
     // Redraw figure
     plot->setFontSize(10);
@@ -69,6 +71,8 @@ void MainFrame::OnSize(wxSizeEvent& event) {
     plot->setYlabel("hellogfdgfdgfdgfdgdfgd");
     plot->setXlabel("hellogfdgfdfdsffgdsgfdgfdgfd");
     plot->setTicks(10);
+    plot->legendOn(true);
+    plot->setLegend(legend, PLACEMENT_NORTH_WEST);
     plot->gridOn(true);
     plot->setRadius(3);
     plot->fillCircles(true);
