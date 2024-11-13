@@ -5,7 +5,7 @@
 #include <wx/wx.h>
 #include "../../../plottools/plottools.h"
 
-class Standard {
+class Proportional {
 protected:
 	// General plot information
 	wxCoord plotEndWidth = 0;
@@ -25,7 +25,7 @@ protected:
 
 public:
 	// Constructor
-	Standard() {}
+	Proportional() {}
 
 	// Setters
 	void setPlotStartWidth(const wxCoord plotStartWidth) { this->plotStartWidth = plotStartWidth; }

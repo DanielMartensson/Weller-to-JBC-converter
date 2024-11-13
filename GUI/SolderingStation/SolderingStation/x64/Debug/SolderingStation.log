@@ -1,4 +1,3 @@
-﻿  mainframe.cpp
-  standard.cpp
-  Generating Code...
-  SolderingStation.vcxproj -> C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\GUI\SolderingStation\x64\Debug\SolderingStation.exe
+﻿  Main.cpp
+  mainframe.cpp
+  2Dfigure.cpp

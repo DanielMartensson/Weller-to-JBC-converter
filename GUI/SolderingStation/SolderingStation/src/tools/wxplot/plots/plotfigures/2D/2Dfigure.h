@@ -1,6 +1,6 @@
 #pragma once
 
-#include "standard/standard.h"
+#include "proportional/proportional.h"
 #include "../../plottools/plottools.h"
 
 class _2D_Figure {
@@ -8,8 +8,8 @@ private:
 	// Type select
 	WXPLOT_TYPE wxPlotType = WXPLOT_TYPE_LINE;
 
-	// Standard figure
-	Standard standard;
+	// Proportional figure
+	Proportional proportional;
 
 public:
 	// Constructor

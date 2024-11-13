@@ -6,7 +6,7 @@
 
 class Scatter: public Line {
 private:
-	// Standard configuration
+	// Proportional configuration
 	wxCoord radius = 3;
 	bool fillCircle = false;
 

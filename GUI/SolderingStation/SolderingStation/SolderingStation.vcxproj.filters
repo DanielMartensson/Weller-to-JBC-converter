@@ -48,7 +48,7 @@
     <ClCompile Include="src\tools\wxplot\plots\plottypes\2D\line\line.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\tools\wxplot\plots\plotfigures\2D\standard\standard.cpp">
+    <ClCompile Include="src\tools\wxplot\plots\plotfigures\2D\proportional\proportional.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\tools\wxplot\plots\plots.cpp">
@@ -98,7 +98,7 @@
     <ClInclude Include="src\tools\wxplot\plots\plottypes\2D\line\line.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\tools\wxplot\plots\plotfigures\2D\standard\standard.h">
+    <ClInclude Include="src\tools\wxplot\plots\plotfigures\2D\proportional\proportional.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\tools\wxplot\plots\plotfigures\plotfigures.h">

@@ -1,4 +1,4 @@
-#include "standard.h"
+#include "proportional.h"
 #include <cmath>
 
 /*
@@ -10,7 +10,7 @@
  * - Draw the rectangle
  * - Update the rectangle size for correct plotting the plot type
  */
-bool Standard::drawFigure(wxDC& dc) {
+bool Proportional::drawFigure(wxDC& dc) {
 
 	// Check the size
 	if (!check2DdataSize(data)) {
@@ -98,7 +98,7 @@ bool Standard::drawFigure(wxDC& dc) {
  * This function draw the ticks.
  * Call this function after you have drawn the plot type.
  */
-void Standard::drawTicks(wxDC& dc) {
+void Proportional::drawTicks(wxDC& dc) {
 	if (ticks > 0) {
 		const wxCoord yStartRectangle = plotStartHeight;
 		const wxCoord xStartRectangle = plotStartWidth;
@@ -155,7 +155,7 @@ void Standard::drawTicks(wxDC& dc) {
  * This function draw the grid.
  * Call this function after you have drawn the plot type.
  */
-void Standard::drawGrid(wxDC& dc) {
+void Proportional::drawGrid(wxDC& dc) {
 	if (useGrid && ticks > 0) {
 		const wxCoord yStartRectangle = plotStartHeight;
 		const wxCoord xStartRectangle = plotStartWidth;
@@ -185,7 +185,7 @@ void Standard::drawGrid(wxDC& dc) {
 /*
  * This function writes the legend
  */
-void Standard::drawLegend(wxDC& dc) {
+void Proportional::drawLegend(wxDC& dc) {
 	if (useLegend) {
 		const wxCoord yStartRectangle = plotStartHeight;
 		const wxCoord xStartRectangle = plotStartWidth;

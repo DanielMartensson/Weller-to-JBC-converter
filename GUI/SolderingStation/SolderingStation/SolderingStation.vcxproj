@@ -150,7 +150,7 @@
     <ClCompile Include="src\tools\usb\usb.cpp" />
     <ClCompile Include="src\tools\wxplot\plots\plotfigures\2D\2Dfigure.cpp" />
     <ClCompile Include="src\tools\wxplot\plots\plotfigures\plotfigures.cpp" />
-    <ClCompile Include="src\tools\wxplot\plots\plotfigures\2D\standard\standard.cpp" />
+    <ClCompile Include="src\tools\wxplot\plots\plotfigures\2D\proportional\proportional.cpp" />
     <ClCompile Include="src\tools\wxplot\plots\plots.cpp" />
     <ClCompile Include="src\tools\wxplot\plots\plottools\functions\functions.cpp" />
     <ClCompile Include="src\tools\wxplot\plots\plottypes\2D\2Dtype.cpp" />
@@ -168,7 +168,7 @@
     <ClInclude Include="src\frames\mainframe\mainframe.h" />
     <ClInclude Include="src\tools\wxplot\plots\plotfigures\2D\2Dfigure.h" />
     <ClInclude Include="src\tools\wxplot\plots\plotfigures\plotfigures.h" />
-    <ClInclude Include="src\tools\wxplot\plots\plotfigures\2D\standard\standard.h" />
+    <ClInclude Include="src\tools\wxplot\plots\plotfigures\2D\proportional\proportional.h" />
     <ClInclude Include="src\tools\wxplot\plots\plottools\enums\placements.h" />
     <ClInclude Include="src\tools\wxplot\plots\plottools\enums\plotfigures.h" />
     <ClInclude Include="src\tools\wxplot\plots\plottools\functions\functions.h" />
