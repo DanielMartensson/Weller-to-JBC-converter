@@ -6,22 +6,6 @@ void PlotFigure::setWxPlotFigureType(const WXPLOT_FIGURE wxPlotFigure, const WXP
 	_2d.setWxPlotType(wxPlotType);
 }
 
-void PlotFigure::drawFigure(wxDC& dc) {
-	_2d.drawFigure(dc);
-}
-
-void PlotFigure::drawTicks(wxDC& dc) {
-	_2d.drawTicks(dc);
-}
-
-void PlotFigure::drawGrid(wxDC& dc) {
-	_2d.drawGrid(dc);
-}
-
-void PlotFigure::drawLegend(wxDC& dc) {
-	_2d.drawLegend(dc);
-}
-
 void PlotFigure::setTitle(const wxString& title) {
 	_2d.setTitle(title);
 }
@@ -110,6 +94,50 @@ wxCoord PlotFigure::getPlotEndHeight() const {
 		return _2d.getPlotEndHeight();
 	default:
 		return 0;
+		break;
+	}
+}
+
+void PlotFigure::drawFigure(wxDC& dc) {
+	switch (wxPlotFigure) {
+	case WXPLOT_FIGURE_2D:
+		_2d.drawFigure(dc);
+		break;
+	default:
+		_2d.drawFigure(dc);
+		break;
+	}
+}
+
+void PlotFigure::drawTicks(wxDC& dc) {
+	switch (wxPlotFigure) {
+	case WXPLOT_FIGURE_2D:
+		_2d.drawTicks(dc);
+		break;
+	default:
+		_2d.drawTicks(dc);
+		break;
+	}
+}
+
+void PlotFigure::drawGrid(wxDC& dc) {
+	switch (wxPlotFigure) {
+	case WXPLOT_FIGURE_2D:
+		_2d.drawGrid(dc);
+		break;
+	default:
+		_2d.drawGrid(dc);
+		break;
+	}
+}
+
+void PlotFigure::drawLegend(wxDC& dc) {
+	switch (wxPlotFigure) {
+	case WXPLOT_FIGURE_2D:
+		_2d.drawLegend(dc);
+		break;
+	default:
+		_2d.drawLegend(dc);
 		break;
 	}
 }
