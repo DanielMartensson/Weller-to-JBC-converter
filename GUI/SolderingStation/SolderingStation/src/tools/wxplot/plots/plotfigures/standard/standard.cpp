@@ -142,12 +142,12 @@ void Standard::drawTicks(wxDC& dc) {
 		for (wxCoord y = yStartRectangle; y <= yStartRectangle + heightRectangle; y += stepsY) {
 			std::snprintf(value, sizeof(value), "%0.2f", maxY + scalarY * counter);
 			dc.GetTextExtent(value, &textWidth, &textHeight);
-			dc.DrawText(value, xStartRectangle - textWidth, y - textHeight);
+			dc.DrawText(value, xStartRectangle - textWidth - 2, y - textHeight);  // 2 is only for make a proper distance from rectangle
 			counter++;
 		}
 		std::snprintf(value, sizeof(value), "%0.2f", maxY + scalarY * counter);
 		dc.GetTextExtent(value, &textWidth, &textHeight);
-		dc.DrawText(value, xStartRectangle - textWidth, yStartRectangle + heightRectangle - textHeight);
+		dc.DrawText(value, xStartRectangle - textWidth - 2 , yStartRectangle + heightRectangle - textHeight); // 2 is only for make a proper distance from rectangle
 	}
 }
 
@@ -214,24 +214,37 @@ void Standard::drawLegend(wxDC& dc) {
 			}
 		}
 
-		// Draw a rectangle at...
-		wxCoord x, y;
+		// Compute the coordinates where to place the legend - Add 15, 10, 5 and 2.5 to make a proper distance between rectangle and numbers
+		wxCoord x = 0, y = 0;
 		switch (legendPosition) {
 		case PLACEMENT_NORTH_WEST:
-			x = plotEndWidth - 10 - largestTextWidth;
+			x = plotStartWidth + 5;
 			y = plotStartHeight + 5;
-			dc.DrawRoundedRectangle(x, y, largestTextWidth + 5, largestTextHeight * legendSize + 5, 2);
 			break;
 		case PLACEMENT_NORTH_EAST:
+			x = plotEndWidth - largestTextWidth - 15;
+			y = plotStartHeight + 5;
 			break;
 		case PLACEMENT_SOUTH_WEST:
+			x = plotStartWidth + 5;
+			y = plotEndHeight - largestTextHeight * legendSize - 10;
 			break;
 		case PLACEMENT_SOUTH_EAST:
+			x = plotEndWidth - largestTextWidth - 15;
+			y = plotEndHeight - largestTextHeight * legendSize - 10;
 			break;
 		case PLACEMENT_CENTRE:
+			x = widthRectangle / 2 + xStartRectangle - largestTextWidth / 2 - 5;
+			y = heightRectangle / 2 + yStartRectangle - largestTextHeight * legendSize / 2 - 5 / 2;
 			break;
 		default:
 			break;
+		}
+
+		// Draw the legend now
+		dc.DrawRoundedRectangle(x, y, largestTextWidth + 10, largestTextHeight * legendSize + 5, 2);
+		for (size_t i = 0; i < legendSize; i++) {
+			dc.DrawText(legend.at(i), x + 5, y + largestTextHeight * i);
 		}
 	}
 }

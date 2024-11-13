@@ -10,7 +10,7 @@ private:
 	Plots plots;
 public:
 	// Constructor
-	wxPlot(wxFrame* parent, WXPLOT_TYPE wxPlotType = WXPLOT_TYPE_LINE);
+	wxPlot(wxFrame* parent, const WXPLOT_TYPE wxPlotType = WXPLOT_TYPE_LINE);
 
 	// Getters
 	Plots& getPlots() { return plots; }
@@ -29,7 +29,7 @@ public:
 	void setData(const std::vector<std::vector<double>>& data) { plots.setData(data); }
 	void setRadius(const wxCoord radius) { plots.getPlotTypes().setRadius(radius); }
 	void legendOn(const bool useLegend) { plots.getPlotFigures().legendOn(useLegend); }
-	void setLegend(const std::vector<wxString>& legend, const PLACEMENT legendPosition = PLACEMENT_NORTH_WEST) { plots.getPlotFigures().setLegend(legend, legendPosition); }
+	void setLegend(const std::vector<wxString>& legend, const PLACEMENT legendPosition = PLACEMENT_NORTH_EAST) { plots.getPlotFigures().setLegend(legend, legendPosition); }
 	void fillCircles(const bool fillCircle) { plots.getPlotTypes().fillCircles(fillCircle); }
 
 	// This function renders the complete plot when the refresh function is called

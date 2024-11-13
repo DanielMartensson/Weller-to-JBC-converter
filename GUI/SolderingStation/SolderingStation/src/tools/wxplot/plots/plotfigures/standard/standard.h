@@ -39,7 +39,7 @@ public:
 	void setXlabel(const wxString& xLabel) { this->xLabel = xLabel; }
 	void setYlabel(const wxString& yLabel) { this->yLabel = yLabel; }
 	void legendOn(const bool useLegend) { this->useLegend = useLegend; }
-	void setLegend(const std::vector<wxString>& legend, const PLACEMENT legendPosition = PLACEMENT_NORTH_WEST) { this->legend = legend; this->legendPosition; }
+	void setLegend(const std::vector<wxString>& legend, const PLACEMENT legendPosition) { this->legend = legend; this->legendPosition = legendPosition; }
 	void setData(const std::vector<std::vector<double>>& data) { this->data = data; }
 
 	// Getters

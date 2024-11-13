@@ -19,7 +19,7 @@ public:
 	Standard& getStandard() { return standard; }
 
 	// Setters
-	void setWxPlotType(WXPLOT_TYPE wxPlotType) { this->wxPlotType = wxPlotType; }
+	void setWxPlotType(const WXPLOT_TYPE wxPlotType) { this->wxPlotType = wxPlotType; }
 	void setTitle(const wxString& title);
 	void setXlabel(const wxString& xLabel);
 	void setYlabel(const wxString& yLabel);
@@ -29,7 +29,7 @@ public:
 	void setPlotStartHeight(const wxCoord plotStartHeight);
 	void setPlotEndWidth(const wxCoord plotEndWidth);
 	void setPlotEndHeight(const wxCoord plotEndHeight);
-	void setLegend(const std::vector<wxString>& legend, const PLACEMENT legendPosition = PLACEMENT_NORTH_WEST);
+	void setLegend(const std::vector<wxString>& legend, const PLACEMENT legendPosition);
 	void setData(const std::vector<std::vector<double>>& data);
 	void legendOn(const bool useLegend);
 

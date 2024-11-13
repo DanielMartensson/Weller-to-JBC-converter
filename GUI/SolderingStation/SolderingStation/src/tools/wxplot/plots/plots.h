@@ -16,8 +16,8 @@ public:
 	// Constructor
 	Plots() {}
 
-	// Setters
-	void setWxPlotType(WXPLOT_TYPE wxPlotType);
+	// Setters 
+	void setWxPlotType(const WXPLOT_TYPE wxPlotType);
 	void setData(const std::vector<std::vector<double>>& data);
 
 	// Getters
