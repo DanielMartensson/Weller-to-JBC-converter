@@ -1,8 +1,8 @@
 #include "wxplot.h"
 
-wxPlot::wxPlot(wxFrame* parent, const WXPLOT_TYPE wxPlotType) : wxPanel(parent) {
+wxPlot::wxPlot(wxFrame* parent, const WXPLOT_FIGURE wxPlotFigure, const WXPLOT_TYPE wxPlotType) : wxPanel(parent) {
 	// Set type
-	plots.setWxPlotType(wxPlotType);
+	plots.setWxPlotFigureType(wxPlotFigure, wxPlotType);
 
 	// Important event handler that is going to update the complete plot
 	Bind(wxEVT_PAINT, &wxPlot::OnPaint, this);

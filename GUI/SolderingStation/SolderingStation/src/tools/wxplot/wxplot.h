@@ -10,13 +10,10 @@ private:
 	Plots plots;
 public:
 	// Constructor
-	wxPlot(wxFrame* parent, const WXPLOT_TYPE wxPlotType = WXPLOT_TYPE_LINE);
-
-	// Getters
-	Plots& getPlots() { return plots; }
+	wxPlot(wxFrame* parent, const WXPLOT_FIGURE wxPlotFigure = WXPLOT_FIGURE_2D, const WXPLOT_TYPE wxPlotType = WXPLOT_TYPE_LINE);
 
 	// Setters
-	void setFontSize(const unsigned int fontSize) { plots.getPlotFigures().getStandard().setFontSize(fontSize); }
+	void setFontSize(const unsigned int fontSize) { plots.getPlotFigures().setFontSize(fontSize); }
 	void setTitle(const wxString title) { plots.getPlotFigures().setTitle(title); }
 	void setXlabel(const wxString xLabel) { plots.getPlotFigures().setXlabel(xLabel); }
 	void setYlabel(const wxString yLabel) { plots.getPlotFigures().setYlabel(yLabel); }

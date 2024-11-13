@@ -1,6 +1,5 @@
 #pragma once
 
-// Place plot type enumeration here
 typedef enum {
 	WXPLOT_TYPE_LINE,
 	WXPLOT_TYPE_SCATTER,
@@ -8,3 +7,4 @@ typedef enum {
 	WXPLOT_TYPE_SPLINE,
 	WXPLOT_TYPE_SPLINE_SCATTER
 }WXPLOT_TYPE;
+

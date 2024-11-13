@@ -1,40 +1,29 @@
 #pragma once
 
-#include "line/line.h"
-#include "scatter/scatter.h"
-#include "spline/spline.h"
-#include "../plottools/plottools.h"
+#include "2D/2Dtype.h"
 
 class PlotTypes {
 
 private:
-	// Type select
-	WXPLOT_TYPE wxPlotType = WXPLOT_TYPE_LINE;
+	// Figure select
+	WXPLOT_FIGURE wxPlotFigure = WXPLOT_FIGURE_2D;
 
-	// Charts
-	Line line;
-	Scatter scatter;
-	Spline spline;
+	// Plot types
+	_2D_Type _2d;
 
 public:
 	// Constructor
 	PlotTypes() { }
 
-	// Getters
-	Line& getLine() { return line; }
-	Scatter& getScatter() { return scatter; }
-	Spline& getSpline() { return spline; }
-
-
 	// Setters
-	void setWxPlotType(WXPLOT_TYPE wxPlotType) { this->wxPlotType = wxPlotType; }
+	void setWxPlotFigureType(const WXPLOT_FIGURE wxPlotFigure, const WXPLOT_TYPE wxPlotType);
 	void setRadius(const wxCoord radius);
 	void fillCircles(const bool fillCircle);
 	void setData(const std::vector<std::vector<double>>& data);
-	void setPlotStartWidth(const wxCoord& plotStartWidth);
-	void setPlotStartHeight(const wxCoord& plotStartHeight);
-	void setPlotEndWidth(const wxCoord& plotEndWidth);
-	void setPlotEndHeight(const wxCoord& plotEndHeight);
+	void setPlotStartWidth(const wxCoord plotStartWidth);
+	void setPlotStartHeight(const wxCoord plotStartHeight);
+	void setPlotEndWidth(const wxCoord plotEndWidth);
+	void setPlotEndHeight(const wxCoord plotEndHeight);
 
 	// Functions
 	void drawType(wxDC& dc);

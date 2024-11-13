@@ -45,10 +45,10 @@
     <ClCompile Include="src\tools\wxplot\wxplot.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\tools\wxplot\plots\plottypes\line\line.cpp">
+    <ClCompile Include="src\tools\wxplot\plots\plottypes\2D\line\line.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\tools\wxplot\plots\plotfigures\standard\standard.cpp">
+    <ClCompile Include="src\tools\wxplot\plots\plotfigures\2D\standard\standard.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\tools\wxplot\plots\plots.cpp">
@@ -60,13 +60,19 @@
     <ClCompile Include="src\tools\wxplot\plots\plotfigures\plotfigures.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\tools\wxplot\plots\plottypes\scatter\scatter.cpp">
+    <ClCompile Include="src\tools\wxplot\plots\plottypes\2D\scatter\scatter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\tools\wxplot\plots\plottools\functions\functions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\tools\wxplot\plots\plottypes\spline\spline.cpp">
+    <ClCompile Include="src\tools\wxplot\plots\plottypes\2D\spline\spline.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tools\wxplot\plots\plotfigures\2D\2Dfigure.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tools\wxplot\plots\plottypes\2D\2Dtype.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -89,10 +95,10 @@
     <ClInclude Include="src\tools\wxplot\wxplot.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\tools\wxplot\plots\plottypes\line\line.h">
+    <ClInclude Include="src\tools\wxplot\plots\plottypes\2D\line\line.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\tools\wxplot\plots\plotfigures\standard\standard.h">
+    <ClInclude Include="src\tools\wxplot\plots\plotfigures\2D\standard\standard.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\tools\wxplot\plots\plotfigures\plotfigures.h">
@@ -104,7 +110,7 @@
     <ClInclude Include="src\tools\wxplot\plots\plots.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\tools\wxplot\plots\plottypes\scatter\scatter.h">
+    <ClInclude Include="src\tools\wxplot\plots\plottypes\2D\scatter\scatter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\tools\wxplot\plots\plottools\plottools.h">
@@ -119,10 +125,19 @@
     <ClInclude Include="src\tools\wxplot\plots\plottools\functions\functions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\tools\wxplot\plots\plottypes\spline\spline.h">
+    <ClInclude Include="src\tools\wxplot\plots\plottypes\2D\spline\spline.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\tools\wxplot\plots\plottools\enums\placements.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\tools\wxplot\plots\plotfigures\2D\2Dfigure.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\tools\wxplot\plots\plottypes\2D\2Dtype.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\tools\wxplot\plots\plottools\enums\plotfigures.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

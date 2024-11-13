@@ -1,25 +1,21 @@
 #pragma once
 
-#include "standard/standard.h"
-#include "../plottools/plottools.h"
+#include "2D/2Dfigure.h"
 
 class PlotFigure {
 private:
 	// Type select
-	WXPLOT_TYPE wxPlotType = WXPLOT_TYPE_LINE;
-
-	// Standard figure
-	Standard standard;
+	WXPLOT_FIGURE wxPlotFigure = WXPLOT_FIGURE_2D;
+	
+	// 2D figure
+	_2D_Figure _2d;
 
 public:
 	// Constructor
 	PlotFigure() {}
 
-	// Getters
-	Standard& getStandard() { return standard; }
-
 	// Setters
-	void setWxPlotType(const WXPLOT_TYPE wxPlotType) { this->wxPlotType = wxPlotType; }
+	void setWxPlotFigureType(const WXPLOT_FIGURE wxPlotFigure, const WXPLOT_TYPE wxPlotType);
 	void setTitle(const wxString& title);
 	void setXlabel(const wxString& xLabel);
 	void setYlabel(const wxString& yLabel);
@@ -32,6 +28,7 @@ public:
 	void setLegend(const std::vector<wxString>& legend, const PLACEMENT legendPosition);
 	void setData(const std::vector<std::vector<double>>& data);
 	void legendOn(const bool useLegend);
+	void setFontSize(const unsigned int fontSize);
 
 	// Getters
 	wxCoord getPlotStartWidth() const;

@@ -24,7 +24,7 @@ MainFrame::MainFrame() : wxFrame(nullptr, wxID_ANY, "Main frame")
     SetStatusText("Welcome to wxWidgets!");
 
     // Create plot
-    plot = new wxPlot(this, WXPLOT_TYPE_LINE);
+    plot = new wxPlot(this, WXPLOT_FIGURE_2D, WXPLOT_TYPE_LINE);
 
     // Events
     Bind(wxEVT_MENU, &MainFrame::OnHello, this, wxID_FILE);
