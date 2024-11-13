@@ -114,12 +114,12 @@ void Standard::drawTicks(wxDC& dc) {
 		findMaxMin2Ddata(data, minX, maxX, minY, maxY);
 
 		// Compute steps
-		const unsigned int stepsX = (xStartRectangle + widthRectangle) / ticks;
-		const unsigned int stepsY = (yStartRectangle + heightRectangle) / ticks;
+		const unsigned int stepsX = (xStartRectangle + widthRectangle) / (ticks-1);
+		const unsigned int stepsY = (yStartRectangle + heightRectangle) / (ticks-1);
 
 		// Compute scalars
-		const double scalarX = (maxX - minX) / ticks;
-		const double scalarY = (minY - maxY) / ticks;
+		const double scalarX = (maxX - minX) / (ticks-1);
+		const double scalarY = (minY - maxY) / (ticks-1);
 
 		// Counter
 		double counter = 0;
@@ -167,8 +167,8 @@ void Standard::drawGrid(wxDC& dc) {
 		dc.SetPen(pen);
 
 		// Compute steps
-		const unsigned int stepsX = (xStartRectangle + widthRectangle) / ticks;
-		const unsigned int stepsY = (yStartRectangle + heightRectangle) / ticks;
+		const unsigned int stepsX = (xStartRectangle + widthRectangle) / (ticks-1);
+		const unsigned int stepsY = (yStartRectangle + heightRectangle) / (ticks-1);
 
 		// Vertical lines
 		for (wxCoord x = xStartRectangle; x <= xStartRectangle + widthRectangle; x += stepsX) {

@@ -3,7 +3,7 @@
 #include <string>
 #include <vector>
 #include <wx/wx.h>
-#include "../../plottools/plottools.h"
+#include "../../../plottools/plottools.h"
 
 class Standard {
 protected:

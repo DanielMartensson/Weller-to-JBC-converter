@@ -59,14 +59,14 @@ void MainFrame::OnSize(wxSizeEvent& event) {
     GetClientSize(&endWidth, &endHeight);
 
     // Create data
-    std::vector<std::vector<double>> data = { {0, 100, 200, 300, 400, 500}, {50, 50 , 50, -200, 3, 50},
-                                              { 0, 200, 300, 400, 500, 600 }, {20, 20 , 20, -300, 1, 20} };
+    std::vector<std::vector<double>> data = { {0, 100, 200, 300, 400, 500}, {50, 50 , 50, 50, 1, 50},
+                                              { 0, 200, 300, 400, 500, 600 }, {20, 20 , -20, 20, 0, 20} };
 
     // Create legend
     std::vector<wxString> legend = { "red", "green", "blue", "super svart!"};
 
     // Redraw figure
-    plot->setFontSize(15);
+    plot->setFontSize(10);
     plot->setTitle("hellofdsfdfgdgfdgfd");
     plot->setYlabel("hellogfdgfdgfdgfdgdfgd");
     plot->setXlabel("hellogfdgfdfdsffgdsgfdgfdgfd");
