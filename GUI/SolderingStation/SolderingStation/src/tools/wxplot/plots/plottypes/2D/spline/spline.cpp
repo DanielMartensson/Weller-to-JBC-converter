@@ -1,49 +1,33 @@
 
-#include "spline.h"
-#include "../../../plottools/plottools.h"
+#include "spline.hpp"
+#include "../../../plottools/plottools.hpp"
 
-bool Spline::draw(wxDC& dc) {
-	// Get the size of the data
-	const size_t dataSize = data.size();
+void Spline::draw(wxDC& dc, const std::vector<double>& xData, const std::vector<double>& yData, const unsigned int colourIndex) {
+	// Set line colour
+	setColourPen(dc, colourIndex);
 
-	// Find max and min for the complete data, or else, we will get very weird scaling inside the plot
-	double minX, maxX, minY, maxY;
-	findMaxMin2Ddata(data, minX, maxX, minY, maxY);
+	// Load splines
+	const size_t dataLength = xData.size();
+	std::vector<wxPoint> points = std::vector<wxPoint>();
+	for (size_t j = 0; j < dataLength; j++) {
+		const wxCoord x = linearScalarXaxis(xData.at(j), minX, plotStartWidth, maxX, plotEndWidth);
+		wxCoord y = linearScalarYaxis(yData.at(j), minY, plotStartHeight, maxY, plotEndHeight);
 
-	// We must have at least double(2). One for X-axis and one for Y-axis
-	if (check2DdataSize(data)) {
-		// Create a line plot
-		int colourIndex = 0;
-		for (size_t i = 0; i < dataSize; i += 2) {
-			// Get data
-			const std::vector<double> xData = data.at(i);
-			const std::vector<double> yData = data.at(i + 1);
-
-			// Get length of them both
-			const size_t xDataLength = xData.size();
-			const size_t yDataLength = yData.size();
-
-			// If they are not the same length - Return false
-			if (xDataLength != yDataLength) {
-				return false;
-			}
-
-			// Set line colour
-			wxColour colour = colourIndex < plotColours.size() ? plotColours.at(colourIndex++) : plotColours.at(PLOT_COLOUR_BLACK);
-			wxPen pen(colour);
-			dc.SetPen(pen);
-
-			// Draw splines
-			std::vector<wxPoint> points = std::vector<wxPoint>();
-			for (size_t j = 0; j < xDataLength; j++) {
-				const wxCoord x = linearScalarXaxis(xData.at(j), minX, plotStartWidth, maxX, plotEndWidth);
-				const wxCoord y = linearScalarYaxis(yData.at(j), minY, plotStartHeight, maxY, plotEndHeight);
-				wxPoint point(x, y);
-				points.push_back(point);
-			}
-			dc.DrawSpline(xDataLength, points.data());
+		// Out of rectangle
+		if (y > plotEndHeight) {
+			continue;
 		}
+
+		if (y < plotStartHeight) {
+			continue;
+		}
+
+		// Collect point
+		wxPoint point(x, y);
+		points.push_back(point);
 	}
 
-	return true;
+	// Draw splines
+	dc.DrawSpline(points.size(), points.data());
+
 }

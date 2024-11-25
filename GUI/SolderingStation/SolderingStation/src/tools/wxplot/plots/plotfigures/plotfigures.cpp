@@ -1,4 +1,4 @@
-#include "plotfigures.h"
+#include "plotfigures.hpp"
 
 
 void PlotFigure::setWxPlotFigureType(const WXPLOT_FIGURE wxPlotFigure, const WXPLOT_TYPE wxPlotType) {
@@ -42,8 +42,12 @@ void PlotFigure::setPlotEndHeight(const wxCoord plotEndHeight) {
 	_2d.setPlotEndHeight(plotEndHeight);
 }
 
-void PlotFigure::setData(const std::vector<std::vector<double>>& data) {
-	_2d.setData(data);
+void PlotFigure::setData(const std::vector<std::vector<double>>& data2D) {
+	_2d.setData(data2D);
+}
+
+void PlotFigure::setData(const std::vector<double>& data1D) {
+	_2d.setData(data1D);
 }
 
 void PlotFigure::legendOn(const bool useLegend) {
@@ -56,6 +60,14 @@ void PlotFigure::setLegend(const std::vector<wxString>& legend, const PLACEMENT 
 
 void PlotFigure::setFontSize(const unsigned int fontSize) {
 	_2d.setFontSize(fontSize);
+}
+
+void PlotFigure::setYlim(const double minY, const double maxY) {
+	_2d.setYlim(minY, maxY);
+}
+
+void PlotFigure::setBinCount(const unsigned int binCount) {
+	_2d.setBinCount(binCount);
 }
 
 wxCoord PlotFigure::getPlotStartWidth() const {

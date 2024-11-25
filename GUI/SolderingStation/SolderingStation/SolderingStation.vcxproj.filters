@@ -75,6 +75,15 @@
     <ClCompile Include="src\tools\wxplot\plots\plottypes\2D\2Dtype.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\tools\wxplot\plots\plotfigures\2D\histogram\histogram.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tools\wxplot\plots\plottypes\2D\bar\bar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tools\modbus\nanomodbus\nanomodbus.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main.h">
@@ -138,6 +147,63 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\tools\wxplot\plots\plottools\enums\plotfigures.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\tools\wxplot\plots\plotfigures\2D\histogram\histogram.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\tools\wxplot\plots\plotfigures\2D\proportional\proportional.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\tools\wxplot\plots\plotfigures\2D\2Dfigure.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\tools\wxplot\plots\plotfigures\plotfigures.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\tools\wxplot\plots\plottools\enums\placements.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\tools\wxplot\plots\plottools\enums\plotfigures.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\tools\wxplot\plots\plottools\enums\plottypes.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\tools\wxplot\plots\plottools\functions\functions.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\tools\wxplot\plots\plottools\lists\colours.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\tools\wxplot\plots\plottools\plottools.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\tools\wxplot\plots\plottypes\2D\bar\bar.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\tools\wxplot\plots\plottypes\2D\line\line.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\tools\wxplot\plots\plottypes\2D\scatter\scatter.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\tools\wxplot\plots\plottypes\2D\spline\spline.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\tools\wxplot\plots\plottypes\2D\2Dtype.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\tools\wxplot\plots\plottypes\plottypes.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\tools\wxplot\plots\plots.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\tools\wxplot\wxplot.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\tools\modbus\nanomodbus\nanomodbus.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

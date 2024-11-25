@@ -1,49 +1,38 @@
 
-#include "scatter.h"
-#include "../../../plottools/plottools.h"
+#include "scatter.hpp"
+#include "../../../plottools/plottools.hpp"
 
-bool Scatter::draw(wxDC& dc) {
-	// Get the size of the data
-	const size_t dataSize = data.size();
+void Scatter::setRadius(const wxCoord radius) { 
+	this->radius = radius; 
+}
+void Scatter::fillCircles(const bool fillCircle) { 
+	this->fillCircle = fillCircle; 
+}
 
-	// Find max and min for the complete data, or else, we will get very weird scaling inside the plot
-	double minX, maxX, minY, maxY;
-	findMaxMin2Ddata(data, minX, maxX, minY, maxY);
-
-	// We must have at least double(2). One for X-axis and one for Y-axis
-	if (check2DdataSize(data)) {
-		// Create a line plot
-		int colourIndex = 0;
-		for (size_t i = 0; i < dataSize; i += 2) {
-			// Get data
-			const std::vector<double> xData = data.at(i);
-			const std::vector<double> yData = data.at(i + 1);
-
-			// Get length of them both
-			const size_t xDataLength = xData.size();
-			const size_t yDataLength = yData.size();
-
-			// If they are not the same length - Return false
-			if (xDataLength != yDataLength) {
-				return false;
-			}
-
-			// Set line colour
-			wxColour colour = colourIndex < plotColours.size() ? plotColours.at(colourIndex++) : plotColours.at(PLOT_COLOUR_BLACK);
-			wxPen pen(colour);
-			if (fillCircle) {
-				dc.SetBrush(colour);
-			}
-			dc.SetPen(pen);
-
-			// Draw lines
-			for (size_t j = 0; j < xDataLength; j++) {
-				const wxCoord x = linearScalarXaxis(xData.at(j), minX, plotStartWidth, maxX, plotEndWidth);
-				const wxCoord y = linearScalarYaxis(yData.at(j), minY, plotStartHeight, maxY, plotEndHeight);
-				dc.DrawCircle(x, y, radius);
-			}
-		}
+void Scatter::draw(wxDC& dc, const std::vector<double>& xData, const std::vector<double>& yData, const unsigned int colourIndex) {
+	// Fill circles
+	if (fillCircle) {
+		setColourBrush(dc, colourIndex);
 	}
 
-	return true;
+	// Set line colour
+	setColourPen(dc, colourIndex);
+
+	// Draw scatters
+	const size_t dataLength = xData.size();
+	for (size_t j = 0; j < dataLength; j++) {
+		const wxCoord x = linearScalarXaxis(xData.at(j), minX, plotStartWidth, maxX, plotEndWidth);
+		wxCoord y = linearScalarYaxis(yData.at(j), minY, plotStartHeight, maxY, plotEndHeight);
+
+		// Out of rectangle
+		if (y > plotEndHeight) {
+			continue;
+		}
+
+		if (y < plotStartHeight) {
+			continue;
+		}
+
+		dc.DrawCircle(x, y, radius);
+	}
 }

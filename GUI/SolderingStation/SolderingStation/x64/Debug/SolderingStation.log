@@ -1,3 +1,11 @@
-﻿  Main.cpp
-  mainframe.cpp
-  2Dfigure.cpp
+﻿  nanomodbus.cpp
+C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\GUI\SolderingStation\SolderingStation\src\tools\nanomodbus\nanomodbus.cpp(1691,29): warning C4267: 'argument': conversion from 'size_t' to 'uint8_t', possible loss of data
+C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\GUI\SolderingStation\SolderingStation\src\tools\nanomodbus\nanomodbus.cpp(1692,44): warning C4267: 'argument': conversion from 'size_t' to 'uint8_t', possible loss of data
+C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\GUI\SolderingStation\SolderingStation\src\tools\nanomodbus\nanomodbus.cpp(1694,49): warning C4267: 'argument': conversion from 'size_t' to 'uint16_t', possible loss of data
+C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\GUI\SolderingStation\SolderingStation\src\tools\nanomodbus\nanomodbus.cpp(1699,38): warning C4244: 'initializing': conversion from 'uint16_t' to 'uint8_t', possible loss of data
+C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\GUI\SolderingStation\SolderingStation\src\tools\nanomodbus\nanomodbus.cpp(1701,40): warning C4244: 'initializing': conversion from 'uint16_t' to 'uint8_t', possible loss of data
+C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\GUI\SolderingStation\SolderingStation\src\tools\nanomodbus\nanomodbus.cpp(1703,43): warning C4244: 'initializing': conversion from 'uint16_t' to 'uint8_t', possible loss of data
+C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\GUI\SolderingStation\SolderingStation\src\tools\nanomodbus\nanomodbus.cpp(1756,42): warning C4244: '=': conversion from 'uint16_t' to 'uint8_t', possible loss of data
+C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\GUI\SolderingStation\SolderingStation\src\tools\nanomodbus\nanomodbus.cpp(1761,29): warning C4244: 'argument': conversion from 'int16_t' to 'uint8_t', possible loss of data
+C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\GUI\SolderingStation\SolderingStation\src\tools\nanomodbus\nanomodbus.cpp(1762,44): warning C4244: 'argument': conversion from 'int16_t' to 'uint8_t', possible loss of data
+  SolderingStation.vcxproj -> C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\GUI\SolderingStation\x64\Debug\SolderingStation.exe

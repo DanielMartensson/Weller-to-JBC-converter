@@ -75,7 +75,7 @@ void MainFrame::OnSize(wxSizeEvent& event) {
     plot->setLegend(legend, PLACEMENT_CENTRE);
     plot->gridOn(true);
     plot->setRadius(3);
-    plot->fillCircles(true);
+    plot->fillCircles(false);
     plot->setPlotStartWidth(startWidth);
     plot->setPlotStartHeight(startHeight);
     plot->setPlotEndWidth(endWidth);

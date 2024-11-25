@@ -1,7 +1,7 @@
 #pragma once
 
 #include <wx/wx.h>
-#include "../../tools/wxplot/wxplot.h"
+#include "../../tools/wxplot/wxplot.hpp"
 
 class MainFrame : public wxFrame
 {
