@@ -15,4 +15,5 @@ std::vector<std::string> USB_getAllPorts();
 bool USB_isConnected(const char port[]);
 std::vector<std::string> USB_getConnectedPorts();
 std::vector<std::string> USB_getUnconnectedPorts();
-std::vector<uint8_t> USB_startTransceiveProcesss(const char port[], const long long timeoutMilliseconds, uint8_t dataTX[], size_t size, std::string endingOfDataRX = "\r\n");
+int32_t USB_writeProcess(const char port[], const uint8_t data[], const size_t size, const unsigned int timeout_ms);
+int32_t USB_readProcess(const char port[], uint8_t data[], const size_t size, const unsigned int timeout_ms);

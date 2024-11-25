@@ -4,9 +4,6 @@
 
 class ConnectFrame : public wxFrame
 {
-public:
-    ConnectFrame();
-
 private:
     // Items
     wxListBox* unconnectedPortsList;
@@ -27,4 +24,6 @@ private:
     void SelectedUnconnectedPort(wxCommandEvent& event);
     void SelectedConnectedPort(wxCommandEvent& event);
 
+public:
+    ConnectFrame();
 };

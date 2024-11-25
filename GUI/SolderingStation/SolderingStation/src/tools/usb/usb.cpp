@@ -243,53 +243,98 @@ std::vector<std::string> USB_getUnconnectedPorts() {
 }
 
 
-std::vector<uint8_t> USB_startTransceiveProcesss(const char port[], const long long timeoutMilliseconds, uint8_t dataTX[], size_t size, std::string endingOfDataRX) {
-	std::vector<uint8_t> dataRX;
+int32_t USB_writeProcess(const char port[], const uint8_t data[], const size_t size, const unsigned int timeout_ms) {
+	int32_t writtenBytes = 0;
 	if (USB_DeviceExist(port)) {
 
 		// Get the USB
 		auto deviceUSB = devicesUSB.at(port);
 
-		// Flag
-		bool wait;
+		// Skapa en io_context och deadline_timer
+		boost::asio::io_context io;
+		boost::asio::deadline_timer timer(io);
+		boost::system::error_code ec;
 
-		// Timer
-		boost::asio::steady_timer timer(io, std::chrono::milliseconds(timeoutMilliseconds));
-		timer.async_wait([&](boost::system::error_code ec) {
-#ifndef _GOOBYSOFT_DEBUG
-			std::cerr << "CDC.cpp - Timer completion (Code:" << ec.value() << " Message:" << ec.message() << ")" << std::endl;
-#endif
-			if (!ec) {
-#ifndef _GOOBYSOFT_DEBUG
-				std::cerr << "CDC.cpp - Timeout expired" << std::endl;
-#endif
+		// Starta deadline timer
+		timer.expires_from_now(boost::posix_time::milliseconds(timeout_ms));
+		timer.async_wait([&](const boost::system::error_code& error) {
+			if (!error) {
+				// Om timeout inträffar, stäng seriellporten
+				ec = boost::asio::error::operation_aborted;
+				deviceUSB->cancel();
 			}
-			wait = false;
 			});
 
-		// Write 
-		boost::asio::write(*deviceUSB, boost::asio::buffer(dataTX, size));
+		// Starta en separat tråd för att köra io_context
+		std::thread io_thread([&]() { io.run(); });
 
-		// Read process
-		boost::asio::async_read_until(*deviceUSB, boost::asio::dynamic_buffer(dataRX), endingOfDataRX, [&](boost::system::error_code ec, size_t bytes_transferred) {
-#ifndef _GOOBYSOFT_DEBUG
-			std::cerr << "CDC.cpp - Read completion (" << ec.message() << ", " << bytes_transferred << " bytes)" << std::endl;
-#endif
-			if (!ec.failed()) {
-#ifndef _GOOBYSOFT_DEBUG
-				std::cerr << "Reading data - OK" << std::endl;
-				timer.cancel();
-#endif
+		// Utför skrivoperationen
+		writtenBytes = boost::asio::write(*deviceUSB, boost::asio::buffer(data, size), ec);
+
+		// Avbryt timern och vänta på io_context-tråden
+		timer.cancel();
+		if (io_thread.joinable()) {
+			io_thread.join();
+		}
+
+		// Kontrollera fel
+		if (ec) {
+			if (ec == boost::asio::error::operation_aborted) {
+				std::cerr << "Timeout inträffade under skrivning till port: " << port << std::endl;
+				return -1; // Returnera felkod för timeout
 			}
-			wait = false;
-			});
-
-		wait = true;
-		io.run();
-
-		// Wait
-		while (wait) { ; }
-		io.reset();
+			std::cerr << "Fel vid skrivning: " << ec.message() << std::endl;
+			return -1;
+		}
 	}
-	return dataRX;
+	return writtenBytes;
+}
+
+
+int32_t USB_readProcess(const char port[], uint8_t data[], const size_t size, const unsigned int timeout_ms) {
+	int32_t bytesRead = 0;
+	if (USB_DeviceExist(port)) {
+
+		// Get the USB
+		auto deviceUSB = devicesUSB.at(port);
+
+		// Skapa en io_context och deadline_timer
+		boost::asio::io_context io;
+		boost::asio::deadline_timer timer(io);
+		boost::system::error_code ec;
+
+		// Starta deadline timer
+		timer.expires_from_now(boost::posix_time::milliseconds(timeout_ms));
+		timer.async_wait([&](const boost::system::error_code& error) {
+			if (!error) {
+				// Om timeout inträffar, stäng seriellporten
+				ec = boost::asio::error::operation_aborted;
+				deviceUSB->cancel();
+			}
+			});
+
+		// Starta en separat tråd för att köra io_context
+		std::thread io_thread([&]() { io.run(); });
+
+		// Utför läsoperationen
+		bytesRead = boost::asio::read(*deviceUSB, boost::asio::buffer(data, size), ec);
+
+		// Avbryt timern och vänta på io_context-tråden
+		timer.cancel();
+		if (io_thread.joinable()) {
+			io_thread.join();
+		}
+
+		// Kontrollera fel
+		if (ec) {
+			if (ec == boost::asio::error::operation_aborted) {
+				std::cerr << "Timeout inträffade under läsning från port: " << port << std::endl;
+				return -1; // Returnera felkod för timeout
+			}
+			std::cerr << "Fel vid läsning: " << ec.message() << std::endl;
+			return -1;
+		}
+	}
+
+	return bytesRead;
 }

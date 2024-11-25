@@ -1,6 +1,6 @@
 
 #include "connectframe.h"
-#include "../../tools/usb/usb.h"
+#include "../../tools/tools.h"
 
 enum {
 	wxID_SCAN,

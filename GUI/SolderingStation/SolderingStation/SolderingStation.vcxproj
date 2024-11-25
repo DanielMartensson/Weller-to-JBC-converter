@@ -145,9 +145,11 @@
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="src\frames\connectframe\connectframe.cpp" />
+    <ClCompile Include="src\frames\controlframe\controlframe.cpp" />
     <ClCompile Include="src\frames\mainframe\mainframe.cpp" />
     <ClCompile Include="src\tools\modbus\modbus.cpp" />
     <ClCompile Include="src\tools\modbus\nanomodbus\nanomodbus.cpp" />
+    <ClCompile Include="src\tools\thread\thread.cpp" />
     <ClCompile Include="src\tools\usb\usb.cpp" />
     <ClCompile Include="src\tools\wxplot\plots\plotfigures\2D\2Dfigure.cpp" />
     <ClCompile Include="src\tools\wxplot\plots\plotfigures\2D\histogram\histogram.cpp" />
@@ -165,8 +167,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\frames\connectframe\connectframe.h" />
+    <ClInclude Include="src\frames\controlframe\controlframe.h" />
+    <ClInclude Include="src\frames\frames.h" />
     <ClInclude Include="src\tools\modbus\modbus.h" />
     <ClInclude Include="src\tools\modbus\nanomodbus\nanomodbus.h" />
+    <ClInclude Include="src\tools\thread\thread.h" />
+    <ClInclude Include="src\tools\tools.h" />
     <ClInclude Include="src\tools\usb\usb.h" />
     <ClInclude Include="Main.h" />
     <ClInclude Include="src\frames\mainframe\mainframe.h" />

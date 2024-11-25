@@ -1,6 +1,6 @@
 
 #include "mainframe.h"
-#include "../connectframe/connectframe.h"
+#include "../frames.h"
 
 MainFrame::MainFrame() : wxFrame(nullptr, wxID_ANY, "Main frame")
 {
@@ -10,14 +10,15 @@ MainFrame::MainFrame() : wxFrame(nullptr, wxID_ANY, "Main frame")
     menuFile->AppendSeparator();
     menuFile->Append(wxID_EXIT);
 
-    // Edit manu
+    // Edit menu
     wxMenu* menuEdit = new wxMenu;
     menuEdit->Append(wxID_OPEN, "&Connect");
+    menuEdit->Append(wxID_EXECUTE, "&Control");
 
+    // Create the menu bar
     wxMenuBar* menuBar = new wxMenuBar();
     menuBar->Append(menuFile, "&File");
     menuBar->Append(menuEdit, "&Edit");
-
     SetMenuBar(menuBar);
 
     CreateStatusBar();
@@ -26,8 +27,11 @@ MainFrame::MainFrame() : wxFrame(nullptr, wxID_ANY, "Main frame")
     // Create plot
     plot = new wxPlot(this, WXPLOT_FIGURE_2D, WXPLOT_TYPE_LINE);
 
+    // Create Modbus RTU client
+    createModbusClient();
+
     // Events
-    Bind(wxEVT_MENU, &MainFrame::OnHello, this, wxID_FILE);
+    Bind(wxEVT_MENU, &MainFrame::OnControl, this, wxID_EXECUTE);
     Bind(wxEVT_MENU, &MainFrame::OnConnect, this, wxID_OPEN);
     Bind(wxEVT_MENU, &MainFrame::OnExit, this, wxID_EXIT);
     Bind(wxEVT_SIZE, &MainFrame::OnSize, this);
@@ -44,10 +48,10 @@ void MainFrame::OnConnect(wxCommandEvent& event)
     connectFrame->Show();
 }
 
-void MainFrame::OnHello(wxCommandEvent& event)
+void MainFrame::OnControl(wxCommandEvent& event)
 {
-    std::vector<std::vector<double>> plotData = { {0, 400},{0, 500} };
-    plot->Refresh();
+    ControlFrame* controlFrame = new ControlFrame();
+    controlFrame->Show();
 }
 
 void MainFrame::OnSize(wxSizeEvent& event) {
