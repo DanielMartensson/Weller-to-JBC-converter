@@ -1,6 +1,5 @@
 
 #include "connectframe.h"
-#include "../../tools/tools.h"
 
 enum {
 	wxID_SCAN,
@@ -10,7 +9,7 @@ enum {
 	wxID_CONNECTED_LIST
 };
 
-ConnectFrame::ConnectFrame() : wxFrame(nullptr, wxID_ANY, "Connect frame", wxDefaultPosition, wxSize(350, 420), wxDEFAULT_FRAME_STYLE & ~wxRESIZE_BORDER & ~wxMAXIMIZE_BOX) {
+ConnectFrame::ConnectFrame(COMMUNICATION_DATA& communicationData) : wxFrame(nullptr, wxID_ANY, "Connect frame", wxDefaultPosition, wxSize(350, 420), wxDEFAULT_FRAME_STYLE & ~wxRESIZE_BORDER & ~wxMAXIMIZE_BOX), communicationData(communicationData) {
 	// Create panel
 	wxPanel* panel = new wxPanel(this, wxID_ANY);
 
@@ -119,9 +118,12 @@ void ConnectFrame::OpenConnection(wxCommandEvent& event) {
 		// Remove the port from the unconnected and add it to connected;
 		unconnectedPortsList->Delete(unconnectedPortsList->GetSelection());
 		connectedPortsList->Append(port);
+		this->communicationData.isOpen = true;
+		std::strncpy(this->communicationData.port, port.c_str(), sizeof(this->communicationData.port));
 		wxMessageBox("Connected to port: " + port, "Success", wxOK | wxICON_INFORMATION);
 	}
 	else {
+		this->communicationData.isOpen = false;
 		wxMessageBox("Could not connect to: " + port, "Fail", wxOK | wxICON_ERROR);
 	}
 }
@@ -135,6 +137,7 @@ void ConnectFrame::CloseConnection(wxCommandEvent& event) {
 	else {
 		wxMessageBox("Could not disconnect from: " + port, "Fail", wxOK | wxICON_ERROR);
 	}
+	this->communicationData.isOpen = false;
 }
 
 void ConnectFrame::SelectedUnconnectedPort(wxCommandEvent& event) {

@@ -1,10 +1,14 @@
 #pragma once
 
 #include <wx/wx.h>
+#include "../../tools/tools.h"
 
 class ConnectFrame : public wxFrame
 {
 private:
+    // Fields
+    COMMUNICATION_DATA& communicationData;
+
     // Items
     wxListBox* unconnectedPortsList;
     wxListBox* connectedPortsList;
@@ -25,5 +29,5 @@ private:
     void SelectedConnectedPort(wxCommandEvent& event);
 
 public:
-    ConnectFrame();
+    ConnectFrame(COMMUNICATION_DATA& communicationData);
 };

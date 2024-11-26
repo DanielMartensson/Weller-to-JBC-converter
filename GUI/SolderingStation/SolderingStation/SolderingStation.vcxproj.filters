@@ -87,7 +87,7 @@
     <ClCompile Include="src\frames\controlframe\controlframe.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\tools\thread\thread.cpp">
+    <ClCompile Include="src\tools\communication\communication.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -221,7 +221,7 @@
     <ClInclude Include="src\frames\controlframe\controlframe.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\tools\thread\thread.h">
+    <ClInclude Include="src\tools\communication\communication.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

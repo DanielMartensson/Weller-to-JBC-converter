@@ -1,8 +1,6 @@
 #include "controlframe.h"
 
-static bool isStarted = false;
-
-ControlFrame::ControlFrame() : wxFrame(nullptr, wxID_ANY, "Control frame", wxDefaultPosition) {
+ControlFrame::ControlFrame(COMMUNICATION_DATA& communicationData) : wxFrame(nullptr, wxID_ANY, "Control frame", wxDefaultPosition), communicationData(communicationData) {
 	// Create panel
 	wxPanel* panel = new wxPanel(this, wxID_ANY);
 
@@ -12,16 +10,12 @@ ControlFrame::ControlFrame() : wxFrame(nullptr, wxID_ANY, "Control frame", wxDef
 	// Create stop button
 	stopButton = new wxButton(panel, wxID_STOP, "Stop");
 
-	// Create slider
-	pwmSlider = new wxSlider(panel, wxID_ANY, 0, 0, 100, wxDefaultPosition, wxSize(300, 50), wxSL_HORIZONTAL | wxSL_LABELS);
-
 	// Create sizer
 	wxBoxSizer* sizerHorizontal = new wxBoxSizer(wxHORIZONTAL);
 
 	// Attach
 	sizerHorizontal->Add(startButton, 0, wxALL | wxLEFT, 2);
 	sizerHorizontal->Add(stopButton, 0, wxALL | wxLEFT, 2);
-	sizerHorizontal->Add(pwmSlider, 0, wxALL | wxLEFT, 2);
 
 	// Sett all
 	panel->SetSizer(sizerHorizontal);
@@ -31,24 +25,25 @@ ControlFrame::ControlFrame() : wxFrame(nullptr, wxID_ANY, "Control frame", wxDef
 	Bind(wxEVT_BUTTON, &ControlFrame::OnStop, this, wxID_STOP);
 
 	// Enable
-	EnableComponents(isStarted);
+	EnableComponents(this->communicationData.isStarted);
 }
 
 void ControlFrame::OnStart(wxCommandEvent& event) {
-	EnableComponents(true);
+	if (this->communicationData.isOpen) {
+		EnableComponents(true);
+		this->communicationData.isStarted = true;
+	}
+	else {
+		wxMessageBox("You're not connected to a port!", "Not connected", wxOK | wxICON_ERROR);
+	}
 }
 
 void ControlFrame::OnStop(wxCommandEvent& event) {
 	EnableComponents(false);
+	this->communicationData.isStarted = false;
 }
 
 void ControlFrame::EnableComponents(const bool enable) {
 	startButton->Enable(!enable);
 	stopButton->Enable(enable);
-	pwmSlider->Enable(enable);
-	isStarted = enable;
-	if (!enable) {
-		pwmSlider->SetValue(0);
-	}
-
 }

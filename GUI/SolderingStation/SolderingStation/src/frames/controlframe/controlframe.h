@@ -1,21 +1,25 @@
 #pragma once
 
 #include <wx/wx.h>
+#include "../../tools/tools.h"
 
 
 class ControlFrame : public wxFrame
 {
 
 private:
+    // Fields
+    COMMUNICATION_DATA& communicationData;
 
+    // Items
     wxButton* startButton;
     wxButton* stopButton;
-    wxSlider* pwmSlider;
 
+    // Functions
     void OnStart(wxCommandEvent& event);
     void OnStop(wxCommandEvent& event);
     void EnableComponents(const bool enable);
 
 public:
-    ControlFrame();
+    ControlFrame(COMMUNICATION_DATA& communicationData);
 };

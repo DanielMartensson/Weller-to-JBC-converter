@@ -30,28 +30,51 @@ MainFrame::MainFrame() : wxFrame(nullptr, wxID_ANY, "Main frame")
     // Create Modbus RTU client
     createModbusClient();
 
+    // Create timer for the 100 ms loop
+    wxTimer* timer = new wxTimer(this);
+    timer->Start(100);
+
     // Events
     Bind(wxEVT_MENU, &MainFrame::OnControl, this, wxID_EXECUTE);
     Bind(wxEVT_MENU, &MainFrame::OnConnect, this, wxID_OPEN);
     Bind(wxEVT_MENU, &MainFrame::OnExit, this, wxID_EXIT);
     Bind(wxEVT_SIZE, &MainFrame::OnSize, this);
+    Bind(wxEVT_TIMER, &MainFrame::OnTimer, this);
 }
 
-void MainFrame::OnExit(wxCommandEvent& event)
-{
+void MainFrame::OnExit(wxCommandEvent& event){
     Close(true);
 }
 
-void MainFrame::OnConnect(wxCommandEvent& event)
-{
-    ConnectFrame* connectFrame = new ConnectFrame();
+void MainFrame::OnConnect(wxCommandEvent& event){
+    ConnectFrame* connectFrame = new ConnectFrame(communicationData);
     connectFrame->Show();
 }
 
-void MainFrame::OnControl(wxCommandEvent& event)
-{
-    ControlFrame* controlFrame = new ControlFrame();
+void MainFrame::OnControl(wxCommandEvent& event){
+    ControlFrame* controlFrame = new ControlFrame(communicationData);
     controlFrame->Show();
+}
+
+void MainFrame::OnTimer(wxTimerEvent& event){
+    if (communicationData.isStarted && communicationData.isOpen) {
+        // Receive temperature signal
+        communicationData.temperature = receiveTemperature(communicationData.port);
+
+        // Receive current signal
+        communicationData.current = receiveCurrent(communicationData.port);
+
+        // Receive setpoint signal
+        communicationData.setpoint = receiveSetpoint(communicationData.port);
+
+        // Receive parameter estimation
+
+        // Receive control signal
+
+        // Receive state estimation
+
+        // Write on plot
+    }
 }
 
 void MainFrame::OnSize(wxSizeEvent& event) {

@@ -5,15 +5,21 @@
 
 class MainFrame : public wxFrame
 {
-public:
-    MainFrame();
-
 private:
+    // Fields
+    COMMUNICATION_DATA communicationData;
+
+    // Items
+    wxPlot* plot; 
+
+    // Functions
     void OnExit(wxCommandEvent& event);
     void OnConnect(wxCommandEvent& event);
     void OnControl(wxCommandEvent& event);
+    void OnTimer(wxTimerEvent& event);
     void OnSize(wxSizeEvent& event);
 
-    wxPlot* plot;
+public:
+    MainFrame();
 };
 

@@ -1,6 +1,6 @@
 #include "nanomodbus/nanomodbus.h"
-#include "../usb/usb.h"
 #include "modbus.h"
+#include "../usb/usb.h"
 
 #define RTU_SERVER_ADDRESS 1
 
@@ -42,6 +42,9 @@ bool createModbusClient() {
 
     // Set address
     nmbs_set_destination_rtu_address(&nmbs_client, RTU_SERVER_ADDRESS);
+
+    // OK
+    return true;
 }
 
 bool readHoldingRegister(const char port[], uint16_t address, uint16_t quantity, uint16_t registers[]) {
@@ -50,5 +53,32 @@ bool readHoldingRegister(const char port[], uint16_t address, uint16_t quantity,
 
     // Then read
     nmbs_error err = nmbs_read_holding_registers(&nmbs_client, address, quantity, registers);
+    return err == NMBS_ERROR_NONE ? true : false;
+}
+
+bool writeSingleRegister(const char port[], uint16_t address, uint16_t value) {
+    // Pass the port name first
+    arg_serial(port);
+
+    // Then write
+    nmbs_error err = nmbs_write_single_register(&nmbs_client, address, value);
+    return err == NMBS_ERROR_NONE ? true : false;
+}
+
+bool writeMultipleRegisters(const char port[], uint16_t address, uint16_t quantity, const uint16_t registers[]) {
+    // Pass the port name first
+    arg_serial(port);
+
+    // Then write
+    nmbs_error err = nmbs_write_multiple_registers(&nmbs_client, address, quantity, registers);
+    return err == NMBS_ERROR_NONE ? true : false;
+}
+
+bool readInputRegisters(const char port[], uint16_t address, uint16_t quantity, uint16_t registers[]) {
+    // Pass the port name first
+    arg_serial(port);
+
+    // Then write
+    nmbs_error err = nmbs_read_input_registers(&nmbs_client, address, quantity, registers);
     return err == NMBS_ERROR_NONE ? true : false;
 }

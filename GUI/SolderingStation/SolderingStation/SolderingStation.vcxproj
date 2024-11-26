@@ -82,7 +82,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\C++\wxWidgets-3.2.6\lib\vc_lib;C:\C++\boost_1_86_0\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\C++\wxWidgets-3.2.6\lib\vc_lib;C:\C++\boost_1_86_0\stage\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -102,7 +102,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\C++\wxWidgets-3.2.6\lib\vc_lib;C:\C++\boost_1_86_0\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\C++\wxWidgets-3.2.6\lib\vc_lib;C:\C++\boost_1_86_0\stage\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -118,7 +118,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\C++\wxWidgets-3.2.6\lib\vc_x64_lib;C:\C++\boost_1_86_0\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\C++\wxWidgets-3.2.6\lib\vc_x64_lib;C:\C++\boost_1_86_0\stage\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -138,7 +138,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\C++\wxWidgets-3.2.6\lib\vc_x64_lib;C:\C++\boost_1_86_0\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\C++\wxWidgets-3.2.6\lib\vc_x64_lib;C:\C++\boost_1_86_0\stage\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -147,9 +147,9 @@
     <ClCompile Include="src\frames\connectframe\connectframe.cpp" />
     <ClCompile Include="src\frames\controlframe\controlframe.cpp" />
     <ClCompile Include="src\frames\mainframe\mainframe.cpp" />
+    <ClCompile Include="src\tools\communication\communication.cpp" />
     <ClCompile Include="src\tools\modbus\modbus.cpp" />
     <ClCompile Include="src\tools\modbus\nanomodbus\nanomodbus.cpp" />
-    <ClCompile Include="src\tools\thread\thread.cpp" />
     <ClCompile Include="src\tools\usb\usb.cpp" />
     <ClCompile Include="src\tools\wxplot\plots\plotfigures\2D\2Dfigure.cpp" />
     <ClCompile Include="src\tools\wxplot\plots\plotfigures\2D\histogram\histogram.cpp" />
@@ -169,9 +169,9 @@
     <ClInclude Include="src\frames\connectframe\connectframe.h" />
     <ClInclude Include="src\frames\controlframe\controlframe.h" />
     <ClInclude Include="src\frames\frames.h" />
+    <ClInclude Include="src\tools\communication\communication.h" />
     <ClInclude Include="src\tools\modbus\modbus.h" />
     <ClInclude Include="src\tools\modbus\nanomodbus\nanomodbus.h" />
-    <ClInclude Include="src\tools\thread\thread.h" />
     <ClInclude Include="src\tools\tools.h" />
     <ClInclude Include="src\tools\usb\usb.h" />
     <ClInclude Include="Main.h" />
