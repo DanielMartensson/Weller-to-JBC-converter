@@ -1,0 +1,4 @@
+../Core/Src/tools/CControl/Sources/ImageProcessing/haarlike.c:1028:17:compute_area	16	static
+../Core/Src/tools/CControl/Sources/ImageProcessing/haarlike.c:1036:13:generate_9x9	16	static
+../Core/Src/tools/CControl/Sources/ImageProcessing/haarlike.c:18:19:haarlike_features	32	static
+../Core/Src/tools/CControl/Sources/ImageProcessing/haarlike.c:531:8:haarlike_predict	64	static

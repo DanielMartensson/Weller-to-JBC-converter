@@ -1,0 +1,4 @@
+../Core/Src/tools/CControl/Sources/ComputerVision/generalizedhough.c:14:8:generalizedhough_collect	72	static
+../Core/Src/tools/CControl/Sources/ComputerVision/generalizedhough.c:73:26:generalizedhough_train	152	static
+../Core/Src/tools/CControl/Sources/ComputerVision/generalizedhough.c:241:6:generalizedhough_eval	144	static
+../Core/Src/tools/CControl/Sources/ComputerVision/generalizedhough.c:383:6:generalizedhough_free	16	static

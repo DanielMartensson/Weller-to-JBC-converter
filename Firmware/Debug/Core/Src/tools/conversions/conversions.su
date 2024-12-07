@@ -1,0 +1,3 @@
+../Core/Src/tools/conversions/conversions.c:15:7:uint16_to_float	0	static
+../Core/Src/tools/conversions/conversions.c:20:6:float_to_uint16	0	static
+../Core/Src/tools/conversions/conversions.c:26:7:calibrate_value	16	static

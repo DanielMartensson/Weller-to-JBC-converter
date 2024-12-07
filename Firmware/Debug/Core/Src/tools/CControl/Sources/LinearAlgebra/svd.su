@@ -1,0 +1,3 @@
+../Core/Src/tools/CControl/Sources/LinearAlgebra/svd.c:230:6:svd_jacobi_one_sided	96	static
+../Core/Src/tools/CControl/Sources/LinearAlgebra/svd.c:496:6:svd_golub_reinsch	120	static
+../Core/Src/tools/CControl/Sources/LinearAlgebra/svd.c:28:6:svd	32	static

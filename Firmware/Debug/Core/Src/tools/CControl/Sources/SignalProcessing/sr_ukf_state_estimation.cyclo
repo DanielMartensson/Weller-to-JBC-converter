@@ -1,0 +1,4 @@
+../Core/Src/tools/CControl/Sources/SignalProcessing/sr_ukf_state_estimation.c:174:13:multiply_sigma_point_matrix_to_weights	3
+../Core/Src/tools/CControl/Sources/SignalProcessing/sr_ukf_state_estimation.c:193:13:create_state_estimation_error_covariance_matrix	6
+../Core/Src/tools/CControl/Sources/SignalProcessing/sr_ukf_state_estimation.c:109:13:create_sigma_point_matrix.constprop	6
+../Core/Src/tools/CControl/Sources/SignalProcessing/sr_ukf_state_estimation.c:33:6:sr_ukf_state_estimation	12

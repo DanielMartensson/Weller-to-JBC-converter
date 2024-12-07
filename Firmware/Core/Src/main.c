@@ -21,17 +21,35 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "tools/tools.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-
+typedef enum{
+	PARAMETER_ESTIMATION,
+	STATE_ESTIMATION,
+	CONTROL_FEEDBACK,
+	STATE_ESTIMATION_AND_CONTROL_FEEDBACK,
+	SAVE_REGISTER_TO_MEMORY
+}OPERATION;
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
+#define row_a 2
+#define column_b 1
+#define row_c 1
+#define row_ai (row_a + column_b)
+#define column_bi column_b
+#define row_ci row_c
+#define N 10
+#define SAMPLE_TIME 0.5f
+#define SETPOINT 6.0f
+#define LAMBDA 0.2f
+#define MAX_U 0.4f
+#define INTEGRATION_CONSTANT 0.2f
+#define HAS_INTEGRATION_ACTION true
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -41,30 +59,68 @@
 
 /* Private variables ---------------------------------------------------------*/
 ADC_HandleTypeDef hadc;
+DMA_HandleTypeDef hdma_adc;
 
 COMP_HandleTypeDef hcomp2;
 
+TIM_HandleTypeDef htim1;
 TIM_HandleTypeDef htim2;
 
 UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN PV */
-
+volatile uint32_t ADC_DATA[3];
+const uint8_t ADC_DATA_SIZE =  sizeof(ADC_DATA) / sizeof(ADC_DATA[0]);
+float what[3] = { 0, 0, 0 }; 		/* Estimated parameter vector */
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
+static void MX_DMA_Init(void);
 static void MX_ADC_Init(void);
 static void MX_COMP2_Init(void);
 static void MX_TIM2_Init(void);
 static void MX_USART1_UART_Init(void);
+static void MX_TIM1_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+
+int32_t UART_read(const char port[], uint8_t* buf, uint16_t count, int32_t byte_timeout_ms) {
+	const bool read = HAL_UART_Receive(&huart1, buf, count, byte_timeout_ms) == HAL_OK;
+	if(read){
+		return count; /* Assuming that we wrote count bytes */
+	}else{
+		return 0;
+	}
+}
+
+int32_t UART_write(const char port[], const uint8_t* buf, uint16_t count, int32_t byte_timeout_ms) {
+	const bool wrote = HAL_UART_Transmit(&huart1, buf, count, byte_timeout_ms) == HAL_OK;
+    if(wrote){
+    	return count; /* Assuming that we wrote count bytes */
+    }else{
+    	return 0;
+    }
+}
+
+const char* UART_port(){
+	return "PORT";
+}
+
+void G(float dw[], const float x[], const float w[]) {
+	dw[0] = 1.0f*x[1];
+	dw[1] = -w[0]*x[0] - w[1]*x[1] + w[2]*x[2];
+}
+
+void F(float dx[], const float x[], const float u[]) {
+	dx[0] = 1.0f*x[1];;
+	dx[1] = -what[0]*x[0] - what[1]*x[1] + what[2]*u[0];
+}
 
 /* USER CODE END 0 */
 
@@ -97,11 +153,91 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();
   MX_ADC_Init();
   MX_COMP2_Init();
   MX_TIM2_Init();
   MX_USART1_UART_Init();
+  MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
+
+  /* Start nanoMODBUS with address 1 */
+  modbus_set_serial_read(UART_read);
+  modbus_set_serial_write(UART_write);
+  modbus_set_serial_port(UART_port);
+  modbus_server_create_RTU(1);
+
+  /* Start PWM */
+  //HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_3);
+
+  /* Start timer */
+  HAL_TIM_Base_Start(&htim1);
+
+  /* Start ADC */
+  HAL_ADC_Start_DMA(&hadc, (uint32_t*)ADC_DATA, ADC_DATA_SIZE);
+
+  /* Square Root Parameter Estimation */
+
+  const float alpha = 0.1f; 												/* Alpha value - A small number like 0.01 -> 1.0 */
+  const float beta = 2.0f; 													/* Beta value - Normally 2 for gaussian noise */
+
+  const uint8_t L_parameter_estimation = 3; 								/* How many parameters we have */
+  const float e = 0.1f;														/* Tuning factor for noise */
+  float Re[3 * 3] = { e, 0, 0, 0, e, 0, 0, 0, e }; 							/* Initial noise covariance matrix - Recommended to use identity matrix */
+  float Sw[3 * 3] = { 1, 0, 0, 0, 1, 0, 0, 0, 1 }; 							/* Initial covariance matrix - Recommended to use identity matrix */
+  float d[3] = { 0, 0, 0 };													/* This is our measurement */
+  float x[3] = { 4.4f, 6.2f, 1.0f }; 										/* State vector */
+  float lambda_rls = 1.0f;													/* RLS forgetting parameter between 0.0 and 1.0, but very close to 1.0 */
+
+  const uint8_t L_state_estimation = 2; 									/* How many states we have */
+  const float r = 1.5f;														/* Tuning factor for noise */
+  const float q = 0.2f;														/* Tuning factor for disturbance */
+  float Rv[2 * 2] = {q, 0, 0, q }; 											/* Initial disturbance covariance matrix - Recommended to use identity matrix */
+  float Rn[2 * 2] = { r, 0, 0, r }; 										/* Initial noise covariance matrix - Recommended to use identity matrix */
+  float S[2 * 2] = {1, 0, 0, 1 }; 											/* Initial covariance matrix - Recommended to use identity matrix */
+  float xhat[2] = { 0, 0 }; 												/* Estimated state vector */
+  float y[2] = { 0, 0 };													/* This is our measurement */
+  float u[2] = { 0, 0 }; 													/* u is not used in this example due to the transition function not using an input signal */
+
+  /* Create A matrix */
+  float A[row_a * row_a] = { 0, 1, -1, -1 };
+
+  /* Create B matrix */
+  float B[row_a * column_b] = { 0, 1 };
+
+  /* Create C matrix */
+  float C[row_c * row_a] = { 1, 0 };
+
+  /* Turn the SS model into a discrete SS model */
+  c2d(A, B, row_a, column_b, SAMPLE_TIME);
+
+  /* Create Ai matrix */
+  float Ai[row_ai * row_ai];
+
+  /* Create Bi matrix */
+  float Bi[row_ai * column_bi];
+
+  /* Create Ci matrix */
+  float Ci[row_ci * row_ai];
+
+  /* Add integral action */
+  ssint(A, B, C, Ai, Bi, Ci, row_a, column_b, row_c);
+
+  /* Create PHI matrix */
+  float PHI[(N * row_ci) * row_ai];
+  obsv(PHI, Ai, Ci, row_ai, row_ci, N);
+
+  /* Create GAMMA matrix */
+  float GAMMA[(N * row_ci) * (N * column_bi)];
+  cab(GAMMA, PHI, Bi, Ci, row_ai, row_ci, column_bi, N);
+
+  /* Create vectors: state vector x, input signal u, reference vector r, maximum output signal Umax, slack variable values S */
+  float x_qmpc[row_ai], u_qmpc[column_bi], r_qmpc[row_ci], Umax[column_bi], S_qmpc[row_ci];
+
+  /* Remember the last operation */
+  uint16_t last_operation = STATE_ESTIMATION;
+
+  HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, GPIO_PIN_SET);
 
   /* USER CODE END 2 */
 
@@ -112,6 +248,89 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+
+	  /* Polling */
+	  modbus_server_polling();
+
+	  /* Read digital outputs */
+	  const bool led_green = HAL_GPIO_ReadPin(LED_GREEN_GPIO_Port, LED_GREEN_Pin);
+	  const bool leakage_active = HAL_GPIO_ReadPin(LEAKAGE_ACTIVE_GPIO_Port, LEAKAGE_ACTIVE_Pin);
+
+	  /* Set digital outputs */
+	  const uint8_t digital_outputs = (led_green << 1) | leakage_active;
+	  modbus_server_set_digital_outputs(&digital_outputs, 0, 2);
+
+	  /* Read digital inputs */
+	  const bool n_sleep = HAL_GPIO_ReadPin(N_SLEEP_GPIO_Port, N_SLEEP_Pin);
+
+	  /* Set digital inputs */
+	  const uint8_t digital_inputs = n_sleep;
+	  modbus_server_set_digital_inputs(&digital_inputs, 0, 1);
+
+	  /* Read registers */
+	  uint16_t parameters[13];
+	  modbus_server_get_parameters(parameters, 0, 13);
+	  const uint16_t temperature_slope_MSB = parameters[0];
+	  const uint16_t temperature_slope_LSB = parameters[1];
+	  const uint16_t temperature_bias_MSB = parameters[2];
+	  const uint16_t temperature_bias_LSB = parameters[3];
+	  const uint16_t current_slope_MSB = parameters[4];
+	  const uint16_t current_slope_LSB = parameters[5];
+	  const uint16_t current_bias_MSB = parameters[6];
+	  const uint16_t current_bias_LSB = parameters[7];
+	  const uint16_t potentiometer_slope_MSB = parameters[8];
+	  const uint16_t potentiometer_slope_LSB = parameters[9];
+	  const uint16_t potentiometer_bias_MSB = parameters[10];
+	  const uint16_t potentiometer_bias_LSB = parameters[11];
+	  const uint16_t operation = parameters[12];
+
+	  /* Read ADC inputs */
+	  const uint16_t temperature_raw = ADC_DATA[0];
+	  const uint16_t setpoint_raw = ADC_DATA[1];
+	  const uint16_t current_raw = ADC_DATA[2];
+
+	  /* Convert to real value */
+	  const float temperature = calibrate_value(temperature_raw, temperature_slope_MSB, temperature_slope_LSB, temperature_bias_MSB, temperature_bias_LSB);
+	  const float current = calibrate_value(current_raw, current_slope_MSB, current_slope_LSB, current_bias_MSB, current_bias_LSB);
+	  const float setpoint = calibrate_value(setpoint_raw, potentiometer_slope_MSB, potentiometer_slope_LSB, potentiometer_bias_MSB, potentiometer_bias_LSB);
+
+	  /* Do operation */
+	  switch(operation){
+	  case PARAMETER_ESTIMATION:
+		  last_operation = PARAMETER_ESTIMATION;
+		  //__HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_3, (uint16_t)potentiometer_raw);
+		  sr_ukf_parameter_estimation(d, what, Re, x, G, lambda_rls, Sw, alpha, beta, L_parameter_estimation);
+		  break;
+	  case STATE_ESTIMATION:
+		  last_operation = STATE_ESTIMATION;
+		  sr_ukf_state_estimation(y, xhat, Rn, Rv, u, F, S, alpha, beta, L_state_estimation);
+		  break;
+	  case CONTROL_FEEDBACK:
+		  last_operation = CONTROL_FEEDBACK;
+		  qmpc(GAMMA, PHI, x_qmpc, u_qmpc, Umax, S_qmpc, r_qmpc, row_ai, row_ci, column_bi, N, LAMBDA, HAS_INTEGRATION_ACTION, INTEGRATION_CONSTANT);
+		  break;
+	  case STATE_ESTIMATION_AND_CONTROL_FEEDBACK:
+		  last_operation = STATE_ESTIMATION_AND_CONTROL_FEEDBACK;
+		  sr_ukf_state_estimation(y, xhat, Rn, Rv, u, F, S, alpha, beta, L_state_estimation);
+		  qmpc(GAMMA, PHI, x_qmpc, u_qmpc, Umax, S_qmpc, r_qmpc, row_ai, row_ci, column_bi, N, LAMBDA, HAS_INTEGRATION_ACTION, INTEGRATION_CONSTANT);
+		  break;
+	  case SAVE_REGISTER_TO_MEMORY:
+
+		  break;
+	  default:
+		  break;
+	  }
+
+	  /* Set analog inputs */
+	  uint16_t analog_inputs[9];
+	  analog_inputs[0] = temperature_raw;
+	  analog_inputs[1] = setpoint_raw;
+	  analog_inputs[2] = current_raw;
+	  float_to_uint16(temperature, &analog_inputs[3], &analog_inputs[4]);
+	  float_to_uint16(setpoint, &analog_inputs[5], &analog_inputs[6]);
+	  float_to_uint16(current, &analog_inputs[7], &analog_inputs[8]);
+	  modbus_server_set_analog_inputs(analog_inputs, 0, 9);
+
   }
   /* USER CODE END 3 */
 }
@@ -190,9 +409,9 @@ static void MX_ADC_Init(void)
   hadc.Init.LowPowerAutoPowerOff = DISABLE;
   hadc.Init.ContinuousConvMode = DISABLE;
   hadc.Init.DiscontinuousConvMode = DISABLE;
-  hadc.Init.ExternalTrigConv = ADC_SOFTWARE_START;
-  hadc.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
-  hadc.Init.DMAContinuousRequests = DISABLE;
+  hadc.Init.ExternalTrigConv = ADC_EXTERNALTRIGCONV_T1_TRGO;
+  hadc.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_RISING;
+  hadc.Init.DMAContinuousRequests = ENABLE;
   hadc.Init.Overrun = ADC_OVR_DATA_PRESERVED;
   if (HAL_ADC_Init(&hadc) != HAL_OK)
   {
@@ -203,7 +422,7 @@ static void MX_ADC_Init(void)
   */
   sConfig.Channel = ADC_CHANNEL_0;
   sConfig.Rank = ADC_RANK_CHANNEL_NUMBER;
-  sConfig.SamplingTime = ADC_SAMPLETIME_1CYCLE_5;
+  sConfig.SamplingTime = ADC_SAMPLETIME_28CYCLES_5;
   if (HAL_ADC_ConfigChannel(&hadc, &sConfig) != HAL_OK)
   {
     Error_Handler();
@@ -265,6 +484,52 @@ static void MX_COMP2_Init(void)
 }
 
 /**
+  * @brief TIM1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM1_Init(void)
+{
+
+  /* USER CODE BEGIN TIM1_Init 0 */
+
+  /* USER CODE END TIM1_Init 0 */
+
+  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+
+  /* USER CODE BEGIN TIM1_Init 1 */
+
+  /* USER CODE END TIM1_Init 1 */
+  htim1.Instance = TIM1;
+  htim1.Init.Prescaler = 15;
+  htim1.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim1.Init.Period = 49999;
+  htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim1.Init.RepetitionCounter = 0;
+  htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_ENABLE;
+  if (HAL_TIM_Base_Init(&htim1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+  if (HAL_TIM_ConfigClockSource(&htim1, &sClockSourceConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_UPDATE;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_ENABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim1, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM1_Init 2 */
+
+  /* USER CODE END TIM1_Init 2 */
+
+}
+
+/**
   * @brief TIM2 Initialization Function
   * @param None
   * @retval None
@@ -276,6 +541,7 @@ static void MX_TIM2_Init(void)
 
   /* USER CODE END TIM2_Init 0 */
 
+  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
   TIM_MasterConfigTypeDef sMasterConfig = {0};
   TIM_OC_InitTypeDef sConfigOC = {0};
 
@@ -283,17 +549,26 @@ static void MX_TIM2_Init(void)
 
   /* USER CODE END TIM2_Init 1 */
   htim2.Instance = TIM2;
-  htim2.Init.Prescaler = 0;
+  htim2.Init.Prescaler = 120;
   htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim2.Init.Period = 4294967295;
+  htim2.Init.Period = 4095;
   htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+  if (HAL_TIM_ConfigClockSource(&htim2, &sClockSourceConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
   if (HAL_TIM_PWM_Init(&htim2) != HAL_OK)
   {
     Error_Handler();
   }
-  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
-  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_UPDATE;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_ENABLE;
   if (HAL_TIMEx_MasterConfigSynchronization(&htim2, &sMasterConfig) != HAL_OK)
   {
     Error_Handler();
@@ -329,12 +604,12 @@ static void MX_USART1_UART_Init(void)
 
   /* USER CODE END USART1_Init 1 */
   huart1.Instance = USART1;
-  huart1.Init.BaudRate = 38400;
+  huart1.Init.BaudRate = 115200;
   huart1.Init.WordLength = UART_WORDLENGTH_8B;
   huart1.Init.StopBits = UART_STOPBITS_1;
   huart1.Init.Parity = UART_PARITY_NONE;
   huart1.Init.Mode = UART_MODE_TX_RX;
-  huart1.Init.HwFlowCtl = UART_HWCONTROL_RTS_CTS;
+  huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
   huart1.Init.OverSampling = UART_OVERSAMPLING_16;
   huart1.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
   huart1.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
@@ -345,6 +620,22 @@ static void MX_USART1_UART_Init(void)
   /* USER CODE BEGIN USART1_Init 2 */
 
   /* USER CODE END USART1_Init 2 */
+
+}
+
+/**
+  * Enable DMA controller clock
+  */
+static void MX_DMA_Init(void)
+{
+
+  /* DMA controller clock enable */
+  __HAL_RCC_DMA1_CLK_ENABLE();
+
+  /* DMA interrupt init */
+  /* DMA1_Channel1_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA1_Channel1_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Channel1_IRQn);
 
 }
 

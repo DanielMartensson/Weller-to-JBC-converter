@@ -1,0 +1,3 @@
+../Core/Src/tools/CControl/Sources/MachineLearning/adaboost.c:16:17:adaboost_train	15
+../Core/Src/tools/CControl/Sources/MachineLearning/adaboost.c:135:7:adaboost_eval	7
+../Core/Src/tools/CControl/Sources/MachineLearning/adaboost.c:183:8:adaboost_predict	4
