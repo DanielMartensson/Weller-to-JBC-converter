@@ -14,6 +14,7 @@ MainFrame::MainFrame() : wxFrame(nullptr, wxID_ANY, "Main frame")
     wxMenu* menuEdit = new wxMenu;
     menuEdit->Append(wxID_OPEN, "&Connect");
     menuEdit->Append(wxID_EXECUTE, "&Control");
+    menuEdit->Append(wxID_NETWORK, "&Modbus");
 
     // Create the menu bar
     wxMenuBar* menuBar = new wxMenuBar();
@@ -27,9 +28,6 @@ MainFrame::MainFrame() : wxFrame(nullptr, wxID_ANY, "Main frame")
     // Create plot
     plot = new wxPlot(this, WXPLOT_FIGURE_2D, WXPLOT_TYPE_LINE);
 
-    // Create Modbus RTU client
-    createModbusClient();
-
     // Create timer for the 100 ms loop
     wxTimer* timer = new wxTimer(this);
     timer->Start(100);
@@ -38,6 +36,7 @@ MainFrame::MainFrame() : wxFrame(nullptr, wxID_ANY, "Main frame")
     Bind(wxEVT_MENU, &MainFrame::OnControl, this, wxID_EXECUTE);
     Bind(wxEVT_MENU, &MainFrame::OnConnect, this, wxID_OPEN);
     Bind(wxEVT_MENU, &MainFrame::OnExit, this, wxID_EXIT);
+    Bind(wxEVT_MENU, &MainFrame::OnModbus, this, wxID_NETWORK);
     Bind(wxEVT_SIZE, &MainFrame::OnSize, this);
     Bind(wxEVT_TIMER, &MainFrame::OnTimer, this);
 }
@@ -56,16 +55,21 @@ void MainFrame::OnControl(wxCommandEvent& event){
     controlFrame->Show();
 }
 
+void MainFrame::OnModbus(wxCommandEvent& event) {
+    ModbusFrame* modbusFrame = new ModbusFrame(communicationData);
+    modbusFrame->Show();
+}
+
 void MainFrame::OnTimer(wxTimerEvent& event){
-    if (communicationData.isStarted && communicationData.isOpen) {
+    if (communicationData.isStarted) {
         // Receive temperature signal
-        communicationData.temperature = receiveTemperature(communicationData.port);
+        //communicationData.temperature = receiveTemperature(communicationData.port);
 
         // Receive current signal
-        communicationData.current = receiveCurrent(communicationData.port);
+        //communicationData.current = receiveCurrent(communicationData.port);
 
         // Receive setpoint signal
-        communicationData.setpoint = receiveSetpoint(communicationData.port);
+        //communicationData.setpoint
 
         // Receive parameter estimation
 
@@ -73,7 +77,30 @@ void MainFrame::OnTimer(wxTimerEvent& event){
 
         // Receive state estimation
 
+        // Create data
+
+        // Set data
+        if (data2D.size()) {
+            const size_t data2DLenght = data2D.at(0).size();
+            if (data2DLenght > 200) {
+                data2D.at(0).erase(data2D.at(0).begin());
+                data2D.at(1).erase(data2D.at(1).begin());
+            }
+            else {
+                data2D.at(0).push_back(data2DLenght);
+                data2D.at(1).push_back(data2DLenght);
+            }
+        }
+        else {
+            data2D.push_back({ 0 });
+            data2D.push_back({ 50 });
+        }
+
+        plot->setData(data2D);
+
+
         // Write on plot
+        plot->Refresh();
     }
 }
 
@@ -85,15 +112,15 @@ void MainFrame::OnSize(wxSizeEvent& event) {
     wxCoord startWidth = 0, startHeight = 0, endWidth, endHeight;
     GetClientSize(&endWidth, &endHeight);
 
-    // Create data
-    std::vector<std::vector<double>> data = { {0, 100, 200, 300, 400, 500}, {50, 50 , 50, 50, 1, 50},
-                                              { 0, 200, 300, 400, 500, 600 }, {20, 20 , -20, 20, 0, 20} };
+    // Set size
+    plot->setPlotStartWidth(startWidth);
+    plot->setPlotStartHeight(startHeight);
+    plot->setPlotEndWidth(endWidth);
+    plot->setPlotEndHeight(endHeight);
+}
 
-    // Create legend
-    std::vector<wxString> legend = { "red", "green", "blue", "super svart!"};
-
-    // Redraw figure
-    plot->setFontSize(10);
+/*
+   plot->setFontSize(10);
     plot->setTitle("hellofdsfdfgdgfdgfd");
     plot->setYlabel("hellogfdgfdgfdgfdgdfgd");
     plot->setXlabel("hellogfdgfdfdsffgdsgfdgfdgfd");
@@ -103,11 +130,12 @@ void MainFrame::OnSize(wxSizeEvent& event) {
     plot->gridOn(true);
     plot->setRadius(3);
     plot->fillCircles(false);
-    plot->setPlotStartWidth(startWidth);
-    plot->setPlotStartHeight(startHeight);
-    plot->setPlotEndWidth(endWidth);
-    plot->setPlotEndHeight(endHeight);
-    plot->setData(data);
-    plot->Refresh();
+        // Create data
+    std::vector<std::vector<double>> data = { {0, 100, 200, 300, 400, 500}, {50, 50 , 50, 50, 1, 50},
+                                              { 0, 200, 300, 400, 500, 600 }, {20, 20 , -20, 20, 0, 20} };
 
-}
+    // Create legend
+    std::vector<wxString> legend = { "red", "green", "blue", "super svart!"};
+
+    // Redraw figure
+    */

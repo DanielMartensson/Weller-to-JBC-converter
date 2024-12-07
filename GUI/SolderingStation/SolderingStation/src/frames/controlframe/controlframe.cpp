@@ -29,7 +29,8 @@ ControlFrame::ControlFrame(COMMUNICATION_DATA& communicationData) : wxFrame(null
 }
 
 void ControlFrame::OnStart(wxCommandEvent& event) {
-	if (this->communicationData.isOpen) {
+
+	if (this->communicationData.ports.size() > 0) {
 		EnableComponents(true);
 		this->communicationData.isStarted = true;
 	}

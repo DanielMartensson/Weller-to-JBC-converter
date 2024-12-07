@@ -78,6 +78,7 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>C:\C++\wxWidgets-3.2.6\include\msvc;C:\C++\wxWidgets-3.2.6\include;C:\C++\boost_1_86_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -96,6 +97,7 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>C:\C++\wxWidgets-3.2.6\include\msvc;C:\C++\wxWidgets-3.2.6\include;C:\C++\boost_1_86_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -147,8 +149,13 @@
     <ClCompile Include="src\frames\connectframe\connectframe.cpp" />
     <ClCompile Include="src\frames\controlframe\controlframe.cpp" />
     <ClCompile Include="src\frames\mainframe\mainframe.cpp" />
+    <ClCompile Include="src\frames\modbusframe\modbusframe.cpp" />
     <ClCompile Include="src\tools\communication\communication.cpp" />
+    <ClCompile Include="src\tools\conversions\conversions.cpp" />
     <ClCompile Include="src\tools\modbus\modbus.cpp" />
+    <ClCompile Include="src\tools\modbus\modbusclient.cpp" />
+    <ClCompile Include="src\tools\modbus\modbusserver.cpp" />
+    <ClCompile Include="src\tools\modbus\nanomodbus\nanomodbus.cpp" />
     <ClCompile Include="src\tools\modbus\nanomodbus\nanomodbus.cpp" />
     <ClCompile Include="src\tools\usb\usb.cpp" />
     <ClCompile Include="src\tools\wxplot\plots\plotfigures\2D\2Dfigure.cpp" />
@@ -169,8 +176,12 @@
     <ClInclude Include="src\frames\connectframe\connectframe.h" />
     <ClInclude Include="src\frames\controlframe\controlframe.h" />
     <ClInclude Include="src\frames\frames.h" />
+    <ClInclude Include="src\frames\modbusframe\modbusframe.h" />
     <ClInclude Include="src\tools\communication\communication.h" />
+    <ClInclude Include="src\tools\conversions\conversions.h" />
     <ClInclude Include="src\tools\modbus\modbus.h" />
+    <ClInclude Include="src\tools\modbus\modbusclient.h" />
+    <ClInclude Include="src\tools\modbus\modbusserver.h" />
     <ClInclude Include="src\tools\modbus\nanomodbus\nanomodbus.h" />
     <ClInclude Include="src\tools\tools.h" />
     <ClInclude Include="src\tools\usb\usb.h" />

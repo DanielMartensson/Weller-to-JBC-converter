@@ -3,7 +3,7 @@
 /**
  * @brief Enum representing placement options for an item.
  *
- * This enum defines the different placement positions for an item, such as in a grid or on a coordinate system.
+ * This enum defines the different placement positions for an item, such as in a analogInputGrid or on a coordinate system.
  */
 typedef enum {
     PLACEMENT_NORTH_WEST, ///< North-west placement

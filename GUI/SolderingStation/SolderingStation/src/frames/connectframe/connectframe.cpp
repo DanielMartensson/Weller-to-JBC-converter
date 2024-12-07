@@ -118,12 +118,12 @@ void ConnectFrame::OpenConnection(wxCommandEvent& event) {
 		// Remove the port from the unconnected and add it to connected;
 		unconnectedPortsList->Delete(unconnectedPortsList->GetSelection());
 		connectedPortsList->Append(port);
-		this->communicationData.isOpen = true;
-		std::strncpy(this->communicationData.port, port.c_str(), sizeof(this->communicationData.port));
+		this->communicationData.isOpen[port] = true;
+		this->communicationData.ports.push_back(port);
 		wxMessageBox("Connected to port: " + port, "Success", wxOK | wxICON_INFORMATION);
 	}
 	else {
-		this->communicationData.isOpen = false;
+		this->communicationData.isOpen[port] = false;
 		wxMessageBox("Could not connect to: " + port, "Fail", wxOK | wxICON_ERROR);
 	}
 }
@@ -132,12 +132,14 @@ void ConnectFrame::CloseConnection(wxCommandEvent& event) {
 	const std::string port = connectedPortsList->GetStringSelection().ToStdString();
 	if (USB_closeConnection(port.c_str())) {
 		connectedPortsList->Delete(connectedPortsList->GetSelection());
+		auto& p = this->communicationData.ports;
+		p.erase(std::remove(p.begin(), p.end(), port), p.end());
 		wxMessageBox("Disconnected from port: " + port, "Success", wxOK | wxICON_INFORMATION);
 	}
 	else {
 		wxMessageBox("Could not disconnect from: " + port, "Fail", wxOK | wxICON_ERROR);
 	}
-	this->communicationData.isOpen = false;
+	this->communicationData.isOpen[port] = false;
 }
 
 void ConnectFrame::SelectedUnconnectedPort(wxCommandEvent& event) {
@@ -147,7 +149,7 @@ void ConnectFrame::SelectedUnconnectedPort(wxCommandEvent& event) {
 	baudRateList->SetSelection(0);
 	databitList->Enable(true);
 	databitList->SetSelection(0);
-	flowControlList->Enable(true);	
+	flowControlList->Enable(true);
 	flowControlList->SetSelection(0);
 	stopBitList->Enable(true);
 	stopBitList->SetSelection(0);

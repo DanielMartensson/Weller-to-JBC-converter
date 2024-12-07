@@ -104,7 +104,7 @@ void wxPlot::drawPlot(wxPaintEvent& event) {
 	// Draw type
 	plots.getPlotTypes().drawType(dc);
 
-	// Draw grid if enabled
+	// Draw analogInputGrid if enabled
 	plots.getPlotFigures().drawGrid(dc);
 
 	// Draw ticks if used

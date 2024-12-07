@@ -1,4 +1,11 @@
-﻿  mainframe.cpp
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(1119,5): warning MSB8027: Two or more files with the name of nanomodbus.cpp will produce outputs to the same location. This can lead to an incorrect build result.  The files involved are src\tools\modbus\nanomodbus\nanomodbus.cpp, src\tools\modbus\nanomodbus\nanomodbus.cpp.
+  Main.cpp
+  connectframe.cpp
+  controlframe.cpp
+  mainframe.cpp
+  modbusframe.cpp
+  communication.cpp
   modbus.cpp
   Generating Code...
+x64\Debug\nanomodbus.obj : warning LNK4042: object specified more than once; extras ignored
   SolderingStation.vcxproj -> C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\GUI\SolderingStation\x64\Debug\SolderingStation.exe

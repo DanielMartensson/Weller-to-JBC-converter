@@ -36,9 +36,6 @@
     <ClCompile Include="src\tools\usb\usb.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\tools\modbus\modbus.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\frames\connectframe\connectframe.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -90,6 +87,24 @@
     <ClCompile Include="src\tools\communication\communication.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\tools\conversions\conversions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\frames\modbusframe\modbusframe.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tools\modbus\nanomodbus\nanomodbus.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tools\modbus\modbus.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tools\modbus\modbusclient.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tools\modbus\modbusserver.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main.h">
@@ -101,7 +116,7 @@
     <ClInclude Include="src\tools\usb\usb.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\tools\modbus\modbus.h">
+    <ClInclude Include="src\tools\modbus\modbusclient.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\frames\connectframe\connectframe.h">
@@ -222,6 +237,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\tools\communication\communication.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\tools\conversions\conversions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\frames\modbusframe\modbusframe.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\tools\modbus\modbusserver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\tools\modbus\modbus.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -52,8 +52,8 @@ public:
 	void setTicks(const unsigned int ticks);
 
 	/**
-	 * @brief Enable grid on the figure.
-	 * @param useGrid Set true for enabling grid.
+	 * @brief Enable analogInputGrid on the figure.
+	 * @param useGrid Set true for enabling analogInputGrid.
 	 */
 	void gridOn(const bool useGrid);
 
@@ -194,7 +194,7 @@ public:
 	 * - Step 3: Get the recalculated plotStartWidth, plotStartHeight, plotEndWidth and plotEndHeight from plot figure.
 	 * - Step 4: Set the recalculated plotStartWidth, plotStartHeight, plotEndWidth and plotEndHeight to plot type.
 	 * - Step 5: Draw plot type.
-	 * - Step 6: Draw grid if enabled.
+	 * - Step 6: Draw analogInputGrid if enabled.
 	 * - Step 7: Draw ticks if enabled.
 	 * - Step 8: Draw legend if enabled.
 	 * 

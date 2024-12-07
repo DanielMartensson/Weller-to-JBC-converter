@@ -25,6 +25,7 @@ typedef enum {
 // Defines
 #define MAX_PORT_LENGTH 20
 
+static char temporaryPort[100] = { 0 };
 static boost::asio::io_context io;
 static std::map<std::string, std::shared_ptr<boost::asio::serial_port>> devicesUSB;
 
@@ -243,7 +244,7 @@ std::vector<std::string> USB_getUnconnectedPorts() {
 }
 
 
-int32_t USB_writeProcess(const char port[], const uint8_t data[], const size_t size, const unsigned int timeout_ms) {
+int32_t USB_writeProcess(const char port[], const uint8_t data[], const uint16_t size, const int32_t timeout_ms) {
 	int32_t writtenBytes = 0;
 	if (USB_DeviceExist(port)) {
 
@@ -291,7 +292,7 @@ int32_t USB_writeProcess(const char port[], const uint8_t data[], const size_t s
 }
 
 
-int32_t USB_readProcess(const char port[], uint8_t data[], const size_t size, const unsigned int timeout_ms) {
+int32_t USB_readProcess(const char port[], uint8_t data[], const uint16_t size, const int32_t timeout_ms) {
 	int32_t bytesRead = 0;
 	if (USB_DeviceExist(port)) {
 
@@ -337,4 +338,12 @@ int32_t USB_readProcess(const char port[], uint8_t data[], const size_t size, co
 	}
 
 	return bytesRead;
+}
+
+void USB_setTemporaryPort(const char port[]) {
+	strcpy_s(temporaryPort, port);
+}
+
+const char* USB_getTemporaryPort() {
+	return temporaryPort;
 }

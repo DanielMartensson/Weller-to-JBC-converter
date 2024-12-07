@@ -56,8 +56,8 @@ public:
 	void setTicks(const unsigned int ticks);
 
 	/**
-	 * @brief Enable grid on the figure.
-	 * @param useGrid Set true for enabling grid.
+	 * @brief Enable analogInputGrid on the figure.
+	 * @param useGrid Set true for enabling analogInputGrid.
 	 */
 	void gridOn(const bool useGrid);
 
@@ -220,7 +220,7 @@ public:
 	void drawFigure(wxDC& dc);
 
 	/**
-	 * @brief This function will draw the grid.
+	 * @brief This function will draw the analogInputGrid.
 	 * Call this function after you have drawn the plot type.
 	 * @param dc The wxDC object for drawing lines, polygons etc.
 	 */
