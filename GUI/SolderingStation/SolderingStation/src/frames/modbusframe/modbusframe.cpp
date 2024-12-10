@@ -33,45 +33,16 @@ ModbusFrame::ModbusFrame(COMMUNICATION_DATA& communicationData) : wxFrame(nullpt
 	}
 
 	// Create a analogInputGrid
-	analogInputGrid = new wxGrid(panel, wxID_ANY);
-
-	// Create columns for analog inputs
-	analogInputGrid->CreateGrid(3, 7); 
-	analogInputGrid->SetColLabelValue(0, "Analog input name");
-	analogInputGrid->SetColLabelValue(1, "Raw value");
-	analogInputGrid->SetColLabelValue(2, "Real value");
-	analogInputGrid->AutoSizeColumns();
-
-	// Settings for analog input
-	for (int i = 0; i < 3; i++) {
-		analogInputGrid->SetReadOnly(i, 0); // Analog input name
-		analogInputGrid->SetReadOnly(i, 1); // Raw value
-		analogInputGrid->SetReadOnly(i, 2); // Read value
-	}
+	analogInputGrid = CreateAnalogInputGrid(panel, 3);
 
 	// Create a parameters grid
-	parameterGrid = new wxGrid(panel, wxID_ANY);
-
-	// Create columns for parameters
-	parameterGrid->SetColLabelValue(0, "Analog input name");
-	parameterGrid->SetColLabelValue(1, "Max raw");
-	parameterGrid->SetColLabelValue(2, "Min raw");
-	parameterGrid->SetColLabelValue(3, "Max real");
-	parameterGrid->SetColLabelValue(4, "Min real");
-
-	// Settings for parameters
-	for (int i = 0; i < 3; i++) {
-		parameterGrid->SetReadOnly(i, 0);
-		parameterGrid->SetCellEditor(i, 1, new wxGridCellNumberEditor(0, 4095)); // Max raw
-		parameterGrid->SetCellEditor(i, 2, new wxGridCellNumberEditor(0, 4095)); // Min raw
-		parameterGrid->SetCellEditor(i, 3, new wxGridCellNumberEditor()); // Max real
-		parameterGrid->SetCellEditor(i, 4, new wxGridCellNumberEditor()); // Min real
-	}
+	parameterGrid = CreateAnalogInputCalibrationGrid(panel, 3, 4095);
 
 	// Set sizers
 	wxBoxSizer* verticalLeftSizer = new wxBoxSizer(wxVERTICAL);
 	verticalLeftSizer->Add(modbusPorts, 0, wxALL | wxLEFT, 2);
 	verticalLeftSizer->Add(analogInputGrid, 0, wxALL | wxLEFT, 2);
+	verticalLeftSizer->Add(parameterGrid, 0, wxALL | wxLEFT, 2);
 
 	// Attach
 	panel->SetSizer(verticalLeftSizer);
@@ -84,6 +55,58 @@ ModbusFrame::ModbusFrame(COMMUNICATION_DATA& communicationData) : wxFrame(nullpt
 void ModbusFrame::OnClose(wxCloseEvent& event) {
 	timer->Stop();
 	Destroy();
+}
+
+wxGrid* ModbusFrame::CreateAnalogInputGrid(wxPanel* panel, const unsigned int rows) {
+	wxGrid* grid = new wxGrid(panel, wxID_ANY);
+	grid->CreateGrid(rows, 3);
+	grid->SetColLabelValue(0, "Analog input name");
+	grid->SetColLabelValue(1, "Raw value");
+	grid->SetColLabelValue(2, "Real value");
+	grid->AutoSizeColumns();
+
+	for (unsigned int i = 0; i < rows; i++) {
+		grid->SetReadOnly(i, 0); // Analog input name
+		grid->SetReadOnly(i, 1); // Raw value
+		grid->SetReadOnly(i, 2); // Read value
+	}
+
+	return grid;
+}
+
+wxGrid* ModbusFrame::CreateAnalogInputCalibrationGrid(wxPanel* panel, const unsigned int rows, const unsigned int maxADC) {
+	wxGrid* grid = new wxGrid(panel, wxID_ANY);
+	grid->CreateGrid(rows, 5);
+	grid->SetColLabelValue(0, "Analog input name");
+	grid->SetColLabelValue(1, "Max raw");
+	grid->SetColLabelValue(2, "Min raw");
+	grid->SetColLabelValue(3, "Max real");
+	grid->SetColLabelValue(4, "Min real");
+	grid->AutoSizeColumns();
+
+	for (unsigned int i = 0; i < rows; i++) {
+		grid->SetReadOnly(i, 0); // Analog input name
+		grid->SetCellEditor(i, 1, new wxGridCellNumberEditor(0, maxADC)); // Max raw
+		grid->SetCellEditor(i, 2, new wxGridCellNumberEditor(0, maxADC)); // Min raw
+		grid->SetCellEditor(i, 3, new wxGridCellNumberEditor()); // Max real
+		grid->SetCellEditor(i, 4, new wxGridCellNumberEditor()); // Min real
+	}
+
+	return grid;
+}
+
+void ModbusFrame::SetValueGrid(wxGrid* grid, const unsigned int row, const unsigned int column, const float value) {
+	grid->SetCellValue(row, column, wxString::FromCDouble(value));
+}
+
+void ModbusFrame::SetValueGrid(wxGrid* grid, const unsigned int row, const unsigned int column, const char value[]) {
+	grid->SetCellValue(row, column, wxString::FromAscii(value));
+}
+
+float ModbusFrame::GetValueGrid(wxGrid* grid, const unsigned int row, const unsigned int column) {
+	double value;
+	grid->GetCellValue(row, column).ToCDouble(&value);
+	return static_cast<float>(value);
 }
 
 void ModbusFrame::OnTimer(wxTimerEvent& event) {
@@ -100,9 +123,14 @@ void ModbusFrame::OnTimer(wxTimerEvent& event) {
 		if (isOpen) {
 			// Analog inputs
 			receiveAnalogInputs();
-			analogInputGrid->SetCellValue(0, 0, "Setpoint");
-			analogInputGrid->SetCellValue(0, 1, wxString::FromCDouble(readSetpointRaw()));
-			analogInputGrid->SetCellValue(0, 2, wxString::FromCDouble(readSetpoint()));
+			SetValueGrid(analogInputGrid, 0, 0, "Setpoint");
+			SetValueGrid(analogInputGrid, 0, 1, readSetpointRaw());
+			SetValueGrid(analogInputGrid, 0, 2, readSetpoint());
+
+			// Parameters
+			float maxRaw = GetValueGrid(parameterGrid, 0, 0);
+
+
 			//wxString maxRaw = analogInputGrid->GetCellValue(0, 3);
 			//wxString minRaw = analogInputGrid->GetCellValue(0, 4);
 			//wxString maxReal = analogInputGrid->GetCellValue(0, 5);
