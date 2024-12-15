@@ -31,6 +31,7 @@ typedef enum{
 	STATE_ESTIMATION,
 	CONTROL_FEEDBACK,
 	STATE_ESTIMATION_AND_CONTROL_FEEDBACK,
+	RECOMPUTE_MODEL,
 	SAVE_REGISTER_TO_MEMORY
 }OPERATION;
 /* USER CODE END PTD */
@@ -112,13 +113,13 @@ const char* UART_port(){
 	return "PORT";
 }
 
-void G(float dw[], const float x[], const float w[]) {
-	dw[0] = 1.0f*x[1];
+void parameter_estimation_transition_function(float dw[], const float x[], const float w[]) {
+	dw[0] = 1.0f * x[1];
 	dw[1] = -w[0]*x[0] - w[1]*x[1] + w[2]*x[2];
 }
 
-void F(float dx[], const float x[], const float u[]) {
-	dx[0] = 1.0f*x[1];;
+void state_estimation_transition_function(float dx[], const float x[], const float u[]) {
+	dx[0] = 1.0f * x[1];
 	dx[1] = -what[0]*x[0] - what[1]*x[1] + what[2]*u[0];
 }
 
@@ -177,33 +178,31 @@ int main(void)
   HAL_ADC_Start_DMA(&hadc, (uint32_t*)ADC_DATA, ADC_DATA_SIZE);
 
   /* Square Root Parameter Estimation */
-
   const float alpha = 0.1f; 												/* Alpha value - A small number like 0.01 -> 1.0 */
   const float beta = 2.0f; 													/* Beta value - Normally 2 for gaussian noise */
-
   const uint8_t L_parameter_estimation = 3; 								/* How many parameters we have */
   const float e = 0.1f;														/* Tuning factor for noise */
-  float Re[3 * 3] = { e, 0, 0, 0, e, 0, 0, 0, e }; 							/* Initial noise covariance matrix - Recommended to use identity matrix */
+  const float Re[3 * 3] = { e, 0, 0, 0, e, 0, 0, 0, e }; 					/* Initial noise covariance matrix - Recommended to use identity matrix */
   float Sw[3 * 3] = { 1, 0, 0, 0, 1, 0, 0, 0, 1 }; 							/* Initial covariance matrix - Recommended to use identity matrix */
-  float d[3] = { 0, 0, 0 };													/* This is our measurement */
-  float x[3] = { 4.4f, 6.2f, 1.0f }; 										/* State vector */
-  float lambda_rls = 1.0f;													/* RLS forgetting parameter between 0.0 and 1.0, but very close to 1.0 */
+  float d_parameter_estimation[3] = { 0, 0, 0 };							/* This is our measurement */
+  float x_parameter_estimation[3] = { 4.4f, 6.2f, 1.0f }; 					/* State vector */
+  const float lambda_rls = 0.99f;											/* RLS forgetting parameter between 0.0 and 1.0, but very close to 1.0 */
 
   const uint8_t L_state_estimation = 2; 									/* How many states we have */
   const float r = 1.5f;														/* Tuning factor for noise */
   const float q = 0.2f;														/* Tuning factor for disturbance */
-  float Rv[2 * 2] = {q, 0, 0, q }; 											/* Initial disturbance covariance matrix - Recommended to use identity matrix */
-  float Rn[2 * 2] = { r, 0, 0, r }; 										/* Initial noise covariance matrix - Recommended to use identity matrix */
+  const float Rv[2 * 2] = {q, 0, 0, q }; 									/* Initial disturbance covariance matrix - Recommended to use identity matrix */
+  const float Rn[2 * 2] = { r, 0, 0, r }; 									/* Initial noise covariance matrix - Recommended to use identity matrix */
   float S[2 * 2] = {1, 0, 0, 1 }; 											/* Initial covariance matrix - Recommended to use identity matrix */
   float xhat[2] = { 0, 0 }; 												/* Estimated state vector */
-  float y[2] = { 0, 0 };													/* This is our measurement */
-  float u[2] = { 0, 0 }; 													/* u is not used in this example due to the transition function not using an input signal */
+  float y_state_estimation[2] = { 0, 0 };									/* This is our measurement */
+  float u_state_estimation[2] = { 0, 0 }; 													/* u is not used in this example due to the transition function not using an input signal */
 
   /* Create A matrix */
-  float A[row_a * row_a] = { 0, 1, -1, -1 };
+  float A[row_a * row_a] = { 0, 1, -what[0], -what[1] };
 
   /* Create B matrix */
-  float B[row_a * column_b] = { 0, 1 };
+  float B[row_a * column_b] = { 0, what[2] };
 
   /* Create C matrix */
   float C[row_c * row_a] = { 1, 0 };
@@ -233,6 +232,16 @@ int main(void)
 
   /* Create vectors: state vector x, input signal u, reference vector r, maximum output signal Umax, slack variable values S */
   float x_qmpc[row_ai], u_qmpc[column_bi], r_qmpc[row_ci], Umax[column_bi], S_qmpc[row_ci];
+
+  /* Set constraints */
+  Umax[0] = 65535.0f;
+
+  /* Integral constant */
+  const float I_qmpc = 0.2f;
+  float past_u_qmpc = 0.0f;
+
+  /* Slack variable */
+  S_qmpc[0] = 2.0f;
 
   /* Remember the last operation */
   uint16_t last_operation = STATE_ESTIMATION;
@@ -268,21 +277,33 @@ int main(void)
 	  modbus_server_set_digital_inputs(&digital_inputs, 0, 1);
 
 	  /* Read registers */
-	  uint16_t parameters[13];
-	  modbus_server_get_parameters(parameters, 0, 13);
-	  const uint16_t temperature_slope_MSB = parameters[0];
-	  const uint16_t temperature_slope_LSB = parameters[1];
-	  const uint16_t temperature_bias_MSB = parameters[2];
-	  const uint16_t temperature_bias_LSB = parameters[3];
-	  const uint16_t current_slope_MSB = parameters[4];
-	  const uint16_t current_slope_LSB = parameters[5];
-	  const uint16_t current_bias_MSB = parameters[6];
-	  const uint16_t current_bias_LSB = parameters[7];
-	  const uint16_t potentiometer_slope_MSB = parameters[8];
-	  const uint16_t potentiometer_slope_LSB = parameters[9];
-	  const uint16_t potentiometer_bias_MSB = parameters[10];
-	  const uint16_t potentiometer_bias_LSB = parameters[11];
-	  const uint16_t operation = parameters[12];
+	  uint16_t parameters[31];
+	  modbus_server_get_parameters(parameters, 0, 25);
+	  const uint16_t minSetpointRaw_LSB = parameters[0];
+	  const uint16_t minSetpointRaw_MSB = parameters[1];
+	  const uint16_t maxSetpointRaw_LSB = parameters[2];
+	  const uint16_t maxSetpointRaw_MSB = parameters[3];
+	  const uint16_t minSetpointReal_LSB = parameters[4];
+	  const uint16_t minSetpointReal_MSB = parameters[5];
+	  const uint16_t maxSetpointReal_LSB = parameters[6];
+	  const uint16_t maxSetpointReal_MSB = parameters[7];
+	  const uint16_t minTemperatureRaw_LSB = parameters[8];
+	  const uint16_t minTemperatureRaw_MSB = parameters[9];
+	  const uint16_t maxTemperatureRaw_LSB = parameters[10];
+	  const uint16_t maxTemperatureRaw_MSB = parameters[11];
+	  const uint16_t minTemperatureReal_LSB = parameters[12];
+	  const uint16_t minTemperatureReal_MSB = parameters[13];
+	  const uint16_t maxTemperatureReal_LSB = parameters[14];
+	  const uint16_t maxTemperatureReal_MSB = parameters[15];
+	  const uint16_t minCurrentRaw_LSB = parameters[16];
+	  const uint16_t minCurrentRaw_MSB = parameters[17];
+	  const uint16_t maxCurrentRaw_LSB = parameters[18];
+	  const uint16_t maxCurrentRaw_MSB = parameters[19];
+	  const uint16_t minCurrentReal_LSB = parameters[20];
+	  const uint16_t minCurrentReal_MSB = parameters[21];
+	  const uint16_t maxCurrentReal_LSB = parameters[22];
+	  const uint16_t maxCurrentReal_MSB = parameters[23];
+	  const uint16_t operation = parameters[24];
 
 	  /* Read ADC inputs */
 	  const uint16_t temperature_raw = ADC_DATA[0];
@@ -290,29 +311,87 @@ int main(void)
 	  const uint16_t current_raw = ADC_DATA[2];
 
 	  /* Convert to real value */
-	  const float temperature = calibrate_value(temperature_raw, temperature_slope_MSB, temperature_slope_LSB, temperature_bias_MSB, temperature_bias_LSB);
-	  const float current = calibrate_value(current_raw, current_slope_MSB, current_slope_LSB, current_bias_MSB, current_bias_LSB);
-	  const float setpoint = calibrate_value(setpoint_raw, potentiometer_slope_MSB, potentiometer_slope_LSB, potentiometer_bias_MSB, potentiometer_bias_LSB);
+	  const float temperature = calibrate_value(temperature_raw, minTemperatureRaw_LSB, minTemperatureRaw_MSB, maxTemperatureRaw_LSB, maxTemperatureRaw_MSB,
+			  minTemperatureReal_LSB, minTemperatureReal_MSB, maxTemperatureReal_LSB, maxTemperatureReal_MSB);
+	  const float current = calibrate_value(current_raw, minCurrentRaw_LSB, minCurrentRaw_MSB, maxCurrentRaw_LSB, maxCurrentRaw_MSB,
+			  minCurrentReal_LSB, minCurrentReal_MSB, maxCurrentReal_LSB, maxCurrentReal_MSB);
+	  const float setpoint = calibrate_value(setpoint_raw, minSetpointRaw_LSB, minSetpointRaw_MSB, maxSetpointRaw_LSB, maxSetpointRaw_MSB,
+			  minSetpointReal_LSB, minSetpointReal_MSB, maxSetpointReal_LSB, maxSetpointReal_MSB);
 
 	  /* Do operation */
 	  switch(operation){
 	  case PARAMETER_ESTIMATION:
 		  last_operation = PARAMETER_ESTIMATION;
-		  //__HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_3, (uint16_t)potentiometer_raw);
-		  sr_ukf_parameter_estimation(d, what, Re, x, G, lambda_rls, Sw, alpha, beta, L_parameter_estimation);
+		  /* Parameter estimation - SISO model with state dimension 3 */
+		  x_parameter_estimation[0] = 1.0f;                /* This is the A[1,0] value */
+		  x_parameter_estimation[1] = 1.0f;                /* This is the A[1,1] value */
+		  x_parameter_estimation[2] = (float)setpoint_raw; /* This is the u[0] */
+		  d_parameter_estimation[0] = temperature;
+		  d_parameter_estimation[1] = temperature;
+		  d_parameter_estimation[2] = temperature;
+		  sr_ukf_parameter_estimation(d_parameter_estimation, what, Re, x_parameter_estimation, parameter_estimation_transition_function, lambda_rls, Sw, alpha, beta, L_parameter_estimation);
+		  __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_3, setpoint_raw);
+
 		  break;
 	  case STATE_ESTIMATION:
 		  last_operation = STATE_ESTIMATION;
-		  sr_ukf_state_estimation(y, xhat, Rn, Rv, u, F, S, alpha, beta, L_state_estimation);
+		  /* State estimation - SISO model with state dimension 2 */
+		  u_state_estimation[0] = (float)setpoint_raw;     /* This is the u[0] */
+		  u_state_estimation[1] = 0;                       /* Not used */
+		  y_state_estimation[0] = temperature;
+		  y_state_estimation[1] = temperature;
+		  sr_ukf_state_estimation(y_state_estimation, xhat, Rn, Rv, u_state_estimation, state_estimation_transition_function, S, alpha, beta, L_state_estimation);
+		  __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_3, setpoint_raw);
+
 		  break;
 	  case CONTROL_FEEDBACK:
 		  last_operation = CONTROL_FEEDBACK;
+		  u_state_estimation[0] = (float)setpoint_raw;     /* This is the u[0] */
+		  u_state_estimation[1] = 0;                       /* Not used */
+		  state_estimation_transition_function(y_state_estimation, x_qmpc, u_state_estimation);
+		  x_qmpc[0] = y_state_estimation[0];
+		  x_qmpc[1] = y_state_estimation[1];
+
+		  /* Quadratic Model Predictive Control - SISO model with state dimension 2 */
+		  r_qmpc[0] = (float)setpoint_raw;
 		  qmpc(GAMMA, PHI, x_qmpc, u_qmpc, Umax, S_qmpc, r_qmpc, row_ai, row_ci, column_bi, N, LAMBDA, HAS_INTEGRATION_ACTION, INTEGRATION_CONSTANT);
+
+		  /* Compute delta for integral action */
+		  delta = u_qmpc[0] - I_qmpc*past_u_qmpc;
+		  past_u_qmpc = u_qmpc[0];
+		  __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_3, (uint16_t)delta);
+
 		  break;
 	  case STATE_ESTIMATION_AND_CONTROL_FEEDBACK:
 		  last_operation = STATE_ESTIMATION_AND_CONTROL_FEEDBACK;
-		  sr_ukf_state_estimation(y, xhat, Rn, Rv, u, F, S, alpha, beta, L_state_estimation);
+		  /* State estimation - SISO model with state dimension 2 */
+		  u_state_estimation[0] = (float)setpoint_raw;     /* This is the u[0] */
+		  u_state_estimation[1] = 0;                       /* Not used */
+		  y_state_estimation[0] = temperature;
+		  y_state_estimation[1] = temperature;
+		  sr_ukf_state_estimation(y_state_estimation, xhat, Rn, Rv, u_state_estimation, state_estimation_transition_function, S, alpha, beta, L_state_estimation);
+
+		  /* Quadratic Model Predictive Control - SISO model with state dimension 2 */
+		  x_qmpc[0] = xhat[0];
+		  x_qmpc[1] = xhat[1];
+		  /* x_qmpc[2];  Let this tune in itself */
+		  r_qmpc[0] = (float)setpoint_raw;
 		  qmpc(GAMMA, PHI, x_qmpc, u_qmpc, Umax, S_qmpc, r_qmpc, row_ai, row_ci, column_bi, N, LAMBDA, HAS_INTEGRATION_ACTION, INTEGRATION_CONSTANT);
+
+		  /* Compute delta for integral action */
+		  delta = u_qmpc[0] - I_qmpc*past_u_qmpc;
+		  past_u_qmpc = u_qmpc[0];
+		  __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_3, (uint16_t)delta);
+		  break;
+	  case RECOMPUTE_MODEL:
+		  last_operation = RECOMPUTE_MODEL;
+		  A[2] = -what[0];
+		  A[3] = -what[1];
+		  B[1] = what[2];
+		  c2d(A, B, row_a, column_b, SAMPLE_TIME);
+		  ssint(A, B, C, Ai, Bi, Ci, row_a, column_b, row_c);
+		  obsv(PHI, Ai, Ci, row_ai, row_ci, N);
+		  cab(GAMMA, PHI, Bi, Ci, row_ai, row_ci, column_bi, N);
 		  break;
 	  case SAVE_REGISTER_TO_MEMORY:
 
@@ -322,14 +401,23 @@ int main(void)
 	  }
 
 	  /* Set analog inputs */
-	  uint16_t analog_inputs[9];
+	  uint16_t analog_inputs[13];
 	  analog_inputs[0] = temperature_raw;
 	  analog_inputs[1] = setpoint_raw;
 	  analog_inputs[2] = current_raw;
-	  float_to_uint16(temperature, &analog_inputs[3], &analog_inputs[4]);
-	  float_to_uint16(setpoint, &analog_inputs[5], &analog_inputs[6]);
-	  float_to_uint16(current, &analog_inputs[7], &analog_inputs[8]);
-	  modbus_server_set_analog_inputs(analog_inputs, 0, 9);
+	  float_to_uint16(temperature, &analog_inputs[4], &analog_inputs[3]);
+	  float_to_uint16(setpoint, &analog_inputs[6], &analog_inputs[5]);
+	  float_to_uint16(current, &analog_inputs[8], &analog_inputs[7]);
+	  float_to_uint16(xhat[0], &analog_inputs[10], &analog_inputs[9]);
+	  float_to_uint16(xhat[1], &analog_inputs[12], &analog_inputs[11]);
+	  modbus_server_set_analog_inputs(analog_inputs, 0, 13);
+
+	  /* Set parameters */
+	  float_to_uint16(what[0], &parameters[26], &parameters[25]);
+	  float_to_uint16(what[1], &parameters[28], &parameters[27]);
+	  float_to_uint16(what[2], &parameters[30], &parameters[29]);
+	  modbus_server_set_parameters(parameters, 25, 31);
+
 
   }
   /* USER CODE END 3 */

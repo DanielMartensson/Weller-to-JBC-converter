@@ -1,6 +1,5 @@
 
 #include "mainframe.h"
-#include "../frames.h"
 
 MainFrame::MainFrame() : wxFrame(nullptr, wxID_ANY, "Main frame")
 {
@@ -25,11 +24,17 @@ MainFrame::MainFrame() : wxFrame(nullptr, wxID_ANY, "Main frame")
     CreateStatusBar();
     SetStatusText("Welcome to wxWidgets!");
 
+    // Create Modbus RTU client
+    modbus_set_serial_read(USB_readProcess);
+    modbus_set_serial_write(USB_writeProcess);
+    modbus_set_serial_port(USB_getTemporaryPort);
+    modbus_client_create_RTU(1);
+
     // Create plot
     plot = new wxPlot(this, WXPLOT_FIGURE_2D, WXPLOT_TYPE_LINE);
 
     // Create timer for the 100 ms loop
-    wxTimer* timer = new wxTimer(this);
+    timer = new wxTimer(this);
     timer->Start(100);
 
     // Events
@@ -39,10 +44,15 @@ MainFrame::MainFrame() : wxFrame(nullptr, wxID_ANY, "Main frame")
     Bind(wxEVT_MENU, &MainFrame::OnModbus, this, wxID_NETWORK);
     Bind(wxEVT_SIZE, &MainFrame::OnSize, this);
     Bind(wxEVT_TIMER, &MainFrame::OnTimer, this);
+
+    // Frames
+    modbusFrame = new ModbusFrame(communicationData);
 }
 
 void MainFrame::OnExit(wxCommandEvent& event){
+    timer->Stop();
     Close(true);
+    this->Destroy();
 }
 
 void MainFrame::OnConnect(wxCommandEvent& event){
@@ -56,52 +66,17 @@ void MainFrame::OnControl(wxCommandEvent& event){
 }
 
 void MainFrame::OnModbus(wxCommandEvent& event) {
-    ModbusFrame* modbusFrame = new ModbusFrame(communicationData);
     modbusFrame->Show();
 }
 
 void MainFrame::OnTimer(wxTimerEvent& event){
-    if (communicationData.isStarted) {
-        // Receive temperature signal
-        //communicationData.temperature = receiveTemperature(communicationData.port);
+   // Get data
+   std::vector<wxString>& legendModbus = modbusFrame->GetLegend();
+   std::vector<std::vector<double>&>& data2DModbus = modbusFrame->GetData2D();
 
-        // Receive current signal
-        //communicationData.current = receiveCurrent(communicationData.port);
+   plot->setLegend(legendModbus);
+   plot->setData(data2DModbus);
 
-        // Receive setpoint signal
-        //communicationData.setpoint
-
-        // Receive parameter estimation
-
-        // Receive control signal
-
-        // Receive state estimation
-
-        // Create data
-
-        // Set data
-        if (data2D.size()) {
-            const size_t data2DLenght = data2D.at(0).size();
-            if (data2DLenght > 200) {
-                data2D.at(0).erase(data2D.at(0).begin());
-                data2D.at(1).erase(data2D.at(1).begin());
-            }
-            else {
-                data2D.at(0).push_back(data2DLenght);
-                data2D.at(1).push_back(data2DLenght);
-            }
-        }
-        else {
-            data2D.push_back({ 0 });
-            data2D.push_back({ 50 });
-        }
-
-        plot->setData(data2D);
-
-
-        // Write on plot
-        plot->Refresh();
-    }
 }
 
 void MainFrame::OnSize(wxSizeEvent& event) {

@@ -105,6 +105,12 @@
     <ClCompile Include="src\tools\modbus\modbusserver.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\frames\toolsframe\gridframe\gridframe.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\frames\toolsframe\vectortools\vectortools.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main.h">
@@ -249,6 +255,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\tools\modbus\modbus.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\frames\toolsframe\gridframe\gridframe.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\frames\toolsframe\toolsframe.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\frames\toolsframe\vectortools\vectortools.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

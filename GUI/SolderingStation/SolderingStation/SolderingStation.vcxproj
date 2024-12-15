@@ -150,6 +150,8 @@
     <ClCompile Include="src\frames\controlframe\controlframe.cpp" />
     <ClCompile Include="src\frames\mainframe\mainframe.cpp" />
     <ClCompile Include="src\frames\modbusframe\modbusframe.cpp" />
+    <ClCompile Include="src\frames\toolsframe\gridframe\gridframe.cpp" />
+    <ClCompile Include="src\frames\toolsframe\vectortools\vectortools.cpp" />
     <ClCompile Include="src\tools\communication\communication.cpp" />
     <ClCompile Include="src\tools\conversions\conversions.cpp" />
     <ClCompile Include="src\tools\modbus\modbus.cpp" />
@@ -176,6 +178,9 @@
     <ClInclude Include="src\frames\controlframe\controlframe.h" />
     <ClInclude Include="src\frames\frames.h" />
     <ClInclude Include="src\frames\modbusframe\modbusframe.h" />
+    <ClInclude Include="src\frames\toolsframe\gridframe\gridframe.h" />
+    <ClInclude Include="src\frames\toolsframe\toolsframe.h" />
+    <ClInclude Include="src\frames\toolsframe\vectortools\vectortools.h" />
     <ClInclude Include="src\tools\communication\communication.h" />
     <ClInclude Include="src\tools\conversions\conversions.h" />
     <ClInclude Include="src\tools\modbus\modbus.h" />

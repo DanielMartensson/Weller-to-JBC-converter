@@ -2,6 +2,7 @@
 
 #include <wx/wx.h>
 #include "../../tools/tools.h"
+#include "../frames.h"
 
 class MainFrame : public wxFrame
 {
@@ -14,6 +15,10 @@ private:
 
     // Items
     wxPlot* plot; 
+    wxTimer* timer;
+
+    // Frames
+    ModbusFrame* modbusFrame;
 
     // Events
     void OnExit(wxCommandEvent& event);

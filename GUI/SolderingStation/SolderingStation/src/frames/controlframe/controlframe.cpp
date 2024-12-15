@@ -25,14 +25,14 @@ ControlFrame::ControlFrame(COMMUNICATION_DATA& communicationData) : wxFrame(null
 	Bind(wxEVT_BUTTON, &ControlFrame::OnStop, this, wxID_STOP);
 
 	// Enable
-	EnableComponents(this->communicationData.isStarted);
+	//EnableComponents(this->communicationData.isStarted);
 }
 
 void ControlFrame::OnStart(wxCommandEvent& event) {
 
 	if (this->communicationData.ports.size() > 0) {
 		EnableComponents(true);
-		this->communicationData.isStarted = true;
+		//this->communicationData.isStarted = true;
 	}
 	else {
 		wxMessageBox("You're not connected to a port!", "Not connected", wxOK | wxICON_ERROR);
@@ -41,7 +41,7 @@ void ControlFrame::OnStart(wxCommandEvent& event) {
 
 void ControlFrame::OnStop(wxCommandEvent& event) {
 	EnableComponents(false);
-	this->communicationData.isStarted = false;
+	//this->communicationData.isStarted = false;
 }
 
 void ControlFrame::EnableComponents(const bool enable) {
