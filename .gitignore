@@ -1,0 +1,6 @@
+*.ilk
+*.ipch
+*.pdb
+*.db
+.vs/
+x64/Debug/

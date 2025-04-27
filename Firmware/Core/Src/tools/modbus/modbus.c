@@ -5,36 +5,36 @@
  *      Author: Daniel Mårtensson
  */
 
+#include "modbus.h"
 #include "modbusclient.h"
 #include "modbusserver.h"
 
-/* Handles */
+/* Handlers */
+#ifdef IS_MODBUS_SERVER
 static nmbs_t nmbs_server = {0};
+#endif
+
+#ifdef IS_MODBUS_CLIENT
 static nmbs_t nmbs_client = {0};
+#endif
 
 /* Function pointers */
 int32_t (*serial_read_function)(const char port[], uint8_t*, uint16_t, int32_t) = NULL;
 int32_t (*serial_write_function)(const char port[], const uint8_t*, uint16_t, int32_t) = NULL;
-const char* (*serial_port_function)() = NULL;
+char port_[20];
 
 /* Read via serial */
 int32_t read_serial(uint8_t* buf, uint16_t count, int32_t byte_timeout_ms, void* arg) {
-	if(serial_port_function){
-		const char* port = serial_port_function();
-		if (serial_read_function) {
-			return serial_read_function(port, buf, count, byte_timeout_ms);
-		}
+	if (serial_read_function) {
+		return serial_read_function(port_, buf, count, byte_timeout_ms);
 	}
     return 0;
 }
 
 /* Write via serial */
 int32_t write_serial(const uint8_t* buf, uint16_t count, int32_t byte_timeout_ms, void* arg) {
-	if (serial_port_function) {
-		const char* port = serial_port_function();
-		if (serial_write_function) {
-			return serial_write_function(port, buf, count, byte_timeout_ms);
-		}
+	if (serial_write_function) {
+		return serial_write_function(port_, buf, count, byte_timeout_ms);
 	}
     return 0;
 }
@@ -47,9 +47,11 @@ void modbus_set_serial_read(int32_t (*serial_read)(const char port[], uint8_t*, 
 	serial_read_function = serial_read;
 }
 
-void modbus_set_serial_port(const char* (*serial_port)()){
-	serial_port_function = serial_port;
+void modbus_set_serial_port(const char port[]) {
+	strcpy(port_, port);
 }
+
+#ifdef IS_MODBUS_SERVER
 
 /* Server functions */
 bool modbus_server_create_RTU(const uint8_t address) {
@@ -86,7 +88,7 @@ bool modbus_server_create_RTU(const uint8_t address) {
 
 	/* Timeouts */
 	nmbs_set_read_timeout(&nmbs_server, 1000);
-	nmbs_set_byte_timeout(&nmbs_server, 100);
+	nmbs_set_byte_timeout(&nmbs_server, 1000);
 
 	/* Set handle */
     modbus_set_server_handle(&nmbs_server);
@@ -111,6 +113,10 @@ bool modbus_server_set_analog_inputs(const uint16_t inputs[], const uint16_t add
 	return modbus_set_analog_inputs_on_server(inputs, address, quantity);
 }
 
+uint16_t* modbus_server_get_analog_inputs(){
+	return modbus_get_analog_inputs_on_server();
+}
+
 bool modbus_server_get_parameters(uint16_t parameters[], const uint16_t address, const uint16_t quantity){
 	return modbus_get_parameters_at_server(parameters, address, quantity);
 }
@@ -118,6 +124,14 @@ bool modbus_server_get_parameters(uint16_t parameters[], const uint16_t address,
 bool modbus_server_set_parameters(const uint16_t parameters[], const uint16_t address, const uint16_t quantity){
 	return modbus_set_parameters_on_server(parameters, address, quantity);
 }
+
+uint16_t* modbus_server_get_parameters_array(){
+	return modbus_get_parameters_on_server();
+}
+
+#endif
+
+#ifdef IS_MODBUS_CLIENT
 
 /* Client functions */
 bool modbus_client_create_RTU(const uint8_t address) {
@@ -138,7 +152,7 @@ bool modbus_client_create_RTU(const uint8_t address) {
 
     /* Set time out */
     nmbs_set_read_timeout(&nmbs_client, 1000);
-    nmbs_set_byte_timeout(&nmbs_client, 100);
+    nmbs_set_byte_timeout(&nmbs_client, 1000);
 
     /* Set address */
     nmbs_set_destination_rtu_address(&nmbs_client, address);
@@ -173,3 +187,5 @@ bool modbus_client_set_parameters(const uint16_t parameters[], const uint16_t ad
 bool modbus_client_get_parameters(uint16_t parameters[], const uint16_t address, const uint16_t quantity){
 	return modbus_get_parameters_from_server(parameters, address, quantity);
 }
+
+#endif

@@ -66,7 +66,7 @@ float norm(const float X[], const size_t row, const size_t column, const NORM_ME
 			float* U = (float*)malloc(row * column * sizeof(float));
 			float* S = (float*)malloc(column * sizeof(float));
 			float* V = (float*)malloc(column * column * sizeof(float));
-			svd(A, row, column, U, S, V);
+			/*svd(A, row, column, U, S, V);*/
 
 			/* Find maximum singular value */
 			for (i = 0; i < column; i++) {

@@ -2,7 +2,7 @@
  * scan_file_names.c
  *
  *  Created on: 24 juli 2023
- *      Author: Daniel Mï¿½rtensson
+ *      Author: Daniel Mårtensson
  */
 
 #include "hardware.h"

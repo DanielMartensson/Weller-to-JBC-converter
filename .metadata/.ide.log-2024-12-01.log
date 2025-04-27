@@ -1,0 +1,84 @@
+2024-12-02 18:46:43,421 [INFO] WebApp:189 - Connection lost
+2024-12-02 18:46:55,424 [INFO] WebApp:186 - Connection restablished
+2024-12-02 19:17:03,083 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,487x219,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2024-12-02 19:17:12,990 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,487x219,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2024-12-02 19:17:29,595 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 835186704 Bytes (1073741824)
+2024-12-02 19:17:29,927 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 800034184 Bytes (1073741824)
+2024-12-02 19:17:38,817 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 759135120 Bytes (1073741824)
+2024-12-02 19:17:39,641 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: ADC
+2024-12-02 19:17:39,642 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: NVIC
+2024-12-02 19:17:39,642 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: USART
+2024-12-02 19:17:39,642 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: COMP
+2024-12-02 19:17:39,642 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: DMA
+2024-12-02 19:17:39,642 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: TIM1_8F0
+2024-12-02 19:17:39,642 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: TIM1_8F0
+2024-12-02 19:17:39,642 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: SYS
+2024-12-02 19:17:39,643 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: GPIO
+2024-12-02 19:17:39,643 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: RCC
+2024-12-02 19:17:39,645 [INFO] CodeGenerator:807 - code generatio: config db path: C:\ST\STM32CubeIDE_1.16.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.12.1.202409122256\\db\
+2024-12-02 19:17:39,648 [INFO] Argument:325 - Argument : hdmavalue: null
+2024-12-02 19:17:39,649 [INFO] Argument:327 - 	 sub Args: 
+2024-12-02 19:17:39,649 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Channel1
+2024-12-02 19:17:39,649 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Channel1
+2024-12-02 19:17:39,649 [INFO] Argument:325 - Argument : Initvalue: null
+2024-12-02 19:17:39,649 [INFO] Argument:327 - 	 sub Args: 
+2024-12-02 19:17:39,649 [INFO] Argument:325 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2024-12-02 19:17:39,649 [INFO] Argument:335 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2024-12-02 19:17:39,649 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2024-12-02 19:17:39,649 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2024-12-02 19:17:39,649 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2024-12-02 19:17:39,649 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2024-12-02 19:17:39,649 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2024-12-02 19:17:39,649 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2024-12-02 19:17:39,649 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2024-12-02 19:17:39,649 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2024-12-02 19:17:39,649 [INFO] Argument:325 - Argument : Modevalue: DMA_CIRCULAR
+2024-12-02 19:17:39,649 [INFO] Argument:335 - Argument : Modevalue: DMA_CIRCULAR
+2024-12-02 19:17:39,649 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2024-12-02 19:17:39,649 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2024-12-02 19:17:39,649 [INFO] Argument:325 - Argument : Lockvalue: null
+2024-12-02 19:17:39,649 [INFO] Argument:335 - Argument : Lockvalue: null
+2024-12-02 19:17:39,649 [INFO] Argument:325 - Argument : Statevalue: null
+2024-12-02 19:17:39,649 [INFO] Argument:335 - Argument : Statevalue: null
+2024-12-02 19:17:39,649 [INFO] Argument:325 - Argument : Parentvalue: null
+2024-12-02 19:17:39,650 [INFO] Argument:335 - Argument : Parentvalue: null
+2024-12-02 19:17:39,650 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
+2024-12-02 19:17:39,650 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
+2024-12-02 19:17:39,650 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
+2024-12-02 19:17:39,650 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
+2024-12-02 19:17:39,650 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
+2024-12-02 19:17:39,650 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
+2024-12-02 19:17:39,650 [INFO] Argument:325 - Argument : ErrorCodevalue: null
+2024-12-02 19:17:39,650 [INFO] Argument:335 - Argument : ErrorCodevalue: null
+2024-12-02 19:17:39,650 [INFO] Argument:325 - Argument : DMA_Remapvalue: null
+2024-12-02 19:17:39,650 [INFO] Argument:335 - Argument : DMA_Remapvalue: null
+2024-12-02 19:17:40,770 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\license.tmp_save
+2024-12-02 19:17:40,980 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\license.tmp
+2024-12-02 19:17:41,164 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\gpio.tmp_save
+2024-12-02 19:17:41,341 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\gpio.tmp
+2024-12-02 19:17:41,939 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\dma.tmp_save
+2024-12-02 19:17:42,039 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\dma.tmp
+2024-12-02 19:17:42,130 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\dma_GV.tmp_save
+2024-12-02 19:17:42,235 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\dma_GV.tmp
+2024-12-02 19:17:42,272 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\stm32f0xx_it.c_save
+2024-12-02 19:17:42,698 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\stm32f0xx_it.c
+2024-12-02 19:17:42,770 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\stm32f0xx_it.h_save
+2024-12-02 19:17:42,924 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\stm32f0xx_it.h
+2024-12-02 19:17:43,015 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\stm32f0xx_hal_msp.c_save
+2024-12-02 19:17:43,409 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\stm32f0xx_hal_msp.c
+2024-12-02 19:17:43,534 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\system.tmp_save
+2024-12-02 19:17:43,637 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\system.tmp
+2024-12-02 19:17:43,731 [INFO] CodeEngine:311 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\stm32f0xx_hal_conf.h_save
+2024-12-02 19:17:44,037 [INFO] CodeEngine:335 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\stm32f0xx_hal_conf.h
+2024-12-02 19:17:44,100 [WARN] IPConfigManager:3554 - IP not found : TIM
+2024-12-02 19:17:44,194 [WARN] CodeGenerator:4002 - IP not found : null
+2024-12-02 19:17:44,357 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\main.h_save
+2024-12-02 19:17:44,488 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\main.h
+2024-12-02 19:17:44,567 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\main.c_save
+2024-12-02 19:17:44,988 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\main.c
+2024-12-02 19:18:01,053 [INFO] ProjectBuilder:3249 - Time for Copy HAL[1] : 1827mS.
+2024-12-02 19:18:01,066 [INFO] ProjectBuilder:4828 - Project Generator version: 4.5.0-B34
+2024-12-02 19:18:01,273 [INFO] ConfigFileManager:1531 - The Die is : DIE440
+2024-12-02 19:18:21,670 [INFO] ProjectBuilder:5097 - Time for Generating toolchain IDE Files: 20604mS.
+2024-12-02 19:18:21,671 [INFO] ProjectBuilder:3107 - Time for Copy CMSIS : 1mS.
+2024-12-02 19:18:25,249 [INFO] ProjectBuilder:3107 - Time for Copy CMSIS : 0mS.

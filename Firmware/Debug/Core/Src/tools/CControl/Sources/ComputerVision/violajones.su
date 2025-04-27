@@ -1,4 +1,0 @@
-../Core/Src/tools/CControl/Sources/ComputerVision/violajones.c:15:6:voilajones_collect	320	static
-../Core/Src/tools/CControl/Sources/ComputerVision/violajones.c:101:19:violajones_train	88	static
-../Core/Src/tools/CControl/Sources/ComputerVision/violajones.c:205:8:violajones_predict	48	static
-../Core/Src/tools/CControl/Sources/ComputerVision/violajones.c:166:7:violajones_eval	64	static

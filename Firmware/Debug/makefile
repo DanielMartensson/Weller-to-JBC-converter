@@ -13,22 +13,13 @@ RM := rm -rf
 -include Core/Startup/subdir.mk
 -include Core/Src/tools/modbus/nanomodbus/subdir.mk
 -include Core/Src/tools/modbus/subdir.mk
+-include Core/Src/tools/flash/subdir.mk
 -include Core/Src/tools/conversions/subdir.mk
--include Core/Src/tools/CControl/Sources/SystemIdentification/subdir.mk
--include Core/Src/tools/CControl/Sources/Statistics/subdir.mk
--include Core/Src/tools/CControl/Sources/SignalProcessing/FFTpack/subdir.mk
--include Core/Src/tools/CControl/Sources/SignalProcessing/subdir.mk
 -include Core/Src/tools/CControl/Sources/Optimization/subdir.mk
 -include Core/Src/tools/CControl/Sources/Miscellaneous/subdir.mk
--include Core/Src/tools/CControl/Sources/MachineLearning/subdir.mk
--include Core/Src/tools/CControl/Sources/LinearAlgebra/CLapack/Tools/subdir.mk
--include Core/Src/tools/CControl/Sources/LinearAlgebra/CLapack/Routines/subdir.mk
 -include Core/Src/tools/CControl/Sources/LinearAlgebra/subdir.mk
--include Core/Src/tools/CControl/Sources/ImageProcessing/subdir.mk
--include Core/Src/tools/CControl/Sources/Hardware/subdir.mk
+-include Core/Src/tools/CControl/Sources/DifferentialEquation/subdir.mk
 -include Core/Src/tools/CControl/Sources/ControlEngineering/subdir.mk
--include Core/Src/tools/CControl/Sources/ComputerVision/subdir.mk
--include Core/Src/tools/CControl/Sources/ArtificialIntelligence/subdir.mk
 -include Core/Src/subdir.mk
 -include objects.mk
 

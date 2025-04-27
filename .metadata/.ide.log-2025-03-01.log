@@ -1,0 +1,38 @@
+2025-03-02 00:35:09,350 [INFO] WebApp:189 - Connection lost
+2025-03-02 00:35:09,798 [INFO] WebApp:186 - Connection restablished
+2025-03-02 12:05:19,847 [INFO] WebApp:189 - Connection lost
+2025-03-02 12:05:22,679 [INFO] WebApp:186 - Connection restablished
+2025-03-02 12:13:59,348 [INFO] McuFinderGlobals:63 - Set McuFinder mode to 2 (CubeIDE integrated)
+2025-03-02 12:13:59,656 [INFO] MainUpdater:2873 - connection check result : 10
+2025-03-02 12:13:59,692 [INFO] MainUpdater:2873 - connection check result : 10
+2025-03-02 12:14:00,787 [INFO] RulesReader:64 - Compatibility file has been processed (297 Rules)
+2025-03-02 12:14:00,804 [INFO] RulesReader:64 - Compatibility file has been processed (297 Rules)
+2025-03-02 12:14:00,830 [INFO] MicroXplorer:468 - Change Database Path : 
+2025-03-02 12:14:00,830 [INFO] MicroXplorer:498 - Change Database Version : DB.6.0.121
+2025-03-02 12:14:00,850 [WARN] ThirdParty:871 - waiting for thirdparty lock release [close project]
+2025-03-02 12:14:00,850 [INFO] ThirdParty:873 - entering critical section [close project]
+2025-03-02 12:14:00,851 [INFO] ThirdParty:883 - exiting critical section [close project]
+2025-03-02 12:14:00,853 [INFO] PinOutPanel:1561 - setPackage(No Configuration,No Configuration)
+2025-03-02 12:14:00,858 [INFO] UtilMem:75 - Begin LoadConfig() Used Memory: 823696424 Bytes (1073741824)
+2025-03-02 12:14:00,863 [INFO] MicroXplorer:468 - Change Database Path : 
+2025-03-02 12:14:00,863 [INFO] MicroXplorer:498 - Change Database Version : DB.6.0.121
+2025-03-02 12:14:00,863 [INFO] OpenFileManager:332 - Change cursor
+2025-03-02 12:14:00,989 [WARN] IntegrityCheckThread:84 - waiting for thirdparty lock release [integrity check]
+2025-03-02 12:14:00,989 [INFO] IntegrityCheckThread:86 - entering critical section [integrity check]
+2025-03-02 12:14:02,138 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.FP-SNS-MOTENVWB1.1.4.0
+2025-03-02 12:14:02,171 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.FP-ATR-ASTRA1.2.0.2
+2025-03-02 12:14:02,202 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.FP-ATR-ASTRA1.2.0.1
+2025-03-02 12:14:02,252 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-SMBUS.2.1.0
+2025-03-02 12:14:02,282 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-WB05N.1.1.0
+2025-03-02 12:14:02,362 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-AZRTOS-F7.1.1.0
+2025-03-02 12:14:02,471 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-MEMS1.11.0.0
+2025-03-02 12:14:02,691 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.FP-SNS-FLIGHT1.5.0.2
+2025-03-02 12:14:02,747 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-DISPLAY.3.0.0
+2025-03-02 12:14:02,793 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-BLE1.7.0.0
+2025-03-02 12:14:02,854 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-NFC10.1.0.0
+2025-03-02 12:14:02,897 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-BLEMGR.4.0.0
+2025-03-02 12:14:02,953 [WARN] PackLoader:240 - Cannot read IP mode file for emotas.I-CUBE-CANOPEN.1.3.0
+2025-03-02 12:14:02,999 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-BLEMGR.3.1.0
+2025-03-02 12:14:03,050 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-AI.10.0.0
+2025-03-02 12:14:03,091 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.FP-SNS-SMARTAG2.1.2.0
+2025-03-02 12:14:03,181 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-MEMS1.11.1.0

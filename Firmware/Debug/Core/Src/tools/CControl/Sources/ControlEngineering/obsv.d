@@ -8,10 +8,13 @@ Core/Src/tools/CControl/Sources/ControlEngineering/obsv.o: \
  ../Core/Src/tools/CControl/Sources/ControlEngineering/../../Headers/functions.h \
  ../Core/Src/tools/CControl/Sources/ControlEngineering/../../Headers/structs.h \
  ../Core/Src/tools/CControl/Sources/ControlEngineering/../../Headers/unions.h \
+ ../Core/Src/tools/CControl/Sources/ControlEngineering/../../Headers/typedefs.h \
  ../Core/Src/tools/CControl/Sources/ControlEngineering/../../Headers/../Sources/sources.h \
  ../Core/Src/tools/CControl/Sources/ControlEngineering/../../Headers/../Sources/ArtificialIntelligence/artificialintelligence.h \
  ../Core/Src/tools/CControl/Sources/ControlEngineering/../../Headers/../Sources/ArtificialIntelligence/../../Headers/headers.h \
  ../Core/Src/tools/CControl/Sources/ControlEngineering/../../Headers/../Sources/ControlEngineering/controlengineering.h \
+ ../Core/Src/tools/CControl/Sources/ControlEngineering/../../Headers/../Sources/DifferentialEquation/differentialequation.h \
+ ../Core/Src/tools/CControl/Sources/ControlEngineering/../../Headers/../Sources/DifferentialEquation/../../Headers/headers.h \
  ../Core/Src/tools/CControl/Sources/ControlEngineering/../../Headers/../Sources/ComputerVision/computervision.h \
  ../Core/Src/tools/CControl/Sources/ControlEngineering/../../Headers/../Sources/ComputerVision/../../Headers/headers.h \
  ../Core/Src/tools/CControl/Sources/ControlEngineering/../../Headers/../Sources/Hardware/hardware.h \
@@ -40,10 +43,13 @@ Core/Src/tools/CControl/Sources/ControlEngineering/obsv.o: \
 ../Core/Src/tools/CControl/Sources/ControlEngineering/../../Headers/functions.h:
 ../Core/Src/tools/CControl/Sources/ControlEngineering/../../Headers/structs.h:
 ../Core/Src/tools/CControl/Sources/ControlEngineering/../../Headers/unions.h:
+../Core/Src/tools/CControl/Sources/ControlEngineering/../../Headers/typedefs.h:
 ../Core/Src/tools/CControl/Sources/ControlEngineering/../../Headers/../Sources/sources.h:
 ../Core/Src/tools/CControl/Sources/ControlEngineering/../../Headers/../Sources/ArtificialIntelligence/artificialintelligence.h:
 ../Core/Src/tools/CControl/Sources/ControlEngineering/../../Headers/../Sources/ArtificialIntelligence/../../Headers/headers.h:
 ../Core/Src/tools/CControl/Sources/ControlEngineering/../../Headers/../Sources/ControlEngineering/controlengineering.h:
+../Core/Src/tools/CControl/Sources/ControlEngineering/../../Headers/../Sources/DifferentialEquation/differentialequation.h:
+../Core/Src/tools/CControl/Sources/ControlEngineering/../../Headers/../Sources/DifferentialEquation/../../Headers/headers.h:
 ../Core/Src/tools/CControl/Sources/ControlEngineering/../../Headers/../Sources/ComputerVision/computervision.h:
 ../Core/Src/tools/CControl/Sources/ControlEngineering/../../Headers/../Sources/ComputerVision/../../Headers/headers.h:
 ../Core/Src/tools/CControl/Sources/ControlEngineering/../../Headers/../Sources/Hardware/hardware.h:

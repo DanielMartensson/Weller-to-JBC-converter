@@ -11,5 +11,6 @@
 #include "conversions/conversions.h"
 #include "CControl/ccontrol.h"
 #include "modbus/modbus.h"
+#include "flash/flash.h"
 
 #endif /* SRC_TOOLS_TOOLS_H_ */

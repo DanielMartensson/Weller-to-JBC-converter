@@ -8,11 +8,14 @@ Core/Src/tools/CControl/Sources/LinearAlgebra/linsolve_lower_triangular.o: \
  ../Core/Src/tools/CControl/Sources/LinearAlgebra/../../Headers/functions.h \
  ../Core/Src/tools/CControl/Sources/LinearAlgebra/../../Headers/structs.h \
  ../Core/Src/tools/CControl/Sources/LinearAlgebra/../../Headers/unions.h \
+ ../Core/Src/tools/CControl/Sources/LinearAlgebra/../../Headers/typedefs.h \
  ../Core/Src/tools/CControl/Sources/LinearAlgebra/../../Headers/../Sources/sources.h \
  ../Core/Src/tools/CControl/Sources/LinearAlgebra/../../Headers/../Sources/ArtificialIntelligence/artificialintelligence.h \
  ../Core/Src/tools/CControl/Sources/LinearAlgebra/../../Headers/../Sources/ArtificialIntelligence/../../Headers/headers.h \
  ../Core/Src/tools/CControl/Sources/LinearAlgebra/../../Headers/../Sources/ControlEngineering/controlengineering.h \
  ../Core/Src/tools/CControl/Sources/LinearAlgebra/../../Headers/../Sources/ControlEngineering/../../Headers/headers.h \
+ ../Core/Src/tools/CControl/Sources/LinearAlgebra/../../Headers/../Sources/DifferentialEquation/differentialequation.h \
+ ../Core/Src/tools/CControl/Sources/LinearAlgebra/../../Headers/../Sources/DifferentialEquation/../../Headers/headers.h \
  ../Core/Src/tools/CControl/Sources/LinearAlgebra/../../Headers/../Sources/ComputerVision/computervision.h \
  ../Core/Src/tools/CControl/Sources/LinearAlgebra/../../Headers/../Sources/ComputerVision/../../Headers/headers.h \
  ../Core/Src/tools/CControl/Sources/LinearAlgebra/../../Headers/../Sources/Hardware/hardware.h \
@@ -40,11 +43,14 @@ Core/Src/tools/CControl/Sources/LinearAlgebra/linsolve_lower_triangular.o: \
 ../Core/Src/tools/CControl/Sources/LinearAlgebra/../../Headers/functions.h:
 ../Core/Src/tools/CControl/Sources/LinearAlgebra/../../Headers/structs.h:
 ../Core/Src/tools/CControl/Sources/LinearAlgebra/../../Headers/unions.h:
+../Core/Src/tools/CControl/Sources/LinearAlgebra/../../Headers/typedefs.h:
 ../Core/Src/tools/CControl/Sources/LinearAlgebra/../../Headers/../Sources/sources.h:
 ../Core/Src/tools/CControl/Sources/LinearAlgebra/../../Headers/../Sources/ArtificialIntelligence/artificialintelligence.h:
 ../Core/Src/tools/CControl/Sources/LinearAlgebra/../../Headers/../Sources/ArtificialIntelligence/../../Headers/headers.h:
 ../Core/Src/tools/CControl/Sources/LinearAlgebra/../../Headers/../Sources/ControlEngineering/controlengineering.h:
 ../Core/Src/tools/CControl/Sources/LinearAlgebra/../../Headers/../Sources/ControlEngineering/../../Headers/headers.h:
+../Core/Src/tools/CControl/Sources/LinearAlgebra/../../Headers/../Sources/DifferentialEquation/differentialequation.h:
+../Core/Src/tools/CControl/Sources/LinearAlgebra/../../Headers/../Sources/DifferentialEquation/../../Headers/headers.h:
 ../Core/Src/tools/CControl/Sources/LinearAlgebra/../../Headers/../Sources/ComputerVision/computervision.h:
 ../Core/Src/tools/CControl/Sources/LinearAlgebra/../../Headers/../Sources/ComputerVision/../../Headers/headers.h:
 ../Core/Src/tools/CControl/Sources/LinearAlgebra/../../Headers/../Sources/Hardware/hardware.h:

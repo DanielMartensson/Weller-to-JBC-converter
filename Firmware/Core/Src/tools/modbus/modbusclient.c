@@ -6,7 +6,9 @@
  */
 
 #include "modbusclient.h"
+#include "modbus.h"
 
+#ifdef IS_MODBUS_CLIENT
 /* Client handle */
 static nmbs_t* nmbs_client;
 
@@ -50,9 +52,10 @@ bool modbus_get_analog_inputs_from_server(uint16_t inputs[], const uint16_t addr
 
 bool modbus_set_parameters_to_server(const uint16_t parameters[], const uint16_t address, const uint16_t quantity) {
     return nmbs_write_multiple_registers(nmbs_client, address, quantity, parameters) == NMBS_ERROR_NONE ? true : false;
-    return true;
 }
 
 bool modbus_get_parameters_from_server(uint16_t parameters[], const uint16_t address, const uint16_t quantity) {
     return nmbs_read_holding_registers(nmbs_client, address, quantity, parameters) == NMBS_ERROR_NONE ? true : false;
 }
+
+#endif

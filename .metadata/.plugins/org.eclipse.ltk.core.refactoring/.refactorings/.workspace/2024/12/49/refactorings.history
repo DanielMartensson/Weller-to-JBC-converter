@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;Firmware/Core/Src/tools/modbus/nanomodbus/modbus.c&apos;" deleteContents="false" description="Delete resource &apos;Firmware/Core/Src/tools/modbus/nanomodbus/modbus.c&apos;" element1="/Firmware/Core/Src/tools/modbus/nanomodbus/modbus.c" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1733262627169"/>
+</session>

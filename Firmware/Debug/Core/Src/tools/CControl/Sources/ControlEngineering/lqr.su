@@ -1,0 +1,2 @@
+../Core/Src/tools/CControl/Sources/ControlEngineering/lqr.c:17:13:RTYUI.constprop	40	static
+../Core/Src/tools/CControl/Sources/ControlEngineering/lqr.c:46:6:lqr	64	static

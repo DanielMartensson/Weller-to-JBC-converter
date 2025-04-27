@@ -59,24 +59,21 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define LED_GREEN_Pin GPIO_PIN_13
-#define LED_GREEN_GPIO_Port GPIOC
-#define N_SLEEP_Pin GPIO_PIN_3
-#define N_SLEEP_GPIO_Port GPIOC
+#define SLEEP_Pin GPIO_PIN_13
+#define SLEEP_GPIO_Port GPIOC
+#define POTENTIOMETER_Pin GPIO_PIN_2
+#define POTENTIOMETER_GPIO_Port GPIOC
 #define TEMPERATURE_Pin GPIO_PIN_0
 #define TEMPERATURE_GPIO_Port GPIOA
 #define CURRENT_Pin GPIO_PIN_1
 #define CURRENT_GPIO_Port GPIOA
-#define HEATER_PWM_Pin GPIO_PIN_2
-#define HEATER_PWM_GPIO_Port GPIOA
-#define LEAKAGE_LEVEL_Pin GPIO_PIN_3
-#define LEAKAGE_LEVEL_GPIO_Port GPIOA
-#define LEAKAGE_THRESHOLD_Pin GPIO_PIN_4
-#define LEAKAGE_THRESHOLD_GPIO_Port GPIOA
-#define POTENTIOMETER_Pin GPIO_PIN_5
-#define POTENTIOMETER_GPIO_Port GPIOA
-#define LEAKAGE_ACTIVE_Pin GPIO_PIN_7
-#define LEAKAGE_ACTIVE_GPIO_Port GPIOA
+#define LED_GREEN_Pin GPIO_PIN_7
+#define LED_GREEN_GPIO_Port GPIOF
+#define PWM_HEATER_Pin GPIO_PIN_15
+#define PWM_HEATER_GPIO_Port GPIOA
+#define CURRENT_BLOCK_ON_Pin GPIO_PIN_2
+#define CURRENT_BLOCK_ON_GPIO_Port GPIOD
+#define CURRENT_BLOCK_ON_EXTI_IRQn EXTI2_3_IRQn
 
 /* USER CODE BEGIN Private defines */
 

@@ -1,0 +1,3 @@
+../Core/Src/tools/CControl/Sources/ControlEngineering/dare.c:17:13:RTYUI.constprop	1
+../Core/Src/tools/CControl/Sources/ControlEngineering/dare.c:38:13:odefun	3
+../Core/Src/tools/CControl/Sources/ControlEngineering/dare.c:119:6:dare	1

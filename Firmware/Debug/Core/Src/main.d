@@ -20,7 +20,6 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_cortex.h \
  ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_adc.h \
  ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_adc_ex.h \
- ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_comp.h \
  ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_flash.h \
  ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_flash_ex.h \
  ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_i2c.h \
@@ -40,11 +39,14 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Core/Src/tools/CControl/Headers/functions.h \
  ../Core/Src/tools/CControl/Headers/structs.h \
  ../Core/Src/tools/CControl/Headers/unions.h \
+ ../Core/Src/tools/CControl/Headers/typedefs.h \
  ../Core/Src/tools/CControl/Headers/../Sources/sources.h \
  ../Core/Src/tools/CControl/Headers/../Sources/ArtificialIntelligence/artificialintelligence.h \
  ../Core/Src/tools/CControl/Headers/../Sources/ArtificialIntelligence/../../Headers/headers.h \
  ../Core/Src/tools/CControl/Headers/../Sources/ControlEngineering/controlengineering.h \
  ../Core/Src/tools/CControl/Headers/../Sources/ControlEngineering/../../Headers/headers.h \
+ ../Core/Src/tools/CControl/Headers/../Sources/DifferentialEquation/differentialequation.h \
+ ../Core/Src/tools/CControl/Headers/../Sources/DifferentialEquation/../../Headers/headers.h \
  ../Core/Src/tools/CControl/Headers/../Sources/ComputerVision/computervision.h \
  ../Core/Src/tools/CControl/Headers/../Sources/ComputerVision/../../Headers/headers.h \
  ../Core/Src/tools/CControl/Headers/../Sources/Hardware/hardware.h \
@@ -65,7 +67,7 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Core/Src/tools/CControl/Headers/../Sources/Statistics/../../Headers/headers.h \
  ../Core/Src/tools/CControl/Headers/../Sources/SystemIdentification/systemidentification.h \
  ../Core/Src/tools/CControl/Headers/../Sources/SystemIdentification/../../Headers/headers.h \
- ../Core/Src/tools/modbus/modbus.h
+ ../Core/Src/tools/modbus/modbus.h ../Core/Src/tools/flash/flash.h
 ../Core/Inc/main.h:
 ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h:
 ../Core/Inc/stm32f0xx_hal_conf.h:
@@ -88,7 +90,6 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_cortex.h:
 ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_adc.h:
 ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_adc_ex.h:
-../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_comp.h:
 ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_flash.h:
 ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_flash_ex.h:
 ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_i2c.h:
@@ -109,11 +110,14 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Core/Src/tools/CControl/Headers/functions.h:
 ../Core/Src/tools/CControl/Headers/structs.h:
 ../Core/Src/tools/CControl/Headers/unions.h:
+../Core/Src/tools/CControl/Headers/typedefs.h:
 ../Core/Src/tools/CControl/Headers/../Sources/sources.h:
 ../Core/Src/tools/CControl/Headers/../Sources/ArtificialIntelligence/artificialintelligence.h:
 ../Core/Src/tools/CControl/Headers/../Sources/ArtificialIntelligence/../../Headers/headers.h:
 ../Core/Src/tools/CControl/Headers/../Sources/ControlEngineering/controlengineering.h:
 ../Core/Src/tools/CControl/Headers/../Sources/ControlEngineering/../../Headers/headers.h:
+../Core/Src/tools/CControl/Headers/../Sources/DifferentialEquation/differentialequation.h:
+../Core/Src/tools/CControl/Headers/../Sources/DifferentialEquation/../../Headers/headers.h:
 ../Core/Src/tools/CControl/Headers/../Sources/ComputerVision/computervision.h:
 ../Core/Src/tools/CControl/Headers/../Sources/ComputerVision/../../Headers/headers.h:
 ../Core/Src/tools/CControl/Headers/../Sources/Hardware/hardware.h:
@@ -135,3 +139,4 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Core/Src/tools/CControl/Headers/../Sources/SystemIdentification/systemidentification.h:
 ../Core/Src/tools/CControl/Headers/../Sources/SystemIdentification/../../Headers/headers.h:
 ../Core/Src/tools/modbus/modbus.h:
+../Core/Src/tools/flash/flash.h:

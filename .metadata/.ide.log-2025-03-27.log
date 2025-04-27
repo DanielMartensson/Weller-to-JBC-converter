@@ -1,0 +1,138 @@
+2025-03-29 09:57:49,500 [INFO] WebApp:189 - Connection lost
+2025-03-29 09:59:14,014 [INFO] WebApp:186 - Connection restablished
+2025-03-29 09:59:38,163 [INFO] WebApp:189 - Connection lost
+2025-03-29 09:59:38,460 [INFO] WebApp:186 - Connection restablished
+2025-03-29 10:16:32,453 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 648650976 Bytes (1073741824)
+2025-03-29 10:16:35,338 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 662379312 Bytes (1073741824)
+2025-03-29 10:16:50,479 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 677672448 Bytes (1073741824)
+2025-03-29 10:16:54,929 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: ADC
+2025-03-29 10:16:54,930 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: NVIC
+2025-03-29 10:16:54,930 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: USART
+2025-03-29 10:16:54,930 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: DMA
+2025-03-29 10:16:54,930 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: TIM1_8F0
+2025-03-29 10:16:54,930 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: TIM1_8F0
+2025-03-29 10:16:54,930 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: TIM1_8F0
+2025-03-29 10:16:54,930 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: SYS
+2025-03-29 10:16:54,931 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: GPIO
+2025-03-29 10:16:54,931 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: RCC
+2025-03-29 10:16:55,134 [INFO] CodeGenerator:807 - code generatio: config db path: C:\ST\STM32CubeIDE_1.16.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.12.1.202409122256\\db\
+2025-03-29 10:16:55,948 [INFO] Argument:325 - Argument : hdmavalue: null
+2025-03-29 10:16:55,948 [INFO] Argument:327 - 	 sub Args: 
+2025-03-29 10:16:55,949 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Channel1
+2025-03-29 10:16:55,949 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Channel1
+2025-03-29 10:16:55,949 [INFO] Argument:325 - Argument : Initvalue: null
+2025-03-29 10:16:55,949 [INFO] Argument:327 - 	 sub Args: 
+2025-03-29 10:16:55,949 [INFO] Argument:325 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2025-03-29 10:16:55,949 [INFO] Argument:335 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2025-03-29 10:16:55,949 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2025-03-29 10:16:55,949 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2025-03-29 10:16:55,949 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2025-03-29 10:16:55,949 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2025-03-29 10:16:55,949 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2025-03-29 10:16:55,949 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2025-03-29 10:16:55,949 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2025-03-29 10:16:55,949 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2025-03-29 10:16:55,949 [INFO] Argument:325 - Argument : Modevalue: DMA_CIRCULAR
+2025-03-29 10:16:55,949 [INFO] Argument:335 - Argument : Modevalue: DMA_CIRCULAR
+2025-03-29 10:16:55,949 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2025-03-29 10:16:55,949 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2025-03-29 10:16:55,949 [INFO] Argument:325 - Argument : Lockvalue: null
+2025-03-29 10:16:55,949 [INFO] Argument:335 - Argument : Lockvalue: null
+2025-03-29 10:16:55,949 [INFO] Argument:325 - Argument : Statevalue: null
+2025-03-29 10:16:55,949 [INFO] Argument:335 - Argument : Statevalue: null
+2025-03-29 10:16:55,949 [INFO] Argument:325 - Argument : Parentvalue: null
+2025-03-29 10:16:55,949 [INFO] Argument:335 - Argument : Parentvalue: null
+2025-03-29 10:16:55,950 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
+2025-03-29 10:16:55,950 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
+2025-03-29 10:16:55,950 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
+2025-03-29 10:16:55,950 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
+2025-03-29 10:16:55,950 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
+2025-03-29 10:16:55,950 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
+2025-03-29 10:16:55,950 [INFO] Argument:325 - Argument : ErrorCodevalue: null
+2025-03-29 10:16:55,950 [INFO] Argument:335 - Argument : ErrorCodevalue: null
+2025-03-29 10:16:55,950 [INFO] Argument:325 - Argument : DMA_Remapvalue: null
+2025-03-29 10:16:55,950 [INFO] Argument:335 - Argument : DMA_Remapvalue: null
+2025-03-29 10:16:55,972 [INFO] Argument:325 - Argument : hdmavalue: null
+2025-03-29 10:16:55,973 [INFO] Argument:327 - 	 sub Args: 
+2025-03-29 10:16:55,973 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Channel3
+2025-03-29 10:16:55,973 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Channel3
+2025-03-29 10:16:55,973 [INFO] Argument:325 - Argument : Initvalue: null
+2025-03-29 10:16:55,973 [INFO] Argument:327 - 	 sub Args: 
+2025-03-29 10:16:55,973 [INFO] Argument:325 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2025-03-29 10:16:55,973 [INFO] Argument:335 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2025-03-29 10:16:55,973 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2025-03-29 10:16:55,973 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2025-03-29 10:16:55,973 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2025-03-29 10:16:55,973 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2025-03-29 10:16:55,973 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2025-03-29 10:16:55,973 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2025-03-29 10:16:55,973 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2025-03-29 10:16:55,973 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2025-03-29 10:16:55,973 [INFO] Argument:325 - Argument : Modevalue: DMA_NORMAL
+2025-03-29 10:16:55,973 [INFO] Argument:335 - Argument : Modevalue: DMA_NORMAL
+2025-03-29 10:16:55,973 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2025-03-29 10:16:55,974 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2025-03-29 10:16:55,974 [INFO] Argument:325 - Argument : Lockvalue: null
+2025-03-29 10:16:55,974 [INFO] Argument:335 - Argument : Lockvalue: null
+2025-03-29 10:16:55,974 [INFO] Argument:325 - Argument : Statevalue: null
+2025-03-29 10:16:55,974 [INFO] Argument:335 - Argument : Statevalue: null
+2025-03-29 10:16:55,974 [INFO] Argument:325 - Argument : Parentvalue: null
+2025-03-29 10:16:55,974 [INFO] Argument:335 - Argument : Parentvalue: null
+2025-03-29 10:16:55,974 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
+2025-03-29 10:16:55,974 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
+2025-03-29 10:16:55,974 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
+2025-03-29 10:16:55,974 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
+2025-03-29 10:16:55,974 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
+2025-03-29 10:16:55,974 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
+2025-03-29 10:16:55,974 [INFO] Argument:325 - Argument : ErrorCodevalue: null
+2025-03-29 10:16:55,974 [INFO] Argument:335 - Argument : ErrorCodevalue: null
+2025-03-29 10:16:55,974 [INFO] Argument:325 - Argument : DMA_Remapvalue: null
+2025-03-29 10:16:55,974 [INFO] Argument:335 - Argument : DMA_Remapvalue: null
+2025-03-29 10:16:58,882 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\license.tmp_save
+2025-03-29 10:16:59,963 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\license.tmp
+2025-03-29 10:17:00,778 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\gpio.tmp_save
+2025-03-29 10:17:01,115 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\gpio.tmp
+2025-03-29 10:17:02,091 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\dma.tmp_save
+2025-03-29 10:17:02,290 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\dma.tmp
+2025-03-29 10:17:02,325 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\dma_GV.tmp_save
+2025-03-29 10:17:02,396 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\dma_GV.tmp
+2025-03-29 10:17:02,547 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\stm32f0xx_it.c_save
+2025-03-29 10:17:03,314 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\stm32f0xx_it.c
+2025-03-29 10:17:03,488 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\stm32f0xx_it.h_save
+2025-03-29 10:17:03,691 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\stm32f0xx_it.h
+2025-03-29 10:17:03,813 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\stm32f0xx_hal_msp.c_save
+2025-03-29 10:17:04,185 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\stm32f0xx_hal_msp.c
+2025-03-29 10:17:04,262 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\system.tmp_save
+2025-03-29 10:17:04,375 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\system.tmp
+2025-03-29 10:17:04,558 [INFO] CodeEngine:311 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\stm32f0xx_hal_conf.h_save
+2025-03-29 10:17:04,818 [INFO] CodeEngine:335 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\stm32f0xx_hal_conf.h
+2025-03-29 10:17:04,981 [WARN] IPConfigManager:3554 - IP not found : TIM
+2025-03-29 10:17:05,015 [WARN] CodeGenerator:4002 - IP not found : null
+2025-03-29 10:17:05,233 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\main.h_save
+2025-03-29 10:17:05,475 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\main.h
+2025-03-29 10:17:05,531 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\main.c_save
+2025-03-29 10:17:06,183 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\main.c
+2025-03-29 10:17:15,324 [INFO] ProjectBuilder:3249 - Time for Copy HAL[1] : 5110mS.
+2025-03-29 10:17:15,433 [INFO] ProjectBuilder:4828 - Project Generator version: 4.5.0-B34
+2025-03-29 10:17:16,386 [INFO] ConfigFileManager:1531 - The Die is : DIE440
+2025-03-29 10:17:50,452 [INFO] ProjectBuilder:5097 - Time for Generating toolchain IDE Files: 35019mS.
+2025-03-29 10:17:50,514 [INFO] ProjectBuilder:3107 - Time for Copy CMSIS : 0mS.
+2025-03-29 10:17:50,545 [INFO] ProjectBuilder:3107 - Time for Copy CMSIS : 0mS.
+2025-03-29 10:24:24,243 [INFO] WebApp:189 - Connection lost
+2025-03-29 10:24:29,213 [INFO] WebApp:186 - Connection restablished
+2025-03-29 10:26:51,667 [INFO] WebApp:189 - Connection lost
+2025-03-29 10:26:51,856 [INFO] WebApp:186 - Connection restablished
+2025-03-29 10:29:27,207 [INFO] WebApp:189 - Connection lost
+2025-03-29 10:29:27,380 [INFO] WebApp:186 - Connection restablished
+2025-03-29 10:32:30,351 [INFO] WebApp:189 - Connection lost
+2025-03-29 10:32:30,472 [INFO] WebApp:186 - Connection restablished
+2025-03-29 10:35:33,745 [INFO] WebApp:189 - Connection lost
+2025-03-29 10:35:33,901 [INFO] WebApp:186 - Connection restablished
+2025-03-29 10:37:10,730 [INFO] WebApp:189 - Connection lost
+2025-03-29 10:37:10,872 [INFO] WebApp:186 - Connection restablished
+2025-03-29 10:42:19,252 [INFO] WebApp:189 - Connection lost
+2025-03-29 10:42:19,391 [INFO] WebApp:186 - Connection restablished
+2025-03-29 10:44:52,793 [INFO] WebApp:189 - Connection lost
+2025-03-29 10:44:52,959 [INFO] WebApp:186 - Connection restablished
+2025-03-29 10:47:56,307 [INFO] WebApp:189 - Connection lost
+2025-03-29 10:47:56,464 [INFO] WebApp:186 - Connection restablished
