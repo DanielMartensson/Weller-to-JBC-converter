@@ -56,7 +56,6 @@ typedef enum{
 ADC_HandleTypeDef hadc;
 DMA_HandleTypeDef hdma_adc;
 
-TIM_HandleTypeDef htim1;
 TIM_HandleTypeDef htim2;
 TIM_HandleTypeDef htim3;
 
@@ -72,8 +71,9 @@ float r[row_c] = { 0 };
 float steady_state_model_error = 0;
 uint16_t iteration_time_ms = 0;
 uint16_t setpoint_raw = 0;
-bool sleep = false;
-bool setpoint_150 = false;
+uint16_t current_raw = 0;
+uint16_t temperature_raw = 0;
+bool PWM_active = false;
 
 /* UART data */
 uint8_t UART_RX_DATA[51]; /* Because nanoMODBUS has its buffert at 50 bytes */
@@ -92,7 +92,6 @@ static void MX_DMA_Init(void);
 static void MX_ADC_Init(void);
 static void MX_TIM2_Init(void);
 static void MX_USART1_UART_Init(void);
-static void MX_TIM1_Init(void);
 static void MX_TIM3_Init(void);
 /* USER CODE BEGIN PFP */
 
@@ -225,27 +224,91 @@ void read_uart(){
 	modbus_server_polling();
 }
 
-void read_adc(){
-	/* Read the data */
-	const uint16_t *PARAMETERS = modbus_server_get_parameters_array();
-	const uint16_t minSetpointRaw = PARAMETERS[0];
-	const uint16_t maxSetpointRaw = PARAMETERS[1];
-	const uint16_t minSetpointReal_LSB = PARAMETERS[2];
-	const uint16_t minSetpointReal_MSB = PARAMETERS[3];
-	const uint16_t maxSetpointReal_LSB = PARAMETERS[4];
-	const uint16_t maxSetpointReal_MSB = PARAMETERS[5];
+void read_temperature(){
+	/* Read the calibration parameters */
+	const uint16_t* PARAMETERS = modbus_server_get_parameters_array();
 	const uint16_t minTemperatureRaw = PARAMETERS[6];
 	const uint16_t maxTemperatureRaw = PARAMETERS[7];
 	const uint16_t minTemperatureReal_LSB = PARAMETERS[8];
 	const uint16_t minTemperatureReal_MSB = PARAMETERS[9];
 	const uint16_t maxTemperatureReal_LSB = PARAMETERS[10];
 	const uint16_t maxTemperatureReal_MSB = PARAMETERS[11];
+
+	/* Read the raw temperature value */
+	temperature_raw = ADC_DATA[0];
+
+	/* Calibrate the raw temperature value */
+	y[0] = calibrate_value(temperature_raw, minTemperatureRaw,
+			maxTemperatureRaw, minTemperatureReal_LSB,
+			minTemperatureReal_MSB, maxTemperatureReal_LSB,
+			maxTemperatureReal_MSB);
+
+	/* Save it to the analog inputs for Modbus */
+	uint16_t* ANALOG_INPUTS = modbus_server_get_analog_inputs();
+	ANALOG_INPUTS[0] = temperature_raw;
+	float_to_uint16(y[0], &ANALOG_INPUTS[4], &ANALOG_INPUTS[3]);
+}
+
+void read_current(){
+	/* Read the calibration parameters */
+	const uint16_t* PARAMETERS = modbus_server_get_parameters_array();
 	const uint16_t minCurrentRaw = PARAMETERS[12];
 	const uint16_t maxCurrentRaw = PARAMETERS[13];
 	const uint16_t minCurrentReal_LSB = PARAMETERS[14];
 	const uint16_t minCurrentReal_MSB = PARAMETERS[15];
 	const uint16_t maxCurrentReal_LSB = PARAMETERS[16];
 	const uint16_t maxCurrentReal_MSB = PARAMETERS[17];
+
+	/* Read the raw current */
+	current_raw = ADC_DATA[1];
+
+	/* Calibrate current */
+	const float current = calibrate_value(current_raw, minCurrentRaw,
+			maxCurrentRaw, minCurrentReal_LSB, minCurrentReal_MSB,
+			maxCurrentReal_LSB, maxCurrentReal_MSB);
+
+	/* Set analog inputs */
+	uint16_t* ANALOG_INPUTS = modbus_server_get_analog_inputs();
+	ANALOG_INPUTS[2] = current_raw;
+	float_to_uint16(current, &ANALOG_INPUTS[8], &ANALOG_INPUTS[7]);
+}
+
+void read_everything_else(){
+	/* Read the calibration parameters */
+	const uint16_t* PARAMETERS = modbus_server_get_parameters_array();
+	const uint16_t minSetpointRaw = PARAMETERS[0];
+	const uint16_t maxSetpointRaw = PARAMETERS[1];
+	const uint16_t minSetpointReal_LSB = PARAMETERS[2];
+	const uint16_t minSetpointReal_MSB = PARAMETERS[3];
+	const uint16_t maxSetpointReal_LSB = PARAMETERS[4];
+	const uint16_t maxSetpointReal_MSB = PARAMETERS[5];
+
+	/* Read the raw setpoint */
+	setpoint_raw = ADC_DATA[2];
+
+	/* Calibrate setpoint */
+	r[0] = calibrate_value(setpoint_raw, minSetpointRaw, maxSetpointRaw,
+			minSetpointReal_LSB, minSetpointReal_MSB,
+			maxSetpointReal_LSB, maxSetpointReal_MSB);
+
+	/* Check if we have placed the soldering tip into holder - Set to 100 degrees */
+	const bool sleep = HAL_GPIO_ReadPin(SLEEP_GPIO_Port, SLEEP_Pin) == GPIO_PIN_SET;
+	if(sleep){
+		r[0] = 100;
+	}
+
+	/*const bool fault = HAL_GPIO_ReadPin(CURRENT_BLOCK_ON_GPIO_Port, CURRENT_BLOCK_ON_Pin) == GPIO_PIN_SET;
+	if(fault){
+		Error_Handler();
+	}*/
+
+	/* Save it to the analog inputs for Modbus */
+	uint16_t* ANALOG_INPUTS = modbus_server_get_analog_inputs();
+	ANALOG_INPUTS[1] = setpoint_raw;
+	float_to_uint16(r[0], &ANALOG_INPUTS[6], &ANALOG_INPUTS[5]);
+	float_to_uint16(mpc.x[0], &ANALOG_INPUTS[10], &ANALOG_INPUTS[9]);
+	ANALOG_INPUTS[11] = iteration_time_ms;
+	float_to_uint16(u[0], &ANALOG_INPUTS[13], &ANALOG_INPUTS[12]);
 
 	/* Read digital outputs */
 	const bool led_green = HAL_GPIO_ReadPin(LED_GREEN_GPIO_Port, LED_GREEN_Pin);
@@ -257,74 +320,32 @@ void read_adc(){
 	/* Set digital inputs */
 	const uint8_t digital_inputs = sleep;
 	modbus_server_set_digital_inputs(&digital_inputs, 0, 1);
-
-	/* Read ADC inputs */
-	const uint16_t temperature_raw = ADC_DATA[0];
-	setpoint_raw = ADC_DATA[2];
-	const uint16_t current_raw = ADC_DATA[1];
-
-	/* Convert to real value */
-	y[0] = calibrate_value(temperature_raw, minTemperatureRaw,
-			maxTemperatureRaw, minTemperatureReal_LSB,
-			minTemperatureReal_MSB, maxTemperatureReal_LSB,
-			maxTemperatureReal_MSB);
-	r[0] = calibrate_value(setpoint_raw, minSetpointRaw, maxSetpointRaw,
-			minSetpointReal_LSB, minSetpointReal_MSB,
-			maxSetpointReal_LSB, maxSetpointReal_MSB);
-
-	/* If the sleep mode kicks in */
-	if(setpoint_150){
-		r[0] = 150;
-	}
-
-	/* This is just a measurement */
-	const float current = calibrate_value(current_raw, minCurrentRaw,
-			maxCurrentRaw, minCurrentReal_LSB, minCurrentReal_MSB,
-			maxCurrentReal_LSB, maxCurrentReal_MSB);
-
-	/* Set analog inputs */
-	uint16_t* ANALOG_INPUTS = modbus_server_get_analog_inputs();
-	ANALOG_INPUTS[0] = temperature_raw;
-	ANALOG_INPUTS[1] = setpoint_raw;
-	ANALOG_INPUTS[2] = current_raw;
-	float_to_uint16(y[0], &ANALOG_INPUTS[4], &ANALOG_INPUTS[3]);
-	float_to_uint16(r[0], &ANALOG_INPUTS[6], &ANALOG_INPUTS[5]);
-	float_to_uint16(current, &ANALOG_INPUTS[8], &ANALOG_INPUTS[7]);
-	float_to_uint16(mpc.x[0], &ANALOG_INPUTS[10], &ANALOG_INPUTS[9]);
-	ANALOG_INPUTS[11] = iteration_time_ms;
-	float_to_uint16(u[0], &ANALOG_INPUTS[13], &ANALOG_INPUTS[12]);
 }
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
-	/* When 3A current flows through the P-MOSFET to long */
+	/* When to much current flows through the P-MOSFET for to long */
     if(GPIO_Pin == CURRENT_BLOCK_ON_Pin){
 		Error_Handler();
     }
 }
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim){
-	if(htim->Instance == TIM1){
-		/* This code disables the PWM and enables the ADC */
-		HAL_TIM_Base_Stop_IT(&htim1);
-		HAL_TIM_PWM_Stop(&htim2, TIM_CHANNEL_1);
-		HAL_TIM_Base_Start_IT(&htim3); /* 2 Hz */
-	}else if (htim->Instance == TIM3) {
-		/* Read digital inputs */
-		sleep = HAL_GPIO_ReadPin(SLEEP_GPIO_Port, SLEEP_Pin) == GPIO_PIN_RESET;
-		if(sleep){
-			setpoint_150 = true;
+	if (htim->Instance == TIM3) {
+		/* For every 2 Hz, this if-statement executes */
+		if(PWM_active){
+			read_temperature();
+			HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1); /* 50 Hz */
+			PWM_active = false;
 		}else{
-			setpoint_150 = false;
+			read_current();
+			HAL_TIM_PWM_Stop(&htim2, TIM_CHANNEL_1); /* 50 Hz */
+			PWM_active = true;
 		}
-
-		/* This code disables the ADC and enables the PWM */
-		HAL_TIM_Base_Stop_IT(&htim3);
-		HAL_ADC_Start_DMA(&hadc, (uint32_t*)ADC_DATA, ADC_DATA_SIZE);
-		read_adc();
-		HAL_ADC_Stop_DMA(&hadc);
-		HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1); /* 50 Hz */
-		HAL_TIM_Base_Start_IT(&htim1); /* 2 Hz */
+		HAL_TIM_Base_Start_IT(&htim3); /* 2 Hz */
 	}
+
+	/* For other measurements */
+	read_everything_else();
 
 	/* This is important if communication can be re-establish */
 	HAL_UARTEx_ReceiveToIdle_DMA(&huart1, UART_RX_DATA, UART_RX_DATA_SIZE);
@@ -377,7 +398,6 @@ int main(void)
   MX_ADC_Init();
   MX_TIM2_Init();
   MX_USART1_UART_Init();
-  MX_TIM1_Init();
   MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
 
@@ -395,7 +415,7 @@ int main(void)
 
   /* Default operation at start-up */
   uint16_t* PARAMETERS = modbus_server_get_parameters_array();
-  uint8_t operation = FEEDBACK_CONTROL;
+  uint8_t operation = MANUALLY_CONTROL;
   PARAMETERS[48] = operation;
 
   /* Iteration time tick tock */
@@ -620,52 +640,6 @@ static void MX_ADC_Init(void)
 }
 
 /**
-  * @brief TIM1 Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_TIM1_Init(void)
-{
-
-  /* USER CODE BEGIN TIM1_Init 0 */
-
-  /* USER CODE END TIM1_Init 0 */
-
-  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
-  TIM_MasterConfigTypeDef sMasterConfig = {0};
-
-  /* USER CODE BEGIN TIM1_Init 1 */
-
-  /* USER CODE END TIM1_Init 1 */
-  htim1.Instance = TIM1;
-  htim1.Init.Prescaler = 199;
-  htim1.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim1.Init.Period = 19999;
-  htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
-  htim1.Init.RepetitionCounter = 0;
-  htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
-  if (HAL_TIM_Base_Init(&htim1) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
-  if (HAL_TIM_ConfigClockSource(&htim1, &sClockSourceConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
-  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
-  if (HAL_TIMEx_MasterConfigSynchronization(&htim1, &sMasterConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN TIM1_Init 2 */
-
-  /* USER CODE END TIM1_Init 2 */
-
-}
-
-/**
   * @brief TIM2 Initialization Function
   * @param None
   * @retval None
@@ -685,9 +659,9 @@ static void MX_TIM2_Init(void)
 
   /* USER CODE END TIM2_Init 1 */
   htim2.Instance = TIM2;
-  htim2.Init.Prescaler = 9;
+  htim2.Init.Prescaler = 1;
   htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim2.Init.Period = 15999;
+  htim2.Init.Period = 63999;
   htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
@@ -885,9 +859,13 @@ void Error_Handler(void)
   __disable_irq();
   while (1)
   {
-	  /* Blink green with 2 Hz if something went wrong */
-	  HAL_GPIO_TogglePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin);
-	  HAL_Delay(500);
+	  /* Blink green if something went wrong - HAL_Delay() won't work here! */
+	  for(long i = 0; i < 100000; i++){
+		  HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, GPIO_PIN_RESET);
+	  };
+	  for(long i = 0; i < 100000; i++){
+		  HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, GPIO_PIN_SET);
+	  };
   }
   /* USER CODE END Error_Handler_Debug */
 }

@@ -1,0 +1,888 @@
+/* USER CODE BEGIN Header */
+/**
+  ******************************************************************************
+  * @file           : main.c
+  * @brief          : Main program body
+  ******************************************************************************
+  * @attention
+  *
+  * Copyright (c) 2024 STMicroelectronics.
+  * All rights reserved.
+  *
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
+  *
+  ******************************************************************************
+  */
+/* USER CODE END Header */
+/* Includes ------------------------------------------------------------------*/
+#include "main.h"
+
+/* Private includes ----------------------------------------------------------*/
+/* USER CODE BEGIN Includes */
+#include "tools/tools.h"
+/* USER CODE END Includes */
+
+/* Private typedef -----------------------------------------------------------*/
+/* USER CODE BEGIN PTD */
+typedef enum{
+	MANUALLY_CONTROL,
+	FEEDBACK_CONTROL,
+	COMPUTE_MPC_MODEL,
+	SAVE_REGISTER_TO_MEMORY
+}OPERATIONS;
+/* USER CODE END PTD */
+
+/* Private define ------------------------------------------------------------*/
+/* USER CODE BEGIN PD */
+#define row_a 1                     /* Dimension of system matrix A */
+#define column_b 1                  /* Columns of input matrix B */
+#define row_c 1                     /* Dimension of output matrix C */
+#define column_e 1                  /* Columns of disturbance matrix E */
+#define iterations 1000             /* Simulation for finding kalman gain K */
+#define N 5                         /* MPC control horizon */
+#define sampleTime_mpc 2.0f         /* Sample time of discrete model of MPC */
+#define sampleTime_kf 0.5f          /* Sample time of discrete model of KF */
+#define MAX_PARAMETERS 49           /* Total elements for the modbus parameters */
+/* USER CODE END PD */
+
+/* Private macro -------------------------------------------------------------*/
+/* USER CODE BEGIN PM */
+
+/* USER CODE END PM */
+
+/* Private variables ---------------------------------------------------------*/
+ADC_HandleTypeDef hadc;
+DMA_HandleTypeDef hdma_adc;
+
+TIM_HandleTypeDef htim2;
+TIM_HandleTypeDef htim3;
+
+UART_HandleTypeDef huart1;
+DMA_HandleTypeDef hdma_usart1_rx;
+
+/* USER CODE BEGIN PV */
+MPC mpc = { 0 };
+float y[row_c] = { 0 };
+float u[column_b] = { 0 };
+static const float d[column_e] = { 0 };
+float r[row_c] = { 0 };
+float steady_state_model_error = 0;
+uint16_t iteration_time_ms = 0;
+uint16_t setpoint_raw = 0;
+uint16_t current_raw = 0;
+uint16_t temperature_raw = 0;
+bool PWM_active = false;
+
+/* UART data */
+uint8_t UART_RX_DATA[51]; /* Because nanoMODBUS has its buffert at 50 bytes */
+uint8_t current_modbus_index = 0;
+static const uint8_t UART_RX_DATA_SIZE = sizeof(UART_RX_DATA);
+
+/* ADC data */
+uint16_t ADC_DATA[3];
+static const uint8_t ADC_DATA_SIZE = sizeof(ADC_DATA) / sizeof(ADC_DATA[0]);
+/* USER CODE END PV */
+
+/* Private function prototypes -----------------------------------------------*/
+void SystemClock_Config(void);
+static void MX_GPIO_Init(void);
+static void MX_DMA_Init(void);
+static void MX_ADC_Init(void);
+static void MX_TIM2_Init(void);
+static void MX_USART1_UART_Init(void);
+static void MX_TIM3_Init(void);
+/* USER CODE BEGIN PFP */
+
+/* USER CODE END PFP */
+
+/* Private user code ---------------------------------------------------------*/
+/* USER CODE BEGIN 0 */
+
+int32_t UART_read(const char port[], uint8_t* buf, uint16_t count, int32_t byte_timeout_ms) {
+	memcpy(buf, UART_RX_DATA + current_modbus_index, count);
+	current_modbus_index += count;
+	return count;
+
+	/* Check new data
+	const uint16_t index = UART_RX_DATA_SIZE - hdma_usart1_rx.Instance->CNDTR;
+	if(index == current_modbus_index){
+		return 0;
+	}
+
+	If current index and the count data is less or equal as the total data size buffer
+	if(current_modbus_index + count <= UART_RX_DATA_SIZE){
+		memcpy(buf, UART_RX_DATA + current_modbus_index, count);
+		current_modbus_index += count;
+		return count;
+	}
+
+	If current index and the count data is more than the total data size buffer
+	if(current_modbus_index + count > UART_RX_DATA_SIZE){
+		uint16_t count_right = UART_RX_DATA_SIZE - current_modbus_index;
+		memcpy(buf, UART_RX_DATA + current_modbus_index, count_right);
+		uint16_t count_left = count - count_right;
+		memcpy(buf, UART_RX_DATA, count_left);
+		current_modbus_index = count_left;
+		return count;
+	}
+
+	 This should not occur
+	return 0;*/
+}
+
+int32_t UART_write(const char port[], const uint8_t* buf, uint16_t count, int32_t byte_timeout_ms) {
+	HAL_StatusTypeDef status = HAL_UART_Transmit(&huart1, buf, count, byte_timeout_ms);
+	const bool wrote = status == HAL_OK;
+    if(wrote){
+    	return count; /* Assuming that we wrote count bytes */
+    }else{
+    	return 0;
+    }
+}
+
+void write_initial_memory(){
+	  uint16_t* PARAMETERS = modbus_server_get_parameters_array();
+	  if(Flash_Write_Data(PARAMETERS, MAX_PARAMETERS) == HAL_ERROR){
+		  Error_Handler();
+	  }
+}
+
+void compute_mpc_model(){
+	const uint16_t* PARAMETERS = modbus_server_get_parameters_array();
+	const uint16_t A_LSB = PARAMETERS[18];
+	const uint16_t A_MSB = PARAMETERS[19];
+	const uint16_t B_LSB = PARAMETERS[20];
+	const uint16_t B_MSB = PARAMETERS[21];
+	const uint16_t qw_LSB = PARAMETERS[22];
+	const uint16_t qw_MSB = PARAMETERS[23];
+	const uint16_t rv_LSB = PARAMETERS[24];
+	const uint16_t rv_MSB = PARAMETERS[25];
+	const uint16_t qz_LSB = PARAMETERS[26];
+	const uint16_t qz_MSB = PARAMETERS[27];
+	const uint16_t s_LSB = PARAMETERS[28];
+	const uint16_t s_MSB = PARAMETERS[29];
+	const uint16_t Spsi_spsi_LSB = PARAMETERS[30];
+	const uint16_t Spsi_spsi_MSB = PARAMETERS[31];
+	const uint16_t alpha_LSB = PARAMETERS[32];
+	const uint16_t alpha_MSB = PARAMETERS[33];
+	const uint16_t antiwindup_LSB = PARAMETERS[34];
+	const uint16_t antiwindup_MSB = PARAMETERS[35];
+	const uint16_t umin_LSB = PARAMETERS[36];
+	const uint16_t umin_MSB = PARAMETERS[37];
+	const uint16_t umax_LSB = PARAMETERS[38];
+	const uint16_t umax_MSB = PARAMETERS[39];
+	const uint16_t steady_state_model_error_LSB = PARAMETERS[40];
+	const uint16_t steady_state_model_error_MSB = PARAMETERS[41];
+	const uint16_t zmax_LSB = PARAMETERS[42];
+	const uint16_t zmax_MSB = PARAMETERS[43];
+	const uint16_t deltaumin_LSB = PARAMETERS[44];
+	const uint16_t deltaumin_MSB = PARAMETERS[45];
+	const uint16_t deltaumax_LSB = PARAMETERS[46];
+	const uint16_t deltaumax_MSB = PARAMETERS[47];
+
+	/* Declare matrices */
+	const float A[row_a * row_a] = { uint16_to_float(A_MSB, A_LSB) };
+	const float B[row_a * column_b] = { uint16_to_float(B_MSB, B_LSB) };
+	const float C[row_c * row_a] = { 1.0f };
+	const float E[row_a * column_e] = { 0.0f };
+
+	/* Declare parameters  */
+	const float qw = uint16_to_float(qw_MSB, qw_LSB); /* Kalman scalar for disturbance covariance matrix Q */
+	const float rv = uint16_to_float(rv_MSB, rv_LSB); /* Kalman scalar for noise covariance matrix R */
+	const float qz = uint16_to_float(qz_MSB, qz_LSB); /* Weight scalar for weight matrix QZ */
+	const float s = uint16_to_float(s_MSB, s_LSB); /* Regularization scalar for regularization matrix S */
+	const float Spsi_spsi = uint16_to_float(Spsi_spsi_MSB, Spsi_spsi_LSB); /* Slack variable scalar for slack variable matrix Spsi and slack vector spsi */
+	const float alpha = uint16_to_float(alpha_MSB, alpha_LSB); /* Integral action constant */
+	const float antiwindup = uint16_to_float(antiwindup_MSB, antiwindup_LSB); /* Anti-windup max/min limitation for the integral action */
+
+	/* Declare constraints */
+	const float umin[column_b] = { uint16_to_float(umin_MSB, umin_LSB) };
+	const float umax[column_b] = { uint16_to_float(umax_MSB, umax_LSB) };
+	const float zmin[column_b] = { 0 };
+	const float zmax[column_b] = { uint16_to_float(zmax_MSB, zmax_LSB) };
+	const float deltaumin[column_b] = { uint16_to_float(deltaumin_MSB, deltaumin_LSB) };
+	const float deltaumax[column_b] = { uint16_to_float(deltaumax_MSB, deltaumax_LSB) };
+
+	/* For the integral action */
+	steady_state_model_error = uint16_to_float(steady_state_model_error_MSB, steady_state_model_error_LSB);
+
+	/* Free the pointer arrays inside MPC structure - Ignored if not initialized */
+	mpc_free(&mpc);
+
+	/* Initialize the MPC structure */
+	mpc_init(&mpc, A, B, C, E, sampleTime_mpc, sampleTime_kf, qw, rv, qz, s, Spsi_spsi, row_a, column_b, row_c, column_e, N, iterations);
+
+	/* Set constraints */
+	mpc_set_constraints(&mpc, umin, umax, zmin, zmax, deltaumin, deltaumax, alpha, antiwindup);
+}
+
+void read_uart(){
+	/* Read the modbus data */
+	current_modbus_index = 0;
+	modbus_server_polling();
+}
+
+void read_temperature(){
+	/* Read the calibration parameters */
+	const uint16_t* PARAMETERS = modbus_server_get_parameters_array();
+	const uint16_t minTemperatureRaw = PARAMETERS[6];
+	const uint16_t maxTemperatureRaw = PARAMETERS[7];
+	const uint16_t minTemperatureReal_LSB = PARAMETERS[8];
+	const uint16_t minTemperatureReal_MSB = PARAMETERS[9];
+	const uint16_t maxTemperatureReal_LSB = PARAMETERS[10];
+	const uint16_t maxTemperatureReal_MSB = PARAMETERS[11];
+
+	/* Read the raw temperature value */
+	temperature_raw = ADC_DATA[0];
+
+	/* Calibrate the raw temperature value */
+	y[0] = calibrate_value(temperature_raw, minTemperatureRaw,
+			maxTemperatureRaw, minTemperatureReal_LSB,
+			minTemperatureReal_MSB, maxTemperatureReal_LSB,
+			maxTemperatureReal_MSB);
+
+	/* Save it to the analog inputs for Modbus */
+	uint16_t* ANALOG_INPUTS = modbus_server_get_analog_inputs();
+	ANALOG_INPUTS[0] = temperature_raw;
+	float_to_uint16(y[0], &ANALOG_INPUTS[4], &ANALOG_INPUTS[3]);
+}
+
+void read_current(){
+	/* Read the calibration parameters */
+	const uint16_t* PARAMETERS = modbus_server_get_parameters_array();
+	const uint16_t minCurrentRaw = PARAMETERS[12];
+	const uint16_t maxCurrentRaw = PARAMETERS[13];
+	const uint16_t minCurrentReal_LSB = PARAMETERS[14];
+	const uint16_t minCurrentReal_MSB = PARAMETERS[15];
+	const uint16_t maxCurrentReal_LSB = PARAMETERS[16];
+	const uint16_t maxCurrentReal_MSB = PARAMETERS[17];
+
+	/* Read the raw current */
+	current_raw = ADC_DATA[1];
+
+	/* Calibrate current */
+	const float current = calibrate_value(current_raw, minCurrentRaw,
+			maxCurrentRaw, minCurrentReal_LSB, minCurrentReal_MSB,
+			maxCurrentReal_LSB, maxCurrentReal_MSB);
+
+	/* Set analog inputs */
+	uint16_t* ANALOG_INPUTS = modbus_server_get_analog_inputs();
+	ANALOG_INPUTS[2] = current_raw;
+	float_to_uint16(current, &ANALOG_INPUTS[8], &ANALOG_INPUTS[7]);
+}
+
+void read_everything_else(){
+	/* Read the calibration parameters */
+	const uint16_t* PARAMETERS = modbus_server_get_parameters_array();
+	const uint16_t minSetpointRaw = PARAMETERS[0];
+	const uint16_t maxSetpointRaw = PARAMETERS[1];
+	const uint16_t minSetpointReal_LSB = PARAMETERS[2];
+	const uint16_t minSetpointReal_MSB = PARAMETERS[3];
+	const uint16_t maxSetpointReal_LSB = PARAMETERS[4];
+	const uint16_t maxSetpointReal_MSB = PARAMETERS[5];
+
+	/* Read the raw setpoint */
+	setpoint_raw = ADC_DATA[2];
+
+	/* Calibrate setpoint */
+	r[0] = calibrate_value(setpoint_raw, minSetpointRaw, maxSetpointRaw,
+			minSetpointReal_LSB, minSetpointReal_MSB,
+			maxSetpointReal_LSB, maxSetpointReal_MSB);
+
+	/* Check if we have placed the soldering tip into holder - Set to 100 degrees */
+	const bool sleep = HAL_GPIO_ReadPin(SLEEP_GPIO_Port, SLEEP_Pin) == GPIO_PIN_SET;
+	if(sleep){
+		r[0] = 100;
+	}
+
+	const bool fault = HAL_GPIO_ReadPin(CURRENT_BLOCK_ON_GPIO_Port, CURRENT_BLOCK_ON_Pin) == GPIO_PIN_SET;
+	if(fault){
+		Error_Handler();
+	}
+
+	/* Save it to the analog inputs for Modbus */
+	uint16_t* ANALOG_INPUTS = modbus_server_get_analog_inputs();
+	ANALOG_INPUTS[1] = setpoint_raw;
+	float_to_uint16(r[0], &ANALOG_INPUTS[6], &ANALOG_INPUTS[5]);
+	float_to_uint16(mpc.x[0], &ANALOG_INPUTS[10], &ANALOG_INPUTS[9]);
+	ANALOG_INPUTS[11] = iteration_time_ms;
+	float_to_uint16(u[0], &ANALOG_INPUTS[13], &ANALOG_INPUTS[12]);
+
+	/* Read digital outputs */
+	const bool led_green = HAL_GPIO_ReadPin(LED_GREEN_GPIO_Port, LED_GREEN_Pin);
+
+	/* Set digital outputs */
+	const uint8_t digital_outputs = led_green;
+	modbus_server_set_digital_outputs(&digital_outputs, 0, 1);
+
+	/* Set digital inputs */
+	const uint8_t digital_inputs = sleep;
+	modbus_server_set_digital_inputs(&digital_inputs, 0, 1);
+}
+
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
+	/* When 3A current flows through the P-MOSFET to long */
+    if(GPIO_Pin == CURRENT_BLOCK_ON_Pin){
+		Error_Handler();
+    }
+}
+
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim){
+	if (htim->Instance == TIM3) {
+		/* For every 2 Hz, this if-statement executes */
+		if(PWM_active){
+			read_temperature();
+			HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1); /* 50 Hz */
+			PWM_active = false;
+		}else{
+			read_current();
+			HAL_TIM_PWM_Stop(&htim2, TIM_CHANNEL_1); /* 50 Hz */
+			PWM_active = true;
+		}
+		HAL_TIM_Base_Start_IT(&htim3); /* 2 Hz */
+	}
+
+	/* For other measurements */
+	read_everything_else();
+
+	/* This is important if communication can be re-establish */
+	HAL_UARTEx_ReceiveToIdle_DMA(&huart1, UART_RX_DATA, UART_RX_DATA_SIZE);
+	__HAL_DMA_DISABLE_IT(&hdma_usart1_rx, DMA_IT_HT);
+}
+
+void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size){
+	HAL_UARTEx_ReceiveToIdle_DMA(&huart1, UART_RX_DATA, UART_RX_DATA_SIZE);
+	__HAL_DMA_DISABLE_IT(&hdma_usart1_rx, DMA_IT_HT);
+	read_uart();
+}
+
+void read_initial_memory(){
+	uint16_t* PARAMETERS = modbus_server_get_parameters_array();
+	Flash_Read_Data(PARAMETERS, MAX_PARAMETERS);
+}
+
+/* USER CODE END 0 */
+
+/**
+  * @brief  The application entry point.
+  * @retval int
+  */
+int main(void)
+{
+
+  /* USER CODE BEGIN 1 */
+
+  /* USER CODE END 1 */
+
+  /* MCU Configuration--------------------------------------------------------*/
+
+  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+  HAL_Init();
+
+  /* USER CODE BEGIN Init */
+
+  /* USER CODE END Init */
+
+  /* Configure the system clock */
+  SystemClock_Config();
+
+  /* USER CODE BEGIN SysInit */
+
+  /* USER CODE END SysInit */
+
+  /* Initialize all configured peripherals */
+  MX_GPIO_Init();
+  MX_DMA_Init();
+  MX_ADC_Init();
+  MX_TIM2_Init();
+  MX_USART1_UART_Init();
+  MX_TIM3_Init();
+  /* USER CODE BEGIN 2 */
+
+  /* Start nanoMODBUS with address 1 */
+  modbus_set_serial_read(UART_read);
+  modbus_set_serial_write(UART_write);
+  modbus_set_serial_port(NULL);
+  modbus_server_create_RTU(1);
+
+  /* Read the EEPROM memory */
+  read_initial_memory();
+
+  /* Build model */
+  compute_mpc_model();
+
+  /* Default operation at start-up */
+  uint16_t* PARAMETERS = modbus_server_get_parameters_array();
+  uint8_t operation = MANUALLY_CONTROL;
+  PARAMETERS[48] = operation;
+
+  /* Iteration time tick tock */
+  uint16_t tick = 0, tock = 0;
+
+  /* Start UART with IT */
+  HAL_UARTEx_ReceiveToIdle_DMA(&huart1, UART_RX_DATA, UART_RX_DATA_SIZE);
+  __HAL_DMA_DISABLE_IT(&hdma_usart1_rx, DMA_IT_HT);
+
+  /* Start threads */
+  HAL_TIM_PeriodElapsedCallback(&htim3);
+  HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1); /* 50 Hz */
+  __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_1, 0);
+
+
+  /* ADC calibration */
+  HAL_ADC_Stop(&hadc);
+  if (HAL_ADCEx_Calibration_Start(&hadc) != HAL_OK){
+    Error_Handler();
+  }
+
+  /* ADC start with DMA */
+  if (HAL_ADC_Start_DMA(&hadc, (uint32_t*)ADC_DATA, ADC_DATA_SIZE) != HAL_OK){
+    Error_Handler();
+  }
+
+  /* Integral action flag */
+  bool integral_action = false;
+
+  /* USER CODE END 2 */
+
+  /* Infinite loop */
+  /* USER CODE BEGIN WHILE */
+  while (1)
+  {
+    /* USER CODE END WHILE */
+
+    /* USER CODE BEGIN 3 */
+
+	/* Measure */
+	iteration_time_ms = tick - tock;
+	tock = HAL_GetTick();
+
+	/* Optimize u, r and y are set at the timer interrupt. d is a static constant */
+	switch (operation) {
+	case MANUALLY_CONTROL:
+		__HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_1, setpoint_raw);
+		break;
+	case FEEDBACK_CONTROL:
+		switch (mpc_optimize(&mpc, u, r, y, d, integral_action)) {
+		case STATUS_NAN:
+			u[0] = 0.0f; /* MPC could not be solved - Set to zero to prevent explosion */
+			break;
+		case STATUS_INF:
+			u[0] = 0.0f; /* MPC could not be solved - Set to zero to prevent explosion */
+			break;
+		default:
+			/* If the temperature is within steady_state_model_error */
+			if (fabsf(r[0] - y[0]) <= steady_state_model_error) {
+				integral_action = true;
+				HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, GPIO_PIN_SET);
+			} else {
+				integral_action = false;
+				HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, GPIO_PIN_RESET);
+			}
+
+			break;
+		}
+
+		/* This is a safety feature - The PWM shall never be at 100% due to the 3A limit */
+		if(u[0] > htim2.Init.Period * 0.9f){
+			u[0] = htim2.Init.Period * 0.9f;
+		}
+
+		/* Set control signal */
+		__HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_1, u[0]);
+
+
+		/* Estimate next state x after each update */
+		mpc_estimate(&mpc, u, y, d);
+
+		break;
+	}
+
+	/* Get the operation  */
+	operation = PARAMETERS[48];
+
+	/* Execute the operation */
+	switch(operation){
+	case COMPUTE_MPC_MODEL:
+		compute_mpc_model();
+		operation = FEEDBACK_CONTROL;
+		PARAMETERS[48] = FEEDBACK_CONTROL;
+		break;
+	case SAVE_REGISTER_TO_MEMORY:
+		write_initial_memory();
+		operation = FEEDBACK_CONTROL;
+		PARAMETERS[48] = FEEDBACK_CONTROL;
+		break;
+	default:
+		break;
+	}
+
+	/* Get tick */
+	tick = HAL_GetTick();
+  }
+  /* USER CODE END 3 */
+}
+
+/**
+  * @brief System Clock Configuration
+  * @retval None
+  */
+void SystemClock_Config(void)
+{
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+  RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+  RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};
+
+  /** Initializes the RCC Oscillators according to the specified parameters
+  * in the RCC_OscInitTypeDef structure.
+  */
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI|RCC_OSCILLATORTYPE_HSI14;
+  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+  RCC_OscInitStruct.HSI14State = RCC_HSI14_ON;
+  RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+  RCC_OscInitStruct.HSI14CalibrationValue = 16;
+  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
+  if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Initializes the CPU, AHB and APB buses clocks
+  */
+  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
+                              |RCC_CLOCKTYPE_PCLK1;
+  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSI;
+  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
+
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_0) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_USART1;
+  PeriphClkInit.Usart1ClockSelection = RCC_USART1CLKSOURCE_PCLK1;
+  if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
+  {
+    Error_Handler();
+  }
+}
+
+/**
+  * @brief ADC Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_ADC_Init(void)
+{
+
+  /* USER CODE BEGIN ADC_Init 0 */
+
+  /* USER CODE END ADC_Init 0 */
+
+  ADC_ChannelConfTypeDef sConfig = {0};
+
+  /* USER CODE BEGIN ADC_Init 1 */
+
+  /* USER CODE END ADC_Init 1 */
+
+  /** Configure the global features of the ADC (Clock, Resolution, Data Alignment and number of conversion)
+  */
+  hadc.Instance = ADC1;
+  hadc.Init.ClockPrescaler = ADC_CLOCK_ASYNC_DIV1;
+  hadc.Init.Resolution = ADC_RESOLUTION_12B;
+  hadc.Init.DataAlign = ADC_DATAALIGN_RIGHT;
+  hadc.Init.ScanConvMode = ADC_SCAN_DIRECTION_FORWARD;
+  hadc.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
+  hadc.Init.LowPowerAutoWait = DISABLE;
+  hadc.Init.LowPowerAutoPowerOff = DISABLE;
+  hadc.Init.ContinuousConvMode = ENABLE;
+  hadc.Init.DiscontinuousConvMode = DISABLE;
+  hadc.Init.ExternalTrigConv = ADC_SOFTWARE_START;
+  hadc.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
+  hadc.Init.DMAContinuousRequests = ENABLE;
+  hadc.Init.Overrun = ADC_OVR_DATA_PRESERVED;
+  if (HAL_ADC_Init(&hadc) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Configure for the selected ADC regular channel to be converted.
+  */
+  sConfig.Channel = ADC_CHANNEL_0;
+  sConfig.Rank = ADC_RANK_CHANNEL_NUMBER;
+  sConfig.SamplingTime = ADC_SAMPLETIME_239CYCLES_5;
+  if (HAL_ADC_ConfigChannel(&hadc, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Configure for the selected ADC regular channel to be converted.
+  */
+  sConfig.Channel = ADC_CHANNEL_1;
+  if (HAL_ADC_ConfigChannel(&hadc, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Configure for the selected ADC regular channel to be converted.
+  */
+  sConfig.Channel = ADC_CHANNEL_12;
+  if (HAL_ADC_ConfigChannel(&hadc, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN ADC_Init 2 */
+
+  /* USER CODE END ADC_Init 2 */
+
+}
+
+/**
+  * @brief TIM2 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM2_Init(void)
+{
+
+  /* USER CODE BEGIN TIM2_Init 0 */
+
+  /* USER CODE END TIM2_Init 0 */
+
+  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+  TIM_OC_InitTypeDef sConfigOC = {0};
+
+  /* USER CODE BEGIN TIM2_Init 1 */
+
+  /* USER CODE END TIM2_Init 1 */
+  htim2.Instance = TIM2;
+  htim2.Init.Prescaler = 1;
+  htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim2.Init.Period = 63999;
+  htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+  if (HAL_TIM_ConfigClockSource(&htim2, &sClockSourceConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_TIM_PWM_Init(&htim2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_UPDATE;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_ENABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim2, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sConfigOC.OCMode = TIM_OCMODE_PWM1;
+  sConfigOC.Pulse = 0;
+  sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+  sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
+  if (HAL_TIM_PWM_ConfigChannel(&htim2, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM2_Init 2 */
+
+  /* USER CODE END TIM2_Init 2 */
+  HAL_TIM_MspPostInit(&htim2);
+
+}
+
+/**
+  * @brief TIM3 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM3_Init(void)
+{
+
+  /* USER CODE BEGIN TIM3_Init 0 */
+
+  /* USER CODE END TIM3_Init 0 */
+
+  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+
+  /* USER CODE BEGIN TIM3_Init 1 */
+
+  /* USER CODE END TIM3_Init 1 */
+  htim3.Instance = TIM3;
+  htim3.Init.Prescaler = 199;
+  htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim3.Init.Period = 19999;
+  htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim3) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+  if (HAL_TIM_ConfigClockSource(&htim3, &sClockSourceConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim3, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM3_Init 2 */
+
+  /* USER CODE END TIM3_Init 2 */
+
+}
+
+/**
+  * @brief USART1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_USART1_UART_Init(void)
+{
+
+  /* USER CODE BEGIN USART1_Init 0 */
+
+  /* USER CODE END USART1_Init 0 */
+
+  /* USER CODE BEGIN USART1_Init 1 */
+
+  /* USER CODE END USART1_Init 1 */
+  huart1.Instance = USART1;
+  huart1.Init.BaudRate = 115200;
+  huart1.Init.WordLength = UART_WORDLENGTH_8B;
+  huart1.Init.StopBits = UART_STOPBITS_1;
+  huart1.Init.Parity = UART_PARITY_NONE;
+  huart1.Init.Mode = UART_MODE_TX_RX;
+  huart1.Init.HwFlowCtl = UART_HWCONTROL_RTS_CTS;
+  huart1.Init.OverSampling = UART_OVERSAMPLING_16;
+  huart1.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
+  huart1.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+  if (HAL_UART_Init(&huart1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN USART1_Init 2 */
+
+  /* USER CODE END USART1_Init 2 */
+
+}
+
+/**
+  * Enable DMA controller clock
+  */
+static void MX_DMA_Init(void)
+{
+
+  /* DMA controller clock enable */
+  __HAL_RCC_DMA1_CLK_ENABLE();
+
+  /* DMA interrupt init */
+  /* DMA1_Channel1_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA1_Channel1_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Channel1_IRQn);
+  /* DMA1_Channel2_3_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA1_Channel2_3_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Channel2_3_IRQn);
+
+}
+
+/**
+  * @brief GPIO Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_GPIO_Init(void)
+{
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
+/* USER CODE BEGIN MX_GPIO_Init_1 */
+/* USER CODE END MX_GPIO_Init_1 */
+
+  /* GPIO Ports Clock Enable */
+  __HAL_RCC_GPIOC_CLK_ENABLE();
+  __HAL_RCC_GPIOF_CLK_ENABLE();
+  __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOD_CLK_ENABLE();
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin : SLEEP_Pin */
+  GPIO_InitStruct.Pin = SLEEP_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(SLEEP_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : LED_GREEN_Pin */
+  GPIO_InitStruct.Pin = LED_GREEN_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(LED_GREEN_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : CURRENT_BLOCK_ON_Pin */
+  GPIO_InitStruct.Pin = CURRENT_BLOCK_ON_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(CURRENT_BLOCK_ON_GPIO_Port, &GPIO_InitStruct);
+
+  /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI2_3_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI2_3_IRQn);
+
+/* USER CODE BEGIN MX_GPIO_Init_2 */
+/* USER CODE END MX_GPIO_Init_2 */
+}
+
+/* USER CODE BEGIN 4 */
+
+/* USER CODE END 4 */
+
+/**
+  * @brief  This function is executed in case of error occurrence.
+  * @retval None
+  */
+void Error_Handler(void)
+{
+  /* USER CODE BEGIN Error_Handler_Debug */
+  /* User can add his own implementation to report the HAL error return state */
+  __disable_irq();
+  while (1)
+  {
+	  /* Blink green if something went wrong */
+	  for(int i = 0; i < 10000; i++){
+		  HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, GPIO_PIN_RESET);
+	  };
+	  for(int i = 0; i < 100000000; i++){
+		  HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, GPIO_PIN_SET);
+	  };
+  }
+  /* USER CODE END Error_Handler_Debug */
+}
+
+#ifdef  USE_FULL_ASSERT
+/**
+  * @brief  Reports the name of the source file and the source line number
+  *         where the assert_param error has occurred.
+  * @param  file: pointer to the source file name
+  * @param  line: assert_param error line source number
+  * @retval None
+  */
+void assert_failed(uint8_t *file, uint32_t line)
+{
+  /* USER CODE BEGIN 6 */
+  /* User can add his own implementation to report the file name and line number,
+     ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
+  /* USER CODE END 6 */
+}
+#endif /* USE_FULL_ASSERT */
