@@ -1,1344 +1,437 @@
-2025-04-29 00:00:07,850 [INFO] WebApp:189 - Connection lost
-2025-04-29 00:00:07,998 [INFO] WebApp:186 - Connection restablished
-2025-04-29 00:13:18,886 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
-2025-04-29 00:13:20,215 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 767951640 Bytes (1073741824)
-2025-04-29 00:13:20,310 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 784206616 Bytes (1073741824)
-2025-04-29 00:13:21,083 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 822477592 Bytes (1073741824)
-2025-04-29 00:13:21,402 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: ADC
-2025-04-29 00:13:21,402 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: NVIC
-2025-04-29 00:13:21,402 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: USART
-2025-04-29 00:13:21,402 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: DMA
-2025-04-29 00:13:21,402 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: TIM1_8F0
-2025-04-29 00:13:21,402 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: TIM1_8F0
-2025-04-29 00:13:21,402 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: SYS
-2025-04-29 00:13:21,402 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: GPIO
-2025-04-29 00:13:21,402 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: RCC
-2025-04-29 00:13:21,403 [INFO] CodeGenerator:807 - code generatio: config db path: C:\ST\STM32CubeIDE_1.16.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.12.1.202409122256\\db\
-2025-04-29 00:13:21,405 [INFO] Argument:325 - Argument : hdmavalue: null
-2025-04-29 00:13:21,405 [INFO] Argument:327 - 	 sub Args: 
-2025-04-29 00:13:21,405 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Channel1
-2025-04-29 00:13:21,405 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Channel1
-2025-04-29 00:13:21,405 [INFO] Argument:325 - Argument : Initvalue: null
-2025-04-29 00:13:21,405 [INFO] Argument:327 - 	 sub Args: 
-2025-04-29 00:13:21,405 [INFO] Argument:325 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
-2025-04-29 00:13:21,405 [INFO] Argument:335 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
-2025-04-29 00:13:21,405 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
-2025-04-29 00:13:21,405 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
-2025-04-29 00:13:21,405 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
-2025-04-29 00:13:21,405 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
-2025-04-29 00:13:21,405 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
-2025-04-29 00:13:21,405 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
-2025-04-29 00:13:21,405 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
-2025-04-29 00:13:21,405 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
-2025-04-29 00:13:21,405 [INFO] Argument:325 - Argument : Modevalue: DMA_CIRCULAR
-2025-04-29 00:13:21,405 [INFO] Argument:335 - Argument : Modevalue: DMA_CIRCULAR
-2025-04-29 00:13:21,405 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_LOW
-2025-04-29 00:13:21,405 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_LOW
-2025-04-29 00:13:21,405 [INFO] Argument:325 - Argument : Lockvalue: null
-2025-04-29 00:13:21,406 [INFO] Argument:335 - Argument : Lockvalue: null
-2025-04-29 00:13:21,406 [INFO] Argument:325 - Argument : Statevalue: null
-2025-04-29 00:13:21,406 [INFO] Argument:335 - Argument : Statevalue: null
-2025-04-29 00:13:21,406 [INFO] Argument:325 - Argument : Parentvalue: null
-2025-04-29 00:13:21,406 [INFO] Argument:335 - Argument : Parentvalue: null
-2025-04-29 00:13:21,406 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
-2025-04-29 00:13:21,406 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
-2025-04-29 00:13:21,406 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
-2025-04-29 00:13:21,406 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
-2025-04-29 00:13:21,406 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
-2025-04-29 00:13:21,406 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
-2025-04-29 00:13:21,406 [INFO] Argument:325 - Argument : ErrorCodevalue: null
-2025-04-29 00:13:21,406 [INFO] Argument:335 - Argument : ErrorCodevalue: null
-2025-04-29 00:13:21,406 [INFO] Argument:325 - Argument : DMA_Remapvalue: null
-2025-04-29 00:13:21,406 [INFO] Argument:335 - Argument : DMA_Remapvalue: null
-2025-04-29 00:13:21,426 [INFO] Argument:325 - Argument : hdmavalue: null
-2025-04-29 00:13:21,427 [INFO] Argument:327 - 	 sub Args: 
-2025-04-29 00:13:21,427 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Channel3
-2025-04-29 00:13:21,427 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Channel3
-2025-04-29 00:13:21,427 [INFO] Argument:325 - Argument : Initvalue: null
-2025-04-29 00:13:21,427 [INFO] Argument:327 - 	 sub Args: 
-2025-04-29 00:13:21,427 [INFO] Argument:325 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
-2025-04-29 00:13:21,427 [INFO] Argument:335 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
-2025-04-29 00:13:21,427 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
-2025-04-29 00:13:21,427 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
-2025-04-29 00:13:21,427 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
-2025-04-29 00:13:21,427 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
-2025-04-29 00:13:21,427 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
-2025-04-29 00:13:21,427 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
-2025-04-29 00:13:21,427 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
-2025-04-29 00:13:21,427 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
-2025-04-29 00:13:21,427 [INFO] Argument:325 - Argument : Modevalue: DMA_NORMAL
-2025-04-29 00:13:21,427 [INFO] Argument:335 - Argument : Modevalue: DMA_NORMAL
-2025-04-29 00:13:21,427 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_LOW
-2025-04-29 00:13:21,427 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_LOW
-2025-04-29 00:13:21,427 [INFO] Argument:325 - Argument : Lockvalue: null
-2025-04-29 00:13:21,427 [INFO] Argument:335 - Argument : Lockvalue: null
-2025-04-29 00:13:21,427 [INFO] Argument:325 - Argument : Statevalue: null
-2025-04-29 00:13:21,427 [INFO] Argument:335 - Argument : Statevalue: null
-2025-04-29 00:13:21,427 [INFO] Argument:325 - Argument : Parentvalue: null
-2025-04-29 00:13:21,427 [INFO] Argument:335 - Argument : Parentvalue: null
-2025-04-29 00:13:21,427 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
-2025-04-29 00:13:21,427 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
-2025-04-29 00:13:21,427 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
-2025-04-29 00:13:21,427 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
-2025-04-29 00:13:21,428 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
-2025-04-29 00:13:21,428 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
-2025-04-29 00:13:21,428 [INFO] Argument:325 - Argument : ErrorCodevalue: null
-2025-04-29 00:13:21,428 [INFO] Argument:335 - Argument : ErrorCodevalue: null
-2025-04-29 00:13:21,428 [INFO] Argument:325 - Argument : DMA_Remapvalue: null
-2025-04-29 00:13:21,428 [INFO] Argument:335 - Argument : DMA_Remapvalue: null
-2025-04-29 00:13:21,506 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\license.tmp_save
-2025-04-29 00:13:21,626 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\license.tmp
-2025-04-29 00:13:21,667 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\gpio.tmp_save
-2025-04-29 00:13:21,783 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\gpio.tmp
-2025-04-29 00:13:22,047 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\dma.tmp_save
-2025-04-29 00:13:22,147 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\dma.tmp
-2025-04-29 00:13:22,150 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\dma_GV.tmp_save
-2025-04-29 00:13:22,208 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\dma_GV.tmp
-2025-04-29 00:13:22,239 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\stm32f0xx_it.c_save
-2025-04-29 00:13:22,430 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\stm32f0xx_it.c
-2025-04-29 00:13:22,438 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\stm32f0xx_it.h_save
-2025-04-29 00:13:22,516 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\stm32f0xx_it.h
-2025-04-29 00:13:22,544 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\stm32f0xx_hal_msp.c_save
-2025-04-29 00:13:22,716 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\stm32f0xx_hal_msp.c
-2025-04-29 00:13:22,732 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\system.tmp_save
-2025-04-29 00:13:22,795 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\system.tmp
-2025-04-29 00:13:22,823 [INFO] CodeEngine:311 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\stm32f0xx_hal_conf.h_save
-2025-04-29 00:13:22,947 [INFO] CodeEngine:335 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\stm32f0xx_hal_conf.h
-2025-04-29 00:13:22,968 [WARN] IPConfigManager:3554 - IP not found : TIM
-2025-04-29 00:13:22,969 [WARN] CodeGenerator:4002 - IP not found : null
-2025-04-29 00:13:22,989 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\main.h_save
-2025-04-29 00:13:23,152 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\main.h
-2025-04-29 00:13:23,175 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\main.c_save
-2025-04-29 00:13:23,339 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\main.c
-2025-04-29 00:13:23,732 [INFO] ProjectBuilder:3249 - Time for Copy HAL[1] : 149mS.
-2025-04-29 00:13:23,735 [INFO] ProjectBuilder:4828 - Project Generator version: 4.5.0-B34
-2025-04-29 00:13:23,819 [INFO] ConfigFileManager:1531 - The Die is : DIE440
-2025-04-29 00:13:25,157 [INFO] ProjectBuilder:5097 - Time for Generating toolchain IDE Files: 1422mS.
-2025-04-29 00:13:25,158 [INFO] ProjectBuilder:3107 - Time for Copy CMSIS : 1mS.
-2025-04-29 00:13:25,187 [INFO] ProjectBuilder:3107 - Time for Copy CMSIS : 0mS.
-2025-04-29 00:15:37,946 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
-2025-04-29 00:15:38,631 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 737500432 Bytes (1073741824)
-2025-04-29 00:15:38,712 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 753229072 Bytes (1073741824)
-2025-04-29 00:15:39,456 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 791500048 Bytes (1073741824)
-2025-04-29 00:15:39,810 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: ADC
-2025-04-29 00:15:39,811 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: NVIC
-2025-04-29 00:15:39,811 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: USART
-2025-04-29 00:15:39,811 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: DMA
-2025-04-29 00:15:39,811 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: TIM1_8F0
-2025-04-29 00:15:39,811 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: TIM1_8F0
-2025-04-29 00:15:39,811 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: SYS
-2025-04-29 00:15:39,811 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: GPIO
-2025-04-29 00:15:39,811 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: RCC
-2025-04-29 00:15:39,812 [INFO] CodeGenerator:807 - code generatio: config db path: C:\ST\STM32CubeIDE_1.16.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.12.1.202409122256\\db\
-2025-04-29 00:15:39,814 [INFO] Argument:325 - Argument : hdmavalue: null
-2025-04-29 00:15:39,814 [INFO] Argument:327 - 	 sub Args: 
-2025-04-29 00:15:39,814 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Channel1
-2025-04-29 00:15:39,814 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Channel1
-2025-04-29 00:15:39,814 [INFO] Argument:325 - Argument : Initvalue: null
-2025-04-29 00:15:39,814 [INFO] Argument:327 - 	 sub Args: 
-2025-04-29 00:15:39,814 [INFO] Argument:325 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
-2025-04-29 00:15:39,814 [INFO] Argument:335 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
-2025-04-29 00:15:39,814 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
-2025-04-29 00:15:39,814 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
-2025-04-29 00:15:39,814 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
-2025-04-29 00:15:39,814 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
-2025-04-29 00:15:39,814 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
-2025-04-29 00:15:39,814 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
-2025-04-29 00:15:39,814 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
-2025-04-29 00:15:39,814 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
-2025-04-29 00:15:39,814 [INFO] Argument:325 - Argument : Modevalue: DMA_CIRCULAR
-2025-04-29 00:15:39,814 [INFO] Argument:335 - Argument : Modevalue: DMA_CIRCULAR
-2025-04-29 00:15:39,814 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_LOW
-2025-04-29 00:15:39,814 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_LOW
-2025-04-29 00:15:39,815 [INFO] Argument:325 - Argument : Lockvalue: null
-2025-04-29 00:15:39,815 [INFO] Argument:335 - Argument : Lockvalue: null
-2025-04-29 00:15:39,815 [INFO] Argument:325 - Argument : Statevalue: null
-2025-04-29 00:15:39,815 [INFO] Argument:335 - Argument : Statevalue: null
-2025-04-29 00:15:39,815 [INFO] Argument:325 - Argument : Parentvalue: null
-2025-04-29 00:15:39,815 [INFO] Argument:335 - Argument : Parentvalue: null
-2025-04-29 00:15:39,815 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
-2025-04-29 00:15:39,815 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
-2025-04-29 00:15:39,815 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
-2025-04-29 00:15:39,815 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
-2025-04-29 00:15:39,815 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
-2025-04-29 00:15:39,815 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
-2025-04-29 00:15:39,815 [INFO] Argument:325 - Argument : ErrorCodevalue: null
-2025-04-29 00:15:39,815 [INFO] Argument:335 - Argument : ErrorCodevalue: null
-2025-04-29 00:15:39,815 [INFO] Argument:325 - Argument : DMA_Remapvalue: null
-2025-04-29 00:15:39,815 [INFO] Argument:335 - Argument : DMA_Remapvalue: null
-2025-04-29 00:15:39,840 [INFO] Argument:325 - Argument : hdmavalue: null
-2025-04-29 00:15:39,840 [INFO] Argument:327 - 	 sub Args: 
-2025-04-29 00:15:39,840 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Channel3
-2025-04-29 00:15:39,840 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Channel3
-2025-04-29 00:15:39,840 [INFO] Argument:325 - Argument : Initvalue: null
-2025-04-29 00:15:39,840 [INFO] Argument:327 - 	 sub Args: 
-2025-04-29 00:15:39,841 [INFO] Argument:325 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
-2025-04-29 00:15:39,841 [INFO] Argument:335 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
-2025-04-29 00:15:39,841 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
-2025-04-29 00:15:39,841 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
-2025-04-29 00:15:39,841 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
-2025-04-29 00:15:39,841 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
-2025-04-29 00:15:39,841 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
-2025-04-29 00:15:39,841 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
-2025-04-29 00:15:39,841 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
-2025-04-29 00:15:39,841 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
-2025-04-29 00:15:39,841 [INFO] Argument:325 - Argument : Modevalue: DMA_NORMAL
-2025-04-29 00:15:39,841 [INFO] Argument:335 - Argument : Modevalue: DMA_NORMAL
-2025-04-29 00:15:39,841 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_LOW
-2025-04-29 00:15:39,841 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_LOW
-2025-04-29 00:15:39,841 [INFO] Argument:325 - Argument : Lockvalue: null
-2025-04-29 00:15:39,841 [INFO] Argument:335 - Argument : Lockvalue: null
-2025-04-29 00:15:39,841 [INFO] Argument:325 - Argument : Statevalue: null
-2025-04-29 00:15:39,841 [INFO] Argument:335 - Argument : Statevalue: null
-2025-04-29 00:15:39,841 [INFO] Argument:325 - Argument : Parentvalue: null
-2025-04-29 00:15:39,841 [INFO] Argument:335 - Argument : Parentvalue: null
-2025-04-29 00:15:39,841 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
-2025-04-29 00:15:39,841 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
-2025-04-29 00:15:39,841 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
-2025-04-29 00:15:39,841 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
-2025-04-29 00:15:39,841 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
-2025-04-29 00:15:39,841 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
-2025-04-29 00:15:39,841 [INFO] Argument:325 - Argument : ErrorCodevalue: null
-2025-04-29 00:15:39,841 [INFO] Argument:335 - Argument : ErrorCodevalue: null
-2025-04-29 00:15:39,841 [INFO] Argument:325 - Argument : DMA_Remapvalue: null
-2025-04-29 00:15:39,841 [INFO] Argument:335 - Argument : DMA_Remapvalue: null
-2025-04-29 00:15:39,918 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\license.tmp_save
-2025-04-29 00:15:40,028 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\license.tmp
-2025-04-29 00:15:40,090 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\gpio.tmp_save
-2025-04-29 00:15:40,194 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\gpio.tmp
-2025-04-29 00:15:40,473 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\dma.tmp_save
-2025-04-29 00:15:40,577 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\dma.tmp
-2025-04-29 00:15:40,582 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\dma_GV.tmp_save
-2025-04-29 00:15:40,693 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\dma_GV.tmp
-2025-04-29 00:15:40,724 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\stm32f0xx_it.c_save
-2025-04-29 00:15:40,813 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\stm32f0xx_it.c
-2025-04-29 00:15:40,818 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\stm32f0xx_it.h_save
-2025-04-29 00:15:40,895 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\stm32f0xx_it.h
-2025-04-29 00:15:40,918 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\stm32f0xx_hal_msp.c_save
-2025-04-29 00:15:41,083 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\stm32f0xx_hal_msp.c
-2025-04-29 00:15:41,097 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\system.tmp_save
-2025-04-29 00:15:41,156 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\system.tmp
-2025-04-29 00:15:41,179 [INFO] CodeEngine:311 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\stm32f0xx_hal_conf.h_save
-2025-04-29 00:15:41,337 [INFO] CodeEngine:335 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\stm32f0xx_hal_conf.h
-2025-04-29 00:15:41,360 [WARN] IPConfigManager:3554 - IP not found : TIM
-2025-04-29 00:15:41,361 [WARN] CodeGenerator:4002 - IP not found : null
-2025-04-29 00:15:41,388 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\main.h_save
-2025-04-29 00:15:41,526 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\main.h
-2025-04-29 00:15:41,548 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\main.c_save
-2025-04-29 00:15:41,712 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\main.c
-2025-04-29 00:15:42,157 [INFO] ProjectBuilder:3249 - Time for Copy HAL[1] : 218mS.
-2025-04-29 00:15:42,162 [INFO] ProjectBuilder:4828 - Project Generator version: 4.5.0-B34
-2025-04-29 00:15:42,245 [INFO] ConfigFileManager:1531 - The Die is : DIE440
-2025-04-29 00:15:43,402 [INFO] ProjectBuilder:5097 - Time for Generating toolchain IDE Files: 1240mS.
-2025-04-29 00:15:43,404 [INFO] ProjectBuilder:3107 - Time for Copy CMSIS : 1mS.
-2025-04-29 00:15:43,432 [INFO] ProjectBuilder:3107 - Time for Copy CMSIS : 0mS.
-2025-04-29 00:17:44,164 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
-2025-04-29 00:17:45,758 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 711962008 Bytes (1073741824)
-2025-04-29 00:17:45,855 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 727690648 Bytes (1073741824)
-2025-04-29 00:17:46,602 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 765439384 Bytes (1073741824)
-2025-04-29 00:17:46,966 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: ADC
-2025-04-29 00:17:46,966 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: NVIC
-2025-04-29 00:17:46,966 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: USART
-2025-04-29 00:17:46,966 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: DMA
-2025-04-29 00:17:46,966 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: TIM1_8F0
-2025-04-29 00:17:46,966 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: TIM1_8F0
-2025-04-29 00:17:46,966 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: SYS
-2025-04-29 00:17:46,967 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: GPIO
-2025-04-29 00:17:46,967 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: RCC
-2025-04-29 00:17:46,968 [INFO] CodeGenerator:807 - code generatio: config db path: C:\ST\STM32CubeIDE_1.16.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.12.1.202409122256\\db\
-2025-04-29 00:17:46,970 [INFO] Argument:325 - Argument : hdmavalue: null
-2025-04-29 00:17:46,970 [INFO] Argument:327 - 	 sub Args: 
-2025-04-29 00:17:46,970 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Channel1
-2025-04-29 00:17:46,970 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Channel1
-2025-04-29 00:17:46,970 [INFO] Argument:325 - Argument : Initvalue: null
-2025-04-29 00:17:46,970 [INFO] Argument:327 - 	 sub Args: 
-2025-04-29 00:17:46,970 [INFO] Argument:325 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
-2025-04-29 00:17:46,970 [INFO] Argument:335 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
-2025-04-29 00:17:46,970 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
-2025-04-29 00:17:46,970 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
-2025-04-29 00:17:46,971 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
-2025-04-29 00:17:46,971 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
-2025-04-29 00:17:46,971 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
-2025-04-29 00:17:46,971 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
-2025-04-29 00:17:46,971 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
-2025-04-29 00:17:46,971 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
-2025-04-29 00:17:46,971 [INFO] Argument:325 - Argument : Modevalue: DMA_CIRCULAR
-2025-04-29 00:17:46,971 [INFO] Argument:335 - Argument : Modevalue: DMA_CIRCULAR
-2025-04-29 00:17:46,971 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_LOW
-2025-04-29 00:17:46,971 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_LOW
-2025-04-29 00:17:46,971 [INFO] Argument:325 - Argument : Lockvalue: null
-2025-04-29 00:17:46,971 [INFO] Argument:335 - Argument : Lockvalue: null
-2025-04-29 00:17:46,971 [INFO] Argument:325 - Argument : Statevalue: null
-2025-04-29 00:17:46,971 [INFO] Argument:335 - Argument : Statevalue: null
-2025-04-29 00:17:46,971 [INFO] Argument:325 - Argument : Parentvalue: null
-2025-04-29 00:17:46,971 [INFO] Argument:335 - Argument : Parentvalue: null
-2025-04-29 00:17:46,972 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
-2025-04-29 00:17:46,972 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
-2025-04-29 00:17:46,972 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
-2025-04-29 00:17:46,972 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
-2025-04-29 00:17:46,972 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
-2025-04-29 00:17:46,972 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
-2025-04-29 00:17:46,972 [INFO] Argument:325 - Argument : ErrorCodevalue: null
-2025-04-29 00:17:46,972 [INFO] Argument:335 - Argument : ErrorCodevalue: null
-2025-04-29 00:17:46,973 [INFO] Argument:325 - Argument : DMA_Remapvalue: null
-2025-04-29 00:17:46,973 [INFO] Argument:335 - Argument : DMA_Remapvalue: null
-2025-04-29 00:17:47,005 [INFO] Argument:325 - Argument : hdmavalue: null
-2025-04-29 00:17:47,005 [INFO] Argument:327 - 	 sub Args: 
-2025-04-29 00:17:47,005 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Channel3
-2025-04-29 00:17:47,005 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Channel3
-2025-04-29 00:17:47,006 [INFO] Argument:325 - Argument : Initvalue: null
-2025-04-29 00:17:47,006 [INFO] Argument:327 - 	 sub Args: 
-2025-04-29 00:17:47,006 [INFO] Argument:325 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
-2025-04-29 00:17:47,006 [INFO] Argument:335 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
-2025-04-29 00:17:47,006 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
-2025-04-29 00:17:47,006 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
-2025-04-29 00:17:47,006 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
-2025-04-29 00:17:47,006 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
-2025-04-29 00:17:47,006 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
-2025-04-29 00:17:47,006 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
-2025-04-29 00:17:47,006 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
-2025-04-29 00:17:47,006 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
-2025-04-29 00:17:47,006 [INFO] Argument:325 - Argument : Modevalue: DMA_NORMAL
-2025-04-29 00:17:47,006 [INFO] Argument:335 - Argument : Modevalue: DMA_NORMAL
-2025-04-29 00:17:47,006 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_LOW
-2025-04-29 00:17:47,006 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_LOW
-2025-04-29 00:17:47,006 [INFO] Argument:325 - Argument : Lockvalue: null
-2025-04-29 00:17:47,006 [INFO] Argument:335 - Argument : Lockvalue: null
-2025-04-29 00:17:47,006 [INFO] Argument:325 - Argument : Statevalue: null
-2025-04-29 00:17:47,006 [INFO] Argument:335 - Argument : Statevalue: null
-2025-04-29 00:17:47,006 [INFO] Argument:325 - Argument : Parentvalue: null
-2025-04-29 00:17:47,006 [INFO] Argument:335 - Argument : Parentvalue: null
-2025-04-29 00:17:47,006 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
-2025-04-29 00:17:47,006 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
-2025-04-29 00:17:47,006 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
-2025-04-29 00:17:47,006 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
-2025-04-29 00:17:47,007 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
-2025-04-29 00:17:47,007 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
-2025-04-29 00:17:47,007 [INFO] Argument:325 - Argument : ErrorCodevalue: null
-2025-04-29 00:17:47,007 [INFO] Argument:335 - Argument : ErrorCodevalue: null
-2025-04-29 00:17:47,007 [INFO] Argument:325 - Argument : DMA_Remapvalue: null
-2025-04-29 00:17:47,007 [INFO] Argument:335 - Argument : DMA_Remapvalue: null
-2025-04-29 00:17:47,103 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\license.tmp_save
-2025-04-29 00:17:47,210 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\license.tmp
-2025-04-29 00:17:47,257 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\gpio.tmp_save
-2025-04-29 00:17:47,365 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\gpio.tmp
-2025-04-29 00:17:47,702 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\dma.tmp_save
-2025-04-29 00:17:47,854 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\dma.tmp
-2025-04-29 00:17:47,858 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\dma_GV.tmp_save
-2025-04-29 00:17:47,918 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\dma_GV.tmp
-2025-04-29 00:17:47,943 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\stm32f0xx_it.c_save
-2025-04-29 00:17:48,039 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\stm32f0xx_it.c
-2025-04-29 00:17:48,045 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\stm32f0xx_it.h_save
-2025-04-29 00:17:48,115 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\stm32f0xx_it.h
-2025-04-29 00:17:48,141 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\stm32f0xx_hal_msp.c_save
-2025-04-29 00:17:48,300 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\stm32f0xx_hal_msp.c
-2025-04-29 00:17:48,322 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\system.tmp_save
-2025-04-29 00:17:48,381 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\system.tmp
-2025-04-29 00:17:48,403 [INFO] CodeEngine:311 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\stm32f0xx_hal_conf.h_save
-2025-04-29 00:17:48,527 [INFO] CodeEngine:335 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\stm32f0xx_hal_conf.h
-2025-04-29 00:17:48,550 [WARN] IPConfigManager:3554 - IP not found : TIM
-2025-04-29 00:17:48,551 [WARN] CodeGenerator:4002 - IP not found : null
-2025-04-29 00:17:48,571 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\main.h_save
-2025-04-29 00:17:48,664 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\main.h
-2025-04-29 00:17:48,681 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\main.c_save
-2025-04-29 00:17:48,834 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\main.c
-2025-04-29 00:17:49,172 [INFO] ProjectBuilder:3249 - Time for Copy HAL[1] : 135mS.
-2025-04-29 00:17:49,175 [INFO] ProjectBuilder:4828 - Project Generator version: 4.5.0-B34
-2025-04-29 00:17:49,255 [INFO] ConfigFileManager:1531 - The Die is : DIE440
-2025-04-29 00:17:50,496 [INFO] ProjectBuilder:5097 - Time for Generating toolchain IDE Files: 1320mS.
-2025-04-29 00:17:50,496 [INFO] ProjectBuilder:3107 - Time for Copy CMSIS : 0mS.
-2025-04-29 00:17:50,540 [INFO] ProjectBuilder:3107 - Time for Copy CMSIS : 0mS.
-2025-04-29 00:20:12,726 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
-2025-04-29 00:20:32,951 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 705320576 Bytes (1073741824)
-2025-04-29 00:20:33,038 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 721049216 Bytes (1073741824)
-2025-04-29 00:20:33,731 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 758797952 Bytes (1073741824)
-2025-04-29 00:20:34,056 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: ADC
-2025-04-29 00:20:34,056 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: NVIC
-2025-04-29 00:20:34,056 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: USART
-2025-04-29 00:20:34,056 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: DMA
-2025-04-29 00:20:34,056 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: TIM1_8F0
-2025-04-29 00:20:34,057 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: TIM1_8F0
-2025-04-29 00:20:34,057 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: SYS
-2025-04-29 00:20:34,057 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: GPIO
-2025-04-29 00:20:34,057 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: RCC
-2025-04-29 00:20:34,059 [INFO] CodeGenerator:807 - code generatio: config db path: C:\ST\STM32CubeIDE_1.16.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.12.1.202409122256\\db\
-2025-04-29 00:20:34,063 [INFO] Argument:325 - Argument : hdmavalue: null
-2025-04-29 00:20:34,063 [INFO] Argument:327 - 	 sub Args: 
-2025-04-29 00:20:34,063 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Channel1
-2025-04-29 00:20:34,063 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Channel1
-2025-04-29 00:20:34,063 [INFO] Argument:325 - Argument : Initvalue: null
-2025-04-29 00:20:34,063 [INFO] Argument:327 - 	 sub Args: 
-2025-04-29 00:20:34,063 [INFO] Argument:325 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
-2025-04-29 00:20:34,063 [INFO] Argument:335 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
-2025-04-29 00:20:34,064 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
-2025-04-29 00:20:34,064 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
-2025-04-29 00:20:34,064 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
-2025-04-29 00:20:34,064 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
-2025-04-29 00:20:34,064 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
-2025-04-29 00:20:34,064 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
-2025-04-29 00:20:34,064 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
-2025-04-29 00:20:34,064 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
-2025-04-29 00:20:34,064 [INFO] Argument:325 - Argument : Modevalue: DMA_CIRCULAR
-2025-04-29 00:20:34,064 [INFO] Argument:335 - Argument : Modevalue: DMA_CIRCULAR
-2025-04-29 00:20:34,064 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_LOW
-2025-04-29 00:20:34,064 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_LOW
-2025-04-29 00:20:34,064 [INFO] Argument:325 - Argument : Lockvalue: null
-2025-04-29 00:20:34,064 [INFO] Argument:335 - Argument : Lockvalue: null
-2025-04-29 00:20:34,064 [INFO] Argument:325 - Argument : Statevalue: null
-2025-04-29 00:20:34,064 [INFO] Argument:335 - Argument : Statevalue: null
-2025-04-29 00:20:34,064 [INFO] Argument:325 - Argument : Parentvalue: null
-2025-04-29 00:20:34,064 [INFO] Argument:335 - Argument : Parentvalue: null
-2025-04-29 00:20:34,064 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
-2025-04-29 00:20:34,064 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
-2025-04-29 00:20:34,064 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
-2025-04-29 00:20:34,064 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
-2025-04-29 00:20:34,064 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
-2025-04-29 00:20:34,064 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
-2025-04-29 00:20:34,064 [INFO] Argument:325 - Argument : ErrorCodevalue: null
-2025-04-29 00:20:34,064 [INFO] Argument:335 - Argument : ErrorCodevalue: null
-2025-04-29 00:20:34,064 [INFO] Argument:325 - Argument : DMA_Remapvalue: null
-2025-04-29 00:20:34,065 [INFO] Argument:335 - Argument : DMA_Remapvalue: null
-2025-04-29 00:20:34,097 [INFO] Argument:325 - Argument : hdmavalue: null
-2025-04-29 00:20:34,098 [INFO] Argument:327 - 	 sub Args: 
-2025-04-29 00:20:34,098 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Channel3
-2025-04-29 00:20:34,098 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Channel3
-2025-04-29 00:20:34,098 [INFO] Argument:325 - Argument : Initvalue: null
-2025-04-29 00:20:34,098 [INFO] Argument:327 - 	 sub Args: 
-2025-04-29 00:20:34,098 [INFO] Argument:325 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
-2025-04-29 00:20:34,098 [INFO] Argument:335 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
-2025-04-29 00:20:34,098 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
-2025-04-29 00:20:34,098 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
-2025-04-29 00:20:34,098 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
-2025-04-29 00:20:34,098 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
-2025-04-29 00:20:34,098 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
-2025-04-29 00:20:34,098 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
-2025-04-29 00:20:34,098 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
-2025-04-29 00:20:34,098 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
-2025-04-29 00:20:34,098 [INFO] Argument:325 - Argument : Modevalue: DMA_NORMAL
-2025-04-29 00:20:34,098 [INFO] Argument:335 - Argument : Modevalue: DMA_NORMAL
-2025-04-29 00:20:34,099 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_LOW
-2025-04-29 00:20:34,099 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_LOW
-2025-04-29 00:20:34,099 [INFO] Argument:325 - Argument : Lockvalue: null
-2025-04-29 00:20:34,099 [INFO] Argument:335 - Argument : Lockvalue: null
-2025-04-29 00:20:34,099 [INFO] Argument:325 - Argument : Statevalue: null
-2025-04-29 00:20:34,099 [INFO] Argument:335 - Argument : Statevalue: null
-2025-04-29 00:20:34,099 [INFO] Argument:325 - Argument : Parentvalue: null
-2025-04-29 00:20:34,099 [INFO] Argument:335 - Argument : Parentvalue: null
-2025-04-29 00:20:34,099 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
-2025-04-29 00:20:34,099 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
-2025-04-29 00:20:34,099 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
-2025-04-29 00:20:34,099 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
-2025-04-29 00:20:34,099 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
-2025-04-29 00:20:34,099 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
-2025-04-29 00:20:34,099 [INFO] Argument:325 - Argument : ErrorCodevalue: null
-2025-04-29 00:20:34,099 [INFO] Argument:335 - Argument : ErrorCodevalue: null
-2025-04-29 00:20:34,099 [INFO] Argument:325 - Argument : DMA_Remapvalue: null
-2025-04-29 00:20:34,099 [INFO] Argument:335 - Argument : DMA_Remapvalue: null
-2025-04-29 00:20:34,184 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\license.tmp_save
-2025-04-29 00:20:34,286 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\license.tmp
-2025-04-29 00:20:34,327 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\gpio.tmp_save
-2025-04-29 00:20:34,425 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\gpio.tmp
-2025-04-29 00:20:34,717 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\dma.tmp_save
-2025-04-29 00:20:34,806 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\dma.tmp
-2025-04-29 00:20:34,810 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\dma_GV.tmp_save
-2025-04-29 00:20:34,867 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\dma_GV.tmp
-2025-04-29 00:20:34,891 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\stm32f0xx_it.c_save
-2025-04-29 00:20:35,004 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\stm32f0xx_it.c
-2025-04-29 00:20:35,010 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\stm32f0xx_it.h_save
-2025-04-29 00:20:35,076 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\stm32f0xx_it.h
-2025-04-29 00:20:35,100 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\stm32f0xx_hal_msp.c_save
-2025-04-29 00:20:35,250 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\stm32f0xx_hal_msp.c
-2025-04-29 00:20:35,264 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\system.tmp_save
-2025-04-29 00:20:35,337 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\system.tmp
-2025-04-29 00:20:35,363 [INFO] CodeEngine:311 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\stm32f0xx_hal_conf.h_save
-2025-04-29 00:20:35,477 [INFO] CodeEngine:335 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\stm32f0xx_hal_conf.h
-2025-04-29 00:20:35,498 [WARN] IPConfigManager:3554 - IP not found : TIM
-2025-04-29 00:20:35,498 [WARN] CodeGenerator:4002 - IP not found : null
-2025-04-29 00:20:35,516 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\main.h_save
-2025-04-29 00:20:35,608 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\main.h
-2025-04-29 00:20:35,626 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\main.c_save
-2025-04-29 00:20:35,782 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\main.c
-2025-04-29 00:20:36,198 [INFO] ProjectBuilder:3249 - Time for Copy HAL[1] : 157mS.
-2025-04-29 00:20:36,203 [INFO] ProjectBuilder:4828 - Project Generator version: 4.5.0-B34
-2025-04-29 00:20:36,299 [INFO] ConfigFileManager:1531 - The Die is : DIE440
-2025-04-29 00:20:37,453 [INFO] ProjectBuilder:5097 - Time for Generating toolchain IDE Files: 1249mS.
-2025-04-29 00:20:37,454 [INFO] ProjectBuilder:3107 - Time for Copy CMSIS : 1mS.
-2025-04-29 00:20:37,480 [INFO] ProjectBuilder:3107 - Time for Copy CMSIS : 1mS.
-2025-04-29 00:24:10,869 [INFO] WebApp:189 - Connection lost
-2025-04-29 00:24:11,016 [INFO] WebApp:186 - Connection restablished
-2025-04-29 00:27:14,378 [INFO] WebApp:189 - Connection lost
-2025-04-29 00:27:14,525 [INFO] WebApp:186 - Connection restablished
-2025-04-29 00:28:18,881 [INFO] WebApp:189 - Connection lost
-2025-04-29 00:28:19,029 [INFO] WebApp:186 - Connection restablished
-2025-04-29 00:32:47,887 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
-2025-04-29 00:32:49,755 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 921985608 Bytes (1073741824)
-2025-04-29 00:32:49,851 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 937761832 Bytes (1073741824)
-2025-04-29 00:32:50,654 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 763023568 Bytes (1073741824)
-2025-04-29 00:32:51,085 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: ADC
-2025-04-29 00:32:51,085 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: NVIC
-2025-04-29 00:32:51,085 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: USART
-2025-04-29 00:32:51,085 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: DMA
-2025-04-29 00:32:51,085 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: TIM1_8F0
-2025-04-29 00:32:51,085 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: TIM1_8F0
-2025-04-29 00:32:51,085 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: SYS
-2025-04-29 00:32:51,085 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: GPIO
-2025-04-29 00:32:51,085 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: RCC
-2025-04-29 00:32:51,086 [INFO] CodeGenerator:807 - code generatio: config db path: C:\ST\STM32CubeIDE_1.16.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.12.1.202409122256\\db\
-2025-04-29 00:32:51,089 [INFO] Argument:325 - Argument : hdmavalue: null
-2025-04-29 00:32:51,089 [INFO] Argument:327 - 	 sub Args: 
-2025-04-29 00:32:51,089 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Channel1
-2025-04-29 00:32:51,089 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Channel1
-2025-04-29 00:32:51,089 [INFO] Argument:325 - Argument : Initvalue: null
-2025-04-29 00:32:51,089 [INFO] Argument:327 - 	 sub Args: 
-2025-04-29 00:32:51,089 [INFO] Argument:325 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
-2025-04-29 00:32:51,089 [INFO] Argument:335 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
-2025-04-29 00:32:51,089 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
-2025-04-29 00:32:51,090 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
-2025-04-29 00:32:51,090 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
-2025-04-29 00:32:51,090 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
-2025-04-29 00:32:51,090 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
-2025-04-29 00:32:51,090 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
-2025-04-29 00:32:51,090 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
-2025-04-29 00:32:51,090 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
-2025-04-29 00:32:51,090 [INFO] Argument:325 - Argument : Modevalue: DMA_CIRCULAR
-2025-04-29 00:32:51,090 [INFO] Argument:335 - Argument : Modevalue: DMA_CIRCULAR
-2025-04-29 00:32:51,090 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_LOW
-2025-04-29 00:32:51,090 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_LOW
-2025-04-29 00:32:51,090 [INFO] Argument:325 - Argument : Lockvalue: null
-2025-04-29 00:32:51,090 [INFO] Argument:335 - Argument : Lockvalue: null
-2025-04-29 00:32:51,090 [INFO] Argument:325 - Argument : Statevalue: null
-2025-04-29 00:32:51,090 [INFO] Argument:335 - Argument : Statevalue: null
-2025-04-29 00:32:51,090 [INFO] Argument:325 - Argument : Parentvalue: null
-2025-04-29 00:32:51,091 [INFO] Argument:335 - Argument : Parentvalue: null
-2025-04-29 00:32:51,091 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
-2025-04-29 00:32:51,091 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
-2025-04-29 00:32:51,091 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
-2025-04-29 00:32:51,091 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
-2025-04-29 00:32:51,091 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
-2025-04-29 00:32:51,091 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
-2025-04-29 00:32:51,091 [INFO] Argument:325 - Argument : ErrorCodevalue: null
-2025-04-29 00:32:51,091 [INFO] Argument:335 - Argument : ErrorCodevalue: null
-2025-04-29 00:32:51,091 [INFO] Argument:325 - Argument : DMA_Remapvalue: null
-2025-04-29 00:32:51,091 [INFO] Argument:335 - Argument : DMA_Remapvalue: null
-2025-04-29 00:32:51,122 [INFO] Argument:325 - Argument : hdmavalue: null
-2025-04-29 00:32:51,122 [INFO] Argument:327 - 	 sub Args: 
-2025-04-29 00:32:51,122 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Channel3
-2025-04-29 00:32:51,122 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Channel3
-2025-04-29 00:32:51,122 [INFO] Argument:325 - Argument : Initvalue: null
-2025-04-29 00:32:51,122 [INFO] Argument:327 - 	 sub Args: 
-2025-04-29 00:32:51,122 [INFO] Argument:325 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
-2025-04-29 00:32:51,122 [INFO] Argument:335 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
-2025-04-29 00:32:51,122 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
-2025-04-29 00:32:51,122 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
-2025-04-29 00:32:51,122 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
-2025-04-29 00:32:51,122 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
-2025-04-29 00:32:51,122 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
-2025-04-29 00:32:51,123 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
-2025-04-29 00:32:51,123 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
-2025-04-29 00:32:51,123 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
-2025-04-29 00:32:51,123 [INFO] Argument:325 - Argument : Modevalue: DMA_NORMAL
-2025-04-29 00:32:51,123 [INFO] Argument:335 - Argument : Modevalue: DMA_NORMAL
-2025-04-29 00:32:51,123 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_LOW
-2025-04-29 00:32:51,123 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_LOW
-2025-04-29 00:32:51,123 [INFO] Argument:325 - Argument : Lockvalue: null
-2025-04-29 00:32:51,123 [INFO] Argument:335 - Argument : Lockvalue: null
-2025-04-29 00:32:51,123 [INFO] Argument:325 - Argument : Statevalue: null
-2025-04-29 00:32:51,123 [INFO] Argument:335 - Argument : Statevalue: null
-2025-04-29 00:32:51,123 [INFO] Argument:325 - Argument : Parentvalue: null
-2025-04-29 00:32:51,123 [INFO] Argument:335 - Argument : Parentvalue: null
-2025-04-29 00:32:51,123 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
-2025-04-29 00:32:51,123 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
-2025-04-29 00:32:51,124 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
-2025-04-29 00:32:51,124 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
-2025-04-29 00:32:51,124 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
-2025-04-29 00:32:51,124 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
-2025-04-29 00:32:51,124 [INFO] Argument:325 - Argument : ErrorCodevalue: null
-2025-04-29 00:32:51,124 [INFO] Argument:335 - Argument : ErrorCodevalue: null
-2025-04-29 00:32:51,124 [INFO] Argument:325 - Argument : DMA_Remapvalue: null
-2025-04-29 00:32:51,124 [INFO] Argument:335 - Argument : DMA_Remapvalue: null
-2025-04-29 00:32:51,205 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\license.tmp_save
-2025-04-29 00:32:51,311 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\license.tmp
-2025-04-29 00:32:51,352 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\gpio.tmp_save
-2025-04-29 00:32:51,450 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\gpio.tmp
-2025-04-29 00:32:51,741 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\dma.tmp_save
-2025-04-29 00:32:51,860 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\dma.tmp
-2025-04-29 00:32:51,863 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\dma_GV.tmp_save
-2025-04-29 00:32:51,918 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\dma_GV.tmp
-2025-04-29 00:32:51,942 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\stm32f0xx_it.c_save
-2025-04-29 00:32:52,111 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\stm32f0xx_it.c
-2025-04-29 00:32:52,116 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\stm32f0xx_it.h_save
-2025-04-29 00:32:52,181 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\stm32f0xx_it.h
-2025-04-29 00:32:52,206 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\stm32f0xx_hal_msp.c_save
-2025-04-29 00:32:52,380 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\stm32f0xx_hal_msp.c
-2025-04-29 00:32:52,394 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\system.tmp_save
-2025-04-29 00:32:52,479 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\system.tmp
-2025-04-29 00:32:52,506 [INFO] CodeEngine:311 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\stm32f0xx_hal_conf.h_save
-2025-04-29 00:32:52,628 [INFO] CodeEngine:335 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\stm32f0xx_hal_conf.h
-2025-04-29 00:32:52,647 [WARN] IPConfigManager:3554 - IP not found : TIM
-2025-04-29 00:32:52,647 [WARN] CodeGenerator:4002 - IP not found : null
-2025-04-29 00:32:52,666 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\main.h_save
-2025-04-29 00:32:52,794 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\main.h
-2025-04-29 00:32:52,814 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\main.c_save
-2025-04-29 00:32:53,015 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\main.c
-2025-04-29 00:32:53,411 [INFO] ProjectBuilder:3249 - Time for Copy HAL[1] : 159mS.
-2025-04-29 00:32:53,414 [INFO] ProjectBuilder:4828 - Project Generator version: 4.5.0-B34
-2025-04-29 00:32:53,497 [INFO] ConfigFileManager:1531 - The Die is : DIE440
-2025-04-29 00:32:54,955 [INFO] ProjectBuilder:5097 - Time for Generating toolchain IDE Files: 1540mS.
-2025-04-29 00:32:54,956 [INFO] ProjectBuilder:3107 - Time for Copy CMSIS : 0mS.
-2025-04-29 00:32:54,975 [INFO] ProjectBuilder:3107 - Time for Copy CMSIS : 0mS.
-2025-04-29 00:35:56,876 [INFO] WebApp:189 - Connection lost
-2025-04-29 00:35:57,100 [INFO] WebApp:186 - Connection restablished
-2025-04-29 00:38:18,197 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
-2025-04-29 00:38:18,770 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 892827920 Bytes (1073741824)
-2025-04-29 00:38:18,864 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 909082896 Bytes (1073741824)
-2025-04-29 00:38:19,592 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 715666528 Bytes (1073741824)
-2025-04-29 00:38:19,947 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: ADC
-2025-04-29 00:38:19,947 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: NVIC
-2025-04-29 00:38:19,947 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: USART
-2025-04-29 00:38:19,947 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: DMA
-2025-04-29 00:38:19,947 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: TIM1_8F0
-2025-04-29 00:38:19,947 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: TIM1_8F0
-2025-04-29 00:38:19,947 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: SYS
-2025-04-29 00:38:19,947 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: GPIO
-2025-04-29 00:38:19,947 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: RCC
-2025-04-29 00:38:19,948 [INFO] CodeGenerator:807 - code generatio: config db path: C:\ST\STM32CubeIDE_1.16.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.12.1.202409122256\\db\
-2025-04-29 00:38:19,950 [INFO] Argument:325 - Argument : hdmavalue: null
-2025-04-29 00:38:19,950 [INFO] Argument:327 - 	 sub Args: 
-2025-04-29 00:38:19,950 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Channel1
-2025-04-29 00:38:19,950 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Channel1
-2025-04-29 00:38:19,950 [INFO] Argument:325 - Argument : Initvalue: null
-2025-04-29 00:38:19,950 [INFO] Argument:327 - 	 sub Args: 
-2025-04-29 00:38:19,950 [INFO] Argument:325 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
-2025-04-29 00:38:19,950 [INFO] Argument:335 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
-2025-04-29 00:38:19,950 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
-2025-04-29 00:38:19,950 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
-2025-04-29 00:38:19,950 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
-2025-04-29 00:38:19,950 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
-2025-04-29 00:38:19,950 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
-2025-04-29 00:38:19,950 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
-2025-04-29 00:38:19,950 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
-2025-04-29 00:38:19,950 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
-2025-04-29 00:38:19,950 [INFO] Argument:325 - Argument : Modevalue: DMA_CIRCULAR
-2025-04-29 00:38:19,950 [INFO] Argument:335 - Argument : Modevalue: DMA_CIRCULAR
-2025-04-29 00:38:19,950 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_LOW
-2025-04-29 00:38:19,950 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_LOW
-2025-04-29 00:38:19,950 [INFO] Argument:325 - Argument : Lockvalue: null
-2025-04-29 00:38:19,950 [INFO] Argument:335 - Argument : Lockvalue: null
-2025-04-29 00:38:19,950 [INFO] Argument:325 - Argument : Statevalue: null
-2025-04-29 00:38:19,950 [INFO] Argument:335 - Argument : Statevalue: null
-2025-04-29 00:38:19,951 [INFO] Argument:325 - Argument : Parentvalue: null
-2025-04-29 00:38:19,951 [INFO] Argument:335 - Argument : Parentvalue: null
-2025-04-29 00:38:19,951 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
-2025-04-29 00:38:19,951 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
-2025-04-29 00:38:19,951 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
-2025-04-29 00:38:19,951 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
-2025-04-29 00:38:19,951 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
-2025-04-29 00:38:19,951 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
-2025-04-29 00:38:19,951 [INFO] Argument:325 - Argument : ErrorCodevalue: null
-2025-04-29 00:38:19,951 [INFO] Argument:335 - Argument : ErrorCodevalue: null
-2025-04-29 00:38:19,951 [INFO] Argument:325 - Argument : DMA_Remapvalue: null
-2025-04-29 00:38:19,951 [INFO] Argument:335 - Argument : DMA_Remapvalue: null
-2025-04-29 00:38:19,971 [INFO] Argument:325 - Argument : hdmavalue: null
-2025-04-29 00:38:19,972 [INFO] Argument:327 - 	 sub Args: 
-2025-04-29 00:38:19,972 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Channel3
-2025-04-29 00:38:19,972 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Channel3
-2025-04-29 00:38:19,972 [INFO] Argument:325 - Argument : Initvalue: null
-2025-04-29 00:38:19,972 [INFO] Argument:327 - 	 sub Args: 
-2025-04-29 00:38:19,972 [INFO] Argument:325 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
-2025-04-29 00:38:19,972 [INFO] Argument:335 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
-2025-04-29 00:38:19,972 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
-2025-04-29 00:38:19,972 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
-2025-04-29 00:38:19,972 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
-2025-04-29 00:38:19,972 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
-2025-04-29 00:38:19,972 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
-2025-04-29 00:38:19,972 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
-2025-04-29 00:38:19,972 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
-2025-04-29 00:38:19,972 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
-2025-04-29 00:38:19,972 [INFO] Argument:325 - Argument : Modevalue: DMA_NORMAL
-2025-04-29 00:38:19,972 [INFO] Argument:335 - Argument : Modevalue: DMA_NORMAL
-2025-04-29 00:38:19,972 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_LOW
-2025-04-29 00:38:19,972 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_LOW
-2025-04-29 00:38:19,972 [INFO] Argument:325 - Argument : Lockvalue: null
-2025-04-29 00:38:19,972 [INFO] Argument:335 - Argument : Lockvalue: null
-2025-04-29 00:38:19,972 [INFO] Argument:325 - Argument : Statevalue: null
-2025-04-29 00:38:19,972 [INFO] Argument:335 - Argument : Statevalue: null
-2025-04-29 00:38:19,972 [INFO] Argument:325 - Argument : Parentvalue: null
-2025-04-29 00:38:19,972 [INFO] Argument:335 - Argument : Parentvalue: null
-2025-04-29 00:38:19,972 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
-2025-04-29 00:38:19,972 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
-2025-04-29 00:38:19,972 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
-2025-04-29 00:38:19,972 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
-2025-04-29 00:38:19,972 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
-2025-04-29 00:38:19,972 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
-2025-04-29 00:38:19,972 [INFO] Argument:325 - Argument : ErrorCodevalue: null
-2025-04-29 00:38:19,972 [INFO] Argument:335 - Argument : ErrorCodevalue: null
-2025-04-29 00:38:19,972 [INFO] Argument:325 - Argument : DMA_Remapvalue: null
-2025-04-29 00:38:19,972 [INFO] Argument:335 - Argument : DMA_Remapvalue: null
-2025-04-29 00:38:20,051 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\license.tmp_save
-2025-04-29 00:38:20,168 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\license.tmp
-2025-04-29 00:38:20,224 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\gpio.tmp_save
-2025-04-29 00:38:20,369 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\gpio.tmp
-2025-04-29 00:38:20,699 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\dma.tmp_save
-2025-04-29 00:38:20,776 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\dma.tmp
-2025-04-29 00:38:20,780 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\dma_GV.tmp_save
-2025-04-29 00:38:20,839 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\dma_GV.tmp
-2025-04-29 00:38:20,864 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\stm32f0xx_it.c_save
-2025-04-29 00:38:20,973 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\stm32f0xx_it.c
-2025-04-29 00:38:20,979 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\stm32f0xx_it.h_save
-2025-04-29 00:38:21,044 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\stm32f0xx_it.h
-2025-04-29 00:38:21,071 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\stm32f0xx_hal_msp.c_save
-2025-04-29 00:38:21,225 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\stm32f0xx_hal_msp.c
-2025-04-29 00:38:21,243 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\system.tmp_save
-2025-04-29 00:38:21,301 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\system.tmp
-2025-04-29 00:38:21,323 [INFO] CodeEngine:311 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\stm32f0xx_hal_conf.h_save
-2025-04-29 00:38:21,431 [INFO] CodeEngine:335 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\stm32f0xx_hal_conf.h
-2025-04-29 00:38:21,451 [WARN] IPConfigManager:3554 - IP not found : TIM
-2025-04-29 00:38:21,451 [WARN] CodeGenerator:4002 - IP not found : null
-2025-04-29 00:38:21,469 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\main.h_save
-2025-04-29 00:38:21,554 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\main.h
-2025-04-29 00:38:21,570 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\main.c_save
-2025-04-29 00:38:21,726 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\main.c
-2025-04-29 00:38:22,107 [INFO] ProjectBuilder:3249 - Time for Copy HAL[1] : 144mS.
-2025-04-29 00:38:22,110 [INFO] ProjectBuilder:4828 - Project Generator version: 4.5.0-B34
-2025-04-29 00:38:22,193 [INFO] ConfigFileManager:1531 - The Die is : DIE440
-2025-04-29 00:38:23,487 [INFO] ProjectBuilder:5097 - Time for Generating toolchain IDE Files: 1377mS.
-2025-04-29 00:38:23,488 [INFO] ProjectBuilder:3107 - Time for Copy CMSIS : 1mS.
-2025-04-29 00:38:23,515 [INFO] ProjectBuilder:3107 - Time for Copy CMSIS : 0mS.
-2025-04-29 00:38:30,352 [INFO] WebApp:189 - Connection lost
-2025-04-29 00:38:30,507 [INFO] WebApp:186 - Connection restablished
-2025-04-29 00:39:57,997 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
-2025-04-29 00:39:58,457 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 771292056 Bytes (1073741824)
-2025-04-29 00:39:58,541 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 787020696 Bytes (1073741824)
-2025-04-29 00:39:59,255 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 822672280 Bytes (1073741824)
-2025-04-29 00:39:59,617 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: ADC
-2025-04-29 00:39:59,617 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: NVIC
-2025-04-29 00:39:59,617 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: USART
-2025-04-29 00:39:59,617 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: DMA
-2025-04-29 00:39:59,617 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: TIM1_8F0
-2025-04-29 00:39:59,617 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: TIM1_8F0
-2025-04-29 00:39:59,617 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: SYS
-2025-04-29 00:39:59,617 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: GPIO
-2025-04-29 00:39:59,617 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: RCC
-2025-04-29 00:39:59,618 [INFO] CodeGenerator:807 - code generatio: config db path: C:\ST\STM32CubeIDE_1.16.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.12.1.202409122256\\db\
-2025-04-29 00:39:59,620 [INFO] Argument:325 - Argument : hdmavalue: null
-2025-04-29 00:39:59,620 [INFO] Argument:327 - 	 sub Args: 
-2025-04-29 00:39:59,620 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Channel1
-2025-04-29 00:39:59,620 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Channel1
-2025-04-29 00:39:59,620 [INFO] Argument:325 - Argument : Initvalue: null
-2025-04-29 00:39:59,620 [INFO] Argument:327 - 	 sub Args: 
-2025-04-29 00:39:59,620 [INFO] Argument:325 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
-2025-04-29 00:39:59,620 [INFO] Argument:335 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
-2025-04-29 00:39:59,620 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
-2025-04-29 00:39:59,620 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
-2025-04-29 00:39:59,620 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
-2025-04-29 00:39:59,620 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
-2025-04-29 00:39:59,620 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
-2025-04-29 00:39:59,620 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
-2025-04-29 00:39:59,620 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
-2025-04-29 00:39:59,620 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
-2025-04-29 00:39:59,621 [INFO] Argument:325 - Argument : Modevalue: DMA_CIRCULAR
-2025-04-29 00:39:59,621 [INFO] Argument:335 - Argument : Modevalue: DMA_CIRCULAR
-2025-04-29 00:39:59,621 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_LOW
-2025-04-29 00:39:59,621 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_LOW
-2025-04-29 00:39:59,621 [INFO] Argument:325 - Argument : Lockvalue: null
-2025-04-29 00:39:59,621 [INFO] Argument:335 - Argument : Lockvalue: null
-2025-04-29 00:39:59,621 [INFO] Argument:325 - Argument : Statevalue: null
-2025-04-29 00:39:59,621 [INFO] Argument:335 - Argument : Statevalue: null
-2025-04-29 00:39:59,621 [INFO] Argument:325 - Argument : Parentvalue: null
-2025-04-29 00:39:59,621 [INFO] Argument:335 - Argument : Parentvalue: null
-2025-04-29 00:39:59,621 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
-2025-04-29 00:39:59,621 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
-2025-04-29 00:39:59,621 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
-2025-04-29 00:39:59,621 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
-2025-04-29 00:39:59,621 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
-2025-04-29 00:39:59,621 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
-2025-04-29 00:39:59,621 [INFO] Argument:325 - Argument : ErrorCodevalue: null
-2025-04-29 00:39:59,621 [INFO] Argument:335 - Argument : ErrorCodevalue: null
-2025-04-29 00:39:59,621 [INFO] Argument:325 - Argument : DMA_Remapvalue: null
-2025-04-29 00:39:59,621 [INFO] Argument:335 - Argument : DMA_Remapvalue: null
-2025-04-29 00:39:59,642 [INFO] Argument:325 - Argument : hdmavalue: null
-2025-04-29 00:39:59,643 [INFO] Argument:327 - 	 sub Args: 
-2025-04-29 00:39:59,643 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Channel3
-2025-04-29 00:39:59,643 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Channel3
-2025-04-29 00:39:59,643 [INFO] Argument:325 - Argument : Initvalue: null
-2025-04-29 00:39:59,643 [INFO] Argument:327 - 	 sub Args: 
-2025-04-29 00:39:59,643 [INFO] Argument:325 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
-2025-04-29 00:39:59,643 [INFO] Argument:335 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
-2025-04-29 00:39:59,643 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
-2025-04-29 00:39:59,643 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
-2025-04-29 00:39:59,643 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
-2025-04-29 00:39:59,643 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
-2025-04-29 00:39:59,643 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
-2025-04-29 00:39:59,643 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
-2025-04-29 00:39:59,643 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
-2025-04-29 00:39:59,643 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
-2025-04-29 00:39:59,643 [INFO] Argument:325 - Argument : Modevalue: DMA_NORMAL
-2025-04-29 00:39:59,643 [INFO] Argument:335 - Argument : Modevalue: DMA_NORMAL
-2025-04-29 00:39:59,643 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_LOW
-2025-04-29 00:39:59,643 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_LOW
-2025-04-29 00:39:59,643 [INFO] Argument:325 - Argument : Lockvalue: null
-2025-04-29 00:39:59,643 [INFO] Argument:335 - Argument : Lockvalue: null
-2025-04-29 00:39:59,643 [INFO] Argument:325 - Argument : Statevalue: null
-2025-04-29 00:39:59,643 [INFO] Argument:335 - Argument : Statevalue: null
-2025-04-29 00:39:59,643 [INFO] Argument:325 - Argument : Parentvalue: null
-2025-04-29 00:39:59,643 [INFO] Argument:335 - Argument : Parentvalue: null
-2025-04-29 00:39:59,643 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
-2025-04-29 00:39:59,643 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
-2025-04-29 00:39:59,643 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
-2025-04-29 00:39:59,643 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
-2025-04-29 00:39:59,643 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
-2025-04-29 00:39:59,643 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
-2025-04-29 00:39:59,643 [INFO] Argument:325 - Argument : ErrorCodevalue: null
-2025-04-29 00:39:59,643 [INFO] Argument:335 - Argument : ErrorCodevalue: null
-2025-04-29 00:39:59,643 [INFO] Argument:325 - Argument : DMA_Remapvalue: null
-2025-04-29 00:39:59,643 [INFO] Argument:335 - Argument : DMA_Remapvalue: null
-2025-04-29 00:39:59,727 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\license.tmp_save
-2025-04-29 00:39:59,833 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\license.tmp
-2025-04-29 00:39:59,904 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\gpio.tmp_save
-2025-04-29 00:40:00,029 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\gpio.tmp
-2025-04-29 00:40:00,341 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\dma.tmp_save
-2025-04-29 00:40:00,442 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\dma.tmp
-2025-04-29 00:40:00,446 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\dma_GV.tmp_save
-2025-04-29 00:40:00,537 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\dma_GV.tmp
-2025-04-29 00:40:00,563 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\stm32f0xx_it.c_save
-2025-04-29 00:40:00,664 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\stm32f0xx_it.c
-2025-04-29 00:40:00,670 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\stm32f0xx_it.h_save
-2025-04-29 00:40:00,736 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\stm32f0xx_it.h
-2025-04-29 00:40:00,763 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\stm32f0xx_hal_msp.c_save
-2025-04-29 00:40:00,906 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\stm32f0xx_hal_msp.c
-2025-04-29 00:40:00,919 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\system.tmp_save
-2025-04-29 00:40:00,978 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\system.tmp
-2025-04-29 00:40:01,007 [INFO] CodeEngine:311 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\stm32f0xx_hal_conf.h_save
-2025-04-29 00:40:01,146 [INFO] CodeEngine:335 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\stm32f0xx_hal_conf.h
-2025-04-29 00:40:01,165 [WARN] IPConfigManager:3554 - IP not found : TIM
-2025-04-29 00:40:01,166 [WARN] CodeGenerator:4002 - IP not found : null
-2025-04-29 00:40:01,190 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\main.h_save
-2025-04-29 00:40:01,272 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\main.h
-2025-04-29 00:40:01,287 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\main.c_save
-2025-04-29 00:40:01,433 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\main.c
-2025-04-29 00:40:01,772 [INFO] ProjectBuilder:3249 - Time for Copy HAL[1] : 136mS.
-2025-04-29 00:40:01,775 [INFO] ProjectBuilder:4828 - Project Generator version: 4.5.0-B34
-2025-04-29 00:40:01,874 [INFO] ConfigFileManager:1531 - The Die is : DIE440
-2025-04-29 00:40:03,447 [INFO] ProjectBuilder:5097 - Time for Generating toolchain IDE Files: 1671mS.
-2025-04-29 00:40:03,448 [INFO] ProjectBuilder:3107 - Time for Copy CMSIS : 1mS.
-2025-04-29 00:40:03,483 [INFO] ProjectBuilder:3107 - Time for Copy CMSIS : 0mS.
-2025-04-29 00:43:35,889 [INFO] WebApp:189 - Connection lost
-2025-04-29 00:43:36,030 [INFO] WebApp:186 - Connection restablished
-2025-04-29 00:46:08,947 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
-2025-04-29 00:46:09,849 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 717294416 Bytes (1073741824)
-2025-04-29 00:46:09,933 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 733529648 Bytes (1073741824)
-2025-04-29 00:46:10,654 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 773901872 Bytes (1073741824)
-2025-04-29 00:46:11,093 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: ADC
-2025-04-29 00:46:11,093 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: NVIC
-2025-04-29 00:46:11,093 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: USART
-2025-04-29 00:46:11,093 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: DMA
-2025-04-29 00:46:11,093 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: TIM1_8F0
-2025-04-29 00:46:11,093 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: TIM1_8F0
-2025-04-29 00:46:11,093 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: SYS
-2025-04-29 00:46:11,094 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: GPIO
-2025-04-29 00:46:11,094 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: RCC
-2025-04-29 00:46:11,095 [INFO] CodeGenerator:807 - code generatio: config db path: C:\ST\STM32CubeIDE_1.16.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.12.1.202409122256\\db\
-2025-04-29 00:46:11,099 [INFO] Argument:325 - Argument : hdmavalue: null
-2025-04-29 00:46:11,099 [INFO] Argument:327 - 	 sub Args: 
-2025-04-29 00:46:11,099 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Channel1
-2025-04-29 00:46:11,100 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Channel1
-2025-04-29 00:46:11,100 [INFO] Argument:325 - Argument : Initvalue: null
-2025-04-29 00:46:11,100 [INFO] Argument:327 - 	 sub Args: 
-2025-04-29 00:46:11,100 [INFO] Argument:325 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
-2025-04-29 00:46:11,100 [INFO] Argument:335 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
-2025-04-29 00:46:11,100 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
-2025-04-29 00:46:11,100 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
-2025-04-29 00:46:11,100 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
-2025-04-29 00:46:11,100 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
-2025-04-29 00:46:11,100 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
-2025-04-29 00:46:11,100 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
-2025-04-29 00:46:11,100 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
-2025-04-29 00:46:11,100 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
-2025-04-29 00:46:11,100 [INFO] Argument:325 - Argument : Modevalue: DMA_CIRCULAR
-2025-04-29 00:46:11,100 [INFO] Argument:335 - Argument : Modevalue: DMA_CIRCULAR
-2025-04-29 00:46:11,100 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_LOW
-2025-04-29 00:46:11,101 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_LOW
-2025-04-29 00:46:11,101 [INFO] Argument:325 - Argument : Lockvalue: null
-2025-04-29 00:46:11,101 [INFO] Argument:335 - Argument : Lockvalue: null
-2025-04-29 00:46:11,101 [INFO] Argument:325 - Argument : Statevalue: null
-2025-04-29 00:46:11,101 [INFO] Argument:335 - Argument : Statevalue: null
-2025-04-29 00:46:11,101 [INFO] Argument:325 - Argument : Parentvalue: null
-2025-04-29 00:46:11,101 [INFO] Argument:335 - Argument : Parentvalue: null
-2025-04-29 00:46:11,101 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
-2025-04-29 00:46:11,101 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
-2025-04-29 00:46:11,101 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
-2025-04-29 00:46:11,101 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
-2025-04-29 00:46:11,101 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
-2025-04-29 00:46:11,101 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
-2025-04-29 00:46:11,101 [INFO] Argument:325 - Argument : ErrorCodevalue: null
-2025-04-29 00:46:11,101 [INFO] Argument:335 - Argument : ErrorCodevalue: null
-2025-04-29 00:46:11,101 [INFO] Argument:325 - Argument : DMA_Remapvalue: null
-2025-04-29 00:46:11,101 [INFO] Argument:335 - Argument : DMA_Remapvalue: null
-2025-04-29 00:46:11,125 [INFO] Argument:325 - Argument : hdmavalue: null
-2025-04-29 00:46:11,125 [INFO] Argument:327 - 	 sub Args: 
-2025-04-29 00:46:11,125 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Channel3
-2025-04-29 00:46:11,125 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Channel3
-2025-04-29 00:46:11,125 [INFO] Argument:325 - Argument : Initvalue: null
-2025-04-29 00:46:11,125 [INFO] Argument:327 - 	 sub Args: 
-2025-04-29 00:46:11,125 [INFO] Argument:325 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
-2025-04-29 00:46:11,125 [INFO] Argument:335 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
-2025-04-29 00:46:11,125 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
-2025-04-29 00:46:11,125 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
-2025-04-29 00:46:11,126 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
-2025-04-29 00:46:11,126 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
-2025-04-29 00:46:11,126 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
-2025-04-29 00:46:11,126 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
-2025-04-29 00:46:11,126 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
-2025-04-29 00:46:11,126 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
-2025-04-29 00:46:11,126 [INFO] Argument:325 - Argument : Modevalue: DMA_NORMAL
-2025-04-29 00:46:11,126 [INFO] Argument:335 - Argument : Modevalue: DMA_NORMAL
-2025-04-29 00:46:11,126 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_LOW
-2025-04-29 00:46:11,126 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_LOW
-2025-04-29 00:46:11,126 [INFO] Argument:325 - Argument : Lockvalue: null
-2025-04-29 00:46:11,126 [INFO] Argument:335 - Argument : Lockvalue: null
-2025-04-29 00:46:11,126 [INFO] Argument:325 - Argument : Statevalue: null
-2025-04-29 00:46:11,126 [INFO] Argument:335 - Argument : Statevalue: null
-2025-04-29 00:46:11,126 [INFO] Argument:325 - Argument : Parentvalue: null
-2025-04-29 00:46:11,126 [INFO] Argument:335 - Argument : Parentvalue: null
-2025-04-29 00:46:11,126 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
-2025-04-29 00:46:11,126 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
-2025-04-29 00:46:11,126 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
-2025-04-29 00:46:11,126 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
-2025-04-29 00:46:11,126 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
-2025-04-29 00:46:11,126 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
-2025-04-29 00:46:11,127 [INFO] Argument:325 - Argument : ErrorCodevalue: null
-2025-04-29 00:46:11,127 [INFO] Argument:335 - Argument : ErrorCodevalue: null
-2025-04-29 00:46:11,127 [INFO] Argument:325 - Argument : DMA_Remapvalue: null
-2025-04-29 00:46:11,127 [INFO] Argument:335 - Argument : DMA_Remapvalue: null
-2025-04-29 00:46:11,237 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\license.tmp_save
-2025-04-29 00:46:11,363 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\license.tmp
-2025-04-29 00:46:11,380 [INFO] WebApp:189 - Connection lost
-2025-04-29 00:46:11,434 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\gpio.tmp_save
-2025-04-29 00:46:11,534 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\gpio.tmp
-2025-04-29 00:46:11,535 [INFO] WebApp:186 - Connection restablished
-2025-04-29 00:46:12,058 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\dma.tmp_save
-2025-04-29 00:46:12,220 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\dma.tmp
-2025-04-29 00:46:12,223 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\dma_GV.tmp_save
-2025-04-29 00:46:12,288 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\dma_GV.tmp
-2025-04-29 00:46:12,317 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\stm32f0xx_it.c_save
-2025-04-29 00:46:12,491 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\stm32f0xx_it.c
-2025-04-29 00:46:12,496 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\stm32f0xx_it.h_save
-2025-04-29 00:46:12,565 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\stm32f0xx_it.h
-2025-04-29 00:46:12,594 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\stm32f0xx_hal_msp.c_save
-2025-04-29 00:46:12,757 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\stm32f0xx_hal_msp.c
-2025-04-29 00:46:12,771 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\system.tmp_save
-2025-04-29 00:46:12,827 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\system.tmp
-2025-04-29 00:46:12,847 [INFO] CodeEngine:311 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\stm32f0xx_hal_conf.h_save
-2025-04-29 00:46:12,975 [INFO] CodeEngine:335 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\stm32f0xx_hal_conf.h
-2025-04-29 00:46:12,995 [WARN] IPConfigManager:3554 - IP not found : TIM
-2025-04-29 00:46:12,996 [WARN] CodeGenerator:4002 - IP not found : null
-2025-04-29 00:46:13,018 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\main.h_save
-2025-04-29 00:46:13,121 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\main.h
-2025-04-29 00:46:13,138 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\main.c_save
-2025-04-29 00:46:13,304 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\main.c
-2025-04-29 00:46:13,686 [INFO] ProjectBuilder:3249 - Time for Copy HAL[1] : 153mS.
-2025-04-29 00:46:13,689 [INFO] ProjectBuilder:4828 - Project Generator version: 4.5.0-B34
-2025-04-29 00:46:13,777 [INFO] ConfigFileManager:1531 - The Die is : DIE440
-2025-04-29 00:46:14,904 [INFO] ProjectBuilder:5097 - Time for Generating toolchain IDE Files: 1215mS.
-2025-04-29 00:46:14,905 [INFO] ProjectBuilder:3107 - Time for Copy CMSIS : 1mS.
-2025-04-29 00:46:14,930 [INFO] ProjectBuilder:3107 - Time for Copy CMSIS : 0mS.
-2025-04-29 00:48:46,871 [INFO] WebApp:189 - Connection lost
-2025-04-29 00:48:47,014 [INFO] WebApp:186 - Connection restablished
-2025-04-29 00:51:21,371 [INFO] WebApp:189 - Connection lost
-2025-04-29 00:51:21,530 [INFO] WebApp:186 - Connection restablished
-2025-04-29 17:55:30,237 [INFO] WebApp:189 - Connection lost
-2025-04-29 17:55:35,608 [INFO] WebApp:186 - Connection restablished
-2025-04-29 18:01:21,297 [INFO] WebApp:189 - Connection lost
-2025-04-29 18:01:22,188 [INFO] WebApp:186 - Connection restablished
-2025-04-29 18:04:23,892 [INFO] WebApp:189 - Connection lost
-2025-04-29 18:04:24,040 [INFO] WebApp:186 - Connection restablished
-2025-04-29 18:10:08,847 [INFO] WebApp:189 - Connection lost
-2025-04-29 18:10:09,034 [INFO] WebApp:186 - Connection restablished
-2025-04-29 18:25:50,306 [INFO] WebApp:189 - Connection lost
-2025-04-29 18:25:50,432 [INFO] WebApp:186 - Connection restablished
-2025-04-29 18:28:00,340 [INFO] WebApp:189 - Connection lost
-2025-04-29 18:28:00,470 [INFO] WebApp:186 - Connection restablished
-2025-04-29 18:30:36,826 [INFO] WebApp:189 - Connection lost
-2025-04-29 18:30:36,979 [INFO] WebApp:186 - Connection restablished
-2025-04-29 18:35:42,336 [INFO] WebApp:189 - Connection lost
-2025-04-29 18:35:42,493 [INFO] WebApp:186 - Connection restablished
-2025-04-29 18:38:17,855 [INFO] WebApp:189 - Connection lost
-2025-04-29 18:38:18,012 [INFO] WebApp:186 - Connection restablished
-2025-04-29 18:40:50,849 [INFO] WebApp:189 - Connection lost
-2025-04-29 18:40:51,019 [INFO] WebApp:186 - Connection restablished
-2025-04-29 18:43:25,851 [INFO] WebApp:189 - Connection lost
-2025-04-29 18:43:25,991 [INFO] WebApp:186 - Connection restablished
-2025-04-29 19:01:28,818 [INFO] WebApp:189 - Connection lost
-2025-04-29 19:01:28,961 [INFO] WebApp:186 - Connection restablished
-2025-04-29 19:04:32,327 [INFO] WebApp:189 - Connection lost
-2025-04-29 19:04:32,482 [INFO] WebApp:186 - Connection restablished
-2025-04-29 19:09:02,350 [INFO] WebApp:189 - Connection lost
-2025-04-29 19:09:02,490 [INFO] WebApp:186 - Connection restablished
-2025-04-29 19:12:13,831 [INFO] WebApp:189 - Connection lost
-2025-04-29 19:12:13,986 [INFO] WebApp:186 - Connection restablished
-2025-04-29 19:12:20,841 [INFO] WebApp:189 - Connection lost
-2025-04-29 19:12:20,968 [INFO] WebApp:186 - Connection restablished
-2025-04-29 19:12:25,858 [INFO] WebApp:189 - Connection lost
-2025-04-29 19:12:25,993 [INFO] WebApp:186 - Connection restablished
-2025-04-29 19:12:34,829 [INFO] WebApp:189 - Connection lost
-2025-04-29 19:12:34,937 [INFO] WebApp:186 - Connection restablished
-2025-04-29 19:12:38,835 [INFO] WebApp:189 - Connection lost
-2025-04-29 19:12:38,963 [INFO] WebApp:186 - Connection restablished
-2025-04-29 19:12:52,846 [INFO] WebApp:189 - Connection lost
-2025-04-29 19:12:53,002 [INFO] WebApp:186 - Connection restablished
-2025-04-29 19:13:10,830 [INFO] WebApp:189 - Connection lost
-2025-04-29 19:13:11,033 [INFO] WebApp:186 - Connection restablished
-2025-04-29 19:13:15,317 [INFO] WebApp:189 - Connection lost
-2025-04-29 19:13:15,427 [INFO] WebApp:186 - Connection restablished
-2025-04-29 19:13:44,860 [INFO] WebApp:189 - Connection lost
-2025-04-29 19:13:45,013 [INFO] WebApp:186 - Connection restablished
-2025-04-29 19:13:56,850 [INFO] WebApp:189 - Connection lost
-2025-04-29 19:13:56,957 [INFO] WebApp:186 - Connection restablished
-2025-04-29 19:14:05,837 [INFO] WebApp:189 - Connection lost
-2025-04-29 19:14:05,953 [INFO] WebApp:186 - Connection restablished
-2025-04-29 19:14:18,867 [INFO] WebApp:189 - Connection lost
-2025-04-29 19:14:19,002 [INFO] WebApp:186 - Connection restablished
-2025-04-29 19:14:30,356 [INFO] WebApp:189 - Connection lost
-2025-04-29 19:14:30,504 [INFO] WebApp:186 - Connection restablished
-2025-04-29 19:14:39,338 [INFO] WebApp:189 - Connection lost
-2025-04-29 19:14:39,471 [INFO] WebApp:186 - Connection restablished
-2025-04-29 19:14:45,867 [INFO] WebApp:189 - Connection lost
-2025-04-29 19:14:46,001 [INFO] WebApp:186 - Connection restablished
-2025-04-29 19:14:53,848 [INFO] WebApp:189 - Connection lost
-2025-04-29 19:14:54,099 [INFO] WebApp:186 - Connection restablished
-2025-04-29 19:14:58,841 [INFO] WebApp:189 - Connection lost
-2025-04-29 19:14:59,004 [INFO] WebApp:186 - Connection restablished
-2025-04-29 19:15:03,844 [INFO] WebApp:189 - Connection lost
-2025-04-29 19:15:03,945 [INFO] WebApp:186 - Connection restablished
-2025-04-29 19:15:09,840 [INFO] WebApp:189 - Connection lost
-2025-04-29 19:15:09,954 [INFO] WebApp:186 - Connection restablished
-2025-04-29 19:15:20,831 [INFO] WebApp:189 - Connection lost
-2025-04-29 19:15:24,022 [INFO] WebApp:186 - Connection restablished
-2025-04-29 19:15:33,341 [INFO] WebApp:189 - Connection lost
-2025-04-29 19:15:33,482 [INFO] WebApp:186 - Connection restablished
-2025-04-29 19:15:45,332 [INFO] WebApp:189 - Connection lost
-2025-04-29 19:15:45,482 [INFO] WebApp:186 - Connection restablished
-2025-04-29 19:15:51,817 [INFO] WebApp:189 - Connection lost
-2025-04-29 19:15:51,918 [INFO] WebApp:186 - Connection restablished
-2025-04-29 19:16:02,321 [INFO] WebApp:189 - Connection lost
-2025-04-29 19:16:11,605 [INFO] WebApp:186 - Connection restablished
-2025-04-29 19:46:05,347 [INFO] WebApp:189 - Connection lost
-2025-04-29 19:46:05,539 [INFO] WebApp:186 - Connection restablished
-2025-04-29 19:49:08,855 [INFO] WebApp:189 - Connection lost
-2025-04-29 19:49:09,028 [INFO] WebApp:186 - Connection restablished
-2025-04-29 20:00:15,364 [INFO] WebApp:189 - Connection lost
-2025-04-29 20:00:15,540 [INFO] WebApp:186 - Connection restablished
-2025-04-29 20:05:23,373 [INFO] WebApp:189 - Connection lost
-2025-04-29 20:05:23,535 [INFO] WebApp:186 - Connection restablished
-2025-04-29 20:07:55,865 [INFO] WebApp:189 - Connection lost
-2025-04-29 20:07:56,099 [INFO] WebApp:186 - Connection restablished
-2025-04-29 20:10:28,864 [INFO] WebApp:189 - Connection lost
-2025-04-29 20:10:29,027 [INFO] WebApp:186 - Connection restablished
-2025-04-29 20:13:03,867 [INFO] WebApp:189 - Connection lost
-2025-04-29 20:13:04,367 [INFO] WebApp:186 - Connection restablished
-2025-04-29 20:16:06,844 [INFO] WebApp:189 - Connection lost
-2025-04-29 20:16:07,174 [INFO] WebApp:186 - Connection restablished
-2025-04-29 20:19:10,353 [INFO] WebApp:189 - Connection lost
-2025-04-29 20:19:10,570 [INFO] WebApp:186 - Connection restablished
-2025-04-29 20:20:42,869 [INFO] WebApp:189 - Connection lost
-2025-04-29 20:20:43,041 [INFO] WebApp:186 - Connection restablished
-2025-04-29 20:25:52,344 [INFO] WebApp:189 - Connection lost
-2025-04-29 20:25:52,516 [INFO] WebApp:186 - Connection restablished
-2025-04-29 20:28:26,366 [INFO] WebApp:189 - Connection lost
-2025-04-29 20:28:26,530 [INFO] WebApp:186 - Connection restablished
-2025-04-29 20:36:06,844 [INFO] WebApp:189 - Connection lost
-2025-04-29 20:36:07,313 [INFO] WebApp:186 - Connection restablished
-2025-04-29 20:38:38,845 [INFO] WebApp:189 - Connection lost
-2025-04-29 20:38:39,000 [INFO] WebApp:186 - Connection restablished
-2025-04-29 20:47:42,350 [INFO] WebApp:189 - Connection lost
-2025-04-29 20:47:42,520 [INFO] WebApp:186 - Connection restablished
-2025-04-29 20:48:54,847 [INFO] WebApp:189 - Connection lost
-2025-04-29 20:48:55,025 [INFO] WebApp:186 - Connection restablished
-2025-04-29 20:51:58,345 [INFO] WebApp:189 - Connection lost
-2025-04-29 20:51:58,517 [INFO] WebApp:186 - Connection restablished
-2025-04-29 20:54:01,860 [INFO] WebApp:189 - Connection lost
-2025-04-29 20:54:02,015 [INFO] WebApp:186 - Connection restablished
-2025-04-29 20:59:08,817 [INFO] WebApp:189 - Connection lost
-2025-04-29 20:59:09,050 [INFO] WebApp:186 - Connection restablished
-2025-04-29 21:01:42,829 [INFO] WebApp:189 - Connection lost
-2025-04-29 21:01:43,027 [INFO] WebApp:186 - Connection restablished
-2025-04-29 21:06:49,357 [INFO] WebApp:189 - Connection lost
-2025-04-29 21:06:49,502 [INFO] WebApp:186 - Connection restablished
-2025-04-29 21:09:23,346 [INFO] WebApp:189 - Connection lost
-2025-04-29 21:09:23,514 [INFO] WebApp:186 - Connection restablished
-2025-04-29 21:11:57,314 [INFO] WebApp:189 - Connection lost
-2025-04-29 21:11:57,446 [INFO] WebApp:186 - Connection restablished
-2025-04-29 21:13:16,958 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 739692504 Bytes (1073741824)
-2025-04-29 21:13:17,057 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 754372568 Bytes (1073741824)
-2025-04-29 21:13:17,856 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 823578584 Bytes (1073741824)
-2025-04-29 21:13:18,220 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: ADC
-2025-04-29 21:13:18,220 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: NVIC
-2025-04-29 21:13:18,220 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: USART
-2025-04-29 21:13:18,220 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: DMA
-2025-04-29 21:13:18,220 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: TIM1_8F0
-2025-04-29 21:13:18,220 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: TIM1_8F0
-2025-04-29 21:13:18,220 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: SYS
-2025-04-29 21:13:18,221 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: GPIO
-2025-04-29 21:13:18,221 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: RCC
-2025-04-29 21:13:18,222 [INFO] CodeGenerator:807 - code generatio: config db path: C:\ST\STM32CubeIDE_1.16.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.12.1.202409122256\\db\
-2025-04-29 21:13:18,236 [INFO] Argument:325 - Argument : hdmavalue: null
-2025-04-29 21:13:18,236 [INFO] Argument:327 - 	 sub Args: 
-2025-04-29 21:13:18,236 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Channel1
-2025-04-29 21:13:18,236 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Channel1
-2025-04-29 21:13:18,236 [INFO] Argument:325 - Argument : Initvalue: null
-2025-04-29 21:13:18,236 [INFO] Argument:327 - 	 sub Args: 
-2025-04-29 21:13:18,236 [INFO] Argument:325 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
-2025-04-29 21:13:18,236 [INFO] Argument:335 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
-2025-04-29 21:13:18,236 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
-2025-04-29 21:13:18,236 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
-2025-04-29 21:13:18,236 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
-2025-04-29 21:13:18,236 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
-2025-04-29 21:13:18,236 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
-2025-04-29 21:13:18,236 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
-2025-04-29 21:13:18,236 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
-2025-04-29 21:13:18,236 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
-2025-04-29 21:13:18,236 [INFO] Argument:325 - Argument : Modevalue: DMA_CIRCULAR
-2025-04-29 21:13:18,236 [INFO] Argument:335 - Argument : Modevalue: DMA_CIRCULAR
-2025-04-29 21:13:18,236 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_LOW
-2025-04-29 21:13:18,236 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_LOW
-2025-04-29 21:13:18,236 [INFO] Argument:325 - Argument : Lockvalue: null
-2025-04-29 21:13:18,236 [INFO] Argument:335 - Argument : Lockvalue: null
-2025-04-29 21:13:18,236 [INFO] Argument:325 - Argument : Statevalue: null
-2025-04-29 21:13:18,236 [INFO] Argument:335 - Argument : Statevalue: null
-2025-04-29 21:13:18,236 [INFO] Argument:325 - Argument : Parentvalue: null
-2025-04-29 21:13:18,236 [INFO] Argument:335 - Argument : Parentvalue: null
-2025-04-29 21:13:18,236 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
-2025-04-29 21:13:18,236 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
-2025-04-29 21:13:18,236 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
-2025-04-29 21:13:18,236 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
-2025-04-29 21:13:18,236 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
-2025-04-29 21:13:18,237 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
-2025-04-29 21:13:18,237 [INFO] Argument:325 - Argument : ErrorCodevalue: null
-2025-04-29 21:13:18,237 [INFO] Argument:335 - Argument : ErrorCodevalue: null
-2025-04-29 21:13:18,237 [INFO] Argument:325 - Argument : DMA_Remapvalue: null
-2025-04-29 21:13:18,237 [INFO] Argument:335 - Argument : DMA_Remapvalue: null
-2025-04-29 21:13:18,271 [INFO] Argument:325 - Argument : hdmavalue: null
-2025-04-29 21:13:18,271 [INFO] Argument:327 - 	 sub Args: 
-2025-04-29 21:13:18,271 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Channel3
-2025-04-29 21:13:18,271 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Channel3
-2025-04-29 21:13:18,271 [INFO] Argument:325 - Argument : Initvalue: null
-2025-04-29 21:13:18,271 [INFO] Argument:327 - 	 sub Args: 
-2025-04-29 21:13:18,271 [INFO] Argument:325 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
-2025-04-29 21:13:18,271 [INFO] Argument:335 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
-2025-04-29 21:13:18,271 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
-2025-04-29 21:13:18,271 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
-2025-04-29 21:13:18,271 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
-2025-04-29 21:13:18,271 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
-2025-04-29 21:13:18,271 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
-2025-04-29 21:13:18,271 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
-2025-04-29 21:13:18,271 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
-2025-04-29 21:13:18,271 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
-2025-04-29 21:13:18,271 [INFO] Argument:325 - Argument : Modevalue: DMA_NORMAL
-2025-04-29 21:13:18,271 [INFO] Argument:335 - Argument : Modevalue: DMA_NORMAL
-2025-04-29 21:13:18,271 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_LOW
-2025-04-29 21:13:18,271 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_LOW
-2025-04-29 21:13:18,271 [INFO] Argument:325 - Argument : Lockvalue: null
-2025-04-29 21:13:18,271 [INFO] Argument:335 - Argument : Lockvalue: null
-2025-04-29 21:13:18,271 [INFO] Argument:325 - Argument : Statevalue: null
-2025-04-29 21:13:18,271 [INFO] Argument:335 - Argument : Statevalue: null
-2025-04-29 21:13:18,271 [INFO] Argument:325 - Argument : Parentvalue: null
-2025-04-29 21:13:18,271 [INFO] Argument:335 - Argument : Parentvalue: null
-2025-04-29 21:13:18,271 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
-2025-04-29 21:13:18,271 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
-2025-04-29 21:13:18,271 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
-2025-04-29 21:13:18,271 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
-2025-04-29 21:13:18,271 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
-2025-04-29 21:13:18,271 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
-2025-04-29 21:13:18,271 [INFO] Argument:325 - Argument : ErrorCodevalue: null
-2025-04-29 21:13:18,271 [INFO] Argument:335 - Argument : ErrorCodevalue: null
-2025-04-29 21:13:18,272 [INFO] Argument:325 - Argument : DMA_Remapvalue: null
-2025-04-29 21:13:18,272 [INFO] Argument:335 - Argument : DMA_Remapvalue: null
-2025-04-29 21:13:18,521 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\license.tmp_save
-2025-04-29 21:13:18,682 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\license.tmp
-2025-04-29 21:13:18,793 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\gpio.tmp_save
-2025-04-29 21:13:18,896 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\gpio.tmp
-2025-04-29 21:13:19,229 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\dma.tmp_save
-2025-04-29 21:13:19,479 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\dma.tmp
-2025-04-29 21:13:19,497 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\dma_GV.tmp_save
-2025-04-29 21:13:19,561 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\dma_GV.tmp
-2025-04-29 21:13:19,612 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\stm32f0xx_it.c_save
-2025-04-29 21:13:19,831 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\stm32f0xx_it.c
-2025-04-29 21:13:19,883 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\stm32f0xx_it.h_save
-2025-04-29 21:13:20,000 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\stm32f0xx_it.h
-2025-04-29 21:13:20,063 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\stm32f0xx_hal_msp.c_save
-2025-04-29 21:13:20,204 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\stm32f0xx_hal_msp.c
-2025-04-29 21:13:20,251 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\system.tmp_save
-2025-04-29 21:13:20,345 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\system.tmp
-2025-04-29 21:13:20,360 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\stm32f0xx_hal_timebase_tim.c_save
-2025-04-29 21:13:20,470 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\stm32f0xx_hal_timebase_tim.c
-2025-04-29 21:13:20,532 [INFO] CodeEngine:311 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\stm32f0xx_hal_conf.h_save
-2025-04-29 21:13:20,626 [INFO] CodeEngine:335 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\stm32f0xx_hal_conf.h
-2025-04-29 21:13:20,657 [WARN] IPConfigManager:3554 - IP not found : TIM
-2025-04-29 21:13:20,657 [WARN] CodeGenerator:4002 - IP not found : null
-2025-04-29 21:13:20,720 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\main.h_save
-2025-04-29 21:13:20,845 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\main.h
-2025-04-29 21:13:20,891 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\main.c_save
-2025-04-29 21:13:21,089 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\main.c
-2025-04-29 21:13:23,470 [INFO] ProjectBuilder:3249 - Time for Copy HAL[1] : 1971mS.
-2025-04-29 21:13:23,485 [INFO] ProjectBuilder:4828 - Project Generator version: 4.5.0-B34
-2025-04-29 21:13:23,594 [INFO] ConfigFileManager:1531 - The Die is : DIE440
-2025-04-29 21:13:25,567 [INFO] ProjectBuilder:5097 - Time for Generating toolchain IDE Files: 2082mS.
-2025-04-29 21:13:25,568 [INFO] ProjectBuilder:3107 - Time for Copy CMSIS : 0mS.
-2025-04-29 21:13:25,591 [INFO] ProjectBuilder:3107 - Time for Copy CMSIS : 0mS.
-2025-04-29 21:14:00,612 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 885626520 Bytes (1073741824)
-2025-04-29 21:14:00,696 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 900832920 Bytes (1073741824)
-2025-04-29 21:14:03,729 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 693711344 Bytes (1073741824)
-2025-04-29 21:14:04,135 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: ADC
-2025-04-29 21:14:04,135 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: NVIC
-2025-04-29 21:14:04,135 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: USART
-2025-04-29 21:14:04,135 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: DMA
-2025-04-29 21:14:04,135 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: TIM1_8F0
-2025-04-29 21:14:04,135 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: TIM1_8F0
-2025-04-29 21:14:04,135 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: SYS
-2025-04-29 21:14:04,136 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: GPIO
-2025-04-29 21:14:04,136 [INFO] BlockDiagram:2766 - set Specific Code input for plugin: RCC
-2025-04-29 21:14:04,137 [INFO] CodeGenerator:807 - code generatio: config db path: C:\ST\STM32CubeIDE_1.16.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.12.1.202409122256\\db\
-2025-04-29 21:14:04,139 [INFO] Argument:325 - Argument : hdmavalue: null
-2025-04-29 21:14:04,139 [INFO] Argument:327 - 	 sub Args: 
-2025-04-29 21:14:04,139 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Channel1
-2025-04-29 21:14:04,139 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Channel1
-2025-04-29 21:14:04,139 [INFO] Argument:325 - Argument : Initvalue: null
-2025-04-29 21:14:04,139 [INFO] Argument:327 - 	 sub Args: 
-2025-04-29 21:14:04,139 [INFO] Argument:325 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
-2025-04-29 21:14:04,140 [INFO] Argument:335 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
-2025-04-29 21:14:04,140 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
-2025-04-29 21:14:04,140 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
-2025-04-29 21:14:04,140 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
-2025-04-29 21:14:04,140 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
-2025-04-29 21:14:04,140 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
-2025-04-29 21:14:04,140 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
-2025-04-29 21:14:04,140 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
-2025-04-29 21:14:04,140 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
-2025-04-29 21:14:04,140 [INFO] Argument:325 - Argument : Modevalue: DMA_CIRCULAR
-2025-04-29 21:14:04,140 [INFO] Argument:335 - Argument : Modevalue: DMA_CIRCULAR
-2025-04-29 21:14:04,140 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_LOW
-2025-04-29 21:14:04,140 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_LOW
-2025-04-29 21:14:04,140 [INFO] Argument:325 - Argument : Lockvalue: null
-2025-04-29 21:14:04,140 [INFO] Argument:335 - Argument : Lockvalue: null
-2025-04-29 21:14:04,140 [INFO] Argument:325 - Argument : Statevalue: null
-2025-04-29 21:14:04,140 [INFO] Argument:335 - Argument : Statevalue: null
-2025-04-29 21:14:04,140 [INFO] Argument:325 - Argument : Parentvalue: null
-2025-04-29 21:14:04,140 [INFO] Argument:335 - Argument : Parentvalue: null
-2025-04-29 21:14:04,140 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
-2025-04-29 21:14:04,140 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
-2025-04-29 21:14:04,140 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
-2025-04-29 21:14:04,140 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
-2025-04-29 21:14:04,140 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
-2025-04-29 21:14:04,140 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
-2025-04-29 21:14:04,140 [INFO] Argument:325 - Argument : ErrorCodevalue: null
-2025-04-29 21:14:04,140 [INFO] Argument:335 - Argument : ErrorCodevalue: null
-2025-04-29 21:14:04,141 [INFO] Argument:325 - Argument : DMA_Remapvalue: null
-2025-04-29 21:14:04,141 [INFO] Argument:335 - Argument : DMA_Remapvalue: null
-2025-04-29 21:14:04,178 [INFO] Argument:325 - Argument : hdmavalue: null
-2025-04-29 21:14:04,178 [INFO] Argument:327 - 	 sub Args: 
-2025-04-29 21:14:04,178 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Channel3
-2025-04-29 21:14:04,178 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Channel3
-2025-04-29 21:14:04,178 [INFO] Argument:325 - Argument : Initvalue: null
-2025-04-29 21:14:04,178 [INFO] Argument:327 - 	 sub Args: 
-2025-04-29 21:14:04,178 [INFO] Argument:325 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
-2025-04-29 21:14:04,178 [INFO] Argument:335 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
-2025-04-29 21:14:04,178 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
-2025-04-29 21:14:04,178 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
-2025-04-29 21:14:04,178 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
-2025-04-29 21:14:04,178 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
-2025-04-29 21:14:04,178 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
-2025-04-29 21:14:04,178 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
-2025-04-29 21:14:04,179 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
-2025-04-29 21:14:04,179 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
-2025-04-29 21:14:04,179 [INFO] Argument:325 - Argument : Modevalue: DMA_NORMAL
-2025-04-29 21:14:04,179 [INFO] Argument:335 - Argument : Modevalue: DMA_NORMAL
-2025-04-29 21:14:04,179 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_LOW
-2025-04-29 21:14:04,179 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_LOW
-2025-04-29 21:14:04,179 [INFO] Argument:325 - Argument : Lockvalue: null
-2025-04-29 21:14:04,179 [INFO] Argument:335 - Argument : Lockvalue: null
-2025-04-29 21:14:04,179 [INFO] Argument:325 - Argument : Statevalue: null
-2025-04-29 21:14:04,179 [INFO] Argument:335 - Argument : Statevalue: null
-2025-04-29 21:14:04,179 [INFO] Argument:325 - Argument : Parentvalue: null
-2025-04-29 21:14:04,179 [INFO] Argument:335 - Argument : Parentvalue: null
-2025-04-29 21:14:04,179 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
-2025-04-29 21:14:04,179 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
-2025-04-29 21:14:04,179 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
-2025-04-29 21:14:04,179 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
-2025-04-29 21:14:04,179 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
-2025-04-29 21:14:04,179 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
-2025-04-29 21:14:04,179 [INFO] Argument:325 - Argument : ErrorCodevalue: null
-2025-04-29 21:14:04,179 [INFO] Argument:335 - Argument : ErrorCodevalue: null
-2025-04-29 21:14:04,179 [INFO] Argument:325 - Argument : DMA_Remapvalue: null
-2025-04-29 21:14:04,179 [INFO] Argument:335 - Argument : DMA_Remapvalue: null
-2025-04-29 21:14:04,280 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\license.tmp_save
-2025-04-29 21:14:04,405 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\license.tmp
-2025-04-29 21:14:04,452 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\gpio.tmp_save
-2025-04-29 21:14:04,593 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\gpio.tmp
-2025-04-29 21:14:04,937 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\dma.tmp_save
-2025-04-29 21:14:05,015 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\dma.tmp
-2025-04-29 21:14:05,015 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\dma_GV.tmp_save
-2025-04-29 21:14:05,116 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\dma_GV.tmp
-2025-04-29 21:14:05,143 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\stm32f0xx_it.c_save
-2025-04-29 21:14:05,268 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\stm32f0xx_it.c
-2025-04-29 21:14:05,275 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\stm32f0xx_it.h_save
-2025-04-29 21:14:05,368 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\stm32f0xx_it.h
-2025-04-29 21:14:05,396 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\stm32f0xx_hal_msp.c_save
-2025-04-29 21:14:05,577 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\stm32f0xx_hal_msp.c
-2025-04-29 21:14:05,592 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\system.tmp_save
-2025-04-29 21:14:05,655 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\MXTmpFiles\system.tmp
-2025-04-29 21:14:05,675 [INFO] CodeEngine:311 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\stm32f0xx_hal_conf.h_save
-2025-04-29 21:14:05,799 [INFO] CodeEngine:335 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\stm32f0xx_hal_conf.h
-2025-04-29 21:14:05,832 [WARN] IPConfigManager:3554 - IP not found : TIM
-2025-04-29 21:14:05,833 [WARN] CodeGenerator:4002 - IP not found : null
-2025-04-29 21:14:05,852 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\main.h_save
-2025-04-29 21:14:05,935 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Inc\main.h
-2025-04-29 21:14:05,951 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\main.c_save
-2025-04-29 21:14:06,095 [INFO] CodeEngine:279 - Generated code: C:\Users\danie\Documents\GitHub\Weller-to-JBC-converter\Firmware\Core\Src\main.c
-2025-04-29 21:14:06,501 [INFO] ProjectBuilder:3249 - Time for Copy HAL[1] : 156mS.
-2025-04-29 21:14:06,501 [INFO] ProjectBuilder:4828 - Project Generator version: 4.5.0-B34
-2025-04-29 21:14:06,626 [INFO] ConfigFileManager:1531 - The Die is : DIE440
-2025-04-29 21:14:07,932 [INFO] ProjectBuilder:5097 - Time for Generating toolchain IDE Files: 1431mS.
-2025-04-29 21:14:07,933 [INFO] ProjectBuilder:3107 - Time for Copy CMSIS : 1mS.
-2025-04-29 21:14:07,958 [INFO] ProjectBuilder:3107 - Time for Copy CMSIS : 0mS.
-2025-04-29 21:14:34,355 [INFO] WebApp:189 - Connection lost
-2025-04-29 21:14:34,522 [INFO] WebApp:186 - Connection restablished
-2025-04-29 21:19:38,342 [INFO] WebApp:189 - Connection lost
-2025-04-29 21:19:38,533 [INFO] WebApp:186 - Connection restablished
-2025-04-29 21:22:12,357 [INFO] WebApp:189 - Connection lost
-2025-04-29 21:22:12,503 [INFO] WebApp:186 - Connection restablished
-2025-04-29 21:27:22,847 [INFO] WebApp:189 - Connection lost
-2025-04-29 21:27:23,001 [INFO] WebApp:186 - Connection restablished
-2025-04-29 21:29:53,350 [INFO] WebApp:189 - Connection lost
-2025-04-29 21:29:53,512 [INFO] WebApp:186 - Connection restablished
-2025-04-29 21:35:00,325 [INFO] WebApp:189 - Connection lost
-2025-04-29 21:35:00,466 [INFO] WebApp:186 - Connection restablished
-2025-04-29 21:37:35,831 [INFO] WebApp:189 - Connection lost
-2025-04-29 21:37:36,006 [INFO] WebApp:186 - Connection restablished
-2025-04-29 21:40:07,866 [INFO] WebApp:189 - Connection lost
-2025-04-29 21:40:08,093 [INFO] WebApp:186 - Connection restablished
-2025-04-29 21:42:40,340 [INFO] WebApp:189 - Connection lost
-2025-04-29 21:42:40,503 [INFO] WebApp:186 - Connection restablished
-2025-04-29 21:45:13,864 [INFO] WebApp:189 - Connection lost
-2025-04-29 21:45:14,023 [INFO] WebApp:186 - Connection restablished
-2025-04-29 21:50:21,832 [INFO] WebApp:189 - Connection lost
-2025-04-29 21:50:22,001 [INFO] WebApp:186 - Connection restablished
-2025-04-29 21:52:55,832 [INFO] WebApp:189 - Connection lost
-2025-04-29 21:52:56,135 [INFO] WebApp:186 - Connection restablished
-2025-04-29 21:55:28,340 [INFO] WebApp:189 - Connection lost
-2025-04-29 21:55:28,514 [INFO] WebApp:186 - Connection restablished
-2025-04-29 21:58:03,840 [INFO] WebApp:189 - Connection lost
-2025-04-29 21:58:03,985 [INFO] WebApp:186 - Connection restablished
-2025-04-29 22:00:37,862 [INFO] WebApp:189 - Connection lost
-2025-04-29 22:00:38,024 [INFO] WebApp:186 - Connection restablished
-2025-04-29 22:03:09,837 [INFO] WebApp:189 - Connection lost
-2025-04-29 22:03:10,004 [INFO] WebApp:186 - Connection restablished
-2025-04-29 22:05:43,833 [INFO] WebApp:189 - Connection lost
-2025-04-29 22:05:43,987 [INFO] WebApp:186 - Connection restablished
-2025-04-29 22:08:16,826 [INFO] WebApp:189 - Connection lost
-2025-04-29 22:08:17,090 [INFO] WebApp:186 - Connection restablished
-2025-04-29 22:20:20,329 [INFO] WebApp:189 - Connection lost
-2025-04-29 22:20:20,477 [INFO] WebApp:186 - Connection restablished
-2025-04-29 22:23:23,319 [INFO] WebApp:189 - Connection lost
-2025-04-29 22:23:23,470 [INFO] WebApp:186 - Connection restablished
-2025-04-29 22:28:45,335 [INFO] WebApp:189 - Connection lost
-2025-04-29 22:28:45,495 [INFO] WebApp:186 - Connection restablished
+2025-05-03 00:21:23,381 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
+2025-05-03 00:21:23,458 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
+2025-05-03 01:29:58,273 [INFO] Activator:176 - 
+
+
+2025-05-03 01:29:58,320 [INFO] Activator:177 - !SESSION log4j initialized
+2025-05-03 01:30:20,565 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2025-05-03 01:30:45,500 [INFO] ApplicationProperties:184 - Using Application install path: C:\ST\STM32CubeIDE_1.16.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.12.1.202409122256
+2025-05-03 01:30:45,581 [INFO] DbMcusXml:78 - Set database path to: C:\ST\STM32CubeIDE_1.16.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.12.1.202409122256\\db\/mcu/
+2025-05-03 01:30:45,581 [INFO] ApiDb:274 - Set plugin database path to: C:\ST\STM32CubeIDE_1.16.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.12.1.202409122256\\db\/plugins/boardmanager/
+2025-05-03 01:30:45,581 [WARN] ApiDb:259 - Overriding images path with different value:  => C:\ST\STM32CubeIDE_1.16.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.12.1.202409122256\\db\/plugins/mcufinder/images/
+2025-05-03 01:30:45,744 [INFO] ApiDb:250 - Set database path to: C:\Users\danie\.stmcufinder\plugins\mcufinder//mcu/
+2025-05-03 01:30:45,744 [INFO] DbMcusAds:125 - Set database path to: C:\Users\danie\.stmcufinder\plugins\mcufinder//mcu/
+2025-05-03 01:30:49,560 [INFO] CrossReferenceDbSqlite:203 - Set database path to: C:\Users\danie\.stmcufinder\plugins\mcufinder//mcu/cs/
+2025-05-03 01:30:49,841 [INFO] RulesReader:64 - Compatibility file has been processed (297 Rules)
+2025-05-03 01:30:50,403 [INFO] DbMcusXml:78 - Set database path to: C:\ST\STM32CubeIDE_1.16.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.12.1.202409122256\\db\/mcu/
+2025-05-03 01:30:50,403 [INFO] ApiDb:274 - Set plugin database path to: C:\ST\STM32CubeIDE_1.16.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.12.1.202409122256\\db\/plugins/boardmanager/
+2025-05-03 01:30:50,403 [INFO] ApiDb:261 - Set plugin images path to: C:\ST\STM32CubeIDE_1.16.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.12.1.202409122256\\db\/plugins/mcufinder/images/
+2025-05-03 01:30:50,403 [WARN] DbFile:41 - Overriding database path with different value: C:\Users\danie\.stmcufinder\plugins\mcufinder/ => C:\Users\danie\.stmcufinder\plugins\mcufinder
+2025-05-03 01:30:50,403 [INFO] ApiDb:250 - Set database path to: C:\Users\danie\.stmcufinder\plugins\mcufinder//mcu/
+2025-05-03 01:30:50,403 [WARN] DbFile:41 - Overriding database path with different value: C:\Users\danie\.stmcufinder\plugins\mcufinder/ => C:\Users\danie\.stmcufinder\plugins\mcufinder
+2025-05-03 01:30:50,403 [INFO] DbMcusAds:125 - Set database path to: C:\Users\danie\.stmcufinder\plugins\mcufinder//mcu/
+2025-05-03 01:30:50,403 [WARN] DbFile:41 - Overriding database path with different value: C:\Users\danie\.stmcufinder\plugins\mcufinder/ => C:\Users\danie\.stmcufinder\plugins\mcufinder
+2025-05-03 01:30:50,403 [WARN] DbFile:41 - Overriding database path with different value: C:\Users\danie\.stmcufinder\plugins\mcufinder/ => C:\Users\danie\.stmcufinder\plugins\mcufinder
+2025-05-03 01:30:50,403 [INFO] CrossReferenceDbSqlite:203 - Set database path to: C:\Users\danie\.stmcufinder\plugins\mcufinder//mcu/cs/
+2025-05-03 01:30:50,874 [INFO] MainPanel:268 - HeapMemory: 268435456
+2025-05-03 01:30:51,969 [INFO] DbMcusXml:78 - Set database path to: C:\ST\STM32CubeIDE_1.16.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.12.1.202409122256\\db\/mcu/
+2025-05-03 01:30:51,969 [INFO] ApiDb:274 - Set plugin database path to: C:\ST\STM32CubeIDE_1.16.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.12.1.202409122256\\db\/plugins/boardmanager/
+2025-05-03 01:30:51,969 [INFO] ApiDb:261 - Set plugin images path to: C:\ST\STM32CubeIDE_1.16.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.12.1.202409122256\\db\/plugins/mcufinder/images/
+2025-05-03 01:30:51,969 [WARN] DbFile:41 - Overriding database path with different value: C:\Users\danie\.stmcufinder\plugins\mcufinder/ => C:\Users\danie\.stmcufinder\plugins\mcufinder
+2025-05-03 01:30:51,969 [INFO] ApiDb:250 - Set database path to: C:\Users\danie\.stmcufinder\plugins\mcufinder//mcu/
+2025-05-03 01:30:51,985 [WARN] DbFile:41 - Overriding database path with different value: C:\Users\danie\.stmcufinder\plugins\mcufinder/ => C:\Users\danie\.stmcufinder\plugins\mcufinder
+2025-05-03 01:30:51,985 [INFO] DbMcusAds:125 - Set database path to: C:\Users\danie\.stmcufinder\plugins\mcufinder//mcu/
+2025-05-03 01:30:51,985 [WARN] DbFile:41 - Overriding database path with different value: C:\Users\danie\.stmcufinder\plugins\mcufinder/ => C:\Users\danie\.stmcufinder\plugins\mcufinder
+2025-05-03 01:30:51,985 [WARN] DbFile:41 - Overriding database path with different value: C:\Users\danie\.stmcufinder\plugins\mcufinder/ => C:\Users\danie\.stmcufinder\plugins\mcufinder
+2025-05-03 01:30:51,985 [INFO] CrossReferenceDbSqlite:203 - Set database path to: C:\Users\danie\.stmcufinder\plugins\mcufinder//mcu/cs/
+2025-05-03 01:30:52,063 [INFO] ApplicationProperties:184 - Using Application install path: C:\ST\STM32CubeIDE_1.16.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.12.1.202409122256
+2025-05-03 01:30:52,078 [INFO] PluginManage:196 - Search for loadable plugins [exclusion list=, ]
+2025-05-03 01:30:52,094 [INFO] PluginManage:310 - Check plugin analytics
+2025-05-03 01:30:55,733 [INFO] AnalyticsPlugin:253 - Accepted Software Licenses: 
+2025-05-03 01:30:55,733 [INFO] AnalyticsPlugin:255 - Accepted CMSIS Pack Licenses: 
+2025-05-03 01:30:55,733 [INFO] AnalyticsPlugin:257 - Accepted Firmware Licenses: 
+2025-05-03 01:30:55,733 [INFO] PluginManage:359 - Loaded plugin analytics (category:tool,tabindex:-1)
+2025-05-03 01:30:55,733 [INFO] PluginManage:310 - Check plugin cadmodel
+2025-05-03 01:30:55,795 [INFO] CADModel:105 - Init CAD model plugin
+2025-05-03 01:30:55,795 [INFO] PluginManage:359 - Loaded plugin cadmodel (category:power,tabindex:5)
+2025-05-03 01:30:55,795 [INFO] PluginManage:310 - Check plugin clock
+2025-05-03 01:30:55,858 [INFO] PluginManage:359 - Loaded plugin clock (category:base,tabindex:2)
+2025-05-03 01:30:55,858 [INFO] PluginManage:310 - Check plugin ddr
+2025-05-03 01:30:55,858 [INFO] PluginManage:359 - Loaded plugin ddr (category:tool,tabindex:6)
+2025-05-03 01:30:55,858 [INFO] PluginManage:310 - Check plugin filemanager
+2025-05-03 01:30:56,233 [INFO] PluginManage:359 - Loaded plugin filemanager (category:base,tabindex:10)
+2025-05-03 01:30:56,233 [INFO] PluginManage:310 - Check plugin ipmanager
+2025-05-03 01:30:56,264 [INFO] PluginManage:359 - Loaded plugin ipmanager (category:base,tabindex:5)
+2025-05-03 01:30:56,264 [INFO] PluginManage:310 - Check plugin lpbam
+2025-05-03 01:30:56,295 [INFO] PluginManage:359 - Loaded plugin lpbam (category:base,tabindex:0)
+2025-05-03 01:30:56,295 [INFO] PluginManage:310 - Check plugin memorymap
+2025-05-03 01:30:56,405 [INFO] PluginManage:359 - Loaded plugin memorymap (category:base,tabindex:4)
+2025-05-03 01:30:56,405 [INFO] PluginManage:310 - Check plugin pinoutandconfiguration
+2025-05-03 01:30:56,451 [INFO] PluginManage:359 - Loaded plugin pinoutandconfiguration (category:base,tabindex:1)
+2025-05-03 01:30:56,451 [INFO] PluginManage:310 - Check plugin pinoutconfig
+2025-05-03 01:30:56,701 [WARN] SupportedApi:132 - Cannot load RTOS API schema: s4s-elt-must-match.1: The content of 'definitions' must match (annotation?, (simpleType | complexType)?, (unique | key | keyref)*)). A problem was found starting at: attribute.
+2025-05-03 01:30:57,201 [INFO] PluginManage:359 - Loaded plugin pinoutconfig (category:base,tabindex:0)
+2025-05-03 01:30:57,201 [INFO] PluginManage:310 - Check plugin power
+2025-05-03 01:30:57,342 [INFO] PluginManage:359 - Loaded plugin power (category:power,tabindex:4)
+2025-05-03 01:30:57,342 [INFO] PluginManage:310 - Check plugin projectmanager
+2025-05-03 01:30:57,404 [INFO] PluginManage:359 - Loaded plugin projectmanager (category:projectmanager,tabindex:4)
+2025-05-03 01:30:57,404 [INFO] PluginManage:310 - Check plugin rif
+2025-05-03 01:30:57,451 [INFO] PluginManage:359 - Loaded plugin rif (category:base,tabindex:3)
+2025-05-03 01:30:57,451 [INFO] PluginManage:310 - Check plugin thirdparty
+2025-05-03 01:30:58,578 [INFO] PluginManage:359 - Loaded plugin thirdparty (category:base,tabindex:-1)
+2025-05-03 01:30:58,578 [WARN] IntegrityCheckThread:84 - waiting for thirdparty lock release [integrity check]
+2025-05-03 01:30:58,578 [INFO] PluginManage:310 - Check plugin tools
+2025-05-03 01:30:58,578 [INFO] IntegrityCheckThread:86 - entering critical section [integrity check]
+2025-05-03 01:30:58,578 [INFO] ThirdPartyUpdaterWithRetryManager:70 - Updater plugin not ready yet. [1/15]
+2025-05-03 01:30:58,682 [INFO] PluginManage:359 - Loaded plugin tools (category:base,tabindex:7)
+2025-05-03 01:30:58,682 [INFO] PluginManage:310 - Check plugin tutovideos
+2025-05-03 01:30:59,190 [INFO] PluginManage:359 - Loaded plugin tutovideos (category:base,tabindex:-1)
+2025-05-03 01:30:59,190 [INFO] PluginManage:310 - Check plugin updater
+2025-05-03 01:30:59,221 [INFO] PluginManage:359 - Loaded plugin updater (category:base,tabindex:12)
+2025-05-03 01:30:59,221 [INFO] PluginManage:310 - Check plugin userauth
+2025-05-03 01:30:59,268 [INFO] UserAuth:113 - Init User Auth plugin
+2025-05-03 01:30:59,268 [INFO] PluginManage:359 - Loaded plugin userauth (category:base,tabindex:14)
+2025-05-03 01:30:59,268 [INFO] PluginManage:283 - PluginManage : Loaded plugins [18]
+2025-05-03 01:31:00,262 [INFO] PinOutPanel:1561 - setPackage(No Configuration,No Configuration)
+2025-05-03 01:31:00,678 [INFO] CADModel:165 - CPN selected for project level
+2025-05-03 01:31:00,678 [INFO] CADModel:114 - Register for checkConnection events
+2025-05-03 01:31:00,803 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-05-03 01:31:00,803 [INFO] PluginManager:220 - loadIPPluginJar : add adc
+2025-05-03 01:31:00,928 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-05-03 01:31:00,928 [INFO] PluginManager:220 - loadIPPluginJar : add aes
+2025-05-03 01:31:01,132 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-05-03 01:31:01,132 [INFO] PluginManager:220 - loadIPPluginJar : add can
+2025-05-03 01:31:01,225 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-05-03 01:31:01,225 [INFO] PluginManager:220 - loadIPPluginJar : add comp
+2025-05-03 01:31:01,360 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-05-03 01:31:01,360 [INFO] PluginManager:220 - loadIPPluginJar : add cryp
+2025-05-03 01:31:01,427 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-05-03 01:31:01,427 [INFO] PluginManager:220 - loadIPPluginJar : add ddr_ctrl_phy
+2025-05-03 01:31:01,494 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-05-03 01:31:01,494 [INFO] PluginManager:220 - loadIPPluginJar : add dfsdm
+2025-05-03 01:31:01,511 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-05-03 01:31:01,526 [INFO] PluginManager:220 - loadIPPluginJar : add dma
+2025-05-03 01:31:01,589 [INFO] ThirdPartyUpdaterWithRetryManager:70 - Updater plugin not ready yet. [2/15]
+2025-05-03 01:31:01,604 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-05-03 01:31:01,604 [INFO] PluginManager:220 - loadIPPluginJar : add dma3
+2025-05-03 01:31:01,682 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-05-03 01:31:01,682 [INFO] PluginManager:220 - loadIPPluginJar : add extmemmanager
+2025-05-03 01:31:01,781 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-05-03 01:31:01,781 [INFO] PluginManager:220 - loadIPPluginJar : add fatfs
+2025-05-03 01:31:01,875 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-05-03 01:31:01,875 [INFO] PluginManager:220 - loadIPPluginJar : add fmc
+2025-05-03 01:31:01,937 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-05-03 01:31:01,937 [INFO] PluginManager:220 - loadIPPluginJar : add freertos
+2025-05-03 01:31:02,060 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-05-03 01:31:02,075 [INFO] PluginManager:220 - loadIPPluginJar : add genericplugin
+2025-05-03 01:31:02,231 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-05-03 01:31:02,231 [INFO] PluginManager:220 - loadIPPluginJar : add gfxmmu
+2025-05-03 01:31:02,472 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-05-03 01:31:02,472 [INFO] PluginManager:220 - loadIPPluginJar : add gic
+2025-05-03 01:31:02,550 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-05-03 01:31:02,550 [INFO] PluginManager:220 - loadIPPluginJar : add gpio
+2025-05-03 01:31:02,722 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-05-03 01:31:02,722 [INFO] PluginManager:220 - loadIPPluginJar : add gtzc
+2025-05-03 01:31:02,784 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-05-03 01:31:02,784 [INFO] PluginManager:220 - loadIPPluginJar : add hash
+2025-05-03 01:31:02,873 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-05-03 01:31:02,873 [INFO] PluginManager:220 - loadIPPluginJar : add i2c
+2025-05-03 01:31:02,951 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-05-03 01:31:02,951 [INFO] PluginManager:220 - loadIPPluginJar : add i2s
+2025-05-03 01:31:03,029 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-05-03 01:31:03,029 [INFO] PluginManager:220 - loadIPPluginJar : add i3c
+2025-05-03 01:31:03,201 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-05-03 01:31:03,201 [INFO] PluginManager:220 - loadIPPluginJar : add ipddr
+2025-05-03 01:31:03,408 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-05-03 01:31:03,408 [INFO] PluginManager:220 - loadIPPluginJar : add linkedlist
+2025-05-03 01:31:03,486 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-05-03 01:31:03,486 [INFO] PluginManager:220 - loadIPPluginJar : add lorawan
+2025-05-03 01:31:03,548 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-05-03 01:31:03,548 [INFO] PluginManager:220 - loadIPPluginJar : add ltdc
+2025-05-03 01:31:03,581 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-05-03 01:31:03,589 [INFO] PluginManager:220 - loadIPPluginJar : add mdma
+2025-05-03 01:31:03,660 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-05-03 01:31:03,660 [INFO] PluginManager:220 - loadIPPluginJar : add nvic
+2025-05-03 01:31:03,746 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-05-03 01:31:03,746 [INFO] PluginManager:220 - loadIPPluginJar : add opamp
+2025-05-03 01:31:03,859 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-05-03 01:31:03,859 [INFO] PluginManager:220 - loadIPPluginJar : add openamp
+2025-05-03 01:31:04,015 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-05-03 01:31:04,015 [INFO] PluginManager:220 - loadIPPluginJar : add pdm2pcm
+2025-05-03 01:31:04,093 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-05-03 01:31:04,093 [INFO] PluginManager:220 - loadIPPluginJar : add plateformsettings
+2025-05-03 01:31:04,187 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-05-03 01:31:04,187 [INFO] PluginManager:220 - loadIPPluginJar : add quadspi
+2025-05-03 01:31:04,250 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-05-03 01:31:04,265 [INFO] PluginManager:220 - loadIPPluginJar : add radio
+2025-05-03 01:31:04,353 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-05-03 01:31:04,353 [INFO] PluginManager:220 - loadIPPluginJar : add resmgrutility
+2025-05-03 01:31:04,494 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-05-03 01:31:04,494 [INFO] PluginManager:220 - loadIPPluginJar : add sai
+2025-05-03 01:31:04,603 [INFO] ThirdPartyUpdaterWithRetryManager:70 - Updater plugin not ready yet. [3/15]
+2025-05-03 01:31:04,666 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-05-03 01:31:04,666 [INFO] PluginManager:220 - loadIPPluginJar : add spi
+2025-05-03 01:31:04,809 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-05-03 01:31:04,809 [INFO] PluginManager:220 - loadIPPluginJar : add stm32_wpan
+2025-05-03 01:31:04,856 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-05-03 01:31:04,856 [INFO] PluginManager:220 - loadIPPluginJar : add tim
+2025-05-03 01:31:05,060 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-05-03 01:31:05,060 [INFO] PluginManager:220 - loadIPPluginJar : add touchsensing
+2025-05-03 01:31:05,122 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-05-03 01:31:05,122 [INFO] PluginManager:220 - loadIPPluginJar : add tracer_emb
+2025-05-03 01:31:05,169 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-05-03 01:31:05,169 [INFO] PluginManager:220 - loadIPPluginJar : add ts
+2025-05-03 01:31:05,216 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-05-03 01:31:05,216 [INFO] PluginManager:220 - loadIPPluginJar : add tsc
+2025-05-03 01:31:05,247 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-05-03 01:31:05,247 [INFO] PluginManager:220 - loadIPPluginJar : add ucpd
+2025-05-03 01:31:05,341 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-05-03 01:31:05,341 [INFO] PluginManager:220 - loadIPPluginJar : add usart
+2025-05-03 01:31:05,451 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-05-03 01:31:05,451 [INFO] PluginManager:220 - loadIPPluginJar : add usbx
+2025-05-03 01:31:05,701 [INFO] CADModel:165 - CPN selected for project level
+2025-05-03 01:31:05,701 [INFO] CADModel:114 - Register for checkConnection events
+2025-05-03 01:31:05,701 [FATAL] Updater:334 - Updater called before beeing initialized
+2025-05-03 01:31:05,701 [ERROR] CADModel:125 - Updater not yet initialized, retry later 
+2025-05-03 01:31:06,263 [INFO] CADModel:165 - CPN selected for project level
+2025-05-03 01:31:06,263 [INFO] CADModel:114 - Register for checkConnection events
+2025-05-03 01:31:06,263 [FATAL] Updater:334 - Updater called before beeing initialized
+2025-05-03 01:31:06,263 [ERROR] CADModel:125 - Updater not yet initialized, retry later 
+2025-05-03 01:31:06,263 [FATAL] Updater:334 - Updater called before beeing initialized
+2025-05-03 01:31:06,576 [FATAL] Updater:334 - Updater called before beeing initialized
+2025-05-03 01:31:06,638 [INFO] DbMcusAds:53 - JSON generation date=Tue Dec 17 17:01:15 CET 2024 (1734451275111)
+2025-05-03 01:31:06,638 [FATAL] Updater:334 - Updater called before beeing initialized
+2025-05-03 01:31:06,888 [WARN] DetailPanel:346 - Failed to get advertising image, set to default
+2025-05-03 01:31:06,997 [FATAL] Updater:334 - Updater called before beeing initialized
+2025-05-03 01:31:06,997 [FATAL] Updater:334 - Updater called before beeing initialized
+2025-05-03 01:31:06,997 [FATAL] Updater:334 - Updater called before beeing initialized
+2025-05-03 01:31:06,997 [WARN] DetailPanel:346 - Failed to get advertising image, set to default
+2025-05-03 01:31:06,997 [FATAL] Updater:334 - Updater called before beeing initialized
+2025-05-03 01:31:07,216 [ERROR] Updater:1164 - MainUpdater not yet initialized. External WinMGr cannot be set.
+2025-05-03 01:31:07,263 [INFO] Updater:1100 - Updater Version found : 6.12.1
+2025-05-03 01:31:07,294 [INFO] ApplicationProperties:184 - Using Application install path: C:\ST\STM32CubeIDE_1.16.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.12.1.202409122256
+2025-05-03 01:31:07,607 [INFO] ThirdPartyUpdaterWithRetryManager:70 - Updater plugin not ready yet. [4/15]
+2025-05-03 01:31:09,044 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] May 03, 2025 1:31:09 AM java.util.prefs.WindowsPreferences <init>
+2025-05-03 01:31:09,060 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] WARNING: Could not open/create prefs root node Software\JavaSoft\Prefs at root 0xffffffff80000002. Windows RegCreateKeyEx(...) returned error code 5.
+2025-05-03 01:31:09,091 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
+2025-05-03 01:31:10,164 [INFO] MainUpdater:2873 - connection check result : 10
+2025-05-03 01:31:10,164 [INFO] MainUpdater:3567 - Updater definition file requires update
+2025-05-03 01:31:10,164 [INFO] MainUpdater:290 - Updater Check For Update Now.
+2025-05-03 01:31:10,164 [INFO] MicroXplorer:498 - Change Database Version : DB.6.0.121
+2025-05-03 01:31:10,243 [INFO] McuFinderGlobals:63 - Set McuFinder mode to 2 (CubeIDE integrated)
+2025-05-03 01:31:10,243 [INFO] UserAuth:179 - activating auth plugin
+2025-05-03 01:31:10,267 [INFO] UserAuth:417 - Internet connection configuration mode: 1
+2025-05-03 01:31:10,615 [WARN] MainUpdater:1194 - Updater busy. Cannot search thirdparties
+2025-05-03 01:31:10,615 [INFO] ThirdPartyUpdaterWithRetryManager:96 - Updater plugin is busy. [1/15]
+2025-05-03 01:31:10,706 [INFO] JxBrowserEngine:152 - Initiate JxBrowser Engine with user profile folder
+2025-05-03 01:31:11,035 [INFO] ServerAccessManage:473 - Download File updaters.zip
+2025-05-03 01:31:11,287 [INFO] FileExtend:240 - Unzip File : updaters.zip
+2025-05-03 01:31:11,287 [INFO] FileExtend:255 - Standard Zip Deflate
+2025-05-03 01:31:13,627 [WARN] MainUpdater:1194 - Updater busy. Cannot search thirdparties
+2025-05-03 01:31:13,627 [INFO] ThirdPartyUpdaterWithRetryManager:96 - Updater plugin is busy. [2/15]
+2025-05-03 01:31:15,361 [INFO] ServerAccessManage:473 - Download File PacksControlFlags.xml
+2025-05-03 01:31:15,939 [INFO] ServerAccessManage:473 - Download File cubemx.pidx
+2025-05-03 01:31:16,642 [WARN] MainUpdater:1194 - Updater busy. Cannot search thirdparties
+2025-05-03 01:31:16,642 [INFO] ThirdPartyUpdaterWithRetryManager:96 - Updater plugin is busy. [3/15]
+2025-05-03 01:31:19,650 [WARN] MainUpdater:1194 - Updater busy. Cannot search thirdparties
+2025-05-03 01:31:19,650 [INFO] ThirdPartyUpdaterWithRetryManager:96 - Updater plugin is busy. [4/15]
+2025-05-03 01:31:19,962 [INFO] ServerAccessManage:473 - Download File STMicroelectronics.X-CUBE-NFC7.pdsc
+2025-05-03 01:31:22,664 [WARN] MainUpdater:1194 - Updater busy. Cannot search thirdparties
+2025-05-03 01:31:22,664 [INFO] ThirdPartyUpdaterWithRetryManager:96 - Updater plugin is busy. [5/15]
+2025-05-03 01:31:24,348 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-NFC7.2.0.0
+2025-05-03 01:31:24,348 [INFO] PopulateThirdPartyThread:66 - Ending populate Thread
+2025-05-03 01:31:24,348 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC7 2.0.0
+2025-05-03 01:31:24,348 [INFO] LoadServerUpdatesThread:375 - End of LoadServerUpdate Thread
+2025-05-03 01:31:24,380 [INFO] CheckServerUpdateThread:120 - End of CheckServer Thread
+2025-05-03 01:31:27,179 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.FP-SNS-MOTENVWB1.1.4.0
+2025-05-03 01:31:27,210 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.FP-ATR-ASTRA1.2.0.2
+2025-05-03 01:31:27,257 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.FP-ATR-ASTRA1.2.0.1
+2025-05-03 01:31:27,288 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-SMBUS.2.1.0
+2025-05-03 01:31:27,382 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-WB05N.1.1.0
+2025-05-03 01:31:27,538 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-AZRTOS-F7.1.1.0
+2025-05-03 01:31:27,726 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-MEMS1.11.0.0
+2025-05-03 01:31:28,007 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.FP-SNS-FLIGHT1.5.0.2
+2025-05-03 01:31:28,070 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-DISPLAY.3.0.0
+2025-05-03 01:31:28,116 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-BLE1.7.0.0
+2025-05-03 01:31:28,226 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-NFC10.1.0.0
+2025-05-03 01:31:28,288 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-BLEMGR.4.0.0
+2025-05-03 01:31:29,194 [WARN] PackLoader:240 - Cannot read IP mode file for emotas.I-CUBE-CANOPEN.1.3.0
+2025-05-03 01:31:30,781 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-BLEMGR.3.1.0
+2025-05-03 01:31:31,250 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-AI.10.0.0
+2025-05-03 01:31:31,895 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.FP-SNS-SMARTAG2.1.2.0
+2025-05-03 01:31:31,958 [ERROR] Engine:466 - C:\Users\danie\.stm32cubemx\thirdparties\pdsc\STMicroelectronics.FP-SNS-FLIGHT1.5.1.0.pdsc: PDSC version is not supported
+2025-05-03 01:31:32,808 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-MEMS1.11.1.0
+2025-05-03 01:31:33,755 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 1 : Invalid condition id : UX_CORESTACK_Condition cause : null
+2025-05-03 01:31:33,756 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 1 : Invalid condition id : UX_CORESTACK_Condition cause : null
+2025-05-03 01:31:33,758 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 1 : Invalid condition id : UX_CORESTACK_Condition cause : null
+2025-05-03 01:31:33,760 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 1 : Invalid condition id : UX_CORESTACK_Condition cause : null
+2025-05-03 01:31:33,762 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 1 : Invalid condition id : UX_CORESTACK_Condition cause : null
+2025-05-03 01:31:33,766 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-AZRTOS-WL.2.0.0
+2025-05-03 01:31:34,696 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.FP-SNS-MOTENV1.5.0.0
+2025-05-03 01:31:34,842 [WARN] PackLoader:240 - Cannot read IP mode file for wolfSSL.I-CUBE-wolfMQTT.1.19.0
+2025-05-03 01:31:35,511 [WARN] PackLoader:240 - Cannot read IP mode file for WES.I-CUBE-Cesium.1.3.0
+2025-05-03 01:31:35,924 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-BLE2.3.3.0
+2025-05-03 01:31:36,075 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-NFC9.1.0.0
+2025-05-03 01:31:36,165 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-BLE1.7.1.0
+2025-05-03 01:31:36,222 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-TCPP.4.1.0
+2025-05-03 01:31:36,562 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-MEMS1.11.2.0
+2025-05-03 01:31:37,496 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-AZRTOS-G0.1.1.0
+2025-05-03 01:31:37,756 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-SAFEA1.1.2.2
+2025-05-03 01:31:37,965 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-NFC4.3.0.0
+2025-05-03 01:31:38,398 [WARN] PackLoader:240 - Cannot read IP mode file for EmbeddedOffice.I-CUBE-FS-RTOS.1.0.1
+2025-05-03 01:31:38,399 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,399 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,400 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,400 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,400 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,400 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,400 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,401 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,401 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,401 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,401 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,401 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,401 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,402 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,402 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,402 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,402 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,402 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,402 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,403 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,403 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,403 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,403 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,403 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,403 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,403 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,404 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,404 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,404 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,404 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,404 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,404 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,405 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,405 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,405 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,405 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,405 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,405 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,406 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,406 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,406 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,406 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,406 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,406 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,407 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,407 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,407 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,407 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,407 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,408 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,408 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,408 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,408 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,408 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,409 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,409 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,409 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,409 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,409 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,409 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,410 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,410 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,410 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,410 [ERROR] ConditionMgr:805 - Attr not supported : Dmpu
+2025-05-03 01:31:38,624 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-WB05N.2.0.0
+2025-05-03 01:31:38,810 [ERROR] Engine:466 - C:\Users\danie\.stm32cubemx\thirdparties\pdsc\STMicroelectronics.X-CUBE-TCPP.4.2.0.pdsc: PDSC version is not supported
+2025-05-03 01:31:39,460 [WARN] PackLoader:240 - Cannot read IP mode file for RealThread.X-CUBE-RT-Thread_Nano.4.1.1
+2025-05-03 01:31:39,635 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.FP-ATR-SIGFOX1.3.2.0
+2025-05-03 01:31:40,060 [WARN] PackLoader:240 - Cannot read IP mode file for wolfSSL.I-CUBE-wolfSSL.5.7.2
+2025-05-03 01:31:40,383 [WARN] ConditionMgr:438 - getConditionDescription Invalid condition id : Cortex-A Device cause : null
+2025-05-03 01:31:41,558 [WARN] ConditionMgr:1039 - genDependencies : Invalid condition id : Cortex-A Device cause : null
+2025-05-03 01:31:41,558 [WARN] ConditionMgr:1039 - genDependencies : Invalid condition id : Cortex-A Device cause : null
+2025-05-03 01:31:41,558 [WARN] ConditionMgr:1039 - genDependencies : Invalid condition id : Cortex-A Device cause : null
+2025-05-03 01:31:41,642 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-EEPRMA1.5.1.0
+2025-05-03 01:31:41,726 [WARN] PackLoader:240 - Cannot read IP mode file for ITTIA_DB.I-CUBE-ITTIADB.8.9.0
+2025-05-03 01:31:42,153 [WARN] PackLoader:240 - Cannot read IP mode file for SEGGER.I-CUBE-embOS.1.3.1
+2025-05-03 01:31:42,431 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-ALGOBUILD.1.4.0
+2025-05-03 01:31:42,623 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-AI.9.1.0
+2025-05-03 01:31:42,873 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-AZRTOS-F4.1.1.0
+2025-05-03 01:31:42,976 [ERROR] Engine:466 - C:\Users\danie\.stm32cubemx\thirdparties\pdsc\Avnet-IotConnect.X-CUBE-IoTC-DA16k-PMOD.1.0.0.pdsc: PDSC version is not supported
+2025-05-03 01:31:43,063 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-ISPU.2.1.0
+2025-05-03 01:31:43,265 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-FREERTOS.1.2.0
+2025-05-03 01:31:43,724 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-AZRTOS-L5.2.0.0
+2025-05-03 01:31:44,036 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-NFC6.3.1.0
+2025-05-03 01:31:44,195 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-DPower.1.2.0
+2025-05-03 01:31:44,350 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-FREERTOS.1.3.0
+2025-05-03 01:31:44,497 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-NFC7.1.0.1
+2025-05-03 01:31:44,663 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-DPower.1.3.0
+2025-05-03 01:31:44,993 [WARN] ConditionMgr:438 - getConditionDescription Invalid condition id : LAN8742 Phy interface Condition cause : null
+2025-05-03 01:31:44,994 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-AZRTOS-L4.2.0.0
+2025-05-03 01:31:44,996 [WARN] ConditionMgr:1039 - genDependencies : Invalid condition id : LAN8742 Phy interface Condition cause : null
+2025-05-03 01:31:44,997 [WARN] ConditionMgr:1039 - genDependencies : Invalid condition id : LAN8742 Phy interface Condition cause : null
+2025-05-03 01:31:44,997 [WARN] ConditionMgr:1039 - genDependencies : Invalid condition id : LAN8742 Phy interface Condition cause : null
+2025-05-03 01:31:45,107 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-SFXS2LP1.4.0.0
+2025-05-03 01:31:45,481 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-AZRTOS-H7.3.3.0
+2025-05-03 01:31:45,700 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-IPS.3.0.0
+2025-05-03 01:31:45,968 [WARN] ConditionMgr:438 - getConditionDescription Invalid condition id : UX DEVICE CLASS RTOS Condition cause : null
+2025-05-03 01:31:45,968 [WARN] ConditionMgr:438 - getConditionDescription Invalid condition id : UX DEVICE CLASS RTOS Condition cause : null
+2025-05-03 01:31:45,970 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-AZRTOS-WB.2.0.0
+2025-05-03 01:31:45,970 [WARN] ConditionMgr:1039 - genDependencies : Invalid condition id : UX DEVICE CLASS RTOS Condition cause : null
+2025-05-03 01:31:45,971 [WARN] ConditionMgr:1039 - genDependencies : Invalid condition id : UX DEVICE CLASS RTOS Condition cause : null
+2025-05-03 01:31:45,971 [WARN] ConditionMgr:1039 - genDependencies : Invalid condition id : UX DEVICE CLASS RTOS Condition cause : null
+2025-05-03 01:31:45,971 [WARN] ConditionMgr:1039 - genDependencies : Invalid condition id : UX DEVICE CLASS RTOS Condition cause : null
+2025-05-03 01:31:45,971 [WARN] ConditionMgr:1039 - genDependencies : Invalid condition id : UX DEVICE CLASS RTOS Condition cause : null
+2025-05-03 01:31:46,107 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-GNSS1.7.0.0
+2025-05-03 01:31:46,351 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-GNSS1.7.0.1
+2025-05-03 01:31:46,570 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-TOUCHGFX.4.25.0
+2025-05-03 01:31:46,782 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.FP-SNS-STBOX1.2.0.0
+2025-05-03 01:31:47,069 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-SUBG2.5.0.0
+2025-05-03 01:31:47,788 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-AZRTOS-H7RS.1.1.0
+2025-05-03 01:31:47,827 [INFO] WebApp:167 - Instantiating new browser for Auth
+2025-05-03 01:31:47,981 [WARN] PackLoader:240 - Cannot read IP mode file for Cesanta.I-CUBE-Mongoose.7.13.0
+2025-05-03 01:31:48,225 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-AZRTOS-G4.2.0.0
+2025-05-03 01:31:48,252 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-NFC7.2.0.0
+2025-05-03 01:31:48,377 [ERROR] Engine:466 - C:\Users\danie\.stm32cubemx\thirdparties\pdsc\STMicroelectronics.X-CUBE-IPS.3.1.0.pdsc: PDSC version is not supported
+2025-05-03 01:31:48,487 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-ALS.1.0.2
+2025-05-03 01:31:48,655 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-TOUCHGFX.4.24.2
+2025-05-03 01:31:48,833 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-TOUCHGFX.4.24.1
+2025-05-03 01:31:49,023 [WARN] PackLoader:240 - Cannot read IP mode file for wolfSSL.I-CUBE-wolfTPM.3.4.0
+2025-05-03 01:31:49,387 [WARN] PackLoader:240 - Cannot read IP mode file for portGmbH.I-Cube-SoM-uGOAL.1.1.0
+2025-05-03 01:31:49,721 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-AZRTOS-H7RS.1.0.0
+2025-05-03 01:31:50,032 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.FP-ATR-ASTRA1.2.0.0
+2025-05-03 01:31:50,515 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-TOF1.3.4.2
+2025-05-03 01:31:50,774 [ERROR] Engine:466 - C:\Users\danie\.stm32cubemx\thirdparties\pdsc\STMicroelectronics.X-CUBE-TOF1.3.4.3.pdsc: PDSC version is not supported
+2025-05-03 01:31:51,004 [WARN] PackLoader:240 - Cannot read IP mode file for Infineon.AIROC-Wi-Fi-Bluetooth-STM32.1.6.1
+2025-05-03 01:31:51,167 [WARN] PackLoader:240 - Cannot read IP mode file for wolfSSL.I-CUBE-wolfSSH.1.4.17
+2025-05-03 01:31:51,169 [INFO] ThirdParty:978 - Integrity check success = true
+2025-05-03 01:31:51,169 [INFO] IntegrityCheckThread:100 - exiting critical section [integrity check]
+2025-05-03 01:31:51,169 [INFO] IntegrityCheckThread:103 - End integrity checks thread
+2025-05-03 01:31:56,941 [INFO] WebApp:448 - Apply proxy settings
+2025-05-03 01:31:56,942 [INFO] WebApp:533 - Chromium requires no authentication
+2025-05-03 01:31:57,512 [INFO] WebApp:476 - Direct internet connection detected
+2025-05-03 01:31:58,522 [INFO] WebApp:869 - Register for checkConnection events
+2025-05-03 01:31:58,522 [INFO] WebApp:448 - Apply proxy settings
+2025-05-03 01:31:58,523 [INFO] WebApp:533 - Chromium requires no authentication
+2025-05-03 01:31:58,524 [INFO] WebApp:476 - Direct internet connection detected
+2025-05-03 01:32:02,849 [INFO] WebApp:186 - Connection restablished
+2025-05-03 01:32:08,425 [INFO] WebApp:220 - Starting web application
+2025-05-03 01:32:08,426 [INFO] WebApp:578 - Web application path used C:\ST\STM32CubeIDE_1.16.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.12.1.202409122256\db\plugins\mcufinder\reactClient1\index.html
+2025-05-03 01:39:16,563 [INFO] WebApp:189 - Connection lost
+2025-05-03 01:39:16,781 [INFO] WebApp:186 - Connection restablished
+2025-05-03 01:44:23,988 [INFO] WebApp:189 - Connection lost
+2025-05-03 01:44:24,207 [INFO] WebApp:186 - Connection restablished
+2025-05-03 01:46:58,533 [INFO] WebApp:189 - Connection lost
+2025-05-03 01:46:58,714 [INFO] WebApp:186 - Connection restablished
+2025-05-03 01:49:33,510 [INFO] WebApp:189 - Connection lost
+2025-05-03 01:49:33,666 [INFO] WebApp:186 - Connection restablished
+2025-05-03 01:52:06,049 [INFO] WebApp:189 - Connection lost
+2025-05-03 01:52:06,395 [INFO] WebApp:186 - Connection restablished
+2025-05-03 01:54:40,024 [INFO] WebApp:189 - Connection lost
+2025-05-03 01:54:40,210 [INFO] WebApp:186 - Connection restablished
+2025-05-03 01:57:14,045 [INFO] WebApp:189 - Connection lost
+2025-05-03 01:57:14,295 [INFO] WebApp:186 - Connection restablished
+2025-05-03 01:59:47,043 [INFO] WebApp:189 - Connection lost
+2025-05-03 01:59:47,184 [INFO] WebApp:186 - Connection restablished
+2025-05-03 02:02:21,504 [INFO] WebApp:189 - Connection lost
+2025-05-03 02:02:21,646 [INFO] WebApp:186 - Connection restablished
+2025-05-03 02:07:26,529 [INFO] WebApp:189 - Connection lost
+2025-05-03 02:07:26,694 [INFO] WebApp:186 - Connection restablished
+2025-05-03 02:10:05,522 [INFO] WebApp:189 - Connection lost
+2025-05-03 02:10:05,685 [INFO] WebApp:186 - Connection restablished
+2025-05-03 02:12:34,026 [INFO] WebApp:189 - Connection lost
+2025-05-03 02:12:34,168 [INFO] WebApp:186 - Connection restablished
+2025-05-03 02:15:10,028 [INFO] WebApp:189 - Connection lost
+2025-05-03 02:15:10,190 [INFO] WebApp:186 - Connection restablished
+2025-05-03 02:15:42,304 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 

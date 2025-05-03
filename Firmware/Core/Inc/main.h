@@ -73,7 +73,6 @@ void Error_Handler(void);
 #define PWM_HEATER_GPIO_Port GPIOA
 #define CURRENT_BLOCK_ON_Pin GPIO_PIN_2
 #define CURRENT_BLOCK_ON_GPIO_Port GPIOD
-#define CURRENT_BLOCK_ON_EXTI_IRQn EXTI2_3_IRQn
 
 /* USER CODE BEGIN Private defines */
 

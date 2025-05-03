@@ -71,14 +71,13 @@ float r[row_c] = { 0 };
 float steady_state_model_error = 0;
 uint16_t iteration_time_ms = 0;
 uint16_t setpoint_raw = 0;
-uint16_t current_raw = 0;
-uint16_t temperature_raw = 0;
 bool PWM_active = false;
+bool sleep = false;
 
 /* UART data */
 uint8_t UART_RX_DATA[51]; /* Because nanoMODBUS has its buffert at 50 bytes */
-uint8_t current_modbus_index = 0;
 static const uint8_t UART_RX_DATA_SIZE = sizeof(UART_RX_DATA);
+uint8_t current_modbus_index = 0;
 
 /* ADC data */
 uint16_t ADC_DATA[3];
@@ -104,42 +103,11 @@ int32_t UART_read(const char port[], uint8_t* buf, uint16_t count, int32_t byte_
 	memcpy(buf, UART_RX_DATA + current_modbus_index, count);
 	current_modbus_index += count;
 	return count;
-
-	/* Check new data
-	const uint16_t index = UART_RX_DATA_SIZE - hdma_usart1_rx.Instance->CNDTR;
-	if(index == current_modbus_index){
-		return 0;
-	}
-
-	If current index and the count data is less or equal as the total data size buffer
-	if(current_modbus_index + count <= UART_RX_DATA_SIZE){
-		memcpy(buf, UART_RX_DATA + current_modbus_index, count);
-		current_modbus_index += count;
-		return count;
-	}
-
-	If current index and the count data is more than the total data size buffer
-	if(current_modbus_index + count > UART_RX_DATA_SIZE){
-		uint16_t count_right = UART_RX_DATA_SIZE - current_modbus_index;
-		memcpy(buf, UART_RX_DATA + current_modbus_index, count_right);
-		uint16_t count_left = count - count_right;
-		memcpy(buf, UART_RX_DATA, count_left);
-		current_modbus_index = count_left;
-		return count;
-	}
-
-	 This should not occur
-	return 0;*/
 }
 
 int32_t UART_write(const char port[], const uint8_t* buf, uint16_t count, int32_t byte_timeout_ms) {
 	HAL_StatusTypeDef status = HAL_UART_Transmit(&huart1, buf, count, byte_timeout_ms);
-	const bool wrote = status == HAL_OK;
-    if(wrote){
-    	return count; /* Assuming that we wrote count bytes */
-    }else{
-    	return 0;
-    }
+	return status == HAL_OK ? count : 0;
 }
 
 void write_initial_memory(){
@@ -150,6 +118,7 @@ void write_initial_memory(){
 }
 
 void compute_mpc_model(){
+	/* Read the calibration parameters */
 	const uint16_t* PARAMETERS = modbus_server_get_parameters_array();
 	const uint16_t A_LSB = PARAMETERS[18];
 	const uint16_t A_MSB = PARAMETERS[19];
@@ -185,8 +154,8 @@ void compute_mpc_model(){
 	/* Declare matrices */
 	const float A[row_a * row_a] = { uint16_to_float(A_MSB, A_LSB) };
 	const float B[row_a * column_b] = { uint16_to_float(B_MSB, B_LSB) };
-	const float C[row_c * row_a] = { 1.0f };
-	const float E[row_a * column_e] = { 0.0f };
+	const float C[row_c * row_a] = { 1.0f };	/* We assume that the state x is the same as output y */
+	const float E[row_a * column_e] = { 0.0f };	/* We have no disturbance model */
 
 	/* Declare parameters  */
 	const float qw = uint16_to_float(qw_MSB, qw_LSB); /* Kalman scalar for disturbance covariance matrix Q */
@@ -200,7 +169,7 @@ void compute_mpc_model(){
 	/* Declare constraints */
 	const float umin[column_b] = { uint16_to_float(umin_MSB, umin_LSB) };
 	const float umax[column_b] = { uint16_to_float(umax_MSB, umax_LSB) };
-	const float zmin[column_b] = { 0 };
+	const float zmin[column_b] = { 0 }; /* We assume that we won't solder below zero */
 	const float zmax[column_b] = { uint16_to_float(zmax_MSB, zmax_LSB) };
 	const float deltaumin[column_b] = { uint16_to_float(deltaumin_MSB, deltaumin_LSB) };
 	const float deltaumax[column_b] = { uint16_to_float(deltaumax_MSB, deltaumax_LSB) };
@@ -235,13 +204,10 @@ void read_temperature(){
 	const uint16_t maxTemperatureReal_MSB = PARAMETERS[11];
 
 	/* Read the raw temperature value */
-	temperature_raw = ADC_DATA[0];
+	const uint16_t temperature_raw = ADC_DATA[0];
 
 	/* Calibrate the raw temperature value */
-	y[0] = calibrate_value(temperature_raw, minTemperatureRaw,
-			maxTemperatureRaw, minTemperatureReal_LSB,
-			minTemperatureReal_MSB, maxTemperatureReal_LSB,
-			maxTemperatureReal_MSB);
+	y[0] = calibrate_value(temperature_raw, minTemperatureRaw, maxTemperatureRaw, minTemperatureReal_LSB, minTemperatureReal_MSB, maxTemperatureReal_LSB, maxTemperatureReal_MSB);
 
 	/* Save it to the analog inputs for Modbus */
 	uint16_t* ANALOG_INPUTS = modbus_server_get_analog_inputs();
@@ -260,17 +226,20 @@ void read_current(){
 	const uint16_t maxCurrentReal_MSB = PARAMETERS[17];
 
 	/* Read the raw current */
-	current_raw = ADC_DATA[1];
+	const uint16_t current_raw = ADC_DATA[1];
 
 	/* Calibrate current */
-	const float current = calibrate_value(current_raw, minCurrentRaw,
-			maxCurrentRaw, minCurrentReal_LSB, minCurrentReal_MSB,
-			maxCurrentReal_LSB, maxCurrentReal_MSB);
+	const float current = calibrate_value(current_raw, minCurrentRaw, maxCurrentRaw, minCurrentReal_LSB, minCurrentReal_MSB, maxCurrentReal_LSB, maxCurrentReal_MSB);
 
 	/* Set analog inputs */
 	uint16_t* ANALOG_INPUTS = modbus_server_get_analog_inputs();
 	ANALOG_INPUTS[2] = current_raw;
 	float_to_uint16(current, &ANALOG_INPUTS[8], &ANALOG_INPUTS[7]);
+}
+
+void read_sleep(){
+	/* Check if we have placed the soldering tip into holder. This GPIO has a internal pull-up activated. That's why the ! sign */
+	sleep = !(HAL_GPIO_ReadPin(SLEEP_GPIO_Port, SLEEP_Pin) == GPIO_PIN_SET);
 }
 
 void read_everything_else(){
@@ -286,21 +255,14 @@ void read_everything_else(){
 	/* Read the raw setpoint */
 	setpoint_raw = ADC_DATA[2];
 
-	/* Calibrate setpoint */
-	r[0] = calibrate_value(setpoint_raw, minSetpointRaw, maxSetpointRaw,
-			minSetpointReal_LSB, minSetpointReal_MSB,
-			maxSetpointReal_LSB, maxSetpointReal_MSB);
+	/* Calibrate setpoint - Only if sleep is not active */
+	r[0] = calibrate_value(setpoint_raw, minSetpointRaw, maxSetpointRaw, minSetpointReal_LSB, minSetpointReal_MSB, maxSetpointReal_LSB, maxSetpointReal_MSB);
 
-	/* Check if we have placed the soldering tip into holder - Set to 100 degrees */
-	const bool sleep = HAL_GPIO_ReadPin(SLEEP_GPIO_Port, SLEEP_Pin) == GPIO_PIN_SET;
-	if(sleep){
-		r[0] = 100;
-	}
-
-	/*const bool fault = HAL_GPIO_ReadPin(CURRENT_BLOCK_ON_GPIO_Port, CURRENT_BLOCK_ON_Pin) == GPIO_PIN_SET;
-	if(fault){
+	/* Check if we have touch our current limit */
+	const bool current_block_on = HAL_GPIO_ReadPin(CURRENT_BLOCK_ON_GPIO_Port, CURRENT_BLOCK_ON_Pin) == GPIO_PIN_SET;
+	if(current_block_on){
 		Error_Handler();
-	}*/
+	}
 
 	/* Save it to the analog inputs for Modbus */
 	uint16_t* ANALOG_INPUTS = modbus_server_get_analog_inputs();
@@ -322,23 +284,17 @@ void read_everything_else(){
 	modbus_server_set_digital_inputs(&digital_inputs, 0, 1);
 }
 
-void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
-	/* When to much current flows through the P-MOSFET for to long */
-    if(GPIO_Pin == CURRENT_BLOCK_ON_Pin){
-		Error_Handler();
-    }
-}
-
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim){
 	if (htim->Instance == TIM3) {
 		/* For every 2 Hz, this if-statement executes */
 		if(PWM_active){
 			read_temperature();
-			HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1); /* 50 Hz */
+			HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1); /* 62.5 Hz */
 			PWM_active = false;
 		}else{
+			read_sleep();
 			read_current();
-			HAL_TIM_PWM_Stop(&htim2, TIM_CHANNEL_1); /* 50 Hz */
+			HAL_TIM_PWM_Stop(&htim2, TIM_CHANNEL_1); /* 62.5 Hz */
 			PWM_active = true;
 		}
 		HAL_TIM_Base_Start_IT(&htim3); /* 2 Hz */
@@ -415,7 +371,7 @@ int main(void)
 
   /* Default operation at start-up */
   uint16_t* PARAMETERS = modbus_server_get_parameters_array();
-  uint8_t operation = MANUALLY_CONTROL;
+  uint8_t operation = FEEDBACK_CONTROL;
   PARAMETERS[48] = operation;
 
   /* Iteration time tick tock */
@@ -427,9 +383,6 @@ int main(void)
 
   /* Start threads */
   HAL_TIM_PeriodElapsedCallback(&htim3);
-  HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1); /* 50 Hz */
-  __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_1, 0);
-
 
   /* ADC calibration */
   HAL_ADC_Stop(&hadc);
@@ -442,7 +395,7 @@ int main(void)
     Error_Handler();
   }
 
-  /* Integral action flag */
+  /* Integral action */
   bool integral_action = false;
 
   /* USER CODE END 2 */
@@ -465,34 +418,34 @@ int main(void)
 		__HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_1, setpoint_raw);
 		break;
 	case FEEDBACK_CONTROL:
-		switch (mpc_optimize(&mpc, u, r, y, d, integral_action)) {
-		case STATUS_NAN:
-			u[0] = 0.0f; /* MPC could not be solved - Set to zero to prevent explosion */
-			break;
-		case STATUS_INF:
-			u[0] = 0.0f; /* MPC could not be solved - Set to zero to prevent explosion */
-			break;
-		default:
-			/* If the temperature is within steady_state_model_error */
-			if (fabsf(r[0] - y[0]) <= steady_state_model_error) {
-				integral_action = true;
-				HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, GPIO_PIN_SET);
-			} else {
-				integral_action = false;
-				HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, GPIO_PIN_RESET);
+		if(sleep){
+			/* Shut down the heat - It still takes a long time for the heat to decay */
+			u[0] = 0;
+		}else{
+			switch (mpc_optimize(&mpc, u, r, y, d, integral_action)) {
+			case STATUS_NAN:
+				u[0] = 0.0f; /* MPC could not be solved - Set to zero to prevent explosion */
+				break;
+			case STATUS_INF:
+				u[0] = 0.0f; /* MPC could not be solved - Set to zero to prevent explosion */
+				break;
+			default:
+				/* Status OK */
+				break;
 			}
-
-			break;
 		}
 
-		/* This is a safety feature - The PWM shall never be at 100% due to the 3A limit */
-		if(u[0] > htim2.Init.Period * 0.9f){
-			u[0] = htim2.Init.Period * 0.9f;
+		/* If the temperature is within steady_state_model_error - Perform integral action */
+		if (fabsf(r[0] - y[0]) <= steady_state_model_error) {
+			integral_action = true;
+			HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, GPIO_PIN_SET);
+		} else {
+			integral_action = false;
+			HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, GPIO_PIN_RESET);
 		}
 
 		/* Set control signal */
 		__HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_1, u[0]);
-
 
 		/* Estimate next state x after each update */
 		mpc_estimate(&mpc, u, y, d);
@@ -500,20 +453,20 @@ int main(void)
 		break;
 	}
 
-	/* Get the operation  */
+	/* Get the operation */
 	operation = PARAMETERS[48];
 
-	/* Execute the operation */
+	/* Execute the operation - This must be done here due to mass consumption of RAM from MPC */
 	switch(operation){
 	case COMPUTE_MPC_MODEL:
 		compute_mpc_model();
-		operation = FEEDBACK_CONTROL;
-		PARAMETERS[48] = FEEDBACK_CONTROL;
+		operation = MANUALLY_CONTROL;
+		PARAMETERS[48] = MANUALLY_CONTROL;
 		break;
 	case SAVE_REGISTER_TO_MEMORY:
 		write_initial_memory();
-		operation = FEEDBACK_CONTROL;
-		PARAMETERS[48] = FEEDBACK_CONTROL;
+		operation = MANUALLY_CONTROL;
+		PARAMETERS[48] = MANUALLY_CONTROL;
 		break;
 	default:
 		break;
@@ -764,7 +717,7 @@ static void MX_USART1_UART_Init(void)
   huart1.Init.StopBits = UART_STOPBITS_1;
   huart1.Init.Parity = UART_PARITY_NONE;
   huart1.Init.Mode = UART_MODE_TX_RX;
-  huart1.Init.HwFlowCtl = UART_HWCONTROL_RTS_CTS;
+  huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
   huart1.Init.OverSampling = UART_OVERSAMPLING_16;
   huart1.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
   huart1.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
@@ -820,7 +773,7 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin : SLEEP_Pin */
   GPIO_InitStruct.Pin = SLEEP_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(SLEEP_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : LED_GREEN_Pin */
@@ -832,13 +785,9 @@ static void MX_GPIO_Init(void)
 
   /*Configure GPIO pin : CURRENT_BLOCK_ON_Pin */
   GPIO_InitStruct.Pin = CURRENT_BLOCK_ON_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
   HAL_GPIO_Init(CURRENT_BLOCK_ON_GPIO_Port, &GPIO_InitStruct);
-
-  /* EXTI interrupt init*/
-  HAL_NVIC_SetPriority(EXTI2_3_IRQn, 0, 0);
-  HAL_NVIC_EnableIRQ(EXTI2_3_IRQn);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
 /* USER CODE END MX_GPIO_Init_2 */
