@@ -62,6 +62,14 @@ Circuit attached
 
 ![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/Circuit%20attached%202.jpg?raw=true)
 
+Circuit attached
+
+![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/Attachment.jpg?raw=true)
+
+Glue
+
+![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/Glue.jpg?raw=true)
+
 Circuit front. Made with Altium CircuitMaker.
 
 ![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/Circuit%20front.png?raw=true)
@@ -70,5 +78,60 @@ Circuit back. Made with Altium CircuitMaker.
 
 ![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/Circuit%20back.png?raw=true)
 
+Buck DC/DC converter from 36VDC to 7.5VDC.
+
+![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/Buck%20converter.jpg?raw=true)
+
+eFuse current.
+
+![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/Current%20limit.jpg?raw=true)
+
+Current and temperature measurement with high precision operational amplifiers.
+
+![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/Measurement.jpg?raw=true)
+
+STM32F051R8 microcontroller.
+
+![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/Microcontroller.jpg?raw=true)
+
+P-MOSFET.
+
+![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/P-MOS.jpg?raw=true)
+
+Thread connection to the PCB.
+
+![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/Thread.jpg?raw=true)
+
+Complete Circuit.
+
+![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/Complete.jpg?raw=true)
+
+Flashing
+
+![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/Flashing.jpg?raw=true)
+
+Potentiometer for temperature settings.
+
+![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/Potentiometer.jpg?raw=true)
+
+Sleep connection.
+
+![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/Sleep%20connection%201.jpg?raw=true)
+
+Sleep connection.
+
+![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/Sleep%20connection%202.jpg?raw=true)
+
+Switch connection.
+
+![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/Switch%20connection%201.jpg?raw=true)
+
+Switch connection.
+
+![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/Switch%20connection%202.jpg?raw=true)
+
+Transformer 50W.
+
+![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/Transformer.jpg?raw=true)
 
 
