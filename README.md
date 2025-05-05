@@ -62,6 +62,10 @@ This is the current calibration parameters. The parameters can be set by using t
 
 ![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/Calibration%20&%20settings.png?raw=true)
 
+# Circuit
+
+The gerber files can be found at my [CircuitMaker project](https://workspace.circuitmaker.com/Projects/Details/DanielMrtensson/Weller-to-JBC-converter).
+
 # Pictures
 
 Soldering station.
