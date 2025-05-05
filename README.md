@@ -148,6 +148,6 @@ Switch connection.
 
 Transformer 50W.
 
-![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/Transformer.jpg?raw=true)
+![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/Transformator.jpg?raw=true)
 
 
