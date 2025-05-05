@@ -6,6 +6,7 @@ This project is about convert an old Weller WECP-20 into a modern JCB soldering 
 * Kalman-Bucy filtering
 * Modbus for parameter setting and logging
 * eFuse for safety
+* Sleep functionality
 
 The goal of this project is not to create a JCB clone to compete against JCB soldering station manufacturer. The goal is to create
 a Model Predictive Control controller (MPC) together with Kalman-Bucy filtering that works on low cost devices. In this case STM32F051R8 has been used successfully with MPC and Kalman-Bucy filtering. The STM32F051R8 has the following properties:
