@@ -78,7 +78,7 @@ Circuit back. Made with Altium CircuitMaker.
 
 ![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/Circuit%20back.png?raw=true)
 
-Buck DC/DC converter from 36VDC to 7.5VDC.
+Buck DC/DC converter from 36VDC to 7.5VDC and then 7.5VDC to 3.3VDC through an 3.3V LDO.
 
 ![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/Buck%20converter.jpg?raw=true)
 
