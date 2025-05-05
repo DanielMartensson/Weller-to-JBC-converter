@@ -104,7 +104,7 @@ Buck DC/DC converter from 36VDC to 7.5VDC and then 7.5VDC to 3.3VDC through a 3.
 
 ![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/Buck%20converter.jpg?raw=true)
 
-eFuse current.
+eFuse with 7400 logic family for safety feature.
 
 ![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/Current%20limit.jpg?raw=true)
 
