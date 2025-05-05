@@ -20,12 +20,9 @@ a Model Predictive Control controller (MPC) together with Kalman-Bucy filtering 
 
 # Model Predictive Control
 
-The MPC controller has the objective function 
+The MPC controller has the objective function:
 
-$\underset{\bar U}{min} \phi = \frac{1}{2}\bar U^T \bar H \bar U + \bar g^T \bar U$
-$\text{s.t} \;\;\;\; \bar U_{min} \leqslant \bar U \leqslant \bar U_{max}$
-$\bar U_{min} \leqslant \bar U \leqslant \bar U_{max}
-$\;\;\;\; b_{min} \leqslant A\bar U \leqslant b_{max}$
+![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/Objective%20function.png?raw=true)
 
 The MPC controller inside the microcontroller has the following properties:
 
@@ -39,12 +36,39 @@ The MPC controller inside the microcontroller has the following properties:
 
 Due to the weak 50W transformer inside the Weller WECP-20 soldering sation, the output of the step response is slowly minimizing the steady state error. In other words, the 50W transformer cannot produce enought of current to ramp up the heat at the soldering time. Hence, the steady state still minimize the error between the reference and the trajectory due to internal integral action of the MPC controller.
 
+![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/Feedback%20control%20MPC.png?raw=true)
+
 # Calibration parameters
 
 This is the current calibration parameters. The parameters can be set by using the C++ software [GoobySoft](https://github.com/DanielMartensson/GoobySoft)
 
+![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/Calibration%20&%20settings.png?raw=true)
 
+# Pictures
 
+Soldering station 
+
+![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/Weller%20WECP-20.jpg?raw=true)
+
+Soldering station with holder
+
+![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/Soldering%20station.jpg?raw=true)
+
+Circuit attached
+
+![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/Circuit%20attached%201.jpg?raw=true)
+
+Circuit attached
+
+![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/Circuit%20attached%202.jpg?raw=true)
+
+Circuit front. Made with Altium CircuitMaker.
+
+![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/Circuit%20front.png?raw=true)
+
+Circuit back. Made with Altium CircuitMaker.
+
+![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/Circuit%20back.png?raw=true)
 
 
 
