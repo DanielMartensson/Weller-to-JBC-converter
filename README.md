@@ -33,7 +33,20 @@ The MPC controller inside the microcontroller has the following properties:
 * Rate of change constraints
 * Disturbance input handling
 
-The code and examples for the MPC controller and Kalman-Bucy filter can be found at [CControl](https://github.com/DanielMartensson/CControl).
+The code and example for the MPC controller can be found at [CControl](https://github.com/DanielMartensson/CControl).
+
+# Kalman-Bucy filter
+
+The famous Kalman-Bucy filter that was successfully used in Apollo 11 program. The same filter is used inside the microcontroller of this soldering station for estimate the next state vector for the MPC controller. The microcontroller solves the [Algebratic Riccati Equation](https://en.wikipedia.org/wiki/Algebraic_Riccati_equation) for finding the optimal Kalman gain matrix directly.
+
+![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/DARE.png?raw=true)
+![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/LQR.png?raw=true)
+
+The Algebratic Riccati Equation is solved by using Runge-Kutta 4:th order.
+
+![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/RK4.png?raw=true)
+
+The code and example for the Kalman-Bucy filter can be found at [CControl](https://github.com/DanielMartensson/CControl).
 
 # Performance
 
