@@ -31,6 +31,7 @@ The MPC controller inside the microcontroller has the following properties:
 * Regularization
 * Integral action with anti-windup
 * Rate of change constraints
+* Disturbance input handling
 
 The code and examples for the MPC controller and Kalman-Bucy filter can be found at [CControl](https://github.com/DanielMartensson/CControl).
 
