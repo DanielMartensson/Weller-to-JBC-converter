@@ -43,7 +43,7 @@ typedef enum{
 #define iterations 1000             /* Simulation for finding kalman gain K */
 #define N 5                         /* MPC control horizon */
 #define sampleTime_mpc 2.0f         /* Sample time of discrete model of MPC */
-#define sampleTime_kf 0.5f          /* Sample time of discrete model of KF */
+#define sampleTime_kf 1.08f         /* Sample time of discrete model of KF */
 #define MAX_PARAMETERS 49           /* Total elements for the modbus parameters */
 /* USER CODE END PD */
 
