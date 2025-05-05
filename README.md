@@ -46,27 +46,27 @@ This is the current calibration parameters. The parameters can be set by using t
 
 # Pictures
 
-Soldering station 
+Soldering station.
 
 ![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/Weller%20WECP-20.jpg?raw=true)
 
-Soldering station with holder
+Soldering station with holder.
 
 ![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/Soldering%20station.jpg?raw=true)
 
-Circuit attached
+Circuit attached.
 
 ![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/Circuit%20attached%201.jpg?raw=true)
 
-Circuit attached
+Circuit attached.
 
 ![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/Circuit%20attached%202.jpg?raw=true)
 
-Circuit attached
+Circuit attached.
 
 ![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/Attachment.jpg?raw=true)
 
-Glue
+Glue.
 
 ![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/Glue.jpg?raw=true)
 
@@ -106,7 +106,7 @@ Complete Circuit.
 
 ![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/Complete.jpg?raw=true)
 
-Flashing
+Flashing.
 
 ![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/Flashing.jpg?raw=true)
 
