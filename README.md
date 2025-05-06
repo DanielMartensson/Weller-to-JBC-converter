@@ -1,4 +1,4 @@
-# Weller-to-JBC-converter
+# Weller to JBC converter
 
 This project is about convert an old Weller WECP-20 into a modern JCB soldering station with the following: 
 
