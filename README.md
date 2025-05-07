@@ -1,6 +1,6 @@
 # Weller to JBC converter
 
-This project is about convert an old Weller WECP-20 into a modern JCB soldering station with the following: 
+This project is about convert an old Weller WECP-20 into a modern JBC soldering station with the following: 
 
 * Model Predictive Control with quadratic programming
 * Kalman-Bucy filtering
@@ -9,7 +9,7 @@ This project is about convert an old Weller WECP-20 into a modern JCB soldering 
 * Sleep functionality
 * Power consumption alarm 
 
-The goal of this project is not to create a JCB clone to compete against JCB soldering station manufacturer. The goal is to create
+The goal of this project is not to create a JBC clone to compete against JBC soldering station manufacturer. The goal is to create
 a Model Predictive Control controller (MPC) together with Kalman-Bucy filtering that works on low cost devices. In this case STM32F051R8 has been used successfully with MPC and Kalman-Bucy filtering. The STM32F051R8 has the following properties:
 
 * ARM®Cortex®-M0 32-bit RISC core
