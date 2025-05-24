@@ -56,7 +56,7 @@ Due to the weak 50W transformer inside the Weller WECP-20 soldering sation, the 
 
 One good thing to mention! This MPC controller giving the soldering tip a more rapidly heat than the original analog PI-controller. Even though they were using the same 50W transformer. So this PCB board heats up the soldering tip much faster than the original does.
 
-It takes about 5 to 6 seconds for the soldering tip to go from sleep (about 20-50 degrees) to 320 degrees. That's a major improvement compared to the old Weller station.
+It takes about 10 seconds for the soldering tip to go from room ambient temperature to 320 degrees. That's a major improvement compared to the old Weller station.
 
 ![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/Feedback%20control%20MPC.png?raw=true)
 
@@ -79,6 +79,8 @@ Handle: https://www.aliexpress.com/item/1005006125308446.html
 Holder: https://www.aliexpress.com/item/1005006533444952.html
 
 DC 5.5x2.1 plug: https://www.aliexpress.com/item/1005006942560340.html
+
+JBC connector socket: https://www.aliexpress.com/item/1005001699699232.html
 
 # Pictures
 
