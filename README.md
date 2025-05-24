@@ -80,7 +80,7 @@ Holder: https://www.aliexpress.com/item/1005006533444952.html
 
 DC 5.5x2.1 plug: https://www.aliexpress.com/item/1005006942560340.html
 
-JBC connector socket: https://www.aliexpress.com/item/1005001699699232.html
+Connector socket: https://www.aliexpress.com/item/1005001699699232.html
 
 # Pictures
 
