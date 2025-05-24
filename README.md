@@ -75,7 +75,9 @@ Here is the schematic. I have been purchased the T245 handle and holder from Ali
 ![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/Schematic.png?raw=true)
 
 Handle: https://www.aliexpress.com/item/1005006125308446.html
+
 Holder: https://www.aliexpress.com/item/1005006533444952.html
+
 DC 5.5x2.1 plug: https://www.aliexpress.com/item/1005006942560340.html
 
 # Pictures
