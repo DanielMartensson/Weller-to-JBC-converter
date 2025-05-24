@@ -1,2 +1,68 @@
-2025-05-07 00:04:15,340 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
-2025-05-07 00:04:15,590 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
+2025-05-24 03:19:44,421 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2025-05-24 03:19:51,636 [INFO] ProjectBuilder:5097 - Time for Generating toolchain IDE Files: 10798mS.
+2025-05-24 03:19:51,637 [INFO] ProjectBuilder:3107 - Time for Copy CMSIS : 1mS.
+2025-05-24 03:19:51,654 [INFO] ProjectBuilder:3107 - Time for Copy CMSIS : 0mS.
+2025-05-24 03:20:28,944 [INFO] WebApp:189 - Connection lost
+2025-05-24 03:20:29,094 [INFO] WebApp:186 - Connection restablished
+2025-05-24 03:23:04,943 [INFO] WebApp:189 - Connection lost
+2025-05-24 03:23:05,060 [INFO] WebApp:186 - Connection restablished
+2025-05-24 03:28:12,470 [INFO] WebApp:189 - Connection lost
+2025-05-24 03:28:12,581 [INFO] WebApp:186 - Connection restablished
+2025-05-24 03:30:45,994 [INFO] WebApp:189 - Connection lost
+2025-05-24 03:30:46,082 [INFO] WebApp:186 - Connection restablished
+2025-05-24 03:33:22,464 [INFO] WebApp:189 - Connection lost
+2025-05-24 03:33:22,585 [INFO] WebApp:186 - Connection restablished
+2025-05-24 03:35:58,935 [INFO] WebApp:189 - Connection lost
+2025-05-24 03:35:59,063 [INFO] WebApp:186 - Connection restablished
+2025-05-24 03:38:30,456 [INFO] WebApp:189 - Connection lost
+2025-05-24 03:38:30,586 [INFO] WebApp:186 - Connection restablished
+2025-05-24 03:41:04,438 [INFO] WebApp:189 - Connection lost
+2025-05-24 03:41:04,560 [INFO] WebApp:186 - Connection restablished
+2025-05-24 03:46:15,433 [INFO] WebApp:189 - Connection lost
+2025-05-24 03:46:15,573 [INFO] WebApp:186 - Connection restablished
+2025-05-24 03:48:46,414 [INFO] WebApp:189 - Connection lost
+2025-05-24 03:48:46,541 [INFO] WebApp:186 - Connection restablished
+2025-05-24 03:51:20,452 [INFO] WebApp:189 - Connection lost
+2025-05-24 03:51:20,589 [INFO] WebApp:186 - Connection restablished
+2025-05-24 03:53:55,952 [INFO] WebApp:189 - Connection lost
+2025-05-24 03:53:56,098 [INFO] WebApp:186 - Connection restablished
+2025-05-24 03:56:36,016 [INFO] WebApp:189 - Connection lost
+2025-05-24 03:56:39,424 [INFO] WebApp:186 - Connection restablished
+2025-05-24 03:59:03,947 [INFO] WebApp:189 - Connection lost
+2025-05-24 03:59:04,087 [INFO] WebApp:186 - Connection restablished
+2025-05-24 04:01:37,424 [INFO] WebApp:189 - Connection lost
+2025-05-24 04:01:37,556 [INFO] WebApp:186 - Connection restablished
+2025-05-24 04:04:11,403 [INFO] WebApp:189 - Connection lost
+2025-05-24 04:04:11,563 [INFO] WebApp:186 - Connection restablished
+2025-05-24 12:38:13,382 [INFO] WebApp:189 - Connection lost
+2025-05-24 12:38:37,703 [INFO] WebApp:186 - Connection restablished
+2025-05-24 12:52:35,936 [INFO] WebApp:189 - Connection lost
+2025-05-24 12:52:36,084 [INFO] WebApp:186 - Connection restablished
+2025-05-24 13:49:16,403 [INFO] WebApp:189 - Connection lost
+2025-05-24 13:49:17,769 [INFO] WebApp:186 - Connection restablished
+2025-05-24 14:14:44,394 [INFO] WebApp:189 - Connection lost
+2025-05-24 14:14:44,534 [INFO] WebApp:186 - Connection restablished
+2025-05-24 14:25:01,309 [INFO] WebApp:189 - Connection lost
+2025-05-24 14:25:01,434 [INFO] WebApp:186 - Connection restablished
+2025-05-24 14:27:35,769 [INFO] WebApp:189 - Connection lost
+2025-05-24 14:27:35,894 [INFO] WebApp:186 - Connection restablished
+2025-05-24 14:32:45,249 [INFO] WebApp:189 - Connection lost
+2025-05-24 14:32:45,520 [INFO] WebApp:186 - Connection restablished
+2025-05-24 14:37:53,733 [INFO] WebApp:189 - Connection lost
+2025-05-24 14:37:53,863 [INFO] WebApp:186 - Connection restablished
+2025-05-24 14:53:17,145 [INFO] WebApp:189 - Connection lost
+2025-05-24 14:53:17,364 [INFO] WebApp:186 - Connection restablished
+2025-05-24 14:55:52,717 [INFO] WebApp:189 - Connection lost
+2025-05-24 14:55:52,905 [INFO] WebApp:186 - Connection restablished
+2025-05-24 15:08:43,293 [INFO] WebApp:189 - Connection lost
+2025-05-24 15:08:43,449 [INFO] WebApp:186 - Connection restablished
+2025-05-24 15:28:57,651 [INFO] WebApp:189 - Connection lost
+2025-05-24 15:28:58,963 [INFO] WebApp:186 - Connection restablished
+2025-05-24 15:28:59,512 [INFO] WebApp:189 - Connection lost
+2025-05-24 15:29:00,847 [INFO] WebApp:186 - Connection restablished
+2025-05-24 15:42:06,090 [INFO] WebApp:189 - Connection lost
+2025-05-24 15:42:06,231 [INFO] WebApp:186 - Connection restablished
+2025-05-24 15:57:33,089 [INFO] WebApp:189 - Connection lost
+2025-05-24 15:57:33,292 [INFO] WebApp:186 - Connection restablished
+2025-05-24 16:00:06,070 [INFO] WebApp:189 - Connection lost
+2025-05-24 16:00:06,223 [INFO] WebApp:186 - Connection restablished

@@ -54,19 +54,29 @@ The code and example for the Kalman-Bucy filter can be found at [CControl](https
 
 Due to the weak 50W transformer inside the Weller WECP-20 soldering sation, the output of the step response is slowly minimizing the steady state error. In other words, the 50W transformer cannot produce enought of current to ramp up the heat at the soldering time. Hence, the steady state still minimize the error between the reference and the trajectory due to internal integral action of the MPC controller. The measurements of the soldering station can be measured by the C++ software [GoobySoft](https://github.com/DanielMartensson/GoobySoft) via [nanoMODBUS](https://github.com/debevv/nanoMODBUS) through a FTDI 232 UART USB Device.
 
-One good thing to mention! This MPC controller giving the soldering tip a more rapidly heat than the original analog PI-controller. Even though they were using the same 50W transformer.
+One good thing to mention! This MPC controller giving the soldering tip a more rapidly heat than the original analog PI-controller. Even though they were using the same 50W transformer. So this PCB board heats up the soldering tip much faster than the original does.
+
+It takes about 5 to 6 seconds for the soldering tip to go from sleep (about 20-50 degrees) to 320 degrees. That's a major improvement compared to the old Weller station.
 
 ![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/Feedback%20control%20MPC.png?raw=true)
 
 # Calibration parameters
 
-This is the current calibration parameters. The parameters can be set by using the C++ software [GoobySoft](https://github.com/DanielMartensson/GoobySoft).
+This is the current calibration parameters. The parameters can be set by using the C++ software [GoobySoft](https://github.com/DanielMartensson/GoobySoft). I have been using the genuine JBC tips when I made the calibration.
 
 ![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/Calibration%20&%20settings.png?raw=true)
 
 # Build the PCB circuit
 
 The gerber files of the PCB can be found at my [CircuitMaker project](https://workspace.circuitmaker.com/Projects/Details/DanielMrtensson/Weller-to-JBC-converter).
+
+Here is the schematic. I have been purchased the T245 handle and holder from Ali Express.
+
+![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/Schematic.png?raw=true)
+
+Handle: https://www.aliexpress.com/item/1005006125308446.html
+Holder: https://www.aliexpress.com/item/1005006533444952.html
+DC 5.5x2.1 plug: https://www.aliexpress.com/item/1005006942560340.html
 
 # Pictures
 
