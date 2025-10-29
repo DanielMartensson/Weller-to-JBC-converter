@@ -1,3 +1,3 @@
 ../Core/Src/tools/CControl/Sources/Optimization/quadprogslim.c:79:13:linsolve_upper_tran_triangular	64	static
-../Core/Src/tools/CControl/Sources/Optimization/quadprogslim.c:95:21:optislim	88	static
+../Core/Src/tools/CControl/Sources/Optimization/quadprogslim.c:95:21:optislim	80	static
 ../Core/Src/tools/CControl/Sources/Optimization/quadprogslim.c:34:14:quadprogslim	64	static

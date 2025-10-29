@@ -1,4 +1,4 @@
-../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c:6841:13:TIM_OC1_SetConfig	9
+../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c:6841:13:TIM_OC1_SetConfig	5
 ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c:6993:13:TIM_OC3_SetConfig	5
 ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c:7068:13:TIM_OC4_SetConfig	5
 ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c:369:13:HAL_TIM_Base_MspInit	1
@@ -73,7 +73,7 @@
 ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c:6408:23:HAL_TIM_GetActiveChannel	1
 ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c:6426:29:HAL_TIM_GetChannelState	4
 ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c:6443:30:HAL_TIM_DMABurstState	1
-../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c:6786:6:TIM_Base_SetConfig	16
+../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c:6786:6:TIM_Base_SetConfig	13
 ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c:266:19:HAL_TIM_Base_Init	3
 ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c:650:19:HAL_TIM_OC_Init	3
 ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c:1315:19:HAL_TIM_PWM_Init	3
@@ -84,12 +84,12 @@
 ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c:4041:19:HAL_TIM_OC_ConfigChannel	7
 ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c:4219:19:HAL_TIM_PWM_ConfigChannel	7
 ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c:7263:6:TIM_TI1_SetConfig	5
-../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c:4120:19:HAL_TIM_IC_ConfigChannel	6
+../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c:4120:19:HAL_TIM_IC_ConfigChannel	7
 ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c:4333:19:HAL_TIM_OnePulse_ConfigChannel	7
 ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c:7557:6:TIM_ETR_SetConfig	1
 ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c:5174:19:HAL_TIM_ConfigOCrefClear	15
 ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c:5313:19:HAL_TIM_ConfigClockSource	14
-../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c:7129:26:TIM_SlaveTimer_SetConfig.constprop	12
+../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c:7129:26:TIM_SlaveTimer_SetConfig.constprop	10
 ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c:5539:19:HAL_TIM_SlaveConfigSynchro_IT	3
 ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c:5499:19:HAL_TIM_SlaveConfigSynchro	3
 ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c:7587:6:TIM_CCxChannelCmd	1

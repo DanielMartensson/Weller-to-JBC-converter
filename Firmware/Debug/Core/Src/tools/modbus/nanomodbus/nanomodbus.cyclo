@@ -5,7 +5,7 @@
 ../Core/Src/tools/modbus/nanomodbus/nanomodbus.c:140:13:swap_regs	2
 ../Core/Src/tools/modbus/nanomodbus/nanomodbus.c:147:19:recv	3
 ../Core/Src/tools/modbus/nanomodbus/nanomodbus.c:186:13:flush	1
-../Core/Src/tools/modbus/nanomodbus/nanomodbus.c:279:10:nmbs_crc_calc	4
+../Core/Src/tools/modbus/nanomodbus/nanomodbus.c:279:10:nmbs_crc_calc	3
 ../Core/Src/tools/modbus/nanomodbus/nanomodbus.c:297:19:recv_msg_footer	4
 ../Core/Src/tools/modbus/nanomodbus/nanomodbus.c:317:19:recv_msg_header	10
 ../Core/Src/tools/modbus/nanomodbus/nanomodbus.c:417:19:send_msg	3
@@ -34,7 +34,7 @@
 ../Core/Src/tools/modbus/nanomodbus/nanomodbus.c:818:12:recv_read_device_identification_res	20
 ../Core/Src/tools/modbus/nanomodbus/nanomodbus.c:1889:6:nmbs_callbacks_create	1
 ../Core/Src/tools/modbus/nanomodbus/nanomodbus.c:1895:12:nmbs_server_create	6
-../Core/Src/tools/modbus/nanomodbus/nanomodbus.c:1914:12:nmbs_server_poll	160
+../Core/Src/tools/modbus/nanomodbus/nanomodbus.c:1914:12:nmbs_server_poll	157
 ../Core/Src/tools/modbus/nanomodbus/nanomodbus.c:1948:6:nmbs_set_callbacks_arg	1
 ../Core/Src/tools/modbus/nanomodbus/nanomodbus.c:1955:12:nmbs_client_create	1
 ../Core/Src/tools/modbus/nanomodbus/nanomodbus.c:1983:12:nmbs_read_coils	1

@@ -5,7 +5,7 @@
 ../Core/Src/tools/CControl/Sources/ControlEngineering/mpc.c:81:6:mpc_vector	32	static
 ../Core/Src/tools/CControl/Sources/ControlEngineering/mpc.c:93:6:mpc_QZ_matrix	56	static
 ../Core/Src/tools/CControl/Sources/ControlEngineering/mpc.c:109:6:mpc_S_matrix	8	static
-../Core/Src/tools/CControl/Sources/ControlEngineering/mpc.c:117:6:mpc_HS_matrix	64	static
+../Core/Src/tools/CControl/Sources/ControlEngineering/mpc.c:117:6:mpc_HS_matrix	72	static
 ../Core/Src/tools/CControl/Sources/ControlEngineering/mpc.c:162:6:mpc_H_matrix	48	static
 ../Core/Src/tools/CControl/Sources/ControlEngineering/mpc.c:190:6:mpc_Mx0_matrix	48	static
 ../Core/Src/tools/CControl/Sources/ControlEngineering/mpc.c:212:6:mpc_Mum1_matrix	48	static

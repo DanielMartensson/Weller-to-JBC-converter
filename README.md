@@ -58,13 +58,30 @@ One good thing to mention! This MPC controller giving the soldering tip a more r
 
 It takes about 10 seconds for the soldering tip to go from room ambient temperature to 320 degrees. That's a major improvement compared to the old Weller station.
 
-![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/Feedback%20control%20MPC.png?raw=true)
+When using T245 handle with C245 tips and C245 calibration parameters:
+
+![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/Feedback%20control%20MPC%20C245.png?raw=true)
+
+When using T210 handle with C210 tips and C210 calibration parameters:
+(The calibration parameters for C210 settings seems to need some few adjustments. Please send a PR if you have any suggestions.)
+
+![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/Feedback%20control%20MPC%20C210.png?raw=true)
 
 # Calibration parameters
 
 This is the current calibration parameters. The parameters can be set by using the C++ software [GoobySoft](https://github.com/DanielMartensson/GoobySoft). I have been using the genuine JBC tips when I made the calibration.
 
-![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/Calibration%20&%20settings.png?raw=true)
+Calibration parameters for C245 tips:
+
+![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/Calibration%20&%20settings%20C245.png?raw=true)
+
+Calibration parameters for C210 tips:
+
+![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/Calibration%20&%20settings%20C210.png?raw=true)
+
+Connecting with GoobySoft:
+
+![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/USB%20Connection.png?raw=true)
 
 # Build the PCB circuit
 
@@ -74,9 +91,15 @@ Here is the schematic. I have been purchased the T245 handle and holder from Ali
 
 ![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/Schematic.png?raw=true)
 
-Handle: https://www.aliexpress.com/item/1005006125308446.html
+Handle T245: https://www.aliexpress.com/item/1005006125308446.html
 
-Holder: https://www.aliexpress.com/item/1005006533444952.html
+Handle T210: https://www.aliexpress.com/item/1005009145545923.html
+
+Tips C210: https://www.aliexpress.com/item/1005007415050203.html
+
+Holder T245: https://www.aliexpress.com/item/1005006533444952.html (Select C245 sleep base)
+
+Holder T210: https://www.aliexpress.com/item/1005006533444952.html (Select C210 sleep base)
 
 DC 5.5x2.1 plug: https://www.aliexpress.com/item/1005006942560340.html
 
@@ -171,5 +194,4 @@ Switch connection.
 Transformer 50W.
 
 ![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/Transformator.jpg?raw=true)
-
 

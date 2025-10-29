@@ -1,6 +1,6 @@
 ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c:6758:13:I2C_Flush_TXDR	3
 ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c:7333:13:I2C_TransferConfig	1
-../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c:7360:13:I2C_Enable_IRQ	15
+../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c:7360:13:I2C_Enable_IRQ	11
 ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c:7451:13:I2C_Disable_IRQ	6
 ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c:7192:26:I2C_IsErrorOccurred	17
 ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c:7036:26:I2C_WaitOnTXISFlagUntilTimeout	7
@@ -70,7 +70,7 @@
 ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c:6859:13:I2C_DMAMasterReceiveCplt	5
 ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c:5098:26:I2C_Mem_ISR_IT	21
 ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c:4657:6:HAL_I2C_ER_IRQHandler	8
-../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c:6322:13:I2C_ITSlaveCplt.constprop	25
+../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c:6322:13:I2C_ITSlaveCplt.constprop	24
 ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c:5709:26:I2C_Slave_ISR_DMA	23
 ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c:5257:26:I2C_Slave_ISR_IT	23
 ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c:6966:13:I2C_DMAAbort	3
