@@ -87,7 +87,7 @@ Connecting with GoobySoft:
 
 The gerber files of the PCB can be found at my [CircuitMaker project](https://workspace.circuitmaker.com/Projects/Details/DanielMrtensson/Weller-to-JBC-converter).
 
-Here is the schematic. I have been purchased the T245 handle and holder from AliExpress.
+Here is the schematic. I have been purchased the T245/210 handle and holder from AliExpress. The PCB board have the same Connection for the plug, no matter if you're using T245 or T210 handle.
 
 ![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/Schematic%C20C245.png?raw=true)
 
