@@ -89,7 +89,12 @@ The gerber files of the PCB can be found at my [CircuitMaker project](https://wo
 
 Here is the schematic. I have been purchased the T245 handle and holder from AliExpress.
 
-![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/Schematic.png?raw=true)
+![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/Schematic%C20C245.png?raw=true)
+
+![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/Schematic%20C210.png?raw=true)
+
+![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/Plug.png?raw=true)
+
 
 Handle T245: https://www.aliexpress.com/item/1005006125308446.html
 
