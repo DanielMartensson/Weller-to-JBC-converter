@@ -276,11 +276,11 @@ void read_everything_else(){
 	const bool led_green = HAL_GPIO_ReadPin(LED_GREEN_GPIO_Port, LED_GREEN_Pin);
 
 	/* Set digital outputs */
-	const uint8_t digital_outputs = led_green;
+	const uint8_t digital_outputs = (uint8_t)led_green;
 	modbus_server_set_digital_outputs(&digital_outputs, 0, 1);
 
 	/* Set digital inputs */
-	const uint8_t digital_inputs = sleep;
+	const uint8_t digital_inputs = (uint8_t)sleep;
 	modbus_server_set_digital_inputs(&digital_inputs, 0, 1);
 }
 
@@ -371,7 +371,7 @@ int main(void)
 
   /* Default operation at start-up */
   uint16_t* PARAMETERS = modbus_server_get_parameters_array();
-  uint8_t operation = MANUALLY_CONTROL;
+  uint8_t operation = FEEDBACK_CONTROL;
   PARAMETERS[48] = operation;
 
   /* Iteration time tick tock */
@@ -758,8 +758,8 @@ static void MX_DMA_Init(void)
 static void MX_GPIO_Init(void)
 {
   GPIO_InitTypeDef GPIO_InitStruct = {0};
-/* USER CODE BEGIN MX_GPIO_Init_1 */
-/* USER CODE END MX_GPIO_Init_1 */
+  /* USER CODE BEGIN MX_GPIO_Init_1 */
+  /* USER CODE END MX_GPIO_Init_1 */
 
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOC_CLK_ENABLE();
@@ -789,8 +789,8 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_PULLDOWN;
   HAL_GPIO_Init(CURRENT_BLOCK_ON_GPIO_Port, &GPIO_InitStruct);
 
-/* USER CODE BEGIN MX_GPIO_Init_2 */
-/* USER CODE END MX_GPIO_Init_2 */
+  /* USER CODE BEGIN MX_GPIO_Init_2 */
+  /* USER CODE END MX_GPIO_Init_2 */
 }
 
 /* USER CODE BEGIN 4 */
@@ -818,8 +818,7 @@ void Error_Handler(void)
   }
   /* USER CODE END Error_Handler_Debug */
 }
-
-#ifdef  USE_FULL_ASSERT
+#ifdef USE_FULL_ASSERT
 /**
   * @brief  Reports the name of the source file and the source line number
   *         where the assert_param error has occurred.

@@ -22,8 +22,8 @@ extern "C" {
 #define IS_MODBUS_SERVER
 
 /* For all */
-void modbus_set_serial_write(int32_t (*serial_write)(const char port[], const uint8_t*, uint16_t, int32_t));
-void modbus_set_serial_read(int32_t (*serial_read)(const char port[], uint8_t*, uint16_t, int32_t));
+void modbus_set_serial_write(int32_t (*serial_write)(const char port[], const uint8_t*, const uint16_t, const int32_t));
+void modbus_set_serial_read(int32_t (*serial_read)(const char port[], uint8_t*, const uint16_t, const int32_t));
 void modbus_set_serial_port(const char port[]);
 
 #ifdef IS_MODBUS_SERVER
