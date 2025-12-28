@@ -67,6 +67,11 @@ When using T210 handle with C210 tips and C210 calibration parameters:
 
 ![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/Feedback%20control%20MPC%20C210.png?raw=true)
 
+The solder station can also display when the green LED is active, iteration time in milliseconds for the QP-solver and when the handle is put into
+the holder e.g sleep mode.
+
+![a](https://github.com/DanielMartensson/Weller-to-JBC-converter/blob/main/Pictures/LED_Sleep_Iteration.png?raw=true)
+
 # Calibration parameters
 
 This is the current calibration parameters. The parameters can be set by using the C++ software [GoobySoft](https://github.com/DanielMartensson/GoobySoft). I have been using the genuine JBC tips when I made the calibration.
